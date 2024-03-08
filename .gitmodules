@@ -6,3 +6,7 @@
 	path = com.google.errorprone
 	url = git@github.com:sgammon/error-prone.git
 	branch = master
+[submodule "j2objc"]
+	path = com.google.j2objc
+	url = git@github.com:sgammon/j2objc.git
+	branch = master
