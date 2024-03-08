@@ -3,6 +3,14 @@
 
 This repository provides sub-module library overrides for popular Java libraries which don't yet provide JPMS support (at least until some PRs are merged!). There is a Maven repository which contains these artifacts, too, so you can safely use them in your projects.
 
+#### Pending PRs
+
+Tracking issue [here][6] provides the best tracker. Once these PRs are merged and changes are released, this repo becomes obsolete.
+
+- google/j2objc#2302 feat: support jpms in annotations module
+- google/error-prone#4311 feat: add jpms definition for annotations
+- typetools/checker-framework#6326 Add module-info.java to checker-qual
+
 ### What libraries are included?
 
 - **[`com.google.errorprone`][2]:** **Error Prone Compiler** "is a static analysis tool for Java that catches common programming mistakes at compile time," built by Google. Error Prone's annotations module is JPMS-enabled at the embedded sub-module, and is used by Guava. The [PR enabling JPMS support in Error Prone Annotations][3] has been filed but not merged yet.
@@ -22,4 +30,5 @@ Coming soon.
 [3]: https://github.com/google/error-prone/pull/4311
 [4]: https://github.com/google/j2objc
 [5]: https://github.com/google/j2objc/pull/2302
+[6]: https://github.com/elide-dev/jpms/issues/1
 
