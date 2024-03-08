@@ -1,0 +1,4 @@
+[submodule "checker"]
+	path = org.checkerframework
+	url = git@github.com:typetools/checker-framework.git
+	branch = master
