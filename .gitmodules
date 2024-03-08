@@ -2,3 +2,7 @@
 	path = org.checkerframework
 	url = git@github.com:typetools/checker-framework.git
 	branch = master
+[submodule "error-prone"]
+	path = com.google.errorprone
+	url = git@github.com:sgammon/error-prone.git
+	branch = master
