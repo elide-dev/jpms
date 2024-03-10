@@ -85,7 +85,7 @@ com.google.j2objc/annotations/target:
 	$(RULE)cd com.google.j2objc/annotations \
 		&& $(MAVEN) versions:set -DnewVersion=$(J2OBJC_VERSION) \
 		&& $(MAVEN) versions:update-child-modules \
-		&& $(MAVEN) $(MAVEN_GOAL) \
+		&& $(MAVEN) $(MAVEN_GOAL) -Dmaven.javadoc.skip=true \
 		&& $(MAVEN) deploy:deploy-file \
 			-DgroupId=com.google.j2objc \
 			-DartifactId=j2objc-annotations \
