@@ -17,7 +17,7 @@ export GUAVA_VERSION ?= 1.0-HEAD-jre-SNAPSHOT
 else
 export ERROR_PRONE_VERSION ?= 2.25.0-jpms
 export J2OBJC_VERSION ?= 3.0.0-jpms
-export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-jpms
+export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 33.0.0-jre-jpms
 endif
 
@@ -88,10 +88,10 @@ org.checkerframework/checker-qual/build/libs:
 	$(info Building Checker Framework...)
 	$(RULE)cd org.checkerframework \
 		&& $(GRADLE) \
-			:checker-qual:install \
+			-Pversion=$(CHECKER_FRAMEWORK_VERSION) \
+			:checker-qual:publishToMavenLocal \
 			-x check \
-			-x installGitHooks \
-			-Pversion=$(CHECKER_FRAMEWORK_VERSION)
+			-x installGitHooks
 
 guava: com.google.guava  ## Build Guava and all requisite dependencies.
 com.google.guava: org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
@@ -101,9 +101,20 @@ com.google.guava/guava/target:
 		&& $(MAVEN) versions:set -DnewVersion=$(GUAVA_VERSION) \
 		&& $(MAVEN) versions:update-child-modules \
 		&& $(MAVEN) $(MAVEN_GOAL) \
+			-Dchecker.version=$(CHECKER_FRAMEWORK_VERSION) \
+			-Derrorprone.version=$(ERROR_PRONE_VERSION) \
+			-Dj2objc.version=$(J2OBJC_VERSION) \
 		&& $(GIT) checkout . \
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "Guava ready."
+
+git-add:
+	$(GIT) add -f \
+		repository/com/google/guava \
+		repository/com/google/j2objc \
+		repository/com/google/errorprone \
+		repository/org/checkerframework
+	$(GIT) status -sb
 
 clean:  ## Clean all built targets.
 	$(info Cleaning outputs...)
@@ -112,8 +123,8 @@ clean:  ## Clean all built targets.
 		com.google.errorprone/*/target \
 		com.google.j2objc/annotations/target \
 		com.google.guava/*/target \
-		org.checkerframework/target \
-		org.checkerframework/*/target \
+		org.checkerframework/build \
+		org.checkerframework/*/build \
 		samples/modular-guava/app/build
 
 samples:  ## Build samples.

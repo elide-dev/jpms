@@ -26,9 +26,7 @@ MAVEN_ARGS += -Dmaven.javadoc.skip=true
 GRADLE_ARGS += -x javadoc
 endif
 
-ifeq ($(SIGNING),yes)
-GRADLE_ARGS += sign
-else
+ifeq ($(SIGNING),no)
 MAVEN_ARGS += -Dgpg.skip=true
 endif
 
