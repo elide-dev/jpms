@@ -1,7 +1,0 @@
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sat Mar 09 23:31:57 PST 2024
-guava-tests-1.0-HEAD-jre-SNAPSHOT-sources.jar>=
-guava-tests-1.0-HEAD-jre-SNAPSHOT-test-sources.jar>=
-guava-tests-1.0-HEAD-jre-SNAPSHOT-tests.jar>=
-guava-tests-1.0-HEAD-jre-SNAPSHOT.jar>=
-guava-tests-1.0-HEAD-jre-SNAPSHOT.pom>=

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.google.j2objc</groupId>
+  <artifactId>j2objc-annotations</artifactId>
+  <versioning>
+    <lastUpdated>20240310081957</lastUpdated>
+    <snapshot>
+      <timestamp>20240310.081957</timestamp>
+      <buildNumber>2</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>3.0.0-20240310.081957-2</value>
+        <updated>20240310081957</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>3.0.0-20240310.081957-2</value>
+        <updated>20240310081957</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>3.0.0-SNAPSHOT</version>
+</metadata>

@@ -3,7 +3,7 @@
   <groupId>org.checkerframework</groupId>
   <artifactId>checker-qual</artifactId>
   <versioning>
-    <lastUpdated>20240310080218</lastUpdated>
+    <lastUpdated>20240310082630</lastUpdated>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
@@ -11,29 +11,29 @@
       <snapshotVersion>
         <extension>jar</extension>
         <value>3.43.0-SNAPSHOT</value>
-        <updated>20240310080218</updated>
-      </snapshotVersion>
-      <snapshotVersion>
-        <extension>module</extension>
-        <value>3.43.0-SNAPSHOT</value>
-        <updated>20240310080218</updated>
+        <updated>20240310082630</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
         <value>3.43.0-SNAPSHOT</value>
-        <updated>20240310080218</updated>
+        <updated>20240310082630</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>module</extension>
+        <value>3.43.0-SNAPSHOT</value>
+        <updated>20240310082630</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
         <value>3.43.0-SNAPSHOT</value>
-        <updated>20240310080218</updated>
+        <updated>20240310082630</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>javadoc</classifier>
         <extension>jar</extension>
         <value>3.43.0-SNAPSHOT</value>
-        <updated>20240310080218</updated>
+        <updated>20240310082630</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>

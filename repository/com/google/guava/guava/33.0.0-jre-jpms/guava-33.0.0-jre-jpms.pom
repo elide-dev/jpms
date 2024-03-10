@@ -31,22 +31,22 @@
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
-      <version>${jsr305.version}</version>
+      <version>3.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.checkerframework</groupId>
       <artifactId>checker-qual</artifactId>
-      <version>${checker.version}</version>
+      <version>3.43.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.google.errorprone</groupId>
       <artifactId>error_prone_annotations</artifactId>
-      <version>${errorprone.version}</version>
+      <version>2.25.0-jpms</version>
     </dependency>
     <dependency>
       <groupId>com.google.j2objc</groupId>
       <artifactId>j2objc-annotations</artifactId>
-      <version>${j2objc.version}</version>
+      <version>3.0.0-jpms</version>
     </dependency>
   </dependencies>
   <build>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.google.errorprone</groupId>
+  <artifactId>error_prone_annotations</artifactId>
+  <versioning>
+    <lastUpdated>20240310082021</lastUpdated>
+    <snapshot>
+      <timestamp>20240310.082021</timestamp>
+      <buildNumber>3</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0-HEAD-20240310.082021-3</value>
+        <updated>20240310082021</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-HEAD-20240310.082021-3</value>
+        <updated>20240310082021</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.0-HEAD-SNAPSHOT</version>
+</metadata>

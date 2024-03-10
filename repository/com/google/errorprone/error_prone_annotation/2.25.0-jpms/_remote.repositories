@@ -1,5 +1,0 @@
-#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
-#Sun Mar 10 00:02:28 PST 2024
-error_prone_annotation-2.25.0-jpms-sources.jar>=
-error_prone_annotation-2.25.0-jpms.jar>=
-error_prone_annotation-2.25.0-jpms.pom>=
