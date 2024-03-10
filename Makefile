@@ -7,11 +7,19 @@ export DEBUG ?= no
 export TESTS ?= no
 export SIGNING ?= no
 export JAVADOC ?= no
+export SNAPSHOT ?= yes
 
+ifeq ($(SNAPSHOT),yes)
 export ERROR_PRONE_VERSION ?= 1.0-HEAD-SNAPSHOT
 export J2OBJC_VERSION ?= 3.0.0-SNAPSHOT
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 1.0-HEAD-jre-SNAPSHOT
+else
+export ERROR_PRONE_VERSION ?= 2.25.0-jpms
+export J2OBJC_VERSION ?= 3.0.0-jpms
+export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-jpms
+export GUAVA_VERSION ?= 33.0.0-jre-jpms
+endif
 
 export PROJECT ?= $(shell pwd)
 export LIBS ?= $(PROJECT)/libs
