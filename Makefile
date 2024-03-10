@@ -123,7 +123,6 @@ com.google.guava/guava/target:
 			-Derrorprone.version=$(ERROR_PRONE_VERSION) \
 			-Dj2objc.version=$(J2OBJC_VERSION) \
 			-nsu \
-			-o \
 		&& $(MAVEN) deploy:deploy-file \
 			-DgroupId=com.google.guava \
 			-DartifactId=guava \
