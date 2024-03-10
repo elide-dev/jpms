@@ -32,7 +32,7 @@ Add this domain as a repository within any JVM build tool: [Maven][7], [Gradle][
     <repository>
       <id>jpms-attic</id>
       <name>JPMS Attic</name>
-      <url>https://jpms.pkg.st</url>
+      <url>https://jpms.pkg.st/repository</url>
     </repository>
   </repositories>
 ```
@@ -44,7 +44,7 @@ Add this domain as a repository within any JVM build tool: [Maven][7], [Gradle][
 ```groovy
 repositories {
     maven {
-        url "https://jpms.pkg.st"
+        url "https://jpms.pkg.st/repository"
     }
 }
 ```
@@ -54,7 +54,7 @@ repositories {
 ```kotlin
 repositories {
     maven {
-        url = uri("https://jpms.pkg.st")
+        url = uri("https://jpms.pkg.st/repository")
     }
 }
 ```
