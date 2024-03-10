@@ -4,7 +4,7 @@
 	branch = master
 [submodule "error-prone"]
 	path = com.google.errorprone
-	url = git@github.com:sgammon/error-prone.git
+	url = git@github.com:google/error-prone.git
 	branch = master
 [submodule "j2objc"]
 	path = com.google.j2objc
