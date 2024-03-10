@@ -81,7 +81,6 @@ com.google.errorprone/annotations/target:
 j2objc: com.google.j2objc  ## Build the J2ObjC annotations.
 com.google.j2objc: com.google.j2objc/annotations/target
 com.google.j2objc/annotations/target:
-	@echo ""
 	$(info Building J2ObjC...)
 	$(RULE)cd com.google.j2objc/annotations \
 		&& $(MAVEN) versions:set -DnewVersion=$(J2OBJC_VERSION) \
