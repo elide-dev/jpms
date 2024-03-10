@@ -6,8 +6,9 @@
 MAVEN_CMD ?= mvn
 GRADLE_CMD ?= ./gradlew
 
-REPOSITORY ?= $(PROJECT)/repository
-_LOCAL_REPO_ARG ?= -Dmaven.repo.local=$(REPOSITORY) -Djpms.repository=$(REPOSITORY)
+REPOSITORY ?= file://$(PROJECT)/repository
+M2_LOCAL ?= $(PROJECT)/.m2/repository
+_LOCAL_REPO_ARG ?= -Dmaven.repo.local=$(M2_LOCAL) -Djpms.repository=$(REPOSITORY)
 
 MAVEN_ARGS ?= $(_LOCAL_REPO_ARG)
 GRADLE_ARGS ?= --no-daemon -Pjpms.repository=$(REPOSITORY) $(_LOCAL_REPO_ARG)

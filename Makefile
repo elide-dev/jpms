@@ -65,6 +65,15 @@ com.google.errorprone/annotations/target:
 		&& $(MAVEN) versions:set -DnewVersion=$(ERROR_PRONE_VERSION) \
 		&& $(MAVEN) versions:update-child-modules \
 		&& $(MAVEN) $(MAVEN_GOAL) \
+		&& $(MAVEN) deploy:deploy-file \
+			-DgroupId=com.google.errorprone \
+			-DartifactId=error_prone_annotations \
+			-Dversion=$(ERROR_PRONE_VERSION) \
+			-Dpackaging=jar \
+			-DgeneratePom=true \
+  			-Dfile=annotations/target/error_prone_annotations-$(ERROR_PRONE_VERSION).jar \
+  			-DrepositoryId=jpms-local \
+  			-Durl=$(REPOSITORY) \
 		&& $(GIT) checkout . \
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "Error Prone Compiler ready."
@@ -78,6 +87,15 @@ com.google.j2objc/annotations/target:
 		&& $(MAVEN) versions:set -DnewVersion=$(J2OBJC_VERSION) \
 		&& $(MAVEN) versions:update-child-modules \
 		&& $(MAVEN) $(MAVEN_GOAL) \
+		&& $(MAVEN) deploy:deploy-file \
+			-DgroupId=com.google.j2objc \
+			-DartifactId=j2objc-annotations \
+			-Dversion=$(J2OBJC_VERSION) \
+			-Dpackaging=jar \
+			-DgeneratePom=true \
+  			-Dfile=target/j2objc-annotations-$(J2OBJC_VERSION).jar \
+  			-DrepositoryId=jpms-local \
+  			-Durl=$(REPOSITORY) \
 		&& $(GIT) checkout . \
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "J2ObjC annotations ready."
@@ -104,6 +122,17 @@ com.google.guava/guava/target:
 			-Dchecker.version=$(CHECKER_FRAMEWORK_VERSION) \
 			-Derrorprone.version=$(ERROR_PRONE_VERSION) \
 			-Dj2objc.version=$(J2OBJC_VERSION) \
+			-nsu \
+			-o \
+		&& $(MAVEN) deploy:deploy-file \
+			-DgroupId=com.google.guava \
+			-DartifactId=guava \
+			-Dversion=$(GUAVA_VERSION) \
+			-Dpackaging=jar \
+			-DgeneratePom=true \
+  			-Dfile=guava/target/guava-$(GUAVA_VERSION).jar \
+  			-DrepositoryId=jpms-local \
+  			-Durl=$(REPOSITORY) \
 		&& $(GIT) checkout . \
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "Guava ready."
