@@ -10,3 +10,6 @@
 	path = com.google.j2objc
 	url = git@github.com:sgammon/j2objc.git
 	branch = master
+[submodule "guava"]
+	path = com.google.guava
+	url = git@github.com:sgammon/guava.git
