@@ -11,7 +11,7 @@ Tracking issue [here][6] provides the best tracker. Once these PRs are merged an
 - google/error-prone#4311 feat: add jpms definition for annotations
 - typetools/checker-framework#6326 Add module-info.java to checker-qual
 
-### What libraries are included?
+### What's in the box?
 
 - **[`com.google.errorprone`][2]:** **Error Prone Compiler** "is a static analysis tool for Java that catches common programming mistakes at compile time," built by Google. Error Prone's annotations module is JPMS-enabled at the embedded sub-module, and is used by Guava. The [PR enabling JPMS support in Error Prone Annotations][3] has been filed and merged, but not released yet.
 
@@ -59,7 +59,7 @@ repositories {
 }
 ```
 
-### Overriding Libraries
+### Libraries
 
 You should use a JPMS-enabled library version which has no conflict with Maven Central. Reference the table below to pick a library.
 
@@ -69,6 +69,10 @@ You should use a JPMS-enabled library version which has no conflict with Maven C
 | Google J2ObjC: Annotations               | `com.google.j2objc:j2objc-annotations`          | `3.0.0-jpms`            |
 | Google Guava                             | `com.google.guava:guava`                        | `33.0.0-jre-jpms`       |
 | Checker Framework: Qualifiers            | `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       |
+
+### Limitations
+
+This repo does not currently publish source or javadoc JARs. It's not that it couldn't, it's just that mounting classifier-equipped JARs in local repositories is annoying.
 
 ### Sample Projects
 
