@@ -3,7 +3,7 @@
   <groupId>com.google.guava</groupId>
   <artifactId>guava-gwt</artifactId>
   <versioning>
-    <lastUpdated>20240310072324</lastUpdated>
+    <lastUpdated>20240310073122</lastUpdated>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
@@ -11,18 +11,18 @@
       <snapshotVersion>
         <extension>pom</extension>
         <value>1.0-HEAD-jre-SNAPSHOT</value>
-        <updated>20240310072324</updated>
+        <updated>20240310073122</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>jar</extension>
         <value>1.0-HEAD-jre-SNAPSHOT</value>
-        <updated>20240310072324</updated>
+        <updated>20240310073122</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
         <value>1.0-HEAD-jre-SNAPSHOT</value>
-        <updated>20240310072324</updated>
+        <updated>20240310073122</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
