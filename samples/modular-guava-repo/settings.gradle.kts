@@ -10,7 +10,7 @@ dependencyResolutionManagement {
     repositories {
         maven {
             name = "jpms-attic"
-            url = uri("file:///${rootProject.projectDir}/../../repository")
+            url = uri("https://jpms.pkg.st/repository")
         }
         mavenCentral()
     }

@@ -153,7 +153,8 @@ clean:  ## Clean all built targets.
 		com.google.guava/*/target \
 		org.checkerframework/build \
 		org.checkerframework/*/build \
-		samples/modular-guava/app/build
+		samples/modular-guava/app/build \
+		samples/modular-guava-repo/app/build
 
 samples:  ## Build samples.
 	$(info Building samples...)
