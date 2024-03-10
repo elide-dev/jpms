@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Mar 09 22:11:27 PST 2024
+error_prone_check_api-1.0-HEAD-SNAPSHOT-sources.jar>=
+error_prone_check_api-1.0-HEAD-SNAPSHOT.jar>=
+error_prone_check_api-1.0-HEAD-SNAPSHOT.pom>=

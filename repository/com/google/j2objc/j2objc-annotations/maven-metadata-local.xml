@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google.j2objc</groupId>
+  <artifactId>j2objc-annotations</artifactId>
+  <versioning>
+    <versions>
+      <version>3.0.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20240310061059</lastUpdated>
+  </versioning>
+</metadata>

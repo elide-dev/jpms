@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<parent>
+<groupId>org.sonatype.oss</groupId>
+<artifactId>oss-parent</artifactId>
+<version>6</version>
+</parent>
+<groupId>com.google.gwt.inject</groupId>
+<artifactId>gin</artifactId>
+<version>2.1.2</version>
+<packaging>jar</packaging>
+<name>GIN (GWT INjection)</name>
+<description>
+GIN (GWT INjection) brings automatic dependency injection to Google Web Toolkit client-side code. GIN is built on top of Guice and uses (a subset of) Guice's binding language.
+</description>
+<url>http://code.google.com/p/google-gin/</url>
+<developers>
+<developer>
+<id>bstoler</id>
+<name>Brian Stoler</name>
+</developer>
+<developer>
+<id>aragos</id>
+<name>Peter Schmitt</name>
+</developer>
+<developer>
+<id>limpbizkit</id>
+<name>Jesse Wilson</name>
+</developer>
+<developer>
+<id>robbie.vanbrabant</id>
+<name>Robbie Vanbrabant</name>
+</developer>
+<developer>
+<id>fazal.asim</id>
+<name>Fazal Asim</name>
+</developer>
+<developer>
+<id>dburrows</id>
+<name>Daniel Burrows</name>
+</developer>
+<developer>
+<id>scottb</id>
+<name>Scott Blum</name>
+</developer>
+<developer>
+<id>awiner</id>
+<name>Adam Winer</name>
+</developer>
+<developer>
+<id>philippe.beaudoin</id>
+<name>Philippe Beaudoin</name>
+</developer>
+<developer>
+<id>dburrows</id>
+<name>Daniel Burrows</name>
+</developer>
+<developer>
+<id>bchambers</id>
+<name>Ben Chambers</name>
+</developer>
+</developers>
+<licenses>
+<license>
+<name>Apache License 2.0</name>
+<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+</license>
+</licenses>
+<issueManagement>
+<system>Google code</system>
+<url>http://code.google.com/p/google-gin/issues/list</url>
+</issueManagement>
+<scm>
+<connection>
+http://google-gin.googlecode.com/svn/tags/2.1.2
+</connection>
+<developerConnection>
+https://google-gin.googlecode.com/svn/tags/2.1.2
+</developerConnection>
+<url>http://code.google.com/p/google-gin/source/browse/</url>
+</scm>
+<distributionManagement>
+<snapshotRepository>
+<id>sonatype-nexus-staging</id>
+<name>Sonatype Nexus Staging</name>
+<url>
+https://oss.sonatype.org/service/local/staging/deploy/maven2/
+</url>
+</snapshotRepository>
+</distributionManagement>
+<dependencies>
+<dependency>
+<groupId>com.google.inject</groupId>
+<artifactId>guice</artifactId>
+<version>${com.google.guice.version}</version>
+</dependency>
+<dependency>
+<groupId>com.google.inject.extensions</groupId>
+<artifactId>guice-assistedinject</artifactId>
+<version>${com.google.guice.version}</version>
+</dependency>
+<dependency>
+<groupId>com.google.gwt</groupId>
+<artifactId>gwt-user</artifactId>
+<version>${com.google.gwt.version}</version>
+<type>jar</type>
+<scope>provided</scope>
+</dependency>
+</dependencies>
+<properties>
+<com.google.gwt.version>2.5.0</com.google.gwt.version>
+<com.google.guice.version>3.0</com.google.guice.version>
+</properties>
+</project>

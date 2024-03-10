@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Mar 09 22:12:08 PST 2024
+guava-1.0-HEAD-jre-SNAPSHOT-sources.jar>=
+guava-1.0-HEAD-jre-SNAPSHOT.jar>=
+guava-1.0-HEAD-jre-SNAPSHOT.module>=
+guava-1.0-HEAD-jre-SNAPSHOT.pom>=

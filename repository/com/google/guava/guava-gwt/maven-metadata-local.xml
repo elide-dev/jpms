@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google.guava</groupId>
+  <artifactId>guava-gwt</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-HEAD-jre-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20240310061149</lastUpdated>
+  </versioning>
+</metadata>

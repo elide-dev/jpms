@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google.errorprone</groupId>
+  <artifactId>error_prone_parent</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0-HEAD-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20240310061110</lastUpdated>
+  </versioning>
+</metadata>
