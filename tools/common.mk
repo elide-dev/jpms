@@ -7,10 +7,10 @@ MAVEN_CMD ?= mvn
 GRADLE_CMD ?= ./gradlew
 
 REPOSITORY ?= $(PROJECT)/repository
-_LOCAL_REPO_ARG ?= -Dmaven.repo.local=$(REPOSITORY)
+_LOCAL_REPO_ARG ?= -Dmaven.repo.local=$(REPOSITORY) -Djpms.repository=$(REPOSITORY)
 
 MAVEN_ARGS ?= $(_LOCAL_REPO_ARG)
-GRADLE_ARGS ?= --no-daemon $(_LOCAL_REPO_ARG)
+GRADLE_ARGS ?= --no-daemon -Pjpms.repository=$(REPOSITORY) $(_LOCAL_REPO_ARG)
 MAVEN_GOAL ?= install
 GRADLE_TASK ?= install
 
@@ -23,7 +23,7 @@ endif
 ifeq ($(JAVADOC),yes)
 else
 MAVEN_ARGS += -Dmaven.javadoc.skip=true
-GRADLE_ARGS += -x javadocJar
+GRADLE_ARGS += -x javadoc
 endif
 
 ifeq ($(SIGNING),yes)
@@ -35,7 +35,8 @@ endif
 
 ## Command Macros
 
-MAVEN ?= $(MAVEN_CMD) $(MAVEN_ARGS) $(MAVEN_GOAL)
+GIT ?= $(shell which git)
+MAVEN ?= $(MAVEN_CMD) $(MAVEN_ARGS)
 GRADLE ?= $(GRADLE_CMD) $(GRADLE_ARGS)
 RM ?= rm -f$(POSIX_FLAGS)
 RMDIR ?= rm -fr$(POSIX_FLAGS)
