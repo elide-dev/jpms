@@ -70,7 +70,7 @@ com.google.errorprone/annotations/target:
 			-DartifactId=error_prone_annotations \
 			-Dversion=$(ERROR_PRONE_VERSION) \
 			-Dpackaging=jar \
-			-DgeneratePom=true \
+			-DpomFile=../tools/poms/error-prone-annotations.xml \
   			-Dfile=annotations/target/error_prone_annotations-$(ERROR_PRONE_VERSION).jar \
   			-DrepositoryId=jpms-local \
   			-Durl=$(REPOSITORY) \
@@ -92,7 +92,7 @@ com.google.j2objc/annotations/target:
 			-DartifactId=j2objc-annotations \
 			-Dversion=$(J2OBJC_VERSION) \
 			-Dpackaging=jar \
-			-DgeneratePom=true \
+			-DpomFile=../../tools/poms/j2objc-annotations.xml \
   			-Dfile=target/j2objc-annotations-$(J2OBJC_VERSION).jar \
   			-DrepositoryId=jpms-local \
   			-Durl=$(REPOSITORY) \
@@ -128,7 +128,7 @@ com.google.guava/guava/target:
 			-DartifactId=guava \
 			-Dversion=$(GUAVA_VERSION) \
 			-Dpackaging=jar \
-			-DgeneratePom=true \
+			-DpomFile=../tools/poms/guava.xml \
   			-Dfile=guava/target/guava-$(GUAVA_VERSION).jar \
   			-DrepositoryId=jpms-local \
   			-Durl=$(REPOSITORY) \
