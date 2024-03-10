@@ -63,12 +63,12 @@ repositories {
 
 You should use a JPMS-enabled library version which has no conflict with Maven Central. Reference the table below to pick a library.
 
-| Library                                  | Coordinate                                      | Version                 |
-| ---------------------------------------- | ----------------------------------------------- | ----------------------- |
-| Google Error Prone Compiler: Annotations | `com.google.errorprone:error_prone_annotations` | `2.25.0-jpms`           |
-| Google J2ObjC: Annotations               | `com.google.j2objc:j2objc-annotations`          | `3.0.0-jpms`            |
-| Google Guava                             | `com.google.guava:guava`                        | `33.0.0-jre-jpms`       |
-| Checker Framework: Qualifiers            | `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       |
+| Coordinate                                      | Version                 |
+| ----------------------------------------------- | ----------------------- |
+| `com.google.errorprone:error_prone_annotations` | `2.25.0-jpms`           |
+| `com.google.guava:guava`                        | `33.0.0-jre-jpms`       |
+| `com.google.j2objc:j2objc-annotations`          | `3.0.0-jpms`            |
+| `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       |
 
 ### Limitations
 
