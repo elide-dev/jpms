@@ -54,7 +54,7 @@ repositories {
 ```kotlin
 repositories {
     maven {
-        url = uri("https://repo.spring.io/release")
+        url = uri("https://jpms.pkg.st")
     }
 }
 ```
