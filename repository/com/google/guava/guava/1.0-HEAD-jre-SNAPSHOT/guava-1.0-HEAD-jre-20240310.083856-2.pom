@@ -3,9 +3,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <!-- do_not_remove: published-with-gradle-metadata -->
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.google.guava</groupId>
+  <parent>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava-parent</artifactId>
+    <version>1.0-HEAD-jre-SNAPSHOT</version>
+  </parent>
   <artifactId>guava</artifactId>
-  <version>33.0.0-jre-jpms</version>
   <packaging>jar</packaging>
   <name>Guava: Google Core Libraries for Java</name>
   <url>https://github.com/google/guava</url>
@@ -28,22 +31,22 @@
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
-      <version>3.0.2</version>
+      <version>${jsr305.version}</version>
     </dependency>
     <dependency>
       <groupId>org.checkerframework</groupId>
       <artifactId>checker-qual</artifactId>
-      <version>3.43.0-SNAPSHOT</version>
+      <version>${checker.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.errorprone</groupId>
       <artifactId>error_prone_annotations</artifactId>
-      <version>2.25.0-jpms</version>
+      <version>${errorprone.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.j2objc</groupId>
       <artifactId>j2objc-annotations</artifactId>
-      <version>3.0.0-jpms</version>
+      <version>${j2objc.version}</version>
     </dependency>
   </dependencies>
   <build>
