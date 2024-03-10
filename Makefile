@@ -31,7 +31,6 @@ setup:  ## Setup local codebase features; performs first-run stuff.
 	$(RULE)mkdir -p repository
 
 repository: $(DEPS) $(LIBS)  ## Build the repository layout.
-	@echo ""
 	$(info Building repository layout...)
 	@echo "Repository info:"
 	@echo "- Location: $(REPOSITORY)"
@@ -49,34 +48,27 @@ $(LIBS):
 errorprone: com.google.errorprone  ## Build the Error Prone Compiler.
 com.google.errorprone: com.google.errorprone/annotations/target
 com.google.errorprone/annotations/target:
-	@echo ""
 	$(info Building Error Prone Compiler...)
-	$(RULE)cd com.google.errorprone && \
-		$(MAVEN) package
+	$(RULE)cd com.google.errorprone && $(MAVEN)
 
 j2objc: com.google.j2objc  ## Build the J2ObjC annotations.
 com.google.j2objc: com.google.j2objc/annotations/target
 com.google.j2objc/annotations/target:
 	@echo ""
 	$(info Building J2ObjC...)
-	$(RULE)cd com.google.j2objc/annotations && \
-		$(MAVEN) package
+	$(RULE)cd com.google.j2objc/annotations && $(MAVEN)
 
 checkerframework: org.checkerframework  ## Build Checker Framework.
 org.checkerframework: org.checkerframework/checker-qual/build/libs
 org.checkerframework/checker-qual/build/libs:
-	@echo ""
 	$(info Building Checker Framework...)
-	$(RULE)cd org.checkerframework && \
-		$(GRADLE) :checker-qual:build -x check -x installGitHooks
+	$(RULE)cd org.checkerframework && $(GRADLE) :checker-qual:install -x check -x installGitHooks
 
 guava: com.google.guava  ## Build Guava and all requisite dependencies.
 com.google.guava: org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
 com.google.guava/guava/target:
-	@echo ""
 	$(info Building Guava...)
-	$(RULE)cd com.google.guava && \
-		$(MAVEN) package
+	$(RULE)cd com.google.guava && $(MAVEN)
 
 clean:  ## Clean all built targets.
 	$(info Cleaning outputs...)
