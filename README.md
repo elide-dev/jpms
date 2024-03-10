@@ -1,5 +1,5 @@
 
-## JPMS Attic
+# JPMS Attic
 
 This repository provides sub-module library overrides for popular Java libraries which don't yet provide JPMS support (at least until some PRs are merged!). There is a Maven repository which contains these artifacts, too, so you can safely use them in your projects.
 
@@ -69,6 +69,10 @@ You should use a JPMS-enabled library version which has no conflict with Maven C
 | Google J2ObjC: Annotations               | `com.google.j2objc:j2objc-annotations`          | `3.0.0-SNAPSHOT`        |
 | Google Guava                             | `com.google.guava:guava`                        | `1.0-HEAD-jre-SNAPSHOT` |
 | Checker Framework: Qualifiers            | `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       |
+
+### Sample Projects
+
+Sample projects are provided in the [samples](./samples) directory, which show how to hook up the repository and override libraries.
 
 [0]: https://github.com/typetools/checker-framework
 [1]: https://github.com/typetools/checker-framework/pull/6326
