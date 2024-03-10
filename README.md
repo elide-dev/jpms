@@ -15,14 +15,60 @@ Tracking issue [here][6] provides the best tracker. Once these PRs are merged an
 
 - **[`com.google.errorprone`][2]:** **Error Prone Compiler** "is a static analysis tool for Java that catches common programming mistakes at compile time," built by Google. Error Prone's annotations module is JPMS-enabled at the embedded sub-module, and is used by Guava. The [PR enabling JPMS support in Error Prone Annotations][3] has been filed but not merged yet.
 
+- **[`com.google.guava`][11]:** **Google Guava** is Google's core Java commons, used throughout Google's code and the wider JVM ecosystem. Guava is an immensely popular artifact, with tons of fantastic utilities.
+
 - **[`com.google.j2objc`][4]:** **J2ObjC** is a Java to Objective-C cross-compiling layer used by Google to effectively share Java logic on iOS and macOS platforms. J2ObjC itself is very complex and powerful, but here we have just JPMS-enabled the `annotations` module, which is used by Guava. The [PR enabling JPMS support for J2ObjC annotations][5] has been filed but not merged yet.
 
 - **[`org.checkerframework`][0]:** **Checker Framework** is a type-checking framework for Java. The `checker-qual` package is used by Guava, so it is included here transitively. Checker Framework added a JPMS module definition in a [recent PR][1], so this is sub-moduled at `master`. At the time of this writing no release has taken place.
 
 ### How do I use it?
 
-Coming soon.
+Add this domain as a repository within any JVM build tool: [Maven][7], [Gradle][8], [Bazel][9], [sbt][10]. For example:
 
+#### Maven
+
+```xml
+  <repositories>
+    <repository>
+      <id>jpms-attic</id>
+      <name>JPMS Attic</name>
+      <url>https://jpms.pkg.st</url>
+    </repository>
+  </repositories>
+```
+
+#### Gradle
+
+##### Groovy
+
+```groovy
+repositories {
+    maven {
+        url "https://jpms.pkg.st"
+    }
+}
+```
+
+##### Kotlin
+
+```kotlin
+repositories {
+    maven {
+        url = uri("https://repo.spring.io/release")
+    }
+}
+```
+
+### Overriding Libraries
+
+You should use a JPMS-enabled library version which has no conflict with Maven Central. Reference the table below to pick a library.
+
+| Library                                  | Coordinate                                      | Version                 |
+| ---------------------------------------- | ----------------------------------------------- | ----------------------- |
+| Google Error Prone Compiler: Annotations | `com.google.errorprone:error_prone_annotations` | `1.0-HEAD-SNAPSHOT`     |
+| Google J2ObjC: Annotations               | `com.google.j2objc:j2objc-annotations`          | `3.0.0-SNAPSHOT`        |
+| Google Guava                             | `com.google.guava:guava`                        | `1.0-HEAD-jre-SNAPSHOT` |
+| Checker Framework: Qualifiers            | `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       |
 
 [0]: https://github.com/typetools/checker-framework
 [1]: https://github.com/typetools/checker-framework/pull/6326
@@ -31,4 +77,8 @@ Coming soon.
 [4]: https://github.com/google/j2objc
 [5]: https://github.com/google/j2objc/pull/2302
 [6]: https://github.com/elide-dev/jpms/issues/1
-
+[7]: https://maven.apache.org/guides/mini/guide-multiple-repositories.html
+[8]: https://docs.gradle.org/current/userguide/declaring_repositories.html
+[9]: https://github.com/bazelbuild/rules_jvm_external/blob/master/docs/api.md#maven_install-repositories
+[10]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
+[11]: https://github.com/google/guava
