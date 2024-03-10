@@ -3,9 +3,11 @@
   <groupId>com.google.errorprone</groupId>
   <artifactId>error_prone_test_helpers</artifactId>
   <versioning>
+    <release>2.25.0-jpms</release>
     <versions>
       <version>1.0-HEAD-SNAPSHOT</version>
+      <version>2.25.0-jpms</version>
     </versions>
-    <lastUpdated>20240310073021</lastUpdated>
+    <lastUpdated>20240310075808</lastUpdated>
   </versioning>
 </metadata>

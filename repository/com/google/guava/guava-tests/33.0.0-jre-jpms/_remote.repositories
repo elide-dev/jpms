@@ -1,0 +1,7 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Mar 09 23:59:41 PST 2024
+guava-tests-33.0.0-jre-jpms-sources.jar>=
+guava-tests-33.0.0-jre-jpms-test-sources.jar>=
+guava-tests-33.0.0-jre-jpms-tests.jar>=
+guava-tests-33.0.0-jre-jpms.jar>=
+guava-tests-33.0.0-jre-jpms.pom>=

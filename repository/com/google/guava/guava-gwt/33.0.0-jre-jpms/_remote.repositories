@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sun Mar 10 00:00:25 PST 2024
+guava-gwt-33.0.0-jre-jpms-sources.jar>=
+guava-gwt-33.0.0-jre-jpms.jar>=
+guava-gwt-33.0.0-jre-jpms.pom>=

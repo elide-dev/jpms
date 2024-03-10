@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Mar 09 23:58:21 PST 2024
+error_prone_check_api-2.25.0-jpms-sources.jar>=
+error_prone_check_api-2.25.0-jpms.jar>=
+error_prone_check_api-2.25.0-jpms.pom>=

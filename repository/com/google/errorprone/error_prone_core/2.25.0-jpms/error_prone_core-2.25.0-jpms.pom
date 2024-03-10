@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright 2011 The Error Prone Authors.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.google.errorprone</groupId>
+    <artifactId>error_prone_parent</artifactId>
+    <version>2.25.0-jpms</version>
+  </parent>
+
+  <name>error-prone library</name>
+  <artifactId>error_prone_core</artifactId>
+
+  <licenses>
+    <license>
+      <name>Apache 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <dependencies>
+    <!-- If you add a dependency, please also add a comment with the license
+         as the existing examples do.
+
+         If the license is compatible with ours (e.g. Apache 2.0, BSD, and MIT
+         are; assume anything else is not), please add the dependency to
+         the Maven shade includes section below, so it will be packaged with
+         the error-prone JAR file that we distribute.  -->
+
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.errorprone</groupId>
+      <artifactId>error_prone_annotation</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.errorprone</groupId>
+      <artifactId>error_prone_type_annotations</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.errorprone</groupId>
+      <artifactId>error_prone_check_api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.errorprone</groupId>
+      <artifactId>error_prone_test_helpers</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- MIT -->
+      <groupId>org.pcollections</groupId>
+      <artifactId>pcollections</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.auto</groupId>
+      <artifactId>auto-common</artifactId>
+      <version>1.2.2</version>
+    </dependency>
+    <dependency>
+      <!-- BSD New -->
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>3.0.2</version>
+    </dependency>
+    <dependency>
+      <!-- GPLv2 with Classpath Exception -->
+      <groupId>io.github.eisop</groupId>
+      <artifactId>dataflow-errorprone</artifactId>
+      <version>${dataflow.version}</version>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.auto.value</groupId>
+      <artifactId>auto-value-annotations</artifactId>
+      <version>${autovalue.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.auto.value</groupId>
+      <artifactId>auto-value</artifactId>
+      <version>${autovalue.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.errorprone</groupId>
+      <artifactId>error_prone_annotations</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <!-- Eclipse Public License 1.0 -->
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>org.gwtproject</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>${gwt.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.testparameterinjector</groupId>
+      <artifactId>test-parameter-injector</artifactId>
+      <version>1.15</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- BSD New (3 clause) -->
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <version>1.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- BSD New (3 clause) -->
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <version>1.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.truth</groupId>
+      <artifactId>truth</artifactId>
+      <version>${truth.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.truth.extensions</groupId>
+      <artifactId>truth-java8-extension</artifactId>
+      <version>${truth.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.truth.extensions</groupId>
+      <artifactId>truth-proto-extension</artifactId>
+      <version>${truth.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>${guice.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.inject.extensions</groupId>
+      <artifactId>guice-assistedinject</artifactId>
+      <version>5.1.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.inject.extensions</groupId>
+      <artifactId>guice-servlet</artifactId>
+      <version>5.1.0</version>
+      <scope>test</scope>
+    </dependency>
+      <!-- Apache 2.0 -->
+    <dependency>
+      <groupId>com.google.inject.extensions</groupId>
+      <artifactId>guice-testlib</artifactId>
+      <version>5.1.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.gwt.inject</groupId>
+      <artifactId>gin</artifactId>
+      <version>2.1.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- MIT -->
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- BSD -->
+      <groupId>org.jmock</groupId>
+      <artifactId>jmock</artifactId>
+      <version>2.12.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- BSD -->
+      <groupId>org.jmock</groupId>
+      <artifactId>jmock-junit4</artifactId>
+      <version>2.12.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>${protobuf.version}</version>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.dagger</groupId>
+      <artifactId>dagger</artifactId>
+      <version>2.50</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.dagger</groupId>
+      <artifactId>dagger-producers</artifactId>
+      <version>2.50</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.auto.factory</groupId>
+      <artifactId>auto-factory</artifactId>
+      <version>1.1.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava-testlib</artifactId>
+      <version>${guava.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.testing.compile</groupId>
+      <artifactId>compile-testing</artifactId>
+      <version>${compile.testing.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- BSD -->
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java-util</artifactId>
+      <version>${protobuf.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- ICU License -->
+      <groupId>com.ibm.icu</groupId>
+      <artifactId>icu4j</artifactId>
+      <version>74.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.auto.service</groupId>
+      <artifactId>auto-service-annotations</artifactId>
+      <version>${autoservice.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>io.netty</groupId>
+      <artifactId>netty-all</artifactId>
+      <version>5.0.0.Alpha2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.12.5</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.common.html.types</groupId>
+      <artifactId>proto</artifactId>
+      <version>1.0.8</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>com.google.common.html.types</groupId>
+      <artifactId>types</artifactId>
+      <version>1.0.8</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.25.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>org.easymock</groupId>
+      <artifactId>easymock</artifactId>
+      <version>5.2.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- Apache 2.0 -->
+      <groupId>pl.pragmatists</groupId>
+      <artifactId>JUnitParams</artifactId>
+      <version>1.1.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.threeten</groupId>
+      <artifactId>threeten-extra</artifactId>
+      <version>1.7.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.flogger</groupId>
+      <artifactId>flogger</artifactId>
+      <version>${flogger.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jspecify</groupId>
+      <artifactId>jspecify</artifactId>
+      <version>${jspecify.version}</version>
+      <scope>test</scope>
+    </dependency>
+      <!-- Apache 2.0 -->
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>kr.motd.maven</groupId>
+        <artifactId>os-maven-plugin</artifactId>
+        <version>1.7.0</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>com.google.auto.value</groupId>
+              <artifactId>auto-value</artifactId>
+              <version>${autovalue.version}</version>
+            </path>
+            <path>
+              <groupId>com.google.auto.service</groupId>
+              <artifactId>auto-service</artifactId>
+              <version>${autoservice.version}</version>
+            </path>
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+      <!-- Include the @BugPattern annotation in the main distribution
+           so users have only one jar to add to their classpath. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+              <shadedClassifierName>with-dependencies</shadedClassifierName>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
+              <artifactSet>
+                <!-- Include only dependencies with compatible licenses.
+                     Apache, BSD, and MIT are OK; others are not. -->
+                <includes>
+                  <include>com.github.kevinstern:software-and-algorithms</include>
+                  <include>com.google.errorprone:error_prone_annotation</include>
+                  <include>com.google.errorprone:error_prone_annotations</include>
+                  <include>com.google.errorprone:error_prone_type_annotations</include>
+                  <include>com.google.errorprone:error_prone_check_api</include>
+                  <include>org.pcollections:pcollections</include>
+                  <include>com.google.guava:guava</include>
+                  <include>com.google.guava:failureaccess</include>
+                  <include>com.github.ben-manes.caffeine:caffeine</include>
+                  <include>io.github.java-diff-utils:java-diff-utils</include>
+                  <include>com.google.auto:auto-common</include>
+                  <include>com.google.auto.value:auto-value-annotations</include>
+                  <include>com.google.auto.service:auto-service-annotations</include>
+                  <include>com.google.code.findbugs:jsr305</include>
+                  <include>com.google.protobuf:protobuf-java</include>
+                  <include>javax.inject:javax.inject</include>
+                </includes>
+              </artifactSet>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.xolstice.maven.plugins</groupId>
+        <artifactId>protobuf-maven-plugin</artifactId>
+        <version>0.6.1</version>
+        <configuration>
+          <protoSourceRoot>src/main/proto</protoSourceRoot>
+          <protoTestSourceRoot>src/test/proto</protoTestSourceRoot>
+          <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
+          <pluginId>grpc-java</pluginId>
+          <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>compile-custom</goal>
+              <goal>test-compile</goal>
+              <goal>test-compile-custom</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <!-- run annotation processor -->
+    <profile>
+      <id>run-annotation-processor</id>
+      <dependencies>
+        <dependency>
+          <groupId>com.google.errorprone</groupId>
+          <artifactId>error_prone_docgen_processor</artifactId>
+          <version>${project.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+          <version>${guava.version}</version>
+        </dependency>
+      </dependencies>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <annotationProcessorPaths>
+                <path>
+                  <groupId>com.google.auto.value</groupId>
+                  <artifactId>auto-value</artifactId>
+                  <version>${autovalue.version}</version>
+                </path>
+                <path>
+                  <groupId>com.google.auto.service</groupId>
+                  <artifactId>auto-service</artifactId>
+                  <version>${autoservice.version}</version>
+                </path>
+                <path>
+                  <groupId>com.google.errorprone</groupId>
+                  <artifactId>error_prone_docgen_processor</artifactId>
+                  <version>${project.version}</version>
+                </path>
+              </annotationProcessorPaths>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>
