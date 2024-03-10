@@ -3,7 +3,7 @@
   <groupId>com.google.guava</groupId>
   <artifactId>guava-parent</artifactId>
   <versioning>
-    <lastUpdated>20240310063613</lastUpdated>
+    <lastUpdated>20240310072324</lastUpdated>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
@@ -11,7 +11,7 @@
       <snapshotVersion>
         <extension>pom</extension>
         <value>1.0-HEAD-jre-SNAPSHOT</value>
-        <updated>20240310063613</updated>
+        <updated>20240310072324</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
