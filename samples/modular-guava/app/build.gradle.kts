@@ -4,10 +4,6 @@ plugins {
   signing
 }
 
-repositories {
-  mavenCentral()
-}
-
 dependencies {
   implementation(libs.guava)
 }
