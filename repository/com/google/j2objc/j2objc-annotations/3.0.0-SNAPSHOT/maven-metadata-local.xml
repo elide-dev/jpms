@@ -3,7 +3,7 @@
   <groupId>com.google.j2objc</groupId>
   <artifactId>j2objc-annotations</artifactId>
   <versioning>
-    <lastUpdated>20240310061059</lastUpdated>
+    <lastUpdated>20240310063552</lastUpdated>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
@@ -11,18 +11,34 @@
       <snapshotVersion>
         <extension>pom</extension>
         <value>3.0.0-SNAPSHOT</value>
-        <updated>20240310061059</updated>
+        <updated>20240310063552</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>jar</extension>
         <value>3.0.0-SNAPSHOT</value>
-        <updated>20240310061059</updated>
+        <updated>20240310063552</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
         <value>3.0.0-SNAPSHOT</value>
-        <updated>20240310061059</updated>
+        <updated>20240310063552</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>jar.asc</extension>
+        <value>3.0.0-SNAPSHOT</value>
+        <updated>20240310063552</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom.asc</extension>
+        <value>3.0.0-SNAPSHOT</value>
+        <updated>20240310063552</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <classifier>sources</classifier>
+        <extension>jar.asc</extension>
+        <value>3.0.0-SNAPSHOT</value>
+        <updated>20240310063552</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>

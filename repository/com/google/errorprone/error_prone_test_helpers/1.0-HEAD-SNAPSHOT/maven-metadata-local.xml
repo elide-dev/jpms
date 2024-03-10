@@ -3,7 +3,7 @@
   <groupId>com.google.errorprone</groupId>
   <artifactId>error_prone_test_helpers</artifactId>
   <versioning>
-    <lastUpdated>20240310061110</lastUpdated>
+    <lastUpdated>20240310063554</lastUpdated>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
@@ -11,18 +11,18 @@
       <snapshotVersion>
         <extension>pom</extension>
         <value>1.0-HEAD-SNAPSHOT</value>
-        <updated>20240310061110</updated>
+        <updated>20240310063554</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>jar</extension>
         <value>1.0-HEAD-SNAPSHOT</value>
-        <updated>20240310061110</updated>
+        <updated>20240310063554</updated>
       </snapshotVersion>
       <snapshotVersion>
         <classifier>sources</classifier>
         <extension>jar</extension>
         <value>1.0-HEAD-SNAPSHOT</value>
-        <updated>20240310061110</updated>
+        <updated>20240310063554</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
