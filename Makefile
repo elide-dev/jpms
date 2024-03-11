@@ -36,7 +36,7 @@ endif
 
 include tools/common.mk
 
-all: setup $(DEPS) repository samples  ## Build all targets and setup the repository.
+all: setup $(DEPS) repository samples test  ## Build all targets and setup the repository.
 
 setup:  ## Setup local codebase features; performs first-run stuff.
 	$(info Building JPMS libraries...)
@@ -160,8 +160,12 @@ samples:  ## Build samples.
 	$(info Building samples...)
 	$(RULE)$(MAKE) -C samples
 
+test:  ## Build and run integration and smoke tests.
+	$(info Running local testsuite...)
+	$(RULE)$(MAKE) -C tests PROJECT=$(PROJECT) LIBS=$(LIBS)
+
 help:  ## Show this help text ('make help').
 	$(info JPMS Attic:)
 	@grep -E '^[a-z1-9A-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: all repository samples $(DEPS)
+.PHONY: all repository samples test $(DEPS)
