@@ -9,7 +9,7 @@ permissions:
   
 jobs:
   build-graph:
-    name: "Build Repository"
+    name: "Dependency Graph"
     runs-on: ubuntu-latest
     permissions:
         contents: write  # needed for graph write  
