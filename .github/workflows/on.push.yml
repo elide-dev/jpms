@@ -22,8 +22,3 @@ jobs:
   checks-gradle:
     name: "Checks"
     uses: ./.github/workflows/check.gradle-wrapper.yml
-
-  checks-dependency-review:
-    name: "Checks"
-    needs: [build-dependency-graph]
-    uses: ./.github/workflows/check.dependency-review.yml  
