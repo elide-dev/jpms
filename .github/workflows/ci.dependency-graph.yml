@@ -1,4 +1,4 @@
-name: "Build & Test"
+name: "Dependency Graph"
 
 "on":
   workflow_call: {}
@@ -8,9 +8,11 @@ permissions:
   contents: read
   
 jobs:
-  build:
-    name: "Build Repository"
+  build-graph:
+    name: "Dependency Graph"
     runs-on: ubuntu-latest
+    permissions:
+        contents: write  # needed for graph write  
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
@@ -20,19 +22,11 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
             persist-credentials: false
-            submodules: true
       - name: "Setup: Java 21"
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'zulu'
-      - name: "Setup: Cache"
-        uses: actions/cache@v4
-        with:
-          path: |
-            jdk
-            annotation-tools
-            .m2
-          key: jpms-attic-v1-${{ runner.os }}
-      - name: "Build & Test Repository"
-        run: make TESTS=yes SIGNING=no JAVADOC=no SNAPSHOT=yes
+      - name: "Build: Maven Dependency Graph"
+        continue-on-error: true
+        uses: advanced-security/maven-dependency-submission-action@bfd2106013da0957cdede0b6c39fb5ca25ae375e # v4.0.2

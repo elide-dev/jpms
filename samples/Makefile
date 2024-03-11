@@ -20,4 +20,4 @@ modular-guava-repo/app/build:
 modular-guava-maven: modular-guava-maven/target
 modular-guava-maven/target:
 	@echo "Building Modular Guava sample (Maven, remote repo)..."
-	$(RULE)cd modular-guava-maven && mvnw clean package exec:exec@modular
+	$(RULE)cd modular-guava-maven && mvn clean package exec:exec@modular

@@ -1,0 +1,24 @@
+name: "Checks: Dependency Review"
+
+"on":
+  workflow_call: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    name: "Dependency Review"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
+      - name: "Setup: Checkout"
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+            persist-credentials: false
+      - name: "Checks: Dependency Review"
+        uses: actions/dependency-review-action@9129d7d40b8c12c1ed0f60400d00c92d437adcce # v4.1.3
