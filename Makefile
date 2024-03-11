@@ -47,16 +47,6 @@ repository: $(DEPS) $(LIBS)  ## Build the repository layout.
 	@echo "Repository info:"
 	@echo "- Location: $(REPOSITORY)"
 
-$(LIBS):
-	@echo "Packaging libraries..."
-	$(RULE)$(MKDIR) $(LIBS)
-	$(RULE)$(CP) \
-		com.google.errorprone/annotations/target/*.jar \
-		com.google.j2objc/annotations/target/*.jar \
-		org.checkerframework/checker-qual/build/libs/*.jar \
-		com.google.guava/guava/target/*.jar \
-		$(LIBS)
-
 errorprone: com.google.errorprone  ## Build the Error Prone Compiler.
 com.google.errorprone: com.google.errorprone/annotations/target
 com.google.errorprone/annotations/target:
@@ -121,7 +111,7 @@ com.google.guava/guava/target:
 			-Dchecker.version=$(CHECKER_FRAMEWORK_VERSION) \
 			-Derrorprone.version=$(ERROR_PRONE_VERSION) \
 			-Dj2objc.version=$(J2OBJC_VERSION) \
-			-nsu \
+			-U \
 		&& $(MAVEN) deploy:deploy-file \
 			-DgroupId=com.google.guava \
 			-DartifactId=guava \
@@ -135,12 +125,47 @@ com.google.guava/guava/target:
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "Guava ready."
 
+#
+# Top-level commands
+#
+
+samples:  ## Build samples.
+	$(info Building samples...)
+	$(RULE)$(MAKE) -C samples
+
+test:  ## Build and run integration and smoke tests.
+	$(info Running local testsuite...)
+	$(RULE)$(MAKE) -C tests PROJECT=$(PROJECT) LIBS=$(LIBS) REPOSITORY=$(REPOSITORY)
+
+tools:  ## Build ancillary libraries.
+	$(info Building ancillary libraries...)
+	$(RULE)$(MAKE) -C tools PROJECT=$(PROJECT) LIBS=$(LIBS) REPOSITORY=$(REPOSITORY)
+
+help:  ## Show this help text ('make help').
+	$(info JPMS Attic:)
+	@grep -E '^[a-z1-9A-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+#
+# Aggregate targets
+#
+
+$(LIBS):
+	@echo "Packaging libraries..."
+	$(RULE)$(MKDIR) $(LIBS)
+	$(RULE)$(CP) \
+		com.google.errorprone/annotations/target/*.jar \
+		com.google.j2objc/annotations/target/*.jar \
+		org.checkerframework/checker-qual/build/libs/*.jar \
+		com.google.guava/guava/target/*.jar \
+		$(LIBS)
+
 git-add:
 	$(GIT) add -f \
 		repository/com/google/guava \
 		repository/com/google/j2objc \
 		repository/com/google/errorprone \
-		repository/org/checkerframework
+		repository/org/checkerframework \
+		repository/dev/javamodules
 	$(GIT) status -sb
 
 clean:  ## Clean all built targets.
@@ -154,18 +179,10 @@ clean:  ## Clean all built targets.
 		org.checkerframework/*/build \
 		samples/modular-guava/app/build \
 		samples/modular-guava-repo/app/build \
-		samples/modular-guava-maven/target
+		samples/modular-guava-maven/target \
+		tools/bom/target \
+		tools/catalog/build \
+		tools/graph/target \
+		tools/platform/build
 
-samples:  ## Build samples.
-	$(info Building samples...)
-	$(RULE)$(MAKE) -C samples
-
-test:  ## Build and run integration and smoke tests.
-	$(info Running local testsuite...)
-	$(RULE)$(MAKE) -C tests PROJECT=$(PROJECT) LIBS=$(LIBS)
-
-help:  ## Show this help text ('make help').
-	$(info JPMS Attic:)
-	@grep -E '^[a-z1-9A-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
-.PHONY: all repository samples test $(DEPS)
+.PHONY: all repository samples test tools $(DEPS)

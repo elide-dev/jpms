@@ -1,0 +1,20 @@
+#
+# JPMS Attic: Version Catalog
+# ---------------------------
+# This version catalog is used internally by the repository tools to define the library coordinates hosted by this
+# repository. To use this Version Catalog downstream in your project, see the docs at:
+#
+#    https://github.com/elide-dev/jpms
+#
+
+[versions]
+checker = "3.43.0-SNAPSHOT"
+errorprone = "2.25.0-jpms"
+guava = "33.0.0-jpms"
+j2objc = "3.0.0-jpms"
+
+[libraries]
+checker-qual = { module = "org.checkerframework:checker-qual", version.ref = "checker" }
+errorprone-annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+j2objc-annotations = { module = "com.google.j2objc:j2objc-annotations", version.ref = "j2objc" }

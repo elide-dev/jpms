@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.modularjava</groupId>
+  <artifactId>jpms</artifactId>
+  <version>1.0.0</version>
+  <name>JPMS Attic</name>
+  <description>Describes all artifacts provided in the JPMS Attic Repository.</description>
+  <url>https://jpms.pkg.st/</url>
+  <packaging>pom</packaging>
+  <licenses>
+    <license>
+      <name>Apache 2.0</name>
+      <url>https://opensource.org/license/apache-2-0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>sgammon</id>
+      <name>Sam Gammon</name>
+      <url>https://github.com/sgammon</url>
+      <organization>Elide</organization>
+      <organizationUrl>https://github.com/elide-dev</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/elide-dev/jpms.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/elide-dev/jpms.git</developerConnection>
+    <url>https://github.com/elide-dev/jpms</url>
+  </scm>
+  <repositories>
+    <repository>
+      <id>jpms-attic</id>
+      <name>JPMS Attic</name>
+      <url>https://jpms.pkg.st/repository</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>dev.modularjava</groupId>
+      <artifactId>jpms-bom</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.checkerframework</groupId>
+      <artifactId>checker-qual</artifactId>
+      <version>3.43.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.errorprone</groupId>
+      <artifactId>error_prone_annotations</artifactId>
+      <version>2.25.0-jpms</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.j2objc</groupId>
+      <artifactId>j2objc-annotations</artifactId>
+      <version>3.0.0-jpms</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>33.0.0-jre-jpms</version>
+    </dependency>
+  </dependencies>
+</project>

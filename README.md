@@ -70,6 +70,67 @@ You should use a JPMS-enabled library version which has no conflict with Maven C
 | `com.google.j2objc:j2objc-annotations`          | `3.0.0-jpms`            |
 | `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       |
 
+### BOMs & Catalogs
+
+This repository additionally provides [Maven BOM][13], [Gradle Version Catalog][14], and [Gradle Platform][15] artifacts. These simplify and enforce the use of the right library versions. See below for use.
+
+| Type                  | Coordinate                      | Version  |
+| --------------------- | ------------------------------- | -------- |
+| [Maven BOM][13]       | `dev.javamodules:jpms-bom`      | `1.0.0`  |
+| [Gradle Catalog][14]  | `dev.javamodules:jpms-catalog`  | `1.0.0`  |
+| [Gradle Platform][15] | `dev.javamodules:jpms-platform` | `1.0.0`  |
+
+#### Using the Version Catalog
+
+To use the version catalog from Gradle, follow the setup steps below. These code samples are provided in Kotlin:
+
+**`settings.gradle.kts`**:
+
+```kotlin
+dependencyResolutionManagement {
+  repositories {
+    mavenCentral()
+
+    maven {
+      name = "jpms-attic"
+      url = uri("https://jpms.pkg.st/repository")
+    }
+  }
+
+  versionCatalogs {
+    create("attic") {
+      from("dev.javamodules:jpms-catalog:1.0.0")
+    }
+  }
+}
+```
+
+**`build.gradle.kts`**:
+
+```kotlin
+dependencies {
+  api(attic.guava)
+}
+```
+
+#### Using the Gradle Platform
+
+To use the Gradle Platform to constrain your versions, map the repository as usual, then:
+
+```kotlin
+dependencies {
+  api(platform("dev.javamodules:jpms-platform:1.0.0"))
+}
+```
+
+The Version Catalog also provides a mapping:
+
+```kotlin
+dependencies {
+  api(platform(attic.javamodules.platform))
+}
+```
+
 ### Limitations
 
 This repo does not currently publish source or javadoc JARs. It's not that it couldn't, it's just that mounting classifier-equipped JARs in local repositories is annoying.
@@ -95,3 +156,6 @@ This repo is open source, licensed under [Apache 2.0](./LICENSE.txt). The librar
 [10]: https://www.scala-sbt.org/1.x/docs/Resolvers.html
 [11]: https://github.com/google/guava
 [12]: https://github.com/sgammon/guava/pull/14
+[13]: https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms
+[14]: https://docs.gradle.org/current/userguide/platforms.html
+[15]: https://docs.gradle.org/current/userguide/dependency_version_alignment.html
