@@ -1,4 +1,6 @@
 *.pom linguist-detectable linguist-language=XML
+*.xml linguist-detectable linguist-language=XML
+*.module linguist-detectable linguist-language=JSON
 *.kts linguist-detectable linguist-language=Kotlin
 *.jar linguist-detectable linguist-language=Java
 *.yaml linguist-detectable linguist-language=YAML
