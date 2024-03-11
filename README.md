@@ -78,6 +78,10 @@ This repo does not currently publish source or javadoc JARs. It's not that it co
 
 Sample projects are provided in the [samples](./samples) directory, which show how to hook up the repository and override libraries.
 
+### Licensing
+
+This repo is open source, licensed under [Apache 2.0](./LICENSE.txt). The libraries listed in this repo may have their own licenses; it is up to you to comply with these. These libraries are only published here for the purpose of early testing and development against new code; no warranty is provided of any kind.
+
 [0]: https://github.com/typetools/checker-framework
 [1]: https://github.com/typetools/checker-framework/pull/6326
 [2]: https://github.com/sgammon/error-prone
