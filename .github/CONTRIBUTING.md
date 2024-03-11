@@ -133,6 +133,10 @@ At `install` into the local repository, a custom POM can be used. This is useful
 
 Add your pom to `tools/poms`, and see examples of use in the Makefile.
 
+#### Adding to Git
+
+Check the `git-add` command in the `Makefile`, making sure that your artifacts are expressed. This ensures they will not be ignored when publishing.
+
 ## Publishing
 
 File a PR following the above instructions. Once reviewed and merged, the resulting repository artifacts will be published via GitHub Pages automatically.
