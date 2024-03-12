@@ -1,0 +1,49 @@
+version: 2
+updates:
+  ## GHA updates.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+
+  ## Dev containers.
+  - package-ecosystem: devcontainers
+    directory: /
+    schedule:
+      interval: daily
+
+  ## NPM tooling.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+
+  ## Git submodules for embedded libraries.
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: daily
+
+  ## Gradle for tooling projects.
+  - package-ecosystem: gradle
+    directory: /tools
+    schedule:
+      interval: daily
+
+  ## Maven for tooling projects.
+  - package-ecosystem: maven
+    directory: /tools
+    schedule:
+      interval: daily
+
+  ## Gradle for sample projects.
+  - package-ecosystem: gradle
+    directory: /samples
+    schedule:
+      interval: daily
+
+  ## Maven for sample projects.
+  - package-ecosystem: maven
+    directory: /samples
+    schedule:
+      interval: daily
