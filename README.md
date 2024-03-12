@@ -6,6 +6,9 @@
 
 This repository provides sub-module library overrides for popular Java libraries which don't yet provide JPMS support (at least until some PRs are merged!). There is a Maven repository which contains these artifacts, too, so you can safely use them in your projects.
 
+> [!TIP]
+> **These libraries should be treated like `SNAPSHOT` versions until a release is issued. If you see hash failures with Gradle, make sure to pass `--write-verification-metadata ...`.**
+
 #### Pending PRs
 
 Tracking issue [here][6] provides the best tracker. Once these PRs are merged and changes are released, this repo becomes obsolete.
