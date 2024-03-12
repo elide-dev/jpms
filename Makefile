@@ -14,11 +14,13 @@ export ERROR_PRONE_VERSION ?= 1.0-HEAD-SNAPSHOT
 export J2OBJC_VERSION ?= 3.0.0-SNAPSHOT
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 1.0-HEAD-jre-SNAPSHOT
+export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 else
 export ERROR_PRONE_VERSION ?= 2.25.0-jpms
 export J2OBJC_VERSION ?= 3.0.0-jpms
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 33.0.0-jre-jpms
+export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 endif
 
 export PROJECT ?= $(shell pwd)
@@ -42,7 +44,7 @@ setup:  ## Setup local codebase features; performs first-run stuff.
 	$(info Building JPMS libraries...)
 	$(RULE)mkdir -p repository
 
-repository: $(DEPS) $(LIBS)  ## Build the repository layout.
+repository: $(DEPS) $(LIBS) prebuilts  ## Build the repository layout.
 	$(info Building repository layout...)
 	@echo "Repository info:"
 	@echo "- Location: $(REPOSITORY)"
@@ -102,7 +104,7 @@ org.checkerframework/checker-qual/build/libs:
 
 guava: com.google.guava  ## Build Guava and all requisite dependencies.
 com.google.guava: org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
-com.google.guava/guava/target:
+com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/target
 	$(info Building Guava...)
 	$(RULE)cd com.google.guava \
 		&& $(MAVEN) versions:set -DnewVersion=$(GUAVA_VERSION) \
@@ -111,6 +113,7 @@ com.google.guava/guava/target:
 			-Dchecker.version=$(CHECKER_FRAMEWORK_VERSION) \
 			-Derrorprone.version=$(ERROR_PRONE_VERSION) \
 			-Dj2objc.version=$(J2OBJC_VERSION) \
+			-Dfailureaccess.version=$(GUAVA_FAILUREACCESS_VERSION) \
 			-U \
 		&& $(MAVEN) deploy:deploy-file \
 			-DgroupId=com.google.guava \
@@ -124,6 +127,14 @@ com.google.guava/guava/target:
 		&& $(GIT) checkout . \
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "Guava ready."
+
+com.google.guava/guava/futures/failureaccess/target:
+	$(info Building Guava Failure Access...)
+	$(RULE)cd com.google.guava/futures/failureaccess \
+		&& $(MAVEN) versions:set -DnewVersion=$(GUAVA_FAILUREACCESS_VERSION) \
+		&& $(MAVEN) $(MAVEN_GOAL) \
+		&& $(GIT) checkout . \
+		&& echo "Guava Failure Access ready."
 
 #
 # Top-level commands
@@ -159,6 +170,18 @@ $(LIBS):
 		com.google.guava/guava/target/*.jar \
 		$(LIBS)
 
+prebuilts:
+	@echo "Installing pre-built libraries..."
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=com.google.guava \
+		-DartifactId=failureaccess \
+		-Dversion=1.0.3-jpms \
+		-Dpackaging=jar \
+		-DpomFile=./tools/poms/failureaccess.xml \
+		-Dfile=./tools/prebuilt/failureaccess-1.0.3-jpms.jar \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+
 git-add:
 	$(GIT) add -f \
 		repository/com/google/guava \
@@ -175,6 +198,7 @@ clean:  ## Clean all built targets.
 		com.google.errorprone/*/target \
 		com.google.j2objc/annotations/target \
 		com.google.guava/*/target \
+		com.google.guava/futures/failureaccess/target \
 		org.checkerframework/build \
 		org.checkerframework/*/build \
 		samples/modular-guava/app/build \
