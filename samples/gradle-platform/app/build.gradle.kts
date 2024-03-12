@@ -7,6 +7,7 @@ plugins {
 dependencies {
   implementation(platform(attic.javamodules.platform))
   implementation("com.google.guava:guava")
+  implementation("org.slf4j:slf4j-api")
 }
 
 testing {

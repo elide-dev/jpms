@@ -45,7 +45,7 @@ dependencies {
 fun MutableVersionConstraint.fromCatalog(provider: Provider<String>) {
     val resolved = provider.get()
     when {
-        resolved.startsWith(">=") -> strictly("[${resolved.drop(">=".length).trim()}")
+        resolved.startsWith(">=") -> prefer(resolved.drop(">=".length).trim())
         resolved.startsWith("strictly ") -> strictly(resolved.drop("strictly".length).trim())
         else -> prefer(resolved)
     }
@@ -95,6 +95,11 @@ publishing {
             url = uri("${properties["jpms.repository"]}")
         }
     }
+}
+
+configurations.all {
+    exclude(group = "com.google.code.findbugs", module = "jsr305")
+    exclude(group = "com.google.guava", module = "listenablefuture")
 }
 
 signing {

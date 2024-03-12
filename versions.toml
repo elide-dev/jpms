@@ -15,7 +15,7 @@ j2objc = "3.0.0-jpms"
 
 ## Minimum versions of popular libraries where JPMS support is available.
 caffeine = ">= 3.0.2"
-slf4j = ">= 2.0"
+slf4j = ">= 2.0.0"
 snakeyaml-core = ">= 2.0"
 snakeyaml-engine = ">= 2.7"
 

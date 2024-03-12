@@ -53,26 +53,6 @@
         <artifactId>guava</artifactId>
         <version>33.0.0-jre-jpms</version>
       </dependency>
-      <dependency>
-        <groupId>com.github.ben-manes.caffeine</groupId>
-        <artifactId>caffeine</artifactId>
-        <version>[3.0.2</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>[2.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.yaml</groupId>
-        <artifactId>snakeyaml</artifactId>
-        <version>[2.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.snakeyaml</groupId>
-        <artifactId>snakeyaml-engine</artifactId>
-        <version>[2.7</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 </project>

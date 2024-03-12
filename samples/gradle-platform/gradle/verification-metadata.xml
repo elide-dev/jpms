@@ -13,6 +13,7 @@
          <trusted-key id="34D3C74983CAEBEAF7116354D1AF992375BFF8E7" group="build.buf" name="connect-kotlin" version="0.1.10"/>
          <trusted-key id="47504B76CF89C15C0512D9AFE16AB52D79FD224F" group="^com[.]google($|([.].*))" regex="true"/>
          <trusted-key id="4F7E32D440EF90A83011A8FC6425559C47CC79C4" group="javax.annotation" name="javax.annotation-api" version="1.3.2"/>
+         <trusted-key id="60200AC4AE761F1614D6C46766D68DAA073BE985" group="org.slf4j"/>
          <trusted-key id="6847BFA6411965A23F08C6366A97BB242496B68A" group="com.google.re2j" name="re2j" version="1.7"/>
          <trusted-key id="694621A7227D8D5289699830ABE9F3126BB741C1" group="com.google.guava"/>
          <trusted-key id="6F538074CCEBF35F28AF9B066A0975F8B1127B83" group="org.jetbrains.kotlin"/>
