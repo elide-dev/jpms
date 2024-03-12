@@ -19,11 +19,11 @@ Tracking issue [here][6] provides the best tracker. Once these PRs are merged an
 
 ### What's in the box?
 
-- **[`com.google.errorprone`][2]:** **Error Prone Compiler** "is a static analysis tool for Java that catches common programming mistakes at compile time," built by Google. Error Prone's annotations module is JPMS-enabled at the embedded sub-module, and is used by Guava. The [PR enabling JPMS support in Error Prone Annotations][3] has been filed and merged, but not released yet.
+- **[`com.google.errorprone`][2]:** **Error Prone Compiler** "is a static analysis tool for Java that catches common programming mistakes at compile time," built by Google. Error Prone's annotations module is JPMS-enabled at the embedded sub-module, and is used by Guava. The [PR enabling JPMS support in Error Prone Annotations][3] has been filed, merged, and released, as [`2.26.1`](https://github.com/google/error-prone/releases/tag/v2.26.1).
 
 - **[`com.google.guava`][11]:** **Google Guava** is Google's core Java commons, used throughout Google's code and the wider JVM ecosystem. Guava is an immensely popular artifact, with tons of fantastic utilities. JPMS support is [in draft][12].
 
-- **[`com.google.j2objc`][4]:** **J2ObjC** is a Java to Objective-C cross-compiling layer used by Google to effectively share Java logic on iOS and macOS platforms. J2ObjC itself is very complex and powerful, but here we have just JPMS-enabled the `annotations` module, which is used by Guava. The [PR enabling JPMS support for J2ObjC annotations][5] has been filed and merged, but not released yet.
+- **[`com.google.j2objc`][4]:** **J2ObjC** is a Java to Objective-C cross-compiling layer used by Google to effectively share Java logic on iOS and macOS platforms. J2ObjC itself is very complex and powerful, but here we have just JPMS-enabled the `annotations` module, which is used by Guava. The [PR enabling JPMS support for J2ObjC annotations][5] has been filed, merged, and released as [`3.0.0`](https://github.com/google/j2objc/commit/a883dd3f90d51d5ccad4aa3af8feaaeed6560109).
 
 - **[`org.checkerframework`][0]:** **Checker Framework** is a type-checking framework for Java. The `checker-qual` package is used by Guava, so it is included here transitively. Checker Framework added a JPMS module definition in a [recent PR][1], so this is sub-moduled at `master`. At the time of this writing no release has taken place.
 
@@ -72,12 +72,15 @@ repositories {
 
 You should use a JPMS-enabled library version which has no conflict with Maven Central. Reference the table below to pick a library.
 
-| Coordinate                                      | Version                 |
-| ----------------------------------------------- | ----------------------- |
-| `com.google.errorprone:error_prone_annotations` | `2.25.0-jpms`           |
-| `com.google.guava:guava`                        | `33.0.0-jre-jpms`       |
-| `com.google.j2objc:j2objc-annotations`          | `3.0.0-jpms`            |
-| `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       |
+**Libraries with a check-mark have seen releases in Maven Central,** and so are no longer needed through this repository.
+
+
+| Coordinate                                      | Version                 | Released |
+| ----------------------------------------------- | ----------------------- | -------- |
+| `com.google.errorprone:error_prone_annotations` | `2.26.1`                | ✅       |
+| `com.google.guava:guava`                        | `33.0.0-jre-jpms`       | 🔄       |
+| `com.google.j2objc:j2objc-annotations`          | `3.0.0`                 | ✅       |
+| `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       | 🔄       |
 
 ### BOMs & Catalogs
 
