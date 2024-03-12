@@ -3,21 +3,21 @@
   <groupId>com.google.j2objc</groupId>
   <artifactId>j2objc-annotations</artifactId>
   <versioning>
-    <lastUpdated>20240311233231</lastUpdated>
+    <lastUpdated>20240312234505</lastUpdated>
     <snapshot>
-      <timestamp>20240311.233231</timestamp>
-      <buildNumber>6</buildNumber>
+      <timestamp>20240312.234505</timestamp>
+      <buildNumber>7</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>3.0.0-20240311.233231-6</value>
-        <updated>20240311233231</updated>
+        <value>3.0.0-20240312.234505-7</value>
+        <updated>20240312234505</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>3.0.0-20240311.233231-6</value>
-        <updated>20240311233231</updated>
+        <value>3.0.0-20240312.234505-7</value>
+        <updated>20240312234505</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
