@@ -28,6 +28,9 @@ Tracking issue [here][6] provides the best tracker. Once these PRs are merged an
 
 Add this domain as a repository within any JVM build tool: [Maven][7], [Gradle][8], [Bazel][9], [sbt][10]. For example:
 
+> [!NOTE]
+> **Filing issues:** Please file issues for this repo on [`elide-dev/jpms`](https://github.com/elide-dev/jpms/issues).
+
 #### Maven
 
 ```xml
