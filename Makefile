@@ -40,9 +40,14 @@ include tools/common.mk
 
 all: setup $(DEPS) repository samples test  ## Build all targets and setup the repository.
 
+update-modules:  ## Update all sub-modules.
+	$(info Updating Attic submodules...)
+	$(RULE)$(GIT) submodule update --recursive --remote --jobs=10
+
 setup:  ## Setup local codebase features; performs first-run stuff.
 	$(info Building JPMS libraries...)
 	$(RULE)mkdir -p repository
+	$(RULE)$(GIT) submodule update --init --recursive
 
 repository: $(DEPS) $(LIBS) prebuilts  ## Build the repository layout.
 	$(info Building repository layout...)
