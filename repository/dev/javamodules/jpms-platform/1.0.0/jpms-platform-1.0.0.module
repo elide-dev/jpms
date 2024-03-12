@@ -46,7 +46,39 @@
           "group": "com.google.guava",
           "module": "guava",
           "version": {
-            "requires": "33.0.0-jpms"
+            "requires": "33.0.0-jre-jpms"
+          }
+        },
+        {
+          "group": "com.github.ben-manes.caffeine",
+          "module": "caffeine",
+          "version": {
+            "strictly": "[3.0.2",
+            "requires": "[3.0.2"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "strictly": "[2.0",
+            "requires": "[2.0"
+          }
+        },
+        {
+          "group": "org.yaml",
+          "module": "snakeyaml",
+          "version": {
+            "strictly": "[2.0",
+            "requires": "[2.0"
+          }
+        },
+        {
+          "group": "org.snakeyaml",
+          "module": "snakeyaml-engine",
+          "version": {
+            "strictly": "[2.7",
+            "requires": "[2.7"
           }
         }
       ]
@@ -83,7 +115,39 @@
           "group": "com.google.guava",
           "module": "guava",
           "version": {
-            "requires": "33.0.0-jpms"
+            "requires": "33.0.0-jre-jpms"
+          }
+        },
+        {
+          "group": "com.github.ben-manes.caffeine",
+          "module": "caffeine",
+          "version": {
+            "strictly": "[3.0.2",
+            "requires": "[3.0.2"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "strictly": "[2.0",
+            "requires": "[2.0"
+          }
+        },
+        {
+          "group": "org.yaml",
+          "module": "snakeyaml",
+          "version": {
+            "strictly": "[2.0",
+            "requires": "[2.0"
+          }
+        },
+        {
+          "group": "org.snakeyaml",
+          "module": "snakeyaml-engine",
+          "version": {
+            "strictly": "[2.7",
+            "requires": "[2.7"
           }
         }
       ]

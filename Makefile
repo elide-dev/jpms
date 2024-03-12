@@ -201,6 +201,7 @@ clean:  ## Clean all built targets.
 		com.google.guava/futures/failureaccess/target \
 		org.checkerframework/build \
 		org.checkerframework/*/build \
+		samples/gradle-platform/app/build \
 		samples/modular-guava/app/build \
 		samples/modular-guava-repo/app/build \
 		samples/modular-guava-maven/target \

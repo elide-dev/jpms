@@ -12,11 +12,47 @@ version = (properties["toolsVersion"] as? String)
 
 dependencies {
     constraints {
+        // Attic Libraries
         api(attic.j2objc.annotations)
         api(attic.errorprone.annotations)
         api(attic.checker.qual)
         api(attic.guava)
+
+        // Library Constraints
+        api("com.github.ben-manes.caffeine:caffeine") {
+            version {
+                fromCatalog(attic.versions.caffeine)
+            }
+        }
+        api("org.slf4j:slf4j-api") {
+            version {
+                fromCatalog(attic.versions.slf4j)
+            }
+        }
+        api("org.yaml:snakeyaml") {
+            version {
+                fromCatalog(attic.versions.snakeyaml.core)
+            }
+        }
+        api("org.snakeyaml:snakeyaml-engine") {
+            version {
+                fromCatalog(attic.versions.snakeyaml.engine)
+            }
+        }
     }
+}
+
+fun MutableVersionConstraint.fromCatalog(provider: Provider<String>) {
+    val resolved = provider.get()
+    when {
+        resolved.startsWith(">=") -> strictly("[${resolved.drop(">=".length).trim()}")
+        resolved.startsWith("strictly ") -> strictly(resolved.drop("strictly".length).trim())
+        else -> prefer(resolved)
+    }
+}
+
+tasks.build {
+    dependsOn("generatePomFileForMavenPublication")
 }
 
 publishing {

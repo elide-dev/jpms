@@ -4,8 +4,13 @@
 
 include ../tools/common.mk
 
-all: modular-guava modular-guava-repo modular-guava-maven
+all: gradle-platform modular-guava modular-guava-repo modular-guava-maven
 	@echo "Samples ready."
+
+gradle-platform: gradle-platform/app/build
+gradle-platform/app/build:
+	@echo "Building Gradle Platform sample (Gradle, local repo)..."
+	$(RULE)cd gradle-platform && ./gradlew :app:build
 
 modular-guava: modular-guava/app/build
 modular-guava/app/build:

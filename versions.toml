@@ -10,8 +10,14 @@
 [versions]
 checker = "3.43.0-SNAPSHOT"
 errorprone = "2.25.0-jpms"
-guava = "33.0.0-jpms"
+guava = "33.0.0-jre-jpms"
 j2objc = "3.0.0-jpms"
+
+## Minimum versions of popular libraries where JPMS support is available.
+caffeine = ">= 3.0.2"
+slf4j = ">= 2.0"
+snakeyaml-core = ">= 2.0"
+snakeyaml-engine = ">= 2.7"
 
 [libraries]
 checker-qual = { module = "org.checkerframework:checker-qual", version.ref = "checker" }
