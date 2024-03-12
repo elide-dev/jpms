@@ -35,7 +35,10 @@ catalog/build:
 			$(GRADLE_TOOL_ARGS) \
 			generateCatalogAsToml \
 			publishToMavenLocal \
-			publishAllPublicationsToAtticRepository
+			publishAllPublicationsToAtticRepository \
+			--write-verification-metadata sha256,sha512,pgp \
+			--export-keys \
+			--write-locks
 
 platform: platform/build
 platform/build:
@@ -46,6 +49,9 @@ platform/build:
 			$(GRADLE_TOOL_ARGS) \
 			build \
 			publishToMavenLocal \
-			publishAllPublicationsToAtticRepository
+			publishAllPublicationsToAtticRepository \
+			--write-verification-metadata sha256,sha512,pgp \
+			--export-keys \
+			--write-locks
 
 .PHONY: bom catalog platform

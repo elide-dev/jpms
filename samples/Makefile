@@ -10,17 +10,36 @@ all: gradle-platform modular-guava modular-guava-repo modular-guava-maven
 gradle-platform: gradle-platform/app/build
 gradle-platform/app/build:
 	@echo "Building Gradle Platform sample (Gradle, local repo)..."
-	$(RULE)cd gradle-platform && ./gradlew :app:build
+	$(RULE)cd gradle-platform && ./gradlew \
+		:app:build \
+		--refresh-dependencies \
+		--write-verification-metadata sha256,sha512,pgp \
+		--export-keys \
+		--write-locks
 
 modular-guava: modular-guava/app/build
 modular-guava/app/build:
 	@echo "Building Modular Guava sample (Gradle, local repo)..."
-	$(RULE)cd modular-guava && ./gradlew :app:build -x test -x check
+	$(RULE)cd modular-guava && ./gradlew \
+		:app:build \
+		-x test \
+		-x check \
+		--refresh-dependencies \
+		--write-verification-metadata sha256,sha512,pgp \
+		--export-keys \
+		--write-locks
 
 modular-guava-repo: modular-guava-repo/app/build
 modular-guava-repo/app/build:
 	@echo "Building Modular Guava sample (Gradle, remote repo)..."
-	$(RULE)cd modular-guava-repo && ./gradlew :app:build -x test -x check --refresh-dependencies
+	$(RULE)cd modular-guava-repo && ./gradlew \
+		:app:build \
+		-x test \
+		-x check \
+		--refresh-dependencies \
+		--write-verification-metadata sha256,sha512,pgp \
+		--export-keys \
+		--write-locks
 
 modular-guava-maven: modular-guava-maven/target
 modular-guava-maven/target:
