@@ -25,14 +25,14 @@
           "group": "com.google.j2objc",
           "module": "j2objc-annotations",
           "version": {
-            "requires": "3.0.0-jpms"
+            "requires": "3.0.0"
           }
         },
         {
           "group": "com.google.errorprone",
           "module": "error_prone_annotations",
           "version": {
-            "requires": "2.25.0-jpms"
+            "requires": "2.26.1-jpms"
           }
         },
         {
@@ -40,6 +40,13 @@
           "module": "checker-qual",
           "version": {
             "requires": "3.43.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.reactivestreams",
+          "module": "reactive-streams",
+          "version": {
+            "requires": "1.0.4-jpms"
           }
         },
         {
@@ -90,14 +97,14 @@
           "group": "com.google.j2objc",
           "module": "j2objc-annotations",
           "version": {
-            "requires": "3.0.0-jpms"
+            "requires": "3.0.0"
           }
         },
         {
           "group": "com.google.errorprone",
           "module": "error_prone_annotations",
           "version": {
-            "requires": "2.25.0-jpms"
+            "requires": "2.26.1-jpms"
           }
         },
         {
@@ -105,6 +112,13 @@
           "module": "checker-qual",
           "version": {
             "requires": "3.43.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.reactivestreams",
+          "module": "reactive-streams",
+          "version": {
+            "requires": "1.0.4-jpms"
           }
         },
         {

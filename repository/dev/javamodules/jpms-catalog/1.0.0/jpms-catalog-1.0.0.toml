@@ -7,9 +7,9 @@ format.version = "1.1"
 [versions]
 attic = "1.0.0"
 checker = "3.43.0-SNAPSHOT"
-errorprone = "2.25.0-jpms"
+errorprone = "2.26.1-jpms"
 guava = "33.0.0-jre-jpms"
-j2objc = "3.0.0-jpms"
+j2objc = "3.0.0"
 
 [libraries]
 checker-qual = {group = "org.checkerframework", name = "checker-qual", version.ref = "checker" }
