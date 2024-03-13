@@ -25,4 +25,4 @@ checker-qual = { module = "org.checkerframework:checker-qual", version.ref = "ch
 errorprone-annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 j2objc-annotations = { module = "com.google.j2objc:j2objc-annotations", version.ref = "j2objc" }
-reactivestreams = { module = "org.reactivestreams:reactive-streams", version.ref = "reactive-streams" }
+reactivestreams = { module = "org.reactivestreams:reactive-streams", version.ref = "reactivestreams" }
