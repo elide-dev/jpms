@@ -12,6 +12,8 @@ jobs:
   build-test:
     name: "Build & Test"
     uses: ./.github/workflows/ci.build-test.yml
+    with:
+      tests: true
 
   build-dependency-graph:
     name: "Build & Test"

@@ -1,7 +1,13 @@
 name: "Build & Test"
 
 "on":
-  workflow_call: {}
+  workflow_call:
+    inputs:
+      tests:
+        description: "Run all tests"
+        type: boolean
+        default: true
+
   workflow_dispatch: {}
 
 permissions:
