@@ -16,16 +16,18 @@ ifeq ($(SNAPSHOT),yes)
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 1.0-HEAD-jre-SNAPSHOT
 export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
+export REACTIVE_STREAMS_VERSION ?= 1.0.5-SNAPSHOT
 else
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 33.0.0-jre-jpms
 export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
+export REACTIVE_STREAMS_VERSION ?= 1.0.5-jpms
 endif
 
 export PROJECT ?= $(shell pwd)
 export LIBS ?= $(PROJECT)/libs
 
-DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework
+DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams
 POSIX_FLAGS ?=
 
 ifeq ($(VERBOSE),yes)
@@ -140,6 +142,19 @@ com.google.guava/guava/futures/failureaccess/target:
 		&& $(GIT) checkout . \
 		&& echo "Guava Failure Access ready."
 
+reactivestreams: org.reactivestreams  ## Build Reactive Streams.
+org.reactivestreams: org.reactivestreams/api/build/libs
+org.reactivestreams/api/build/libs:
+	$(info Building Reactive Streams...)
+	$(RULE)cd org.reactivestreams \
+		&& $(GRADLE) \
+			-Pversion=$(REACTIVE_STREAMS_VERSION) \
+			-PreleaseVersion=$(REACTIVE_STREAMS_VERSION) \
+			$(GRADLE_GOAL) \
+			publishToMavenLocal \
+			publishAllPublicationsToMavenLocalRepository \
+		&& echo "Reactive Streams ready."
+
 #
 # Top-level commands
 #
@@ -171,6 +186,7 @@ $(LIBS):
 		com.google.errorprone/annotations/target/*.jar \
 		com.google.j2objc/annotations/target/*.jar \
 		org.checkerframework/checker-qual/build/libs/*.jar \
+		org.reactivestreams/api/build/libs/*.jar \
 		com.google.guava/guava/target/*.jar \
 		$(LIBS)
 
@@ -192,6 +208,7 @@ git-add:
 		repository/com/google/j2objc \
 		repository/com/google/errorprone \
 		repository/org/checkerframework \
+		repository/org/reactivestreams \
 		repository/dev/javamodules
 	$(GIT) status -sb
 
@@ -205,6 +222,7 @@ clean:  ## Clean all built targets.
 		com.google.guava/futures/failureaccess/target \
 		org.checkerframework/build \
 		org.checkerframework/*/build \
+		org.reactivestreams/*/build \
 		samples/gradle-platform/app/build \
 		samples/modular-guava/app/build \
 		samples/modular-guava-repo/app/build \

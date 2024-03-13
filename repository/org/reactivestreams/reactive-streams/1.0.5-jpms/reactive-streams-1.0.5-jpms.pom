@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.reactivestreams</groupId>
+  <artifactId>reactive-streams</artifactId>
+  <version>1.0.5-jpms</version>
+  <name>reactive-streams</name>
+  <description>A Protocol for Asynchronous Non-Blocking Data Sequence</description>
+  <url>https://www.reactive-streams.org/</url>
+  <inceptionYear>2014</inceptionYear>
+  <licenses>
+    <license>
+      <name>MIT-0</name>
+      <url>https://spdx.org/licenses/MIT-0.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>reactive-streams-sig</id>
+      <name>Reactive Streams SIG</name>
+      <url>https://www.reactive-streams.org/</url>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git@github.com:reactive-streams/reactive-streams.git</connection>
+    <url>git@github.com:reactive-streams/reactive-streams.git</url>
+  </scm>
+</project>

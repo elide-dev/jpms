@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.reactivestreams</groupId>
+  <artifactId>reactive-streams</artifactId>
+  <versioning>
+    <lastUpdated>20240313040846</lastUpdated>
+    <snapshot>
+      <timestamp>20240313.040846</timestamp>
+      <buildNumber>3</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0.5-20240313.040846-3</value>
+        <updated>20240313040846</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.5-20240313.040846-3</value>
+        <updated>20240313040846</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>module</extension>
+        <value>1.0.5-20240313.040846-3</value>
+        <updated>20240313040846</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.0.5-SNAPSHOT</version>
+</metadata>
