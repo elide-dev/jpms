@@ -41,4 +41,4 @@ jobs:
             .m2
           key: jpms-attic-v1-${{ runner.os }}
       - name: "Build & Test Repository"
-        run: make TESTS=yes SIGNING=no JAVADOC=no SNAPSHOT=yes
+        run: make TESTS=${{ inputs.tests && 'yes' || 'no' }} SIGNING=no JAVADOC=no SNAPSHOT=yes
