@@ -16,6 +16,7 @@ dependencies {
         api(attic.j2objc.annotations)
         api(attic.errorprone.annotations)
         api(attic.checker.qual)
+        api(attic.reactivestreams)
         api(attic.guava)
 
         // Library Constraints

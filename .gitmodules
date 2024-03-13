@@ -13,3 +13,6 @@
 [submodule "guava"]
 	path = com.google.guava
 	url = git@github.com:sgammon/guava.git
+[submodule "reactive-streams"]
+	path = org.reactivestreams
+	url = git@github.com:sgammon/reactive-streams-jvm.git

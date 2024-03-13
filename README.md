@@ -27,6 +27,8 @@ Tracking issue [here][6] provides the best tracker. Once these PRs are merged an
 
 - **[`org.checkerframework`][0]:** **Checker Framework** is a type-checking framework for Java. The `checker-qual` package is used by Guava, so it is included here transitively. Checker Framework added a JPMS module definition in a [recent PR][1], so this is sub-moduled at `master`. At the time of this writing no release has taken place.
 
+- **[`org.reactivestreams`][16]:** **Reactive Streams** is a universal JVM API for building reactive software in an implementation-agnostic manner.
+
 ### How do I use it?
 
 Add this domain as a repository within any JVM build tool: [Maven][7], [Gradle][8], [Bazel][9], [sbt][10]. For example:
@@ -81,6 +83,19 @@ You should use a JPMS-enabled library version which has no conflict with Maven C
 | `com.google.guava:guava`                        | `33.0.0-jre-jpms`       | 🔄       |
 | `com.google.j2objc:j2objc-annotations`          | `3.0.0`                 | ✅       |
 | `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       | 🔄       |
+| `org.reactivestreams:reactive-streams`          | `1.0.5-jpms`            | ✅       |
+
+### Using the modules
+
+Use the modules in your `module-info.java`:
+
+| Coordinate                                      | Module                              |
+| ----------------------------------------------- | ----------------------------------- |
+| `com.google.errorprone:error_prone_annotations` | `com.google.errorprone.annotations` |
+| `com.google.guava:guava`                        | `com.google.common`                 |
+| `com.google.j2objc:j2objc-annotations`          | `com.google.j2objc.annotations`     |
+| `org.checkerframework:checker-qual`             | `org.checkerframework.checker.qual` |
+| `org.reactivestreams:reactive-streams`          | `org.reactivestreams`               |
 
 ### BOMs & Catalogs
 
@@ -171,3 +186,4 @@ This repo is open source, licensed under [Apache 2.0](./LICENSE.txt). The librar
 [13]: https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms
 [14]: https://docs.gradle.org/current/userguide/platforms.html
 [15]: https://docs.gradle.org/current/userguide/dependency_version_alignment.html
+[16]: https://github.com/reactive-streams/reactive-streams-jvm

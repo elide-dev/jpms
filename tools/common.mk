@@ -16,6 +16,7 @@ MAVEN_GOAL ?= install
 GRADLE_TASK ?= install
 
 ifeq ($(TESTS),yes)
+GRADLE_ARGS += check
 else
 MAVEN_ARGS += -DskipTests
 GRADLE_ARGS += -x test

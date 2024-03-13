@@ -9,9 +9,10 @@
 
 [versions]
 checker = "3.43.0-SNAPSHOT"
-errorprone = "2.25.0-jpms"
+errorprone = "2.26.1-jpms"
 guava = "33.0.0-jre-jpms"
-j2objc = "3.0.0-jpms"
+j2objc = "3.0.0"
+reactivestreams = "1.0.4-jpms"
 
 ## Minimum versions of popular libraries where JPMS support is available.
 caffeine = ">= 3.0.2"
@@ -24,3 +25,4 @@ checker-qual = { module = "org.checkerframework:checker-qual", version.ref = "ch
 errorprone-annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 j2objc-annotations = { module = "com.google.j2objc:j2objc-annotations", version.ref = "j2objc" }
+reactivestreams = { module = "org.reactivestreams:reactive-streams", version.ref = "reactive-streams" }
