@@ -3,21 +3,21 @@
   <groupId>com.google.guava</groupId>
   <artifactId>guava</artifactId>
   <versioning>
-    <lastUpdated>20240312234625</lastUpdated>
+    <lastUpdated>20240313004314</lastUpdated>
     <snapshot>
-      <timestamp>20240312.234625</timestamp>
-      <buildNumber>3</buildNumber>
+      <timestamp>20240313.004314</timestamp>
+      <buildNumber>4</buildNumber>
     </snapshot>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>1.0-HEAD-jre-20240312.234625-3</value>
-        <updated>20240312234625</updated>
+        <value>1.0-HEAD-jre-20240313.004314-4</value>
+        <updated>20240313004314</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.0-HEAD-jre-20240312.234625-3</value>
-        <updated>20240312234625</updated>
+        <value>1.0-HEAD-jre-20240313.004314-4</value>
+        <updated>20240313004314</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>
