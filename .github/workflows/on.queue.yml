@@ -1,0 +1,18 @@
+name: "PR Group"
+
+"on":
+  merge_group: {}
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    name: "Build & Test"
+    uses: ./.github/workflows/ci.build-test.yml
+    with:
+      tests: false
+
+  checks-gradle:
+    name: "Checks"
+    uses: ./.github/workflows/check.gradle-wrapper.yml
