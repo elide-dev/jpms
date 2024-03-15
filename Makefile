@@ -346,6 +346,11 @@ endif
 # Top-level commands
 #
 
+site:  ## Build and run the Jekyll site.
+	$(info Building site...)
+	$(RULE)bundle install
+	$(RULE)bundle exec jekyll serve
+
 samples:  ## Build samples.
 	$(info Building samples...)
 	$(RULE)$(MAKE) -C samples

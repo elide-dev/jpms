@@ -27,16 +27,17 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/"
 url: "https://jpms.pkg.st"
 github_username: javamodules
-remote_theme: pages-themes/primer@v0.2.0
+remote_theme: pages-themes/primer@v0.6.0
 show_downloads: false
+
+readme_index:
+  enabled:          true
+  remove_originals: false
+  with_frontmatter: false
 
 plugins:
   - jekyll-gist
   - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-avatar
-  - jekyll-mentions
-  - jekyll-assets
   - jekyll-remote-theme
   - jekyll-github-metadata
   - jekyll-readme-index

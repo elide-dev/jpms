@@ -39,6 +39,7 @@ repository                     Build the repository layout.
 reset                          Reset the codebase as well as performing a `distclean`.
 samples                        Build samples.
 setup                          Setup local codebase features; performs first-run stuff.
+site                           Build and run the Jekyll site.
 test                           Build and run integration and smoke tests.
 tools                          Build ancillary libraries.
 update-modules                 Update all sub-modules.
