@@ -32,5 +32,5 @@ jobs:
         uses: advanced-security/maven-dependency-submission-action@bfd2106013da0957cdede0b6c39fb5ca25ae375e # v4.0.2
         with:
           directory: ./tools/graph
-          settings-file: ./.github/settings.xml
+          settings-file: settings.xml
           ignore-maven-wrapper: true
