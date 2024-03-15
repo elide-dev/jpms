@@ -5,9 +5,8 @@
   <versioning>
     <release>4.26.0-jpms</release>
     <versions>
-      <version>4.27.0-SNAPSHOT</version>
       <version>4.26.0-jpms</version>
     </versions>
-    <lastUpdated>20240315032655</lastUpdated>
+    <lastUpdated>20240315185009</lastUpdated>
   </versioning>
 </metadata>

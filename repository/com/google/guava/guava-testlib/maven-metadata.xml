@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.google.guava</groupId>
+  <artifactId>guava-testlib</artifactId>
+  <versioning>
+    <release>33.0.0-jre-jpms</release>
+    <versions>
+      <version>33.0.0-jre-jpms</version>
+    </versions>
+    <lastUpdated>20240315193220</lastUpdated>
+  </versioning>
+</metadata>

@@ -1,0 +1,1 @@
+# Sample: Modular Guava (Gradle)

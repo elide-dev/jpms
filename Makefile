@@ -44,7 +44,7 @@ endif
 
 include tools/common.mk
 DEV_LOCAL = $(DEV_ROOT) $(DEV_BIN) $(DEV_BIN)/protoc
-BUILD_DEPS ?= $(DEV_LOCAL) $(DEPS)
+BUILD_DEPS ?= $(DEV_LOCAL)
 
 all: setup $(BUILD_DEPS) repository samples test  ## Build all targets and setup the repository.
 
@@ -54,8 +54,6 @@ update-modules:  ## Update all sub-modules.
 
 setup:  ## Setup local codebase features; performs first-run stuff.
 	$(info Building JPMS libraries...)
-	$(RULE)mkdir -p repository
-	$(RULE)$(GIT) submodule update --init --recursive
 
 repository: $(DEPS) $(LIBS) prebuilts  ## Build the repository layout.
 	$(info Building repository layout...)
@@ -128,7 +126,7 @@ org.checkerframework/checker-qual/build/libs:
 # Library: Guava ---------------------------------------------------------------------------
 
 guava: com.google.guava  ## Build Guava and all requisite dependencies.
-com.google.guava: $(BUILD_DEPS) org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
+com.google.guava: org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
 com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/target
 	$(info Building Guava...)
 	$(RULE)cd com.google.guava \
@@ -139,7 +137,24 @@ com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/targ
 			-Derrorprone.version=$(ERROR_PRONE_VERSION) \
 			-Dj2objc.version=$(J2OBJC_VERSION) \
 			-Dfailureaccess.version=$(GUAVA_FAILUREACCESS_VERSION) \
-			-U \
+			-U
+
+	$(RULE)cd com.google.guava/guava-bom \
+		&& $(MAVEN) versions:set -DnewVersion=$(GUAVA_VERSION)
+
+ifeq ($(SNAPSHOT),no)
+	$(RULE)cd com.google.guava \
+		&& $(MAVEN) deploy:deploy-file \
+			-DgroupId=com.google.guava \
+			-DartifactId=guava-parent \
+			-Dversion=$(GUAVA_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/guava-parent.xml \
+			-Dfile=pom.xml \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	$(RULE)cd com.google.guava \
 		&& $(MAVEN) deploy:deploy-file \
 			-DgroupId=com.google.guava \
 			-DartifactId=guava \
@@ -148,7 +163,42 @@ com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/targ
 			-DpomFile=../tools/poms/guava.xml \
   			-Dfile=guava/target/guava-$(GUAVA_VERSION).jar \
   			-DrepositoryId=jpms-local \
-  			-Durl=$(REPOSITORY) \
+			-Durl=$(REPOSITORY)
+
+	$(RULE)cd com.google.guava \
+		&& $(MAVEN) deploy:deploy-file \
+			-DgroupId=com.google.guava \
+			-DartifactId=guava-testlib \
+			-Dversion=$(GUAVA_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/guava-testlib.xml \
+			-Dfile=guava-testlib/target/guava-testlib-$(GUAVA_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	$(RULE)cd com.google.guava \
+		&& $(MAVEN) deploy:deploy-file \
+			-DgroupId=com.google.guava \
+			-DartifactId=guava-gwt \
+			-Dversion=$(GUAVA_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/guava-gwt.xml \
+			-Dfile=guava-gwt/target/guava-gwt-$(GUAVA_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	$(RULE)cd com.google.guava \
+		&& $(MAVEN) deploy:deploy-file \
+			-DgroupId=com.google.guava \
+			-DartifactId=guava-bom \
+			-Dversion=$(GUAVA_VERSION) \
+			-Dpackaging=pom \
+			-DpomFile=./guava-bom/pom.xml \
+			-Dfile=./guava-bom/pom.xml \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+endif
+	$(RULE)cd com.google.guava \
 		&& $(GIT) checkout . \
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "Guava ready."
@@ -341,6 +391,17 @@ endif
 
 	@echo "Protobuf ready."
 
+#
+# Testing: Google GSON ---------------------------------------------------------------------
+
+tests-gson:  ## Build GSON against local libraries.
+	$(RULE)$(MAKE) -C tests/integration gson
+
+tests-checkstyle:  ## Build Checkstyle against local libraries.
+	$(RULE)$(MAKE) -C tests/integration checkstyle
+
+tests-pmd:  ## Build PMD against local libraries.
+	$(RULE)$(MAKE) -C tests/integration pmd
 
 #
 # Top-level commands
@@ -371,7 +432,8 @@ help:  ## Show this help text ('make help').
 # Local Dev Targets
 #
 
-dev $(DEV_LOCAL): setup  ## Setup local development tooling.
+dev: $(DEV_LOCAL)  ## Setup local development tooling.
+$(DEV_LOCAL):
 	@echo "Setting up local dev root..."
 	$(RULE)$(MKDIR) -p $(DEV_ROOT) $(DEV_BIN)
 	@echo "Building 'protoc'..."

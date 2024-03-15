@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.google.guava</groupId>
+  <artifactId>guava-parent</artifactId>
+  <version>33.0.0-jre-jpms</version>
+  <packaging>jar</packaging>
+  <name>Guava: Parent</name>
+  <url>https://github.com/google/guava</url>
+  <description>
+    Parent to all Guava POMs.
+  </description>
+  <dependencies>
+  </dependencies>
+  <build>
+    <resources>
+      <resource>
+        <directory>..</directory>
+        <includes>
+          <include>LICENSE</include> <!-- copied from the parent pom because I couldn't figure out a way to make combine.children="append" work -->
+          <include>proguard/*</include>
+        </includes>
+        <targetPath>META-INF</targetPath>
+      </resource>
+    </resources>
+  </build>
+</project>
