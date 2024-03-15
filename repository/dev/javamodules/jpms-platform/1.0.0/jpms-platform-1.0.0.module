@@ -50,6 +50,27 @@
           }
         },
         {
+          "group": "com.google.protobuf",
+          "module": "protobuf-java",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-util",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-kotlin",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
           "group": "com.google.guava",
           "module": "guava",
           "version": {
@@ -119,6 +140,27 @@
           "module": "reactive-streams",
           "version": {
             "requires": "1.0.4-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-java",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-util",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-kotlin",
+          "version": {
+            "requires": "4.26.0-jpms"
           }
         },
         {

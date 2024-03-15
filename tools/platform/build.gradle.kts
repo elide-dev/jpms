@@ -17,6 +17,9 @@ dependencies {
         api(attic.errorprone.annotations)
         api(attic.checker.qual)
         api(attic.reactivestreams)
+        api(attic.protobuf.java)
+        api(attic.protobuf.util)
+        api(attic.protobuf.kotlin)
         api(attic.guava)
 
         // Library Constraints

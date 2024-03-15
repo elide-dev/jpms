@@ -17,17 +17,22 @@ export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 1.0-HEAD-jre-SNAPSHOT
 export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 export REACTIVE_STREAMS_VERSION ?= 1.0.5-SNAPSHOT
+export PROTOBUF_VERSION ?= 4.27.0-SNAPSHOT
 else
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 33.0.0-jre-jpms
 export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 export REACTIVE_STREAMS_VERSION ?= 1.0.5-jpms
+export PROTOBUF_VERSION ?= 4.26.0-jpms
 endif
 
 export PROJECT ?= $(shell pwd)
+export DEV_ROOT ?= $(PROJECT)/.dev
+export DEV_BIN ?= $(DEV_ROOT)/bin
 export LIBS ?= $(PROJECT)/libs
+export PROJECT_PATH ?= $(DEV_BIN):$(shell echo $$PATH)
 
-DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams
+DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams com.google.protobuf
 POSIX_FLAGS ?=
 
 ifeq ($(VERBOSE),yes)
@@ -38,8 +43,10 @@ export RULE = @
 endif
 
 include tools/common.mk
+DEV_LOCAL = $(DEV_ROOT) $(DEV_BIN) $(DEV_BIN)/protoc
+BUILD_DEPS ?= $(DEV_LOCAL) $(DEPS)
 
-all: setup $(DEPS) repository samples test  ## Build all targets and setup the repository.
+all: setup $(BUILD_DEPS) repository samples test  ## Build all targets and setup the repository.
 
 update-modules:  ## Update all sub-modules.
 	$(info Updating Attic submodules...)
@@ -55,8 +62,11 @@ repository: $(DEPS) $(LIBS) prebuilts  ## Build the repository layout.
 	@echo "Repository info:"
 	@echo "- Location: $(REPOSITORY)"
 
+#
+# Library: Error Prone ---------------------------------------------------------------------
+
 errorprone: com.google.errorprone  ## Build the Error Prone Compiler.
-com.google.errorprone: com.google.errorprone/annotations/target
+com.google.errorprone: $(BUILD_DEPS) com.google.errorprone/annotations/target
 com.google.errorprone/annotations/target:
 	$(info Building Error Prone Compiler...)
 	$(RULE)cd com.google.errorprone \
@@ -76,8 +86,11 @@ com.google.errorprone/annotations/target:
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "Error Prone Compiler ready."
 
+#
+# Library: J2ObjC --------------------------------------------------------------------------
+
 j2objc: com.google.j2objc  ## Build the J2ObjC annotations.
-com.google.j2objc: com.google.j2objc/annotations/target
+com.google.j2objc: $(BUILD_DEPS) com.google.j2objc/annotations/target
 com.google.j2objc/annotations/target:
 	$(info Building J2ObjC...)
 	$(RULE)cd com.google.j2objc/annotations \
@@ -97,8 +110,11 @@ com.google.j2objc/annotations/target:
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "J2ObjC annotations ready."
 
+#
+# Library: Checker Framework ---------------------------------------------------------------
+
 checkerframework: org.checkerframework  ## Build Checker Framework.
-org.checkerframework: org.checkerframework/checker-qual/build/libs
+org.checkerframework: $(BUILD_DEPS) org.checkerframework/checker-qual/build/libs
 org.checkerframework/checker-qual/build/libs:
 	$(info Building Checker Framework...)
 	$(RULE)cd org.checkerframework \
@@ -108,8 +124,11 @@ org.checkerframework/checker-qual/build/libs:
 			-x check \
 			-x installGitHooks
 
+#
+# Library: Guava ---------------------------------------------------------------------------
+
 guava: com.google.guava  ## Build Guava and all requisite dependencies.
-com.google.guava: org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
+com.google.guava: $(BUILD_DEPS) org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
 com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/target
 	$(info Building Guava...)
 	$(RULE)cd com.google.guava \
@@ -142,8 +161,11 @@ com.google.guava/guava/futures/failureaccess/target:
 		&& $(GIT) checkout . \
 		&& echo "Guava Failure Access ready."
 
+#
+# Library: Reactive Streams ----------------------------------------------------------------
+
 reactivestreams: org.reactivestreams  ## Build Reactive Streams.
-org.reactivestreams: org.reactivestreams/api/build/libs
+org.reactivestreams: $(BUILD_DEPS) org.reactivestreams/api/build/libs
 org.reactivestreams/api/build/libs:
 	$(info Building Reactive Streams...)
 	$(RULE)cd org.reactivestreams \
@@ -154,6 +176,171 @@ org.reactivestreams/api/build/libs:
 			publishToMavenLocal \
 			publishAllPublicationsToMavenLocalRepository \
 		&& echo "Reactive Streams ready."
+
+
+#
+# Library: Protocol Buffers ----------------------------------------------------------------
+
+protobuf: com.google.protobuf  ## Build Protocol Buffers.
+com.google.protobuf: com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar
+com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar:
+	$(info Building Protocol Buffers...)
+	$(RULE)cd com.google.protobuf \
+		&& $(BAZEL) \
+			build \
+			//:protoc \
+			//java:release
+ifeq ($(TESTS),yes)
+	@echo "Running Protocol Buffers testsuites..."
+	$(RULE)cd com.google.protobuf \
+		&& $(BAZEL) \
+			test \
+			//java/...
+endif
+	@echo "Setting Protobuf Java BOM version ('$(PROTOBUF_VERSION)')..."
+	$(RULE)cd com.google.protobuf/java/bom \
+		&& $(MAVEN) versions:set \
+			-DnewVersion=$(PROTOBUF_VERSION) \
+			-Dproject.version=$(PROTOBUF_VERSION)
+	@echo "Setting Protobuf Java version ('$(PROTOBUF_VERSION)')..."
+	$(RULE)cd com.google.protobuf/java \
+		&& $(MAVEN) versions:set \
+			-DnewVersion=$(PROTOBUF_VERSION) \
+			-Dbom.version=$(PROTOBUF_VERSION) \
+		&& $(MAVEN) versions:update-child-modules \
+			-Dbom.version=$(PROTOBUF_VERSION)
+
+	@echo "Publishing Protobuf Java to local repository..."
+
+	@# parent
+	$(RULE)$(CP) \
+		./com.google.protobuf/java/pom.xml \
+		./com.google.protobuf/bazel-bin/java/protobuf-parent-$(PROTOBUF_VERSION).xml
+
+	@# bom
+	$(RULE)$(CP) \
+		./com.google.protobuf/java/bom/pom.xml \
+		./com.google.protobuf/bazel-bin/java/protobuf-bom-$(PROTOBUF_VERSION).xml
+
+	@# core
+	$(RULE)$(CP) \
+		./com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar \
+		./com.google.protobuf/bazel-bin/java/core/protobuf-java-$(PROTOBUF_VERSION).jar
+	$(RULE)$(CP) \
+		./tools/poms/protobuf-java.xml \
+		./com.google.protobuf/bazel-bin/java/core/protobuf-java-$(PROTOBUF_VERSION).xml
+
+	@# lite
+	$(RULE)$(CP) \
+		./com.google.protobuf/bazel-bin/java/core/amended_lite_mvn-project.jar \
+		./com.google.protobuf/bazel-bin/java/core/protobuf-javalite-$(PROTOBUF_VERSION).jar
+	$(RULE)$(CP) \
+		./tools/poms/protobuf-javalite.xml \
+		./com.google.protobuf/bazel-bin/java/core/protobuf-javalite-$(PROTOBUF_VERSION).xml
+
+	@# util
+	$(RULE)$(CP) \
+		./com.google.protobuf/bazel-bin/java/util/amended_util_mvn-project.jar \
+		./com.google.protobuf/bazel-bin/java/util/protobuf-util-$(PROTOBUF_VERSION).jar
+	$(RULE)$(CP) \
+		./tools/poms/protobuf-util.xml \
+		./com.google.protobuf/bazel-bin/java/util/protobuf-util-$(PROTOBUF_VERSION).xml
+
+	@# kotlin
+	$(RULE)$(CP) \
+		./com.google.protobuf/bazel-bin/java/kotlin/amended_kotlin_mvn-project.jar \
+		./com.google.protobuf/bazel-bin/java/kotlin/protobuf-kotlin-$(PROTOBUF_VERSION).jar
+	$(RULE)$(CP) \
+		./tools/poms/protobuf-kotlin.xml \
+		./com.google.protobuf/bazel-bin/java/kotlin/protobuf-kotlin-$(PROTOBUF_VERSION).xml
+
+	@# kotlin-lite
+	$(RULE)$(CP) \
+		./com.google.protobuf/bazel-bin/java/kotlin-lite/amended_kotlin-lite_mvn-project.jar \
+		./com.google.protobuf/bazel-bin/java/kotlin-lite/protobuf-kotlin-lite-$(PROTOBUF_VERSION).jar
+	$(RULE)$(CP) \
+		./tools/poms/protobuf-kotlinlite.xml \
+		./com.google.protobuf/bazel-bin/java/kotlin-lite/protobuf-kotlin-lite-$(PROTOBUF_VERSION).xml
+
+	@# parent
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=com.google.protobuf \
+		-DartifactId=protobuf-parent \
+		-Dversion=$(PROTOBUF_VERSION) \
+		-Dpackaging=pom \
+		-DpomFile=./com.google.protobuf/bazel-bin/java/protobuf-parent-$(PROTOBUF_VERSION).xml \
+		-Dfile=./com.google.protobuf/bazel-bin/java/protobuf-parent-$(PROTOBUF_VERSION).xml \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+
+	@# bom
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=com.google.protobuf \
+		-DartifactId=protobuf-bom \
+		-Dversion=$(PROTOBUF_VERSION) \
+		-Dpackaging=pom \
+		-DpomFile=./com.google.protobuf/bazel-bin/java/protobuf-bom-$(PROTOBUF_VERSION).xml \
+		-Dfile=./com.google.protobuf/bazel-bin/java/protobuf-bom-$(PROTOBUF_VERSION).xml \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+
+	@# core
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=com.google.protobuf \
+		-DartifactId=protobuf-java \
+		-Dversion=$(PROTOBUF_VERSION) \
+		-Dpackaging=jar \
+		-DpomFile=./com.google.protobuf/bazel-bin/java/core/protobuf-java-$(PROTOBUF_VERSION).xml \
+		-Dfile=./com.google.protobuf/bazel-bin/java/core/protobuf-java-$(PROTOBUF_VERSION).jar \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+
+	@# lite
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=com.google.protobuf \
+		-DartifactId=protobuf-javalite \
+		-Dversion=$(PROTOBUF_VERSION) \
+		-Dpackaging=jar \
+		-DpomFile=./com.google.protobuf/bazel-bin/java/core/protobuf-javalite-$(PROTOBUF_VERSION).xml \
+		-Dfile=./com.google.protobuf/bazel-bin/java/core/protobuf-javalite-$(PROTOBUF_VERSION).jar \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+
+	@# util
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=com.google.protobuf \
+		-DartifactId=protobuf-util \
+		-Dversion=$(PROTOBUF_VERSION) \
+		-Dpackaging=jar \
+		-DpomFile=./com.google.protobuf/bazel-bin/java/util/protobuf-util-$(PROTOBUF_VERSION).xml \
+		-Dfile=./com.google.protobuf/bazel-bin/java/util/protobuf-util-$(PROTOBUF_VERSION).jar \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+
+	@# kotlin
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=com.google.protobuf \
+		-DartifactId=protobuf-kotlin \
+		-Dversion=$(PROTOBUF_VERSION) \
+		-Dpackaging=jar \
+		-DpomFile=./com.google.protobuf/bazel-bin/java/kotlin/protobuf-kotlin-$(PROTOBUF_VERSION).xml \
+		-Dfile=./com.google.protobuf/bazel-bin/java/kotlin/protobuf-kotlin-$(PROTOBUF_VERSION).jar \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+
+	@# kotlin-lite
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=com.google.protobuf \
+		-DartifactId=protobuf-kotlin-lite \
+		-Dversion=$(PROTOBUF_VERSION) \
+		-Dpackaging=jar \
+		-DpomFile=./com.google.protobuf/bazel-bin/java/kotlin-lite/protobuf-kotlin-lite-$(PROTOBUF_VERSION).xml \
+		-Dfile=./com.google.protobuf/bazel-bin/java/kotlin-lite/protobuf-kotlin-lite-$(PROTOBUF_VERSION).jar \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+
+	@echo "Protobuf ready."
+
 
 #
 # Top-level commands
@@ -176,6 +363,18 @@ help:  ## Show this help text ('make help').
 	@grep -E '^[a-z1-9A-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 #
+# Local Dev Targets
+#
+
+dev $(DEV_LOCAL): setup  ## Setup local development tooling.
+	@echo "Setting up local dev root..."
+	$(RULE)$(MKDIR) -p $(DEV_ROOT) $(DEV_BIN)
+	@echo "Building 'protoc'..."
+	$(RULE)cd com.google.protobuf && $(BAZEL) build //:protoc
+	@echo "Mounting 'protoc'..."
+	$(RULE)$(CP) ./com.google.protobuf/bazel-bin/protoc $(DEV_BIN)/protoc
+
+#
 # Aggregate targets
 #
 
@@ -188,6 +387,7 @@ $(LIBS):
 		org.checkerframework/checker-qual/build/libs/*.jar \
 		org.reactivestreams/api/build/libs/*.jar \
 		com.google.guava/guava/target/*.jar \
+		com.google.protobuf/bazel-bin/java/*/amended_*_mvn-project.jar \
 		$(LIBS)
 
 prebuilts:
@@ -207,6 +407,7 @@ git-add:
 		repository/com/google/guava \
 		repository/com/google/j2objc \
 		repository/com/google/errorprone \
+		repository/com/google/protobuf \
 		repository/org/checkerframework \
 		repository/org/reactivestreams \
 		repository/dev/javamodules
@@ -227,9 +428,24 @@ clean:  ## Clean all built targets.
 		samples/modular-guava/app/build \
 		samples/modular-guava-repo/app/build \
 		samples/modular-guava-maven/target \
+		samples/modular-proto/build \
+		samples/modular-proto/app/build \
 		tools/bom/target \
 		tools/catalog/build \
 		tools/graph/target \
 		tools/platform/build
 
-.PHONY: all repository samples test tools $(DEPS)
+distclean: clean  ## Clean downloaded material and local dev tools.
+	$(info Cleaning dist...)
+	$(RULE)$(RM) -fr $(DEV_LOCAL) $(LIBS) $(M2_LOCAL)
+	$(RULE)cd com.google.protobuf && $(BAZEL) clean
+
+reset: distclean  ## Reset the codebase as well as performing a `distclean`.
+	$(info Resetting codebase...)
+	$(RULE)$(GIT) reset --hard
+
+forceclean: reset  ## DANGEROUS: Wipe all untracked files and other changes; completely reset.
+	$(info Sanitizing codebase...)
+	$(RULE)$(GIT) clean -xdf
+
+.PHONY: all repository samples test tools $(DEPS) com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar

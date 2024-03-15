@@ -16,3 +16,6 @@
 [submodule "reactive-streams"]
 	path = org.reactivestreams
 	url = git@github.com:sgammon/reactive-streams-jvm.git
+[submodule "protobuf"]
+	path = com.google.protobuf
+	url = git@github.com:sgammon/protobuf.git

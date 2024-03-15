@@ -63,5 +63,15 @@
       <artifactId>guava</artifactId>
       <version>33.0.0-jre-jpms</version>
     </dependency>
+    <dependency>
+      <groupId>org.reactivestreams</groupId>
+      <artifactId>reactive-streams</artifactId>
+      <version>1.0.5-jpms</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>4.26.0-jpms</version>
+    </dependency>
   </dependencies>
 </project>

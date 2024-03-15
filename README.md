@@ -25,6 +25,9 @@ Tracking issue [here][6] provides the best tracker. Once these PRs are merged an
 
 - **[`com.google.j2objc`][4]:** **J2ObjC** is a Java to Objective-C cross-compiling layer used by Google to effectively share Java logic on iOS and macOS platforms. J2ObjC itself is very complex and powerful, but here we have just JPMS-enabled the `annotations` module, which is used by Guava. The [PR enabling JPMS support for J2ObjC annotations][5] has been filed, merged, and released as [`3.0.0`](https://github.com/google/j2objc/commit/a883dd3f90d51d5ccad4aa3af8feaaeed6560109).
 
+
+- **[`com.google.protobuf`][4]:** **Protocol Buffers** (a.k.a., protobuf) are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data. = JPMS support is [in draft][17].
+
 - **[`org.checkerframework`][0]:** **Checker Framework** is a type-checking framework for Java. The `checker-qual` package is used by Guava, so it is included here transitively. Checker Framework added a JPMS module definition in a [recent PR][1], so this is sub-moduled at `master`. At the time of this writing no release has taken place.
 
 - **[`org.reactivestreams`][16]:** **Reactive Streams** is a universal JVM API for building reactive software in an implementation-agnostic manner.
@@ -82,6 +85,11 @@ You should use a JPMS-enabled library version which has no conflict with Maven C
 | `com.google.errorprone:error_prone_annotations` | `2.26.1`                | ✅       |
 | `com.google.guava:guava`                        | `33.0.0-jre-jpms`       | 🔄       |
 | `com.google.j2objc:j2objc-annotations`          | `3.0.0`                 | ✅       |
+| `com.google.protobuf:protobuf-java`             | `4.26.0-jpms`           | 🔄       |
+| `com.google.protobuf:protobuf-javalite`         | `4.26.0-jpms`           | 🔄       |
+| `com.google.protobuf:protobuf-util`             | `4.26.0-jpms`           | 🔄       |
+| `com.google.protobuf:protobuf-kotlin`           | `4.26.0-jpms`           | 🔄       |
+| `com.google.protobuf:protobuf-kotlin-lite`      | `4.26.0-jpms`           | 🔄       |
 | `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       | 🔄       |
 | `org.reactivestreams:reactive-streams`          | `1.0.5-jpms`            | ✅       |
 
@@ -94,6 +102,11 @@ Use the modules in your `module-info.java`:
 | `com.google.errorprone:error_prone_annotations` | `com.google.errorprone.annotations` |
 | `com.google.guava:guava`                        | `com.google.common`                 |
 | `com.google.j2objc:j2objc-annotations`          | `com.google.j2objc.annotations`     |
+| `com.google.protobuf:protobuf-java`             | `com.google.protobuf`               |
+| `com.google.protobuf:protobuf-javalite`         | `com.google.protobuf`               |
+| `com.google.protobuf:protobuf-util`             | `com.google.protobuf.util`          |
+| `com.google.protobuf:protobuf-kotlin`           | `com.google.protobuf.kotlin`        |
+| `com.google.protobuf:protobuf-kotlin-lite`      | `com.google.protobuf.kotlin`        |
 | `org.checkerframework:checker-qual`             | `org.checkerframework.checker.qual` |
 | `org.reactivestreams:reactive-streams`          | `org.reactivestreams`               |
 
@@ -187,3 +200,4 @@ This repo is open source, licensed under [Apache 2.0](./LICENSE.txt). The librar
 [14]: https://docs.gradle.org/current/userguide/platforms.html
 [15]: https://docs.gradle.org/current/userguide/dependency_version_alignment.html
 [16]: https://github.com/reactive-streams/reactive-streams-jvm
+[17]: https://github.com/protocolbuffers/protobuf/pull/16178
