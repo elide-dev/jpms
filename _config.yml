@@ -42,20 +42,17 @@ plugins:
   - jekyll-github-metadata
   - jekyll-readme-index
 
-keep_files:
-  - repository/
-
 exclude:
   - .dev/
   - .m2/
   - .sass-cache/
   - .jekyll-cache/
-  - repository/
   - third_party/
   - annotation-tools/
   - com.google.j2objc/
   - com.google.errorprone/
   - com.google.protobuf/
+  - com.google.guava/
   - org.checkerframework/
   - org.reactivestreams/
   - jdk/
@@ -68,4 +65,5 @@ exclude:
   - vendor/ruby/
   - tests/
   - tools/
+  - samples/
 
