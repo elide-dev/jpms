@@ -47,3 +47,23 @@ updates:
     directory: /samples
     schedule:
       interval: daily
+
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /samples/modular-guava-maven
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /tools/bom
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /tools/graph
+    schedule:
+      interval: daily
