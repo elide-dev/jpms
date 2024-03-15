@@ -28,6 +28,7 @@ baseurl: "/"
 url: "https://jpms.pkg.st"
 github_username: javamodules
 remote_theme: pages-themes/primer@v0.6.0
+repository: elide-dev/jpms
 show_downloads: false
 
 readme_index:
