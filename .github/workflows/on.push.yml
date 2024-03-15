@@ -9,12 +9,6 @@ permissions:
   contents: read
 
 jobs:
-  build-test:
-    name: "Build & Test"
-    uses: ./.github/workflows/ci.build-test.yml
-    with:
-      tests: false
-
   build-dependency-graph:
     name: "Build & Test"
     uses: ./.github/workflows/ci.dependency-graph.yml

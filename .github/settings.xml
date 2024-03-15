@@ -1,0 +1,44 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <profiles>
+    <profile>
+      <id>pkgst</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>pkgst-maven</id>
+          <name>Pkgst Maven</name>
+          <url>https://maven.pkg.st</url>
+        </repository>
+      </repositories>
+    </profile>
+    <profile>
+      <id>jpms-local</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>jpms-local</id>
+          <name>JPMS Local</name>
+          <url>file:///home/runner/work/jpms/jpms/repository</url>
+        </repository>
+      </repositories>
+    </profile>
+    <profile>
+      <id>pkgst-jpms</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>pkgst-jpms</id>
+          <name>Pkgst JPMS</name>
+          <url>https://jpms.pkg.st</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+</settings>
