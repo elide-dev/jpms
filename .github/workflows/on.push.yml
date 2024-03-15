@@ -20,3 +20,11 @@ jobs:
     uses: ./.github/workflows/ci.dependency-graph.yml
     permissions:
       contents: write  # needed for graph write
+
+  deploy-site:
+    name: "Deploy"
+    uses: ./.github/workflows/deploy.site.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
