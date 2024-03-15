@@ -12,7 +12,7 @@ name: "Build & Test"
 
 permissions:
   contents: read
-  
+
 jobs:
   build:
     name: "Build Repository"
@@ -32,6 +32,8 @@ jobs:
         with:
           java-version: '21'
           distribution: 'zulu'
+      - name: "Setup: Bazelisk"
+        uses: bazelbuild/setup-bazelisk@b39c379c82683a5f25d34f0d062761f62693e0b2 # v3.0.0
       - name: "Setup: Cache"
         uses: actions/cache@v4
         with:
@@ -39,6 +41,9 @@ jobs:
             jdk
             annotation-tools
             .m2
+            ~/.cache/bazel
           key: jpms-attic-v1-${{ runner.os }}
+      - name: "Setup: Dev Tooling"
+        run: make dev
       - name: "Build & Test Repository"
         run: make TESTS=${{ inputs.tests && 'yes' || 'no' }} SIGNING=no JAVADOC=no SNAPSHOT=yes

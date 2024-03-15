@@ -4,7 +4,7 @@
 
 include ../tools/common.mk
 
-all: gradle-platform modular-guava modular-guava-repo modular-guava-maven
+all: gradle-platform modular-guava modular-guava-repo modular-proto modular-guava-maven
 	@echo "Samples ready."
 
 gradle-platform: gradle-platform/app/build
@@ -45,3 +45,15 @@ modular-guava-maven: modular-guava-maven/target
 modular-guava-maven/target:
 	@echo "Building Modular Guava sample (Maven, remote repo)..."
 	$(RULE)cd modular-guava-maven && mvn clean package exec:exec@modular
+
+modular-proto: modular-proto/app/build
+modular-proto/app/build:
+	@echo "Building Modular Protobuf sample (Gradle, local repo)..."
+	$(RULE)cd modular-proto && ./gradlew \
+		:app:build \
+		-x test \
+		-x check \
+		--refresh-dependencies \
+		--write-verification-metadata sha256,sha512,pgp \
+		--export-keys \
+		--write-locks

@@ -1,0 +1,5 @@
+[versions]
+protobuf-plugin = "0.9.4"
+
+[plugins]
+protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }

@@ -10,6 +10,8 @@ checker = "3.43.0-SNAPSHOT"
 errorprone = "2.26.1-jpms"
 guava = "33.0.0-jre-jpms"
 j2objc = "3.0.0"
+protobuf = "4.26.0-jpms"
+reactivestreams = "1.0.4-jpms"
 
 [libraries]
 checker-qual = {group = "org.checkerframework", name = "checker-qual", version.ref = "checker" }
@@ -18,4 +20,10 @@ guava = {group = "com.google.guava", name = "guava", version.ref = "guava" }
 j2objc-annotations = {group = "com.google.j2objc", name = "j2objc-annotations", version.ref = "j2objc" }
 javamodules-bom = {group = "dev.javamodules", name = "jpms-bom", version.ref = "attic" }
 javamodules-platform = {group = "dev.javamodules", name = "jpms-platform", version.ref = "attic" }
+protobuf-java = {group = "com.google.protobuf", name = "protobuf-java", version.ref = "protobuf" }
+protobuf-java-lite = {group = "com.google.protobuf", name = "protobuf-javalite", version.ref = "protobuf" }
+protobuf-kotlin = {group = "com.google.protobuf", name = "protobuf-kotlin", version.ref = "protobuf" }
+protobuf-kotlin-lite = {group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
+protobuf-util = {group = "com.google.protobuf", name = "protobuf-util", version.ref = "protobuf" }
+reactivestreams = {group = "org.reactivestreams", name = "reactive-streams", version.ref = "reactivestreams" }
 

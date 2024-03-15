@@ -27,14 +27,21 @@ JPMS Attic:
 all                            Build all targets and setup the repository.
 checkerframework               Build Checker Framework.
 clean                          Clean all built targets.
+distclean                      Clean downloaded material and local dev tools.
 errorprone                     Build the Error Prone Compiler.
+forceclean                     DANGEROUS: Wipe all untracked files and other changes; completely reset.
 guava                          Build Guava and all requisite dependencies.
 help                           Show this help text ('make help').
 j2objc                         Build the J2ObjC annotations.
+protobuf                       Build Protocol Buffers.
+reactivestreams                Build Reactive Streams.
 repository                     Build the repository layout.
+reset                          Reset the codebase as well as performing a `distclean`.
 samples                        Build samples.
 setup                          Setup local codebase features; performs first-run stuff.
 test                           Build and run integration and smoke tests.
+tools                          Build ancillary libraries.
+update-modules                 Update all sub-modules.
 ```
 
 **Switches and their defaults:**
@@ -46,6 +53,14 @@ SIGNING ?= no    # sign library outputs
 JAVADOC ?= no    # build javadoc outputs for each library as we go
 SNAPSHOT ?= yes  # build snapshot versions; pass `no` to build live versions
 ```
+
+**Setting up your local environment:**
+
+```shell
+make setup dev
+```
+
+> This command will setup local tooling and clone all submodules.
 
 ## Making changes
 
