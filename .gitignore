@@ -4,6 +4,7 @@
 /target
 /libs
 /annotation-tools
+*SNAPSHOT*
 .DS_Store
 _site
 .sass-cache

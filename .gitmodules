@@ -19,3 +19,30 @@
 [submodule "protobuf"]
 	path = com.google.protobuf
 	url = git@github.com:sgammon/protobuf.git
+[submodule "dubbo"]
+	path = tests/integration/dubbo
+	url = git@github.com:javamodules/dubbo.git
+[submodule "pmd"]
+	path = tests/integration/pmd
+	url = git@github.com:javamodules/pmd.git
+[submodule "ghidra"]
+	path = tests/integration/ghidra
+	url = git@github.com:javamodules/ghidra.git
+[submodule "armeria"]
+	path = tests/integration/armeria
+	url = git@github.com:javamodules/armeria.git
+[submodule "bazel"]
+	path = tests/integration/bazel
+	url = git@github.com:bazelbuild/bazel.git
+[submodule "signal-server"]
+	path = tests/integration/signal-server
+	url = git@github.com:javamodules/Signal-Server.git
+[submodule "pkl"]
+	path = tests/integration/pkl
+	url = git@github.com:javamodules/pkl.git
+[submodule "checkstyle"]
+	path = tests/integration/checkstyle
+	url = git@github.com:javamodules/checkstyle.git
+[submodule "gson"]
+	path = tests/integration/gson
+	url = git@github.com:google/gson.git
