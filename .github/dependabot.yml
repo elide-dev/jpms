@@ -24,26 +24,8 @@ updates:
     schedule:
       interval: daily
 
-  ## Gradle for tooling projects.
-  - package-ecosystem: gradle
-    directory: /tools
+  ## Jekyll dependencies.
+  - package-ecosystem: bundler
+    directory: /
     schedule:
-      interval: daily
-
-  ## Maven for tooling projects.
-  - package-ecosystem: maven
-    directory: /tools
-    schedule:
-      interval: daily
-
-  ## Gradle for sample projects.
-  - package-ecosystem: gradle
-    directory: /samples
-    schedule:
-      interval: daily
-
-  ## Maven for sample projects.
-  - package-ecosystem: maven
-    directory: /samples
-    schedule:
-      interval: daily
+      interval: weekly
