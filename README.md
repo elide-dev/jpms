@@ -13,10 +13,6 @@ This repository provides sub-module library overrides for popular Java libraries
 
 Tracking issue [here][6] provides the best tracker. Once these PRs are merged and changes are released, this repo becomes obsolete.
 
-- google/j2objc#2302 feat: support jpms in annotations module
-- google/error-prone#4311 feat: add jpms definition for annotations
-- typetools/checker-framework#6326 Add module-info.java to checker-qual
-
 ### What's in the box?
 
 - **[`com.google.errorprone`][2]:** **Error Prone Compiler** "is a static analysis tool for Java that catches common programming mistakes at compile time," built by Google. Error Prone's annotations module is JPMS-enabled at the embedded sub-module, and is used by Guava. The [PR enabling JPMS support in Error Prone Annotations][3] has been filed, merged, and released, as [`2.26.1`](https://github.com/google/error-prone/releases/tag/v2.26.1).
@@ -27,6 +23,8 @@ Tracking issue [here][6] provides the best tracker. Once these PRs are merged an
 
 
 - **[`com.google.protobuf`][4]:** **Protocol Buffers** (a.k.a., protobuf) are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data. = JPMS support is [in draft][17].
+
+- **[`io.leangen.geantyref`][18]:** **Geantyref** is a fork of the excellent GenTyRef library, adding support for working with AnnotatedTypes introduced in Java 8 plus many nifty features.
 
 - **[`org.checkerframework`][0]:** **Checker Framework** is a type-checking framework for Java. The `checker-qual` package is used by Guava, so it is included here transitively. Checker Framework added a JPMS module definition in a [recent PR][1], so this is sub-moduled at `master`. At the time of this writing no release has taken place.
 
@@ -90,6 +88,7 @@ You should use a JPMS-enabled library version which has no conflict with Maven C
 | `com.google.protobuf:protobuf-util`             | `4.26.0-jpms`           | 🔄       |
 | `com.google.protobuf:protobuf-kotlin`           | `4.26.0-jpms`           | 🔄       |
 | `com.google.protobuf:protobuf-kotlin-lite`      | `4.26.0-jpms`           | 🔄       |
+| `io.leangen.geantyref:geantyref`                | `1.3.15-jpms`           | 🔄       |
 | `org.checkerframework:checker-qual`             | `3.43.0-SNAPSHOT`       | 🔄       |
 | `org.reactivestreams:reactive-streams`          | `1.0.5-jpms`            | ✅       |
 
@@ -107,6 +106,7 @@ Use the modules in your `module-info.java`:
 | `com.google.protobuf:protobuf-util`             | `com.google.protobuf.util`          |
 | `com.google.protobuf:protobuf-kotlin`           | `com.google.protobuf.kotlin`        |
 | `com.google.protobuf:protobuf-kotlin-lite`      | `com.google.protobuf.kotlin`        |
+| `io.leangen.geantyref:geantyref`                | `io.leangen.geantyref`              |
 | `org.checkerframework:checker-qual`             | `org.checkerframework.checker.qual` |
 | `org.reactivestreams:reactive-streams`          | `org.reactivestreams`               |
 
@@ -201,3 +201,4 @@ This repo is open source, licensed under [Apache 2.0](./LICENSE.txt). The librar
 [15]: https://docs.gradle.org/current/userguide/dependency_version_alignment.html
 [16]: https://github.com/reactive-streams/reactive-streams-jvm
 [17]: https://github.com/protocolbuffers/protobuf/pull/16178
+[18]: https://github.com/leangen/geantyref
