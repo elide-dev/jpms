@@ -71,6 +71,13 @@
           }
         },
         {
+          "group": "io.leangen.geantyref",
+          "module": "geantyref",
+          "version": {
+            "requires": "1.3.15-jpms"
+          }
+        },
+        {
           "group": "com.google.guava",
           "module": "guava",
           "version": {
@@ -161,6 +168,13 @@
           "module": "protobuf-kotlin",
           "version": {
             "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "io.leangen.geantyref",
+          "module": "geantyref",
+          "version": {
+            "requires": "1.3.15-jpms"
           }
         },
         {

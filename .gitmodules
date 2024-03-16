@@ -46,3 +46,6 @@
 [submodule "gson"]
 	path = tests/integration/gson
 	url = git@github.com:google/gson.git
+[submodule "geantyref"]
+	path = io.leangen.geantyref
+	url = git@github.com:javamodules/geantyref.git

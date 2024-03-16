@@ -18,8 +18,11 @@ catalog {
         version("checker", attic.versions.checker.get())
         version("protobuf", attic.versions.protobuf.get())
         version("reactivestreams", attic.versions.reactivestreams.get())
+        version("geantyref", attic.versions.geantyref.get())
         version("attic", project.version as String)
 
+        library("geantyref", "io.leangen.geantyref", "geantyref")
+            .versionRef("geantyref")
         library("guava", "com.google.guava", "guava")
             .versionRef("guava")
         library("errorprone-annotations", "com.google.errorprone", "error_prone_annotations")

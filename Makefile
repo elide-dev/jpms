@@ -18,12 +18,14 @@ export GUAVA_VERSION ?= 1.0-HEAD-jre-SNAPSHOT
 export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 export REACTIVE_STREAMS_VERSION ?= 1.0.5-SNAPSHOT
 export PROTOBUF_VERSION ?= 4.27.0-SNAPSHOT
+export GEANTYREF_VERSION ?= 1.3.16-SNAPSHOT
 else
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 33.0.0-jre-jpms
 export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 export REACTIVE_STREAMS_VERSION ?= 1.0.5-jpms
 export PROTOBUF_VERSION ?= 4.26.0-jpms
+export GEANTYREF_VERSION ?= 1.3.15-jpms
 endif
 
 export PROJECT ?= $(shell pwd)
@@ -32,7 +34,7 @@ export DEV_BIN ?= $(DEV_ROOT)/bin
 export LIBS ?= $(PROJECT)/libs
 export PROJECT_PATH ?= $(DEV_BIN):$(shell echo $$PATH)
 
-DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams com.google.protobuf
+DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams com.google.protobuf io.leangen.geantyref
 POSIX_FLAGS ?=
 
 ifeq ($(VERBOSE),yes)
@@ -392,6 +394,31 @@ endif
 	@echo "Protobuf ready."
 
 #
+# Library: Checker Framework ---------------------------------------------------------------
+
+geantyref: io.leangen.geantyref  ## Build Geantyref reflection library.
+io.leangen.geantyref: $(BUILD_DEPS) io.leangen.geantyref/target
+io.leangen.geantyref/target:
+	$(info Building Geantyref...)
+	$(RULE)cd io.leangen.geantyref \
+		&& $(MAVEN) versions:set -DnewVersion=$(GEANTYREF_VERSION) \
+		&& $(MAVEN) versions:update-child-modules \
+		&& $(MAVEN) $(MAVEN_GOAL) -U
+
+ifeq ($(SNAPSHOT),no)
+	@# geantyref
+	$(RULE)$(MAVEN) deploy:deploy-file \
+		-DgroupId=io.leangen.geantyref \
+		-DartifactId=geantyref \
+		-Dversion=$(GEANTYREF_VERSION) \
+		-Dpackaging=jar \
+		-DpomFile=./tools/poms/geantyref.xml \
+		-Dfile=./io.leangen.geantyref/target/geantyref-$(GEANTYREF_VERSION).jar \
+		-DrepositoryId=jpms-local \
+		-Durl="$(REPOSITORY)"
+endif
+
+#
 # Testing: Google GSON ---------------------------------------------------------------------
 
 tests-gson:  ## Build GSON against local libraries.
@@ -451,10 +478,11 @@ $(LIBS):
 	$(RULE)$(CP) \
 		com.google.errorprone/annotations/target/*.jar \
 		com.google.j2objc/annotations/target/*.jar \
-		org.checkerframework/checker-qual/build/libs/*.jar \
-		org.reactivestreams/api/build/libs/*.jar \
 		com.google.guava/guava/target/*.jar \
 		com.google.protobuf/bazel-bin/java/*/amended_*_mvn-project.jar \
+		io.leangen.geantyref/target/*.jar \
+		org.checkerframework/checker-qual/build/libs/*.jar \
+		org.reactivestreams/api/build/libs/*.jar \
 		$(LIBS)
 
 prebuilts:
@@ -475,6 +503,7 @@ git-add:
 		repository/com/google/j2objc \
 		repository/com/google/errorprone \
 		repository/com/google/protobuf \
+		repository/io/leangen/geantyref \
 		repository/org/checkerframework \
 		repository/org/reactivestreams \
 		repository/dev/javamodules
@@ -491,6 +520,7 @@ clean:  ## Clean all built targets.
 		org.checkerframework/build \
 		org.checkerframework/*/build \
 		org.reactivestreams/*/build \
+		io.leangen.geantyref/target \
 		samples/gradle-platform/app/build \
 		samples/modular-guava/app/build \
 		samples/modular-guava-repo/app/build \

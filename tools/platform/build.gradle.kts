@@ -20,6 +20,7 @@ dependencies {
         api(attic.protobuf.java)
         api(attic.protobuf.util)
         api(attic.protobuf.kotlin)
+        api(attic.geantyref)
         api(attic.guava)
 
         // Library Constraints
