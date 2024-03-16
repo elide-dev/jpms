@@ -49,3 +49,6 @@
 [submodule "geantyref"]
 	path = io.leangen.geantyref
 	url = git@github.com:javamodules/geantyref.git
+[submodule "kotlinx-collections-immutable"]
+	path = kotlinx.collections.immutable
+	url = git@github.com:javamodules/kotlinx.collections.immutable.git

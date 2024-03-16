@@ -1,0 +1,99 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../kotlinx-collections-immutable/0.4.1-jpms/kotlinx-collections-immutable-0.4.1-jpms.module",
+    "group": "org.jetbrains.kotlinx",
+    "module": "kotlinx-collections-immutable",
+    "version": "0.4.1-jpms",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.6"
+    }
+  },
+  "variants": [
+    {
+      "name": "wasmWasiApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "wasi"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-wasm-wasi-0.4.1-jpms.klib",
+          "url": "kotlinx-collections-immutable-wasm-wasi-0.4.1-jpms.klib",
+          "size": 333574,
+          "sha512": "f3f3296694416a36118748b7092ebe5657c07c8c9448a969c5559896d16cd8b2639840b48a303e633d144fa1740ab77d8b10951c458b70a82127a2b3284e9656",
+          "sha256": "a10d5cd4d47a0079c4e57c98968386281050911d5acb3770b086484a4607dff2",
+          "sha1": "f5cff76e35d937eace3987fad47c9d95e67536a3",
+          "md5": "791211393225ff75d072548a12deead6"
+        }
+      ]
+    },
+    {
+      "name": "wasmWasiRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "wasi"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-wasm-wasi-0.4.1-jpms.klib",
+          "url": "kotlinx-collections-immutable-wasm-wasi-0.4.1-jpms.klib",
+          "size": 333574,
+          "sha512": "f3f3296694416a36118748b7092ebe5657c07c8c9448a969c5559896d16cd8b2639840b48a303e633d144fa1740ab77d8b10951c458b70a82127a2b3284e9656",
+          "sha256": "a10d5cd4d47a0079c4e57c98968386281050911d5acb3770b086484a4607dff2",
+          "sha1": "f5cff76e35d937eace3987fad47c9d95e67536a3",
+          "md5": "791211393225ff75d072548a12deead6"
+        }
+      ]
+    },
+    {
+      "name": "wasmWasiSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.platform.type": "wasm",
+        "org.jetbrains.kotlin.wasm.target": "wasi"
+      },
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-wasm-wasi-0.4.1-jpms-sources.jar",
+          "url": "kotlinx-collections-immutable-wasm-wasi-0.4.1-jpms-sources.jar",
+          "size": 70762,
+          "sha512": "6e36eb37e232fc9a38cca17237c955304e17a63b57f2b54d381849ea6a37c83eca5dd33022db8b9827024149f897b93e08d30612ec070c2436d745b9f412c879",
+          "sha256": "18603f02feee73e6387576579db79026a8960cab83c4cd48b778bbe149de2d7d",
+          "sha1": "8aa2e67bb83b3f760cb9eb343c437f84dcc5a408",
+          "md5": "5777c649c20de427e604bcd26127bf25"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../kotlinx-collections-immutable/0.4.1-jpms/kotlinx-collections-immutable-0.4.1-jpms.module",
+    "group": "org.jetbrains.kotlinx",
+    "module": "kotlinx-collections-immutable",
+    "version": "0.4.1-jpms",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.6"
+    }
+  },
+  "variants": [
+    {
+      "name": "jsApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-dom-api-compat",
+          "version": {
+            "requires": "1.9.23"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-js-0.4.1-jpms.klib",
+          "url": "kotlinx-collections-immutable-js-0.4.1-jpms.klib",
+          "size": 333577,
+          "sha512": "b48563c497c93415ec79ef342cddee8ec54e132afedf26478f06d6521743425c7964d99320987325ce11732288f10887964bfe7ea54a48f694f6b0cb8dc5ff2f",
+          "sha256": "26773513ea03fd2ab6a96b0c6db090350fdb578ff5ab27f0268b9452994be32a",
+          "sha1": "64e246ee0940e02e39c67cf40e5ed6b69cc5e78c",
+          "md5": "ae573ec7336f60b31f990f0851db4a7e"
+        }
+      ]
+    },
+    {
+      "name": "jsRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-dom-api-compat",
+          "version": {
+            "requires": "1.9.23"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-js-0.4.1-jpms.klib",
+          "url": "kotlinx-collections-immutable-js-0.4.1-jpms.klib",
+          "size": 333577,
+          "sha512": "b48563c497c93415ec79ef342cddee8ec54e132afedf26478f06d6521743425c7964d99320987325ce11732288f10887964bfe7ea54a48f694f6b0cb8dc5ff2f",
+          "sha256": "26773513ea03fd2ab6a96b0c6db090350fdb578ff5ab27f0268b9452994be32a",
+          "sha1": "64e246ee0940e02e39c67cf40e5ed6b69cc5e78c",
+          "md5": "ae573ec7336f60b31f990f0851db4a7e"
+        }
+      ]
+    },
+    {
+      "name": "jsSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.js.compiler": "ir",
+        "org.jetbrains.kotlin.platform.type": "js"
+      },
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-js-0.4.1-jpms-sources.jar",
+          "url": "kotlinx-collections-immutable-js-0.4.1-jpms-sources.jar",
+          "size": 70749,
+          "sha512": "9b4629aca084c5671c2dc42cbfd989f52b03b1f1f5760088e5708bccf1ec3446f092045747df38eb70461f687ba13841252873eab179faaede7f213bb5aeb7f2",
+          "sha256": "1da07ab896f018c125f4dfd95666122a33268db5b02b3bce7492fb3613873a91",
+          "sha1": "8b4526efdabd12c1f6ff1784df3f281a6cf7880a",
+          "md5": "05ce61709cbd39170a789683a3885a8c"
+        }
+      ]
+    }
+  ]
+}

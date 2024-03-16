@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.jetbrains.kotlinx</groupId>
+  <artifactId>kotlinx-collections-immutable-linuxarm64</artifactId>
+  <versioning>
+    <latest>0.4.1-jpms</latest>
+    <release>0.4.1-jpms</release>
+    <versions>
+      <version>0.4.1-jpms</version>
+    </versions>
+    <lastUpdated>20240316051054</lastUpdated>
+  </versioning>
+</metadata>

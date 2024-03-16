@@ -19,6 +19,8 @@ export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 export REACTIVE_STREAMS_VERSION ?= 1.0.5-SNAPSHOT
 export PROTOBUF_VERSION ?= 4.27.0-SNAPSHOT
 export GEANTYREF_VERSION ?= 1.3.16-SNAPSHOT
+export KOTLINX_COLLECTIONS_VERSION ?= 0.4.1
+export KOTLINX_COLLECTIONS_POSTFIX ?= SNAPSHOT
 else
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 33.0.0-jre-jpms
@@ -26,6 +28,8 @@ export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 export REACTIVE_STREAMS_VERSION ?= 1.0.5-jpms
 export PROTOBUF_VERSION ?= 4.26.0-jpms
 export GEANTYREF_VERSION ?= 1.3.15-jpms
+export KOTLINX_COLLECTIONS_VERSION ?= 0.4.1
+export KOTLINX_COLLECTIONS_POSTFIX ?= jpms
 endif
 
 export PROJECT ?= $(shell pwd)
@@ -34,7 +38,7 @@ export DEV_BIN ?= $(DEV_ROOT)/bin
 export LIBS ?= $(PROJECT)/libs
 export PROJECT_PATH ?= $(DEV_BIN):$(shell echo $$PATH)
 
-DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams com.google.protobuf io.leangen.geantyref
+DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams com.google.protobuf io.leangen.geantyref kotlinx.collections.immutable
 POSIX_FLAGS ?=
 
 ifeq ($(VERBOSE),yes)
@@ -394,7 +398,7 @@ endif
 	@echo "Protobuf ready."
 
 #
-# Library: Checker Framework ---------------------------------------------------------------
+# Library: Geantyref -----------------------------------------------------------------------
 
 geantyref: io.leangen.geantyref  ## Build Geantyref reflection library.
 io.leangen.geantyref: $(BUILD_DEPS) io.leangen.geantyref/target
@@ -419,7 +423,21 @@ ifeq ($(SNAPSHOT),no)
 endif
 
 #
-# Testing: Google GSON ---------------------------------------------------------------------
+# Library: KotlinX Collections Immutable ---------------------------------------------------
+
+kotlinx-collections: kotlinx.collections.immutable  ## Build KotlinX Immutable Collections.
+kotlinx.collections.immutable: $(BUILD_DEPS) kotlinx.collections.immutable/core/build
+kotlinx.collections.immutable/core/build:
+	$(info Building KotlinX Immutable Collections...)
+	$(RULE)cd kotlinx.collections.immutable \
+		&& $(GRADLE) \
+			-Pversion=$(KOTLINX_COLLECTIONS_VERSION) \
+			-PversionSuffix=$(KOTLINX_COLLECTIONS_POSTFIX) \
+			kotlinx-collections-immutable:publishAllPublicationsToJpmsRepository
+	@echo "KotlinX Immutable Collections ready."
+
+#
+# Testing: Integration ---------------------------------------------------------------------
 
 tests-gson:  ## Build GSON against local libraries.
 	$(RULE)$(MAKE) -C tests/integration gson
@@ -481,6 +499,7 @@ $(LIBS):
 		com.google.guava/guava/target/*.jar \
 		com.google.protobuf/bazel-bin/java/*/amended_*_mvn-project.jar \
 		io.leangen.geantyref/target/*.jar \
+		kotlinx.collections.immutable/core/build/libs/*.jar \
 		org.checkerframework/checker-qual/build/libs/*.jar \
 		org.reactivestreams/api/build/libs/*.jar \
 		$(LIBS)
@@ -504,6 +523,7 @@ git-add:
 		repository/com/google/errorprone \
 		repository/com/google/protobuf \
 		repository/io/leangen/geantyref \
+		repository/kotlinx \
 		repository/org/checkerframework \
 		repository/org/reactivestreams \
 		repository/dev/javamodules
@@ -521,6 +541,8 @@ clean:  ## Clean all built targets.
 		org.checkerframework/*/build \
 		org.reactivestreams/*/build \
 		io.leangen.geantyref/target \
+		kotlinx.collections.immutable/build \
+		kotlinx.collections.immutable/*/build \
 		samples/gradle-platform/app/build \
 		samples/modular-guava/app/build \
 		samples/modular-guava-repo/app/build \

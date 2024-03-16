@@ -1,0 +1,101 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../kotlinx-collections-immutable/0.4.1-jpms/kotlinx-collections-immutable-0.4.1-jpms.module",
+    "group": "org.jetbrains.kotlinx",
+    "module": "kotlinx-collections-immutable",
+    "version": "0.4.1-jpms",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.6"
+    }
+  },
+  "variants": [
+    {
+      "name": "iosX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable.klib",
+          "url": "kotlinx-collections-immutable-iosx64-0.4.1-jpms.klib",
+          "size": 316307,
+          "sha512": "72f755013fd528c309cead7ad2c2d9d77e1406f515d06746e836a3e626a5ea4d7280cca2339954c68cfeb3fb4fe89085ad9ff1ff2ef4f1e48a9e2ab913d4b126",
+          "sha256": "f16385c828a965767a9f38db76d54e2d68010b540c4ec9ba2b6ffe1ee8c5c0d5",
+          "sha1": "dcd1c3db4e4bc96336031f66ddff719a6fa6e16b",
+          "md5": "e1073b3053f11e0b3fe9554d5348bc8b"
+        }
+      ]
+    },
+    {
+      "name": "iosX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-iosx64-0.4.1-jpms-sources.jar",
+          "url": "kotlinx-collections-immutable-iosx64-0.4.1-jpms-sources.jar",
+          "size": 70777,
+          "sha512": "7a852ace0e8f21d3babe91f9da1501f75d13217010154adffe65a780d55cefcc64baf894b5983c25218fc89fdb7b94407e46e14c317679780bbfc7a2c1d4c56a",
+          "sha256": "f250d5f206805a0847eb3f26a2d198c45811eba964a21b0f5a0dff4a8e3c906f",
+          "sha1": "640fe75dd8ff19d1e8916f94b47f8941d1b3bc65",
+          "md5": "9a70edd6b3e702bc1435ab144529c493"
+        }
+      ]
+    },
+    {
+      "name": "iosX64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-iosx64-0.4.1-jpms-metadata.jar",
+          "url": "kotlinx-collections-immutable-iosx64-0.4.1-jpms-metadata.jar",
+          "size": 301,
+          "sha512": "b80f55cd9fee2b53962d1f225247977f284fddead7224832f957bcb7238ae7bff95dcf60af0817a98f5b69ad8e68255153653f5a69f3e14e8aa96dd1bd518daa",
+          "sha256": "f76ddafce0668067c303c493bd2e05220919952ba137ed381d3cb3dae36c60cd",
+          "sha1": "426b1cec1208864747016a968ccbd1efc1462189",
+          "md5": "b9f9c9be63ef3a3c03d8eaa46c14d2bf"
+        }
+      ]
+    }
+  ]
+}
