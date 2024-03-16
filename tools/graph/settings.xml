@@ -36,7 +36,7 @@
         <repository>
           <id>pkgst-jpms</id>
           <name>Pkgst JPMS</name>
-          <url>https://jpms.pkg.st</url>
+          <url>https://jpms.pkg.st/repository</url>
         </repository>
       </repositories>
     </profile>

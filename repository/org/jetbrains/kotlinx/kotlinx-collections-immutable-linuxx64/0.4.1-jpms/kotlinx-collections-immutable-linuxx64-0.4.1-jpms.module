@@ -1,0 +1,71 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../kotlinx-collections-immutable/0.4.1-jpms/kotlinx-collections-immutable-0.4.1-jpms.module",
+    "group": "org.jetbrains.kotlinx",
+    "module": "kotlinx-collections-immutable",
+    "version": "0.4.1-jpms",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.6"
+    }
+  },
+  "variants": [
+    {
+      "name": "linuxX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable.klib",
+          "url": "kotlinx-collections-immutable-linuxx64-0.4.1-jpms.klib",
+          "size": 316323,
+          "sha512": "b157d35a1ab32ee29e12fc12af74e7881570c7e283008f0bb6d6014584fadad3bebd871ed458ba3a9c911adae390f3371c5dd72b06029af442f7d7c9adaebd68",
+          "sha256": "f971b7d08d66d0aa7adff85894099e6e2312558afe44052463f465579961f866",
+          "sha1": "6bb1396d3342e944ab2b4a129cdf1fb8514d0f02",
+          "md5": "f3a6867c25d8c18ae2cca79f6b8ae857"
+        }
+      ]
+    },
+    {
+      "name": "linuxX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-linuxx64-0.4.1-jpms-sources.jar",
+          "url": "kotlinx-collections-immutable-linuxx64-0.4.1-jpms-sources.jar",
+          "size": 70777,
+          "sha512": "7a852ace0e8f21d3babe91f9da1501f75d13217010154adffe65a780d55cefcc64baf894b5983c25218fc89fdb7b94407e46e14c317679780bbfc7a2c1d4c56a",
+          "sha256": "f250d5f206805a0847eb3f26a2d198c45811eba964a21b0f5a0dff4a8e3c906f",
+          "sha1": "640fe75dd8ff19d1e8916f94b47f8941d1b3bc65",
+          "md5": "9a70edd6b3e702bc1435ab144529c493"
+        }
+      ]
+    }
+  ]
+}

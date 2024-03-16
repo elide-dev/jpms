@@ -1,0 +1,71 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../kotlinx-collections-immutable/0.4.1-jpms/kotlinx-collections-immutable-0.4.1-jpms.module",
+    "group": "org.jetbrains.kotlinx",
+    "module": "kotlinx-collections-immutable",
+    "version": "0.4.1-jpms",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.6"
+    }
+  },
+  "variants": [
+    {
+      "name": "androidNativeX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "android_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable.klib",
+          "url": "kotlinx-collections-immutable-androidnativex64-0.4.1-jpms.klib",
+          "size": 316339,
+          "sha512": "30842f8e94bbf2fd82e80941e5cf3730e6853ad0f2b8b814341363cacbceb258500d8b2ccce584ebefdfd7bd03b96fbfce434af61ae733e94e38763b65f80f42",
+          "sha256": "61e1ddd8c6a7cd84a296b97fe7c592f084df563e2d9ec04be66e7b32f3820e9c",
+          "sha1": "cfff95d1705a723d432ea829416eb6d15b060b64",
+          "md5": "84a0b7403342984c697d76cd21e699ab"
+        }
+      ]
+    },
+    {
+      "name": "androidNativeX64SourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "kotlin-runtime",
+        "org.jetbrains.kotlin.native.target": "android_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-androidnativex64-0.4.1-jpms-sources.jar",
+          "url": "kotlinx-collections-immutable-androidnativex64-0.4.1-jpms-sources.jar",
+          "size": 70777,
+          "sha512": "7a852ace0e8f21d3babe91f9da1501f75d13217010154adffe65a780d55cefcc64baf894b5983c25218fc89fdb7b94407e46e14c317679780bbfc7a2c1d4c56a",
+          "sha256": "f250d5f206805a0847eb3f26a2d198c45811eba964a21b0f5a0dff4a8e3c906f",
+          "sha1": "640fe75dd8ff19d1e8916f94b47f8941d1b3bc65",
+          "md5": "9a70edd6b3e702bc1435ab144529c493"
+        }
+      ]
+    }
+  ]
+}

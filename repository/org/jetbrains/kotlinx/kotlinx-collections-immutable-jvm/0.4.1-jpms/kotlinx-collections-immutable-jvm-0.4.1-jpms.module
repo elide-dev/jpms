@@ -1,0 +1,99 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../kotlinx-collections-immutable/0.4.1-jpms/kotlinx-collections-immutable-0.4.1-jpms.module",
+    "group": "org.jetbrains.kotlinx",
+    "module": "kotlinx-collections-immutable",
+    "version": "0.4.1-jpms",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.6"
+    }
+  },
+  "variants": [
+    {
+      "name": "jvmApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-jvm-0.4.1-jpms.jar",
+          "url": "kotlinx-collections-immutable-jvm-0.4.1-jpms.jar",
+          "size": 248736,
+          "sha512": "1c1c309c188506600ad2bba83f350f0ce57b34413bb3a3b202c5d36a32d3b4baea1a6db6982571462afcc0fca2d20b1908fdb912587a17ebb8d99bebfeea3c69",
+          "sha256": "cbb526e103015b7081b6b6250d48078b1654f48e72d7f734619aa5fc87d1536e",
+          "sha1": "11cd4db6ce78e872ef8f9f1635c4352440744a4c",
+          "md5": "114dc448f3b2d2a6c29c12b769ecaefa"
+        }
+      ]
+    },
+    {
+      "name": "jvmRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.23"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-jvm-0.4.1-jpms.jar",
+          "url": "kotlinx-collections-immutable-jvm-0.4.1-jpms.jar",
+          "size": 248736,
+          "sha512": "1c1c309c188506600ad2bba83f350f0ce57b34413bb3a3b202c5d36a32d3b4baea1a6db6982571462afcc0fca2d20b1908fdb912587a17ebb8d99bebfeea3c69",
+          "sha256": "cbb526e103015b7081b6b6250d48078b1654f48e72d7f734619aa5fc87d1536e",
+          "sha1": "11cd4db6ce78e872ef8f9f1635c4352440744a4c",
+          "md5": "114dc448f3b2d2a6c29c12b769ecaefa"
+        }
+      ]
+    },
+    {
+      "name": "jvmSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "kotlinx-collections-immutable-jvm-0.4.1-jpms-sources.jar",
+          "url": "kotlinx-collections-immutable-jvm-0.4.1-jpms-sources.jar",
+          "size": 70648,
+          "sha512": "10af03697768b509029c193dd732f9703fef22e0b0799fed7c2038abdd2f3a5bdcdbec7efb5ee020ceaed3d35bc18072f446226bb9dcc95b9df75856d26eb638",
+          "sha256": "4ca4e80881ee96f8bf65c1a17bf6a83dbe182430df5ed0489093c89bd3187850",
+          "sha1": "53363d55747d9e007cb2a6ae0fe7cd7097994d9d",
+          "md5": "91693b5cce8ec5edf800e9fd5500431e"
+        }
+      ]
+    }
+  ]
+}

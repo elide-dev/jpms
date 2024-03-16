@@ -17,10 +17,13 @@ catalog {
         version("j2objc", attic.versions.j2objc.get())
         version("checker", attic.versions.checker.get())
         version("protobuf", attic.versions.protobuf.get())
+        version("kotlinx-collections-immutable", attic.versions.kotlinx.collections.immutable.get())
         version("reactivestreams", attic.versions.reactivestreams.get())
         version("geantyref", attic.versions.geantyref.get())
         version("attic", project.version as String)
 
+        library("kotlinx-collections-immutable", "org.jetbrains.kotlinx", "kotlinx-collections-immutable")
+            .versionRef("kotlinx-collections-immutable")
         library("geantyref", "io.leangen.geantyref", "geantyref")
             .versionRef("geantyref")
         library("guava", "com.google.guava", "guava")

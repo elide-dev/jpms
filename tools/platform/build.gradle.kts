@@ -21,6 +21,7 @@ dependencies {
         api(attic.protobuf.util)
         api(attic.protobuf.kotlin)
         api(attic.geantyref)
+        api(attic.kotlinx.collections.immutable)
         api(attic.guava)
 
         // Library Constraints
