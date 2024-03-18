@@ -52,14 +52,17 @@ include tools/common.mk
 DEV_LOCAL = $(DEV_ROOT) $(DEV_BIN) $(DEV_BIN)/protoc
 BUILD_DEPS ?= $(DEV_LOCAL)
 
-all: setup $(BUILD_DEPS) repository samples test  ## Build all targets and setup the repository.
+all: setup $(BUILD_DEPS) packages repository samples test  ## Build all targets and setup the repository.
 
 update-modules:  ## Update all sub-modules.
 	$(info Updating Attic submodules...)
 	$(RULE)$(GIT) submodule update --recursive --remote --jobs=10
 
-setup:  ## Setup local codebase features; performs first-run stuff.
-	$(info Building JPMS libraries...)
+setup: node_modules/  ## Setup local codebase features; performs first-run stuff.
+	$(info JPMS codebase ready.)
+
+node_modules/:
+	$(RULE)$(PNPM) install --frozen-lockfile --strict-peer-dependencies
 
 repository: $(DEPS) $(LIBS) prebuilts  ## Build the repository layout.
 	$(info Building repository layout...)
@@ -529,6 +532,13 @@ git-add:
 		repository/dev/javamodules
 	$(GIT) status -sb
 
+index:  ## Rebuild JSON indexes for the repository.
+	@echo Stubbed
+
+packages:  ## Build JavaScript packages.
+	$(info Building packages...)
+	$(RULE)$(PNPM) run build && $(PNPM) run test:node
+
 clean:  ## Clean all built targets.
 	$(info Cleaning outputs...)
 	$(RULE)$(RMDIR) \
@@ -567,4 +577,4 @@ forceclean: reset  ## DANGEROUS: Wipe all untracked files and other changes; com
 	$(info Sanitizing codebase...)
 	$(RULE)$(GIT) clean -xdf
 
-.PHONY: all repository samples test tools $(DEPS) com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar
+.PHONY: all repository packages samples test tools $(DEPS) com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar

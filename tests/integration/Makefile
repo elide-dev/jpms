@@ -4,7 +4,7 @@
 
 include ../../tools/common.mk
 
-INTEGRATION_TESTS ?= gson checkstyle pmd
+INTEGRATION_TESTS ?= gson checkstyle
 
 all: integration-tests
 

@@ -3,7 +3,7 @@ name: "Push"
 "on":
   push:
     branches:
-        - main
+      - main
 
 permissions:
   contents: read
@@ -12,8 +12,9 @@ jobs:
   build-dependency-graph:
     name: "Build & Test"
     uses: ./.github/workflows/ci.dependency-graph.yml
+    secrets: inherit
     permissions:
-      contents: write  # needed for graph write
+      contents: write # needed for graph write
 
   deploy-site:
     name: "Deploy"

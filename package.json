@@ -1,0 +1,61 @@
+{
+  "name": "@javamodules/attic",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "workspaces": [
+    "packages/java",
+    "packages/maven",
+    "packages/gradle",
+    "packages/indexer"
+  ],
+  "scripts": {
+    "check": "pnpm run /:check$/",
+    "clean": "make clean",
+    "format": "pnpm run fmt:write",
+    "fmt:check": "prettier . --check",
+    "fmt:write": "prettier . --write",
+    "indexer": "cd packages/indexer && pnpm run index",
+    "build": "pnpm run -r build",
+    "test:bun": "pnpm run -r test:bun",
+    "test:node": "pnpm run -r test:node",
+    "test": "pnpm run test:bun",
+    "prettier": "prettier",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@changesets/cli": "2.27.1",
+    "@commitlint/cli": "19.2.0",
+    "@commitlint/config-conventional": "19.1.0",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.2",
+    "prettier": "3.2.5",
+    "typescript": "5.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "pnpm": {
+    "allowDeprecated": {
+      "rollup-plugin-inject": "*",
+      "sourcemap-codec": "*"
+    }
+  },
+  "lint-staged": {
+    "*": "pnpm run check"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "signed-off-by": [
+        2,
+        "always"
+      ]
+    }
+  }
+}

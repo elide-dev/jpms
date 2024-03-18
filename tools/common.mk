@@ -44,6 +44,9 @@ endif
 ## Command Macros
 
 GIT ?= $(shell which git)
+PNPM ?= $(shell which pnpm)
+BUN ?= $(shell which bun)
+NODE ?= $(shell which node)
 MAVEN ?= $(ENV_PREFIX) $(MAVEN_CMD) $(MAVEN_ARGS)
 MAVEN_TEST ?= $(ENV_PREFIX) $(MAVEN_CMD) $(MAVEN_TEST_ARGS)
 GRADLE ?= $(ENV_PREFIX) $(GRADLE_CMD) $(GRADLE_ARGS)

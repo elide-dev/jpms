@@ -85,10 +85,10 @@ com.google.guava/guava/target:
 
 A few things to note, patterns you will want to follow:
 
-1) The `## ...` text is the documentation used in `make help`
-2) A short-hand target like `guava` should map → the group ID
-3) All artifacts are stored at their group ID, as compound projects
-4) It is best to `git checkout .` in the subproject after builds
+1. The `## ...` text is the documentation used in `make help`
+2. A short-hand target like `guava` should map → the group ID
+3. All artifacts are stored at their group ID, as compound projects
+4. It is best to `git checkout .` in the subproject after builds
 
 #### Library copy & validate
 

@@ -3,7 +3,7 @@ name: "PR"
 "on":
   pull_request:
     branches:
-        - main
+      - main
 
 permissions:
   contents: read
@@ -12,14 +12,15 @@ jobs:
   build-test:
     name: "Build & Test"
     uses: ./.github/workflows/ci.build-test.yml
+    secrets: inherit
     with:
-      tests: false  # tests run automatically where needed now
+      tests: false # tests run automatically where needed now
 
   build-dependency-graph:
     name: "Build & Test"
     uses: ./.github/workflows/ci.dependency-graph.yml
     permissions:
-      contents: write  # needed for graph write
+      contents: write # needed for graph write
 
   checks-gradle:
     name: "Checks"
