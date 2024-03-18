@@ -24,6 +24,7 @@ jobs:
       packages: write
     with:
       dry-run: false
+      release: true
 
   deploy-site:
     name: "Deploy"
