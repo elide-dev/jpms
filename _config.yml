@@ -32,7 +32,7 @@ repository: elide-dev/jpms
 show_downloads: false
 
 readme_index:
-  enabled:          true
+  enabled: true
   remove_originals: false
   with_frontmatter: false
 
@@ -67,4 +67,3 @@ exclude:
   - tests/
   - tools/
   - samples/
-

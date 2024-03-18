@@ -27,8 +27,7 @@
 
 This repository provides sub-module library overrides for popular Java libraries which don't yet provide JPMS support (at least until some PRs are merged!). There is a Maven repository which contains these artifacts, too, so you can safely use them in your projects.
 
-> [!TIP]
-> **These libraries should be treated like `SNAPSHOT` versions until a release is issued. If you see hash failures with Gradle, make sure to pass `--refresh-dependencies --write-verification-metadata ...`. With Maven, pass `-U`.**
+> [!TIP] > **These libraries should be treated like `SNAPSHOT` versions until a release is issued. If you see hash failures with Gradle, make sure to pass `--refresh-dependencies --write-verification-metadata ...`. With Maven, pass `-U`.**
 
 #### Pending PRs
 
@@ -56,8 +55,7 @@ Tracking issue [here][6] provides the best tracker. Once these PRs are merged an
 
 Add this domain as a repository within any JVM build tool: [Maven][7], [Gradle][8], [Bazel][9], [sbt][10]. For example:
 
-> [!NOTE]
-> **Filing issues:** Please file issues for this repo on [`elide-dev/jpms`](https://github.com/elide-dev/jpms/issues).
+> [!NOTE] > **Filing issues:** Please file issues for this repo on [`elide-dev/jpms`](https://github.com/elide-dev/jpms/issues).
 
 #### Maven
 
@@ -121,20 +119,20 @@ You should use a JPMS-enabled library version which has no conflict with Maven C
 
 **Libraries marked `Central` have seen releases in Maven Central,** and so are no longer needed through this repository.
 
-| Coordinate                                            | Version                 |
-| ----------------------------------------------------- | ----------------------- |
-| `com.google.errorprone:error_prone_annotations`       | ![Central](https://img.shields.io/maven-central/v/com.google.errorprone/error_prone_annotations?label=Central&labelColor=blue) |
-| `com.google.guava:guava`                              | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fguava%2Fguava%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `com.google.j2objc:j2objc-annotations`                | ![Central](https://img.shields.io/maven-central/v/com.google.j2objc/j2objc-annotations?label=Central&labelColor=blue) |
-| `com.google.protobuf:protobuf-java`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-java%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `com.google.protobuf:protobuf-javalite`               | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-javalite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `com.google.protobuf:protobuf-util`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-util%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `com.google.protobuf:protobuf-kotlin`                 | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `com.google.protobuf:protobuf-kotlin-lite`            | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin-lite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `io.leangen.geantyref:geantyref`                      | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fio%2Fleangen%2Fgeantyref%2Fgeantyref%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `org.checkerframework:checker-qual`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fcheckerframework%2Fchecker-qual%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
+| Coordinate                                            | Version                                                                                                                                                                                                                                 |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `com.google.errorprone:error_prone_annotations`       | ![Central](https://img.shields.io/maven-central/v/com.google.errorprone/error_prone_annotations?label=Central&labelColor=blue)                                                                                                          |
+| `com.google.guava:guava`                              | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fguava%2Fguava%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                              |
+| `com.google.j2objc:j2objc-annotations`                | ![Central](https://img.shields.io/maven-central/v/com.google.j2objc/j2objc-annotations?label=Central&labelColor=blue)                                                                                                                   |
+| `com.google.protobuf:protobuf-java`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-java%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                   |
+| `com.google.protobuf:protobuf-javalite`               | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-javalite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)               |
+| `com.google.protobuf:protobuf-util`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-util%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                   |
+| `com.google.protobuf:protobuf-kotlin`                 | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                 |
+| `com.google.protobuf:protobuf-kotlin-lite`            | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin-lite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)            |
+| `io.leangen.geantyref:geantyref`                      | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fio%2Fleangen%2Fgeantyref%2Fgeantyref%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                      |
+| `org.checkerframework:checker-qual`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fcheckerframework%2Fchecker-qual%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                     |
 | `org.jetbrains.kotlinx:kotlinx-collections-immutable` | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fjetbrains%2Fkotlinx%2Fkotlinx-collections-immutable%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `org.reactivestreams:reactive-streams`                | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Freactivestreams%2Freactive-streams%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
+| `org.reactivestreams:reactive-streams`                | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Freactivestreams%2Freactive-streams%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                  |
 
 ### Using the modules
 
@@ -159,10 +157,10 @@ Use the modules in your `module-info.java`:
 
 This repository additionally provides [Maven BOM][13], [Gradle Version Catalog][14], and [Gradle Platform][15] artifacts. These simplify and enforce the use of the right library versions. See below for use.
 
-| Type                  | Coordinate                      | Version  |
-| --------------------- | ------------------------------- | -------- |
-| [Maven BOM][13]       | `dev.javamodules:jpms-bom`      | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fdev%2Fjavamodules%2Fjpms-bom%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| [Gradle Catalog][14]  | `dev.javamodules:jpms-catalog`  | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fdev%2Fjavamodules%2Fjpms-catalog%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
+| Type                  | Coordinate                      | Version                                                                                                                                                                                                         |
+| --------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Maven BOM][13]       | `dev.javamodules:jpms-bom`      | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fdev%2Fjavamodules%2Fjpms-bom%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)      |
+| [Gradle Catalog][14]  | `dev.javamodules:jpms-catalog`  | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fdev%2Fjavamodules%2Fjpms-catalog%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)  |
 | [Gradle Platform][15] | `dev.javamodules:jpms-platform` | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fdev%2Fjavamodules%2Fjpms-platform%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
 
 #### Using the Version Catalog

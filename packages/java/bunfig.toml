@@ -1,0 +1,12 @@
+[install]
+exact = true
+
+[install.lockfile]
+save = true
+
+[run]
+bun = true
+
+[test]
+root = "./tests"
+coverage = true

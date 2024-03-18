@@ -19,8 +19,8 @@ You could stop using libraries like Guava, Reactive Streams, and Protobuf, but t
 This is an option, and even the [best of us][3] have resorted to this at times. But JPMS **is not going away**, offers meaningful compile time and safety optimizations, unlocks new tools like `jlink`, and is even required for [certain advanced use cases of Java][4].
 
 ---
-Or, you could:
----
+
+## Or, you could:
 
 **5) ✅ Use this repo.**
 
