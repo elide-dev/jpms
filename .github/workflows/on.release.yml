@@ -1,9 +1,8 @@
-name: "Push"
+name: "Release"
 
-"on":
-  push:
-    branches:
-      - main
+on:
+  release:
+    types: [created]
 
 permissions:
   contents: read
@@ -14,16 +13,23 @@ jobs:
     uses: ./.github/workflows/ci.build-test.yml
     secrets: inherit
 
-  build-dependency-graph:
-    name: "Build & Test"
-    uses: ./.github/workflows/ci.dependency-graph.yml
+  publish-npm:
+    name: "Publish"
+    needs: [build-test]
+    uses: ./.github/workflows/ci.publish-packages.yml
     secrets: inherit
     permissions:
-      contents: write # needed for graph write
+      contents: read
+      id-token: write
+      packages: write
+    with:
+      dry-run: false
 
   deploy-site:
     name: "Deploy"
+    needs: [build-test]
     uses: ./.github/workflows/deploy.site.yml
+    secrets: inherit
     permissions:
       contents: read
       pages: write

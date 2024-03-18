@@ -13,8 +13,6 @@ jobs:
     name: "Build & Test"
     uses: ./.github/workflows/ci.build-test.yml
     secrets: inherit
-    with:
-      tests: false # tests run automatically where needed now
 
   build-dependency-graph:
     name: "Build & Test"

@@ -25,7 +25,8 @@
   "scripts": {
     "test:bun": "bun test",
     "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "publish": "pnpm run build && npm publish --no-git-checks",
+    "publish:dry": "npm publish --no-git-checks --dry-run",
+    "publish:live": "npm publish --no-git-checks",
     "pack": "npm pack",
     "build": "tsc -p ."
   },
