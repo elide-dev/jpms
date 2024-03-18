@@ -1,0 +1,29 @@
+common --announce_rc
+common --enable_platform_specific_config
+common --experimental_isolated_extension_usages
+
+build:buildbuddy-ci --bes_results_url=https://skunkworks.buildbuddy.io/invocation/
+build:buildbuddy-ci --bes_backend=grpcs://skunkworks.buildbuddy.io
+build:buildbuddy-ci --remote_cache=grpcs://skunkworks.buildbuddy.io
+build:buildbuddy-ci --remote_timeout=3600
+build:buildbuddy-ci --remote_download_minimal
+build:buildbuddy-ci --noslim_profile
+build:buildbuddy-ci --nolegacy_important_outputs
+
+build:buildbuddy-ci --experimental_remote_cache_compression
+build:buildbuddy-ci --experimental_remote_build_event_upload=minimal
+build:buildbuddy-ci --experimental_profile_include_target_label
+build:buildbuddy-ci --experimental_profile_include_primary_output 
+build:buildbuddy-ci --experimental_inmemory_jdeps_files
+build:buildbuddy-ci --experimental_inmemory_dotd_files
+
+build:remote-exec --remote_executor=grpcs://skunkworks.buildbuddy.io
+
+build --config=buildbuddy-ci
+
+build:ci-metadata --build_metadata=ROLE=CI
+build:ci-metadata --build_metadata=HOST=gha
+build:ci-metadata --build_metadata=VISIBILITY=PUBLIC
+build:ci-metadata --build_metadata=REPO_URL=https://github.com/elide-dev/jpms.git
+
+build --config=ci-metadata

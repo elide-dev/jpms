@@ -78,7 +78,7 @@ permissions:
 jobs:
   publish-npm:
     name: "Publish to NPM (${{ matrix.package }})"
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/ci.publish-package.yml
     permissions:
       actions: read
       id-token: write
@@ -88,16 +88,13 @@ jobs:
       fail-fast: false
       matrix:
         package: ["java", "gradle", "maven"]
-    steps:
-      - name: "Publish Package"
-        uses: ./.github/workflows/ci.publish-package.yml
-        with:
-          package: ${{ matrix.package }}
-          dry-run: ${{ inputs.dry-run }}
-          registry: ${{ inputs.registry }}
-          release: ${{ inputs.release }}
-          tag: ${{ inputs.tag }}
-          draft: ${{ inputs.draft }}
-          prerelease: ${{ inputs.prerelease }}
-          release-name: ${{ inputs.release-name }}
-          release-latest: ${{ inputs.release-latest }}
+    with:
+      package: ${{ matrix.package }}
+      dry-run: ${{ inputs.dry-run }}
+      registry: ${{ inputs.registry }}
+      release: ${{ inputs.release }}
+      tag: ${{ inputs.tag }}
+      draft: ${{ inputs.draft }}
+      prerelease: ${{ inputs.prerelease }}
+      release-name: ${{ inputs.release-name }}
+      release-latest: ${{ inputs.release-latest }}

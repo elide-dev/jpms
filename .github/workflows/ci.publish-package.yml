@@ -214,7 +214,6 @@ jobs:
         with:
           name: ${{ needs.provenance.outputs.provenance-name }}
       - name: "Publish to Registry"
-        if: !inputs.dry-run
         run: cd packages/${{ inputs.package }} && pnpm run ${{ inputs.dry-run && 'publish:dry' || 'publish:live' }} --registry=${{ inputs.registry }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

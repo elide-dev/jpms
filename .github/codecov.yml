@@ -33,6 +33,7 @@ github_checks:
   annotations: true
 
 ignore:
+  - "jdk"
   - "samples"
   - "tools/processor"
   - "tools/substrate/injekt"

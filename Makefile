@@ -236,7 +236,6 @@ org.reactivestreams/api/build/libs:
 			publishAllPublicationsToMavenLocalRepository \
 		&& echo "Reactive Streams ready."
 
-
 #
 # Library: Protocol Buffers ----------------------------------------------------------------
 
@@ -244,6 +243,11 @@ protobuf: com.google.protobuf  ## Build Protocol Buffers.
 com.google.protobuf: com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar
 com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar:
 	$(info Building Protocol Buffers...)
+	$(RULE)rm -f com.google.protobuf/.bazelrc
+	$(RULE)cd com.google.protobuf && $(GIT) checkout .bazelrc
+	$(RULE)$(CP) tools/project.bazelrc com.google.protobuf/project.bazelrc
+	$(RULE)$(CP) tools/bazel.rc com.google.protobuf/jpms.bazelrc
+	$(RULE)echo "import %workspace%/project.bazelrc" >> com.google.protobuf/.bazelrc
 	$(RULE)cd com.google.protobuf \
 		&& $(BAZEL) \
 			build \
@@ -484,6 +488,11 @@ dev: $(DEV_LOCAL)  ## Setup local development tooling.
 $(DEV_LOCAL):
 	@echo "Setting up local dev root..."
 	$(RULE)$(MKDIR) -p $(DEV_ROOT) $(DEV_BIN)
+	$(RULE)rm -f com.google.protobuf/.bazelrc
+	$(RULE)cd com.google.protobuf && $(GIT) checkout .bazelrc
+	$(RULE)$(CP) tools/project.bazelrc com.google.protobuf/project.bazelrc
+	$(RULE)$(CP) tools/bazel.rc com.google.protobuf/jpms.bazelrc
+	$(RULE)echo "import %workspace%/project.bazelrc" >> com.google.protobuf/.bazelrc
 	@echo "Building 'protoc'..."
 	$(RULE)cd com.google.protobuf && $(BAZEL) build //:protoc
 	@echo "Mounting 'protoc'..."
