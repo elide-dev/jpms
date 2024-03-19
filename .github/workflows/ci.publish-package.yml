@@ -183,7 +183,7 @@ jobs:
           generate_release_notes: ${{ inputs.release-generate }}
           append_body: true
           files: |
-            ${{ steps.releaseArtifact.outputs.download-path }}
+            packages/${{ inputs.package }}/*.tgz
 
   publish-npm:
     name: "Publish to Registry (${{ inputs.package }})"
