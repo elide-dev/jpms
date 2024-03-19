@@ -76,8 +76,8 @@ permissions:
   contents: read
 
 jobs:
-  publish-npm:
-    name: "Publish to NPM (${{ matrix.package }})"
+  publish-npm-java:
+    name: "Publish to NPM"
     uses: ./.github/workflows/ci.publish-package.yml
     secrets:
       PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
@@ -86,12 +86,50 @@ jobs:
       id-token: write
       contents: write
       packages: write
-    strategy:
-      fail-fast: false
-      matrix:
-        package: ["java", "gradle", "maven"]
     with:
-      package: ${{ matrix.package }}
+      package: java
+      dry-run: ${{ inputs.dry-run }}
+      registry: ${{ inputs.registry }}
+      release: ${{ inputs.release }}
+      tag: ${{ inputs.tag }}
+      draft: ${{ inputs.draft }}
+      prerelease: ${{ inputs.prerelease }}
+      release-name: ${{ inputs.release-name }}
+      release-latest: ${{ inputs.release-latest }}
+
+  publish-npm-gradle:
+    name: "Publish to NPM"
+    uses: ./.github/workflows/ci.publish-package.yml
+    secrets:
+      PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+    permissions:
+      actions: read
+      id-token: write
+      contents: write
+      packages: write
+    with:
+      package: gradle
+      dry-run: ${{ inputs.dry-run }}
+      registry: ${{ inputs.registry }}
+      release: ${{ inputs.release }}
+      tag: ${{ inputs.tag }}
+      draft: ${{ inputs.draft }}
+      prerelease: ${{ inputs.prerelease }}
+      release-name: ${{ inputs.release-name }}
+      release-latest: ${{ inputs.release-latest }}
+
+  publish-npm-maven:
+    name: "Publish to NPM"
+    uses: ./.github/workflows/ci.publish-package.yml
+    secrets:
+      PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+    permissions:
+      actions: read
+      id-token: write
+      contents: write
+      packages: write
+    with:
+      package: maven
       dry-run: ${{ inputs.dry-run }}
       registry: ${{ inputs.registry }}
       release: ${{ inputs.release }}

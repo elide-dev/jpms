@@ -103,7 +103,6 @@ jobs:
         uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
         with:
           persist-credentials: false
-          submodules: true
       - name: "Setup: Node"
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
@@ -125,7 +124,7 @@ jobs:
           echo "Release assets:"
           ls -la packages/*/*.tgz
           file packages/*/*.tgz
-          du -h file packages/*/*.tgz
+          du -h packages/*/*.tgz
           echo ""
 
           sha256sum packages/*/*.tgz > ./packages/${{ inputs.package }}/pkg-hashes.txt
@@ -133,12 +132,12 @@ jobs:
           cat ./packages/${{ inputs.package }}/pkg-hashes.txt
           echo ""
 
-          cat ./packages/${{ inputs.package }}/pkg-hashes.txt | base64 -w0 ./packages/${{ inputs.package }}/pkg-hashes-encoded.txt
+          cat ./packages/${{ inputs.package }}/pkg-hashes.txt | base64 -w0 > ./packages/${{ inputs.package }}/pkg-hashes-encoded.txt
           echo "Encoded Hashes:"
           cat ./packages/${{ inputs.package }}/pkg-hashes-encoded.txt
           echo ""
 
-          echo "hashes=$(cat /tmp/pkg-hashes-encoded.txt)" >> "$GITHUB_OUTPUT"
+          echo "hashes=$(cat ./packages/${{ inputs.package }}/pkg-hashes-encoded.txt)" >> "$GITHUB_OUTPUT"
       - name: "Artifact: Packages"
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4.3.1
         with:
