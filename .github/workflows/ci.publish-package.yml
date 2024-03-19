@@ -183,7 +183,7 @@ jobs:
           generate_release_notes: ${{ inputs.release-generate }}
           append_body: true
           files: |
-            packages/${{ inputs.package }}/*.tgz
+            javamodules-${{ inputs.package }}-${{ inputs.tag || github.ref }}.tgz
 
   publish-npm:
     name: "Publish to Registry (${{ inputs.package }})"
@@ -215,13 +215,8 @@ jobs:
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
-      - name: "Build: Package (${{ inputs.package }})"
-        run: cd packages/${{ inputs.package }} && pnpm run build
-      - name: "Artifact: Package"
-        id: releaseArtifact
-        uses: actions/download-artifact@c850b930e6ba138125429b7e5c93fc707a7f8427 # v4.1.4
-        with:
-          name: javamodules-pkg-${{ inputs.package }}-${{ github.sha }}
+      - name: "Build: All Packages"
+        run: pnpm run build
       - name: "Publish to Registry"
         run: cd packages/${{ inputs.package }} && pnpm run ${{ inputs.dry-run && 'publish:dry' || 'publish:live' }} --registry=${{ inputs.registry }}
         env:
