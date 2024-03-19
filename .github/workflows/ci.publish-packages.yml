@@ -79,6 +79,8 @@ jobs:
   publish-npm:
     name: "Publish to NPM (${{ matrix.package }})"
     uses: ./.github/workflows/ci.publish-package.yml
+    secrets:
+      PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
     permissions:
       actions: read
       id-token: write
