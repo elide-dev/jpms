@@ -218,6 +218,6 @@ jobs:
       - name: "Build: All Packages"
         run: pnpm run build
       - name: "Publish to Registry"
-        run: cd packages/${{ inputs.package }} && pnpm run ${{ inputs.dry-run && 'publish:dry' || 'publish:live' }} --registry=${{ inputs.registry }}
+        run: cd packages/${{ inputs.package }} && npm publish ${{ inputs.dry-run && '--dry-run' || '' }} --registry=${{ inputs.registry }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
