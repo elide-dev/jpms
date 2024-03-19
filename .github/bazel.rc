@@ -6,7 +6,6 @@ build:buildbuddy-ci --bes_results_url=https://skunkworks.buildbuddy.io/invocatio
 build:buildbuddy-ci --bes_backend=grpcs://skunkworks.buildbuddy.io
 build:buildbuddy-ci --remote_cache=grpcs://skunkworks.buildbuddy.io
 build:buildbuddy-ci --remote_timeout=3600
-build:buildbuddy-ci --remote_download_minimal
 build:buildbuddy-ci --noslim_profile
 build:buildbuddy-ci --nolegacy_important_outputs
 
