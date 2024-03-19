@@ -12,8 +12,8 @@
  */
 
 import { expect, test } from "@jest/globals"
-import { gradleModuleSchema } from "../schema"
-import { gradleModule } from "../util"
+import { gradleModuleSchema } from "../gradle-schema"
+import { gradleModule } from "../gradle-util"
 
 async function sampleModule() {
   return (await gradleModule(__dirname, 'gradle-module-sample.json'))?.module

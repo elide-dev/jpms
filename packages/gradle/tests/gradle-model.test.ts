@@ -12,7 +12,7 @@
  */
 
 import { expect, test } from "@jest/globals"
-import { gradleModule } from "../util"
+import { gradleModule } from "../gradle-util"
 
 test("gradle model parse from content (pom)", async () => {
   const mod = await gradleModule(__dirname, 'gradle-module-sample.pom')

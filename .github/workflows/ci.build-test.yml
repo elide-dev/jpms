@@ -11,6 +11,9 @@ name: "Build & Test"
       CODECOV_TOKEN:
         description: "Codecov Token"
         required: false
+      BUILDBUDDY_APIKEY:
+        description: "BuildBuddy API Key"
+        required: false
 
   workflow_dispatch: {}
 
@@ -62,6 +65,12 @@ jobs:
             .m2
             ~/.cache/bazel
           key: jpms-attic-v1-${{ runner.os }}
+      - name: "Setup: BuildBuddy"
+        run: echo "build --remote_header=x-buildbuddy-api-key=$BUILDBUDDY_KEY" >> ./.github/bazel.rc
+        env:
+          BUILDBUDDY_KEY: ${{ secrets.BUILDBUDDY_APIKEY }}
+      - name: "Setup: Bazel Configuration"
+        run: cp -fv ./.github/bazel.rc ./tools/bazel.rc
       - name: "Build & Test Repository"
         run: make TESTS=${{ inputs.tests && 'yes' || 'no' }} SIGNING=no JAVADOC=no SNAPSHOT=yes
       - name: "Reporting: Code Coverage"
@@ -70,6 +79,8 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: elide-dev/jpms
+          flags: packages
+          verbose: true
       - name: "Build: Packages"
         run: pnpm run -r pack
       - name: "Artifact: Packages"

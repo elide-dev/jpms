@@ -1,0 +1,5 @@
+http_archive(
+    name = "rbe_default",
+    sha256 = "cdffa3b0fbf72c361d10937c41f2ca2274efd234e3757b011b48ac0ced13be03",
+    url = "https://dl.less.build/toolchains/bazel/rbe/elidecloud-v4a-ubuntu23.10.tgz",
+)

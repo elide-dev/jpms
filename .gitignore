@@ -14,3 +14,4 @@ vendor
 node_modules/
 web/
 packages/*/*.tgz
+local.bazelrc

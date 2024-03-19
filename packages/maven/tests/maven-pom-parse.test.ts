@@ -15,8 +15,8 @@ import { expect, test } from "@jest/globals"
 import { join, resolve } from "node:path"
 import { existsSync } from "node:fs"
 import { POM_CONTENT_PARENT } from "./maven-samples"
-import { MavenProjectPackaging } from "../model"
-import parser, { parseAsync, ParsedOutput } from "../parser"
+import { MavenProjectPackaging } from "../maven-model"
+import parser, { parseAsync, ParsedOutput } from "../maven-parser"
 
 test('parse basic pom content (callback)', async () => {
   // sanity: should have non-null string to parse

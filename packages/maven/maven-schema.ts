@@ -12,7 +12,7 @@
  */
 
 import { object, array, string, InferType, ObjectSchema } from "yup"
-import { POM_MODEL_VERSION } from "./constants"
+import { POM_MODEL_VERSION } from "./maven-constants"
 
 import {
   MavenProjectLicense,
@@ -22,7 +22,7 @@ import {
   MavenProjectSourceControl,
   MavenProject as MavenProjectType,
   MavenProjectManagedDependency,
-} from "./model"
+} from "./maven-model"
 
 export type {
   MavenProjectLicense,

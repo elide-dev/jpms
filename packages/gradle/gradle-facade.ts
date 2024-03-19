@@ -12,8 +12,8 @@
  */
 
 import { basename, dirname } from "node:path"
-import { GradleAttribute, GradleModuleSchema, GradleVariantSchema } from "./schema"
-import { GradleModuleOptions, gradleModule } from "./util"
+import { GradleAttribute, GradleModuleSchema, GradleVariantSchema } from "./gradle-schema"
+import { GradleModuleOptions, gradleModule } from "./gradle-util"
 
 /**
  * Gradle Info
