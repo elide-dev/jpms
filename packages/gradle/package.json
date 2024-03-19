@@ -20,6 +20,18 @@
     "provenance": true,
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elide-dev/jpms",
+    "directory": "packages/maven"
+  },
+  "bugs": {
+    "url": "https://github.com/elide-dev/jpms/issues"
+  },
+  "author": {
+    "name": "Sam Gammon",
+    "url": "https://github.com/sgammon"
+  },
   "scripts": {
     "test:bun": "bun test",
     "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js",

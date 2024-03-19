@@ -27,6 +27,18 @@
     "provenance": true,
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elide-dev/jpms",
+    "directory": "packages/indexer"
+  },
+  "bugs": {
+    "url": "https://github.com/elide-dev/jpms/issues"
+  },
+  "author": {
+    "name": "Sam Gammon",
+    "url": "https://github.com/sgammon"
+  },
   "scripts": {
     "index": "bun run build && bun dist/indexer.mjs ../../repository",
     "test:bun": "bun test",
