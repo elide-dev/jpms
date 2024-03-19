@@ -220,4 +220,4 @@ jobs:
       - name: "Publish to Registry"
         run: cd packages/${{ inputs.package }} && npm publish ${{ inputs.dry-run && '--dry-run' || '' }} --registry=${{ inputs.registry }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
