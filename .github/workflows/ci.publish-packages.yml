@@ -24,9 +24,6 @@ on:
       prerelease:
         description: "Release: Pre-release"
         type: boolean
-      release-name:
-        description: "Release: Name"
-        type: string
       release-generate:
         description: "Release: Generate Notes"
         type: boolean
@@ -62,9 +59,6 @@ on:
       prerelease:
         description: "Release: Pre-release"
         type: boolean
-      release-name:
-        description: "Release: Name"
-        type: string
       release-generate:
         description: "Release: Generate Notes"
         type: boolean
@@ -94,7 +88,6 @@ jobs:
       tag: ${{ inputs.tag }}
       draft: ${{ inputs.draft }}
       prerelease: ${{ inputs.prerelease }}
-      release-name: ${{ inputs.release-name }}
       release-latest: ${{ inputs.release-latest }}
 
   publish-npm-gradle:
@@ -115,7 +108,6 @@ jobs:
       tag: ${{ inputs.tag }}
       draft: ${{ inputs.draft }}
       prerelease: ${{ inputs.prerelease }}
-      release-name: ${{ inputs.release-name }}
       release-latest: ${{ inputs.release-latest }}
 
   publish-npm-maven:
@@ -136,5 +128,4 @@ jobs:
       tag: ${{ inputs.tag }}
       draft: ${{ inputs.draft }}
       prerelease: ${{ inputs.prerelease }}
-      release-name: ${{ inputs.release-name }}
       release-latest: ${{ inputs.release-latest }}
