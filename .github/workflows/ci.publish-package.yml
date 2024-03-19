@@ -28,9 +28,6 @@ on:
       prerelease:
         description: "Release: Pre-release"
         type: boolean
-      release-name:
-        description: "Release: Name"
-        type: string
       release-generate:
         description: "Release: Generate Notes"
         type: boolean
@@ -75,9 +72,6 @@ on:
       prerelease:
         description: "Release: Pre-release"
         type: boolean
-      release-name:
-        description: "Release: Name"
-        type: string
       release-generate:
         description: "Release: Generate Notes"
         type: boolean
@@ -116,7 +110,7 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
       - name: "Build: Package (${{ inputs.package }})"
-        run: cd packages/${{ inputs.package }} && pnpm pack
+        run: cd packages/${{ inputs.package }} && pnpm run build && pnpm pack
       - name: "Build: Provenance Hashes"
         shell: bash
         id: hash
@@ -160,8 +154,9 @@ jobs:
       contents: write
     with:
       base64-subjects: "${{ needs.build.outputs.hashes }}"
-      upload-assets: true
+      upload-assets: ${{ inputs.dry-run != true }}
       upload-tag-name: ${{ inputs.tag || github.ref }}
+      draft-release: ${{ inputs.draft }}
 
   release:
     name: "Release to GitHub (${{ inputs.package }})"
@@ -169,28 +164,26 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/') || inputs.release
     steps:
+      - name: "Setup: Harden Runner"
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
       - name: "Artifact: Package"
         id: releaseArtifact
         uses: actions/download-artifact@c850b930e6ba138125429b7e5c93fc707a7f8427 # v4.1.4
         with:
           name: javamodules-pkg-${{ inputs.package }}-${{ github.sha }}
-      - name: "Artifact: Provenance"
-        id: provenanceArtifact
-        uses: actions/download-artifact@c850b930e6ba138125429b7e5c93fc707a7f8427 # v4.1.4
-        with:
-          name: ${{ needs.provenance.outputs.provenance-name }}
       - name: "Publish: Release"
         uses: softprops/action-gh-release@d99959edae48b5ffffd7b00da66dcdb0a33a52ee # v2.0.2
         with:
           draft: ${{ inputs.draft }}
           prerelease: ${{ inputs.prerelease }}
-          name: ${{ inputs.release-name }}
+          name: ${{ inputs.tag || github.ref }}
           tag_name: ${{ inputs.tag || github.ref }}
           generate_release_notes: ${{ inputs.release-generate }}
           append_body: true
           files: |
             ${{ steps.releaseArtifact.outputs.download-path }}
-            ${{ steps.provenanceArtifact.outputs.download-path }}
 
   publish-npm:
     name: "Publish to Registry (${{ inputs.package }})"
@@ -202,16 +195,33 @@ jobs:
       contents: write
       packages: write
     steps:
+      - name: "Setup: Harden Runner"
+        uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
+        with:
+          egress-policy: audit
+      - name: "Setup: Checkout"
+        uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
+        with:
+          persist-credentials: false
+      - name: "Setup: Node"
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        with:
+          node-version: ${{ vars.NODE_VERSION || '21' }}
+          registry-url: 'https://registry.npmjs.org'
+      - name: "Setup: PNPM"
+        uses: pnpm/action-setup@a3252b78c470c02df07e9d59298aecedc3ccdd6d # v3.0.0
+        with:
+          version: ${{ vars.PNPM_VERSION || '8' }}
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+      - name: "Build: Package (${{ inputs.package }})"
+        run: cd packages/${{ inputs.package }} && pnpm run build
       - name: "Artifact: Package"
         id: releaseArtifact
         uses: actions/download-artifact@c850b930e6ba138125429b7e5c93fc707a7f8427 # v4.1.4
         with:
           name: javamodules-pkg-${{ inputs.package }}-${{ github.sha }}
-      - name: "Artifact: Provenance"
-        id: provenanceArtifact
-        uses: actions/download-artifact@c850b930e6ba138125429b7e5c93fc707a7f8427 # v4.1.4
-        with:
-          name: ${{ needs.provenance.outputs.provenance-name }}
       - name: "Publish to Registry"
         run: cd packages/${{ inputs.package }} && pnpm run ${{ inputs.dry-run && 'publish:dry' || 'publish:live' }} --registry=${{ inputs.registry }}
         env:
