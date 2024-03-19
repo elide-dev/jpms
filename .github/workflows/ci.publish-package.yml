@@ -161,6 +161,7 @@ jobs:
     with:
       base64-subjects: "${{ needs.build.outputs.hashes }}"
       upload-assets: true
+      upload-tag-name: ${{ inputs.tag || github.ref }}
 
   release:
     name: "Release to GitHub (${{ inputs.package }})"
