@@ -28,3 +28,7 @@ jobs:
       contents: read
       pages: write
       id-token: write
+
+  checks-hashes:
+    name: "Checks"
+    uses: ./.github/workflows/check.hashes.yml

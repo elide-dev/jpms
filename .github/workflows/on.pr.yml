@@ -28,3 +28,7 @@ jobs:
     name: "Checks"
     needs: [build-dependency-graph]
     uses: ./.github/workflows/check.dependency-review.yml
+
+  checks-hashes:
+    name: "Checks"
+    uses: ./.github/workflows/check.hashes.yml
