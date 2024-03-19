@@ -12,7 +12,7 @@
  */
 
 import { expect, test } from "@jest/globals"
-import { MavenCoordinate, mavenCoordinate, parseMavenCoordinate } from "../model"
+import { MavenCoordinate, mavenCoordinate, parseMavenCoordinate } from "../maven-model"
 
 test("build a maven coordinate", () => {
   const coordinate: MavenCoordinate = mavenCoordinate('com.google.guava', 'guava', '1.0.0')

@@ -13,9 +13,9 @@
 
 import { expect, test } from "@jest/globals"
 import { join } from "node:path"
-import { GradleModule } from "../facade"
-import { GradleAttribute, GradleModuleType } from "../model"
-import { gradleModule } from "../util"
+import { GradleModule } from "../gradle-facade"
+import { GradleAttribute, GradleModuleType } from "../gradle-model"
+import { gradleModule } from "../gradle-util"
 
 test("gradle module facade instance parse from file", async () => {
   const mod = await GradleModule.fromFile(__dirname, 'gradle-module-sample.pom')

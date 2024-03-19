@@ -181,7 +181,6 @@ jobs:
           name: ${{ needs.provenance.outputs.provenance-name }}
       - name: "Publish: Release"
         uses: softprops/action-gh-release@d99959edae48b5ffffd7b00da66dcdb0a33a52ee # v2.0.2
-        if: !inputs.dry-run
         with:
           draft: ${{ inputs.draft }}
           prerelease: ${{ inputs.prerelease }}

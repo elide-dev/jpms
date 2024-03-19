@@ -79,6 +79,8 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: elide-dev/jpms
+          flags: packages
+          verbose: true
       - name: "Build: Packages"
         run: pnpm run -r pack
       - name: "Artifact: Packages"

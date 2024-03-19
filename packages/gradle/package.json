@@ -37,8 +37,8 @@
   },
   "exports": {
     "./util": {
-      "import": "./dist/util.js",
-      "types": "./dist/util.d.ts"
+      "import": "./dist/gradle-util.js",
+      "types": "./dist/gradle-util.d.ts"
     },
     ".": {
       "import": "./dist/index.mjs",

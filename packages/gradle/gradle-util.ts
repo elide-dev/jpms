@@ -14,7 +14,7 @@
 import { existsSync } from "node:fs"
 import { join, resolve } from "node:path"
 import { readFile } from "node:fs/promises"
-import { GradleModuleType, GradleModuleInfo } from "./model"
+import { GradleModuleType, GradleModuleInfo } from "./gradle-model"
 
 /**
  * Read a Gradle Module definition from the provided absolute path

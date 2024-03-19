@@ -1,5 +1,5 @@
 import { object, array, string, number, InferType, ObjectSchema } from "yup"
-import { GRADLE_SCHEMA_VERSION } from "./constants"
+import { GRADLE_SCHEMA_VERSION } from "./gradle-constants"
 
 import {
   GradleAttribute,
@@ -11,7 +11,7 @@ import {
   GradleModuleType,
   GradleReleaseFile,
   GradleVariant,
-} from "./model"
+} from "./gradle-model"
 
 export type {
   GradleAttribute,

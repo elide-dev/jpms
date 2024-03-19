@@ -37,8 +37,8 @@
   },
   "exports": {
     "./util": {
-      "import": "./dist/util.js",
-      "types": "./dist/util.d.ts"
+      "import": "./dist/maven-util.js",
+      "types": "./dist/maven-util.d.ts"
     },
     ".": {
       "import": "./dist/index.mjs",

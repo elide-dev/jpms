@@ -18,9 +18,9 @@ import { join, resolve, sep, dirname, basename } from "node:path";
 
 import { MavenCoordinate, mavenCoordinate } from "@javamodules/maven";
 import { GradleModuleInfo } from "@javamodules/gradle";
-import { gradleModule } from "../gradle/dist/util";
+import { gradleModule } from "@javamodules/gradle/util";
 
-import { RepositoryPackage, RepositoryIndexBundle, RepositoryIndexFile } from "./model.mjs";
+import { RepositoryPackage, RepositoryIndexBundle, RepositoryIndexFile } from "./indexer-model.mjs";
 
 function repositoryPackage(
   root: string,

@@ -38,8 +38,8 @@
   },
   "exports": {
     "./util": {
-      "import": "./dist/util.js",
-      "types": "./dist/util.d.ts"
+      "import": "./dist/java-util.js",
+      "types": "./dist/java-util.d.ts"
     },
     ".": {
       "import": "./dist/index.mjs",
