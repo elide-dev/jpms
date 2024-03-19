@@ -160,7 +160,7 @@ jobs:
       contents: write
     with:
       base64-subjects: "${{ needs.build.outputs.hashes }}"
-      upload-assets: ${{ !inputs.dry-run }}
+      upload-assets: ${{ inputs.dry-run != false }}
 
   release:
     name: "Release to GitHub (${{ inputs.package }})"
