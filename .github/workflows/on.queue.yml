@@ -16,3 +16,7 @@ jobs:
   checks-gradle:
     name: "Checks"
     uses: ./.github/workflows/check.gradle-wrapper.yml
+
+  checks-hashes:
+    name: "Checks"
+    uses: ./.github/workflows/check.hashes.yml
