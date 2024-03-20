@@ -22,7 +22,8 @@
     "test:node": "pnpm run -r test:node",
     "test": "pnpm run test:bun",
     "prettier": "prettier",
-    "prepare": "husky"
+    "prepare": "husky",
+    "hashcheck": "node node_modules/verify-hashes/dist/cli.js check ."
   },
   "devDependencies": {
     "@changesets/cli": "2.27.1",
@@ -31,7 +32,8 @@
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
-    "typescript": "5.4.2"
+    "typescript": "5.4.2",
+    "verify-hashes": "1.0.0-rc1"
   },
   "husky": {
     "hooks": {
