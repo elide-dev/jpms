@@ -15,5 +15,5 @@
  *
  */
 export class MavenProject {
-    //
+  //
 }

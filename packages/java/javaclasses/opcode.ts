@@ -228,7 +228,7 @@ export enum Opcode {
   JSR_W = 0xc9,
   BREAKPOINT = 0xca,
   IMPDEP1 = 0xfe,
-  IMPDEP2 = 0xff
+  IMPDEP2 = 0xff,
 }
-  
-export default Opcode
+
+export default Opcode;

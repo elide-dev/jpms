@@ -1,5 +1,5 @@
-import { object, array, string, number, InferType, ObjectSchema } from "yup"
-import { GRADLE_SCHEMA_VERSION } from "./gradle-constants"
+import { object, array, string, number, InferType, ObjectSchema } from "yup";
+import { GRADLE_SCHEMA_VERSION } from "./gradle-constants";
 
 import {
   GradleAttribute,
@@ -11,7 +11,7 @@ import {
   GradleModuleType,
   GradleReleaseFile,
   GradleVariant,
-} from "./gradle-model"
+} from "./gradle-model";
 
 export type {
   GradleAttribute,
@@ -22,7 +22,7 @@ export type {
   GradleDependencyDeclaration,
   GradleModuleType,
   GradleReleaseFile,
-}
+};
 
 const gradleComponentType = {
   url: string().label("URL").required(),
@@ -30,21 +30,19 @@ const gradleComponentType = {
   module: string().label("Module").required(),
   version: string().label("Version").required(),
   attributes: object().label("Attributes").required(),
-}
+};
 
-export const gradleComponentSchema: ObjectSchema<GradleComponent> = object(
-    gradleComponentType
-)
+export const gradleComponentSchema: ObjectSchema<GradleComponent> = object(gradleComponentType);
 
 const gradleCreatedByType = {
   gradle: object({
     version: string().label("Gradle Version").required(),
-  }).label("Gradle").required(),
-}
+  })
+    .label("Gradle")
+    .required(),
+};
 
-export const gradleCreatedBySchema: ObjectSchema<GradleCreatedBy> = object(
-    gradleCreatedByType
-)
+export const gradleCreatedBySchema: ObjectSchema<GradleCreatedBy> = object(gradleCreatedByType);
 
 export const gradleDependencySchema: ObjectSchema<GradleDependencyDeclaration> = object({
   group: string().label("Group").required(),
@@ -53,8 +51,10 @@ export const gradleDependencySchema: ObjectSchema<GradleDependencyDeclaration> =
     requires: string().label("Requires").optional(),
     prefers: string().label("Prefers").optional(),
     strictly: string().label("Strictly").optional(),
-  }).label("Version").required(),
-})
+  })
+    .label("Version")
+    .required(),
+});
 
 export const gradleFileSchema: ObjectSchema<GradleReleaseFile> = object({
   name: string().label("Name").required(),
@@ -64,18 +64,18 @@ export const gradleFileSchema: ObjectSchema<GradleReleaseFile> = object({
   sha1: string().label("SHA1").required(),
   sha256: string().label("SHA256").optional(),
   sha512: string().label("SHA512").optional(),
-})
+});
 
 export const gradleVariantSchema: ObjectSchema<GradleVariant> = object({
   name: string().label("Name").required(),
   attributes: object().label("Attributes").required(),
   dependencies: array(gradleDependencySchema).optional(),
   files: array(gradleFileSchema).optional(),
-})
+});
 
 export const gradleAttributesSchema: ObjectSchema<GradleAttributes> = object({
   // @TODO(sgammon): keyof string, valueof string, known attrs?
-})
+});
 
 export const gradleModuleSchema: ObjectSchema<GradleModuleType> = object({
   // `formatVersion: "1.1"`

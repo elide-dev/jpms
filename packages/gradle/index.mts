@@ -11,6 +11,6 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-export type { GradleModuleInfo } from "./gradle-model"
-export * from "./gradle-schema"
-export * from "./gradle-facade"
+export type { GradleModuleInfo } from "./gradle-model";
+export * from "./gradle-schema";
+export * from "./gradle-facade";

@@ -11,15 +11,15 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { JavaTool } from "./abstract"
-import type { JavaToolchain } from "../javahome"
+import { JavaTool } from "./abstract";
+import type { JavaToolchain } from "../javahome";
 
 /**
  * Java Launcher
  */
 export class JavaLauncher extends JavaTool {
-  private constructor (toolchain: JavaToolchain) {
-    super(toolchain)
+  private constructor(toolchain: JavaToolchain) {
+    super(toolchain);
   }
 
   /**
@@ -30,8 +30,8 @@ export class JavaLauncher extends JavaTool {
    */
   // @ts-ignore
   static forToolchain(toolchain: JavaToolchain): JavaLauncher {
-    throw new Error('not yet implemented')
+    throw new Error("not yet implemented");
   }
 }
 
-export default JavaLauncher
+export default JavaLauncher;

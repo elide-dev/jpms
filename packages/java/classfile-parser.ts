@@ -11,32 +11,32 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { resolve } from "node:path"
+import { resolve } from "node:path";
 // @ts-ignore
-import { existsSync } from "node:fs"
+import { existsSync } from "node:fs";
 // @ts-ignore
-import { readFile } from "node:fs/promises"
+import { readFile } from "node:fs/promises";
 
-import { TextDecoder } from "util"
-import { JavaClassFileReader, ClassFile } from "./javaclasses/java-class-reader"
+import { TextDecoder } from "util";
+import { JavaClassFileReader, ClassFile } from "./javaclasses/java-class-reader";
 
-type RawClassData = ClassFile
+type RawClassData = ClassFile;
 
 // Read class data from a file, then parse it.
 async function readClassfile(path: string): Promise<RawClassData> {
-  const classfilePath = resolve(path)
-  console.log(`would read from path ${classfilePath}`)
-  if (!existsSync(classfilePath)) throw new Error(`Class file does not exist: ${classfilePath}`)
-  return readClassfileData(await readFile(classfilePath))
+  const classfilePath = resolve(path);
+  console.log(`would read from path ${classfilePath}`);
+  if (!existsSync(classfilePath)) throw new Error(`Class file does not exist: ${classfilePath}`);
+  return readClassfileData(await readFile(classfilePath));
 }
 
 // Parse the provided classfile data.
 function readClassfileData(data: Buffer): RawClassData {
-  console.log('would read data' + data)
-  const classFile = JavaClassFileReader.readData(data)
+  console.log("would read data" + data);
+  const classFile = JavaClassFileReader.readData(data);
   // @ts-ignore
-  const textDecoder = new TextDecoder()
-  return classFile
+  const textDecoder = new TextDecoder();
+  return classFile;
 }
 
 /**
@@ -64,7 +64,7 @@ export class JavaClassFile {
    * @return Parsed and validated class info
    */
   static async fromFile(file: string): Promise<JavaClassFile> {
-    return new JavaClassFile(await readClassfile(file))
+    return new JavaClassFile(await readClassfile(file));
   }
 
   /**
@@ -74,6 +74,6 @@ export class JavaClassFile {
    * @return Parsed and validated class info
    */
   static fromData(data: Buffer): JavaClassFile {
-    return new JavaClassFile(readClassfileData(data))
+    return new JavaClassFile(readClassfileData(data));
   }
 }

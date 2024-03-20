@@ -11,4 +11,4 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-export * from "./java-model.js"
+export * from "./java-model.js";

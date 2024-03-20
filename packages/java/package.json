@@ -78,7 +78,10 @@
     "collectCoverage": true,
     "coverageProvider": "v8",
     "coverageDirectory": "reports",
-    "coverageReporters": ["lcov", "text-summary"],
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
     "reporters": [
       "default",
       "github-actions",

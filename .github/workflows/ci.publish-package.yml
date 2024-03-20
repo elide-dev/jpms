@@ -10,7 +10,7 @@ on:
       registry:
         description: "Registry"
         type: string
-        default: 'https://registry.npmjs.org'
+        default: "https://registry.npmjs.org"
       dry-run:
         description: "Dry Run"
         type: boolean
@@ -47,10 +47,10 @@ on:
         type: choice
         required: true
         options:
-        - java
-        - maven
-        - gradle
-        - indexer
+          - java
+          - maven
+          - gradle
+          - indexer
       dry-run:
         description: "Dry Run"
         type: boolean
@@ -58,7 +58,7 @@ on:
       registry:
         description: "Registry"
         type: string
-        default: 'https://registry.npmjs.org'
+        default: "https://registry.npmjs.org"
       release:
         description: "Release to GitHub"
         type: boolean
@@ -101,7 +101,7 @@ jobs:
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: ${{ vars.NODE_VERSION || '21' }}
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
       - name: "Setup: PNPM"
         uses: pnpm/action-setup@a3252b78c470c02df07e9d59298aecedc3ccdd6d # v3.0.0
         with:
@@ -207,7 +207,7 @@ jobs:
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: ${{ vars.NODE_VERSION || '21' }}
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
       - name: "Setup: PNPM"
         uses: pnpm/action-setup@a3252b78c470c02df07e9d59298aecedc3ccdd6d # v3.0.0
         with:

@@ -11,40 +11,40 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { expect, test } from "@jest/globals"
-import { gradleModuleSchema } from "../gradle-schema"
-import { gradleModule } from "../gradle-util"
+import { expect, test } from "@jest/globals";
+import { gradleModuleSchema } from "../gradle-schema";
+import { gradleModule } from "../gradle-util";
 
 async function sampleModule() {
-  return (await gradleModule(__dirname, 'gradle-module-sample.json'))?.module
+  return (await gradleModule(__dirname, "gradle-module-sample.json"))?.module;
 }
 
-test('expects gradle module to load for testing', () => {
+test("expects gradle module to load for testing", () => {
   expect(sampleModule).not.toBeNull();
-})
-
-test('gradle module should fail with invalid format version', async () => {
-  let caught = false
-  try {
-    await gradleModuleSchema.validate({
-      ...(await sampleModule()),
-      formatVersion: 'invalid-version',
-    })
-  } catch (err) {
-    caught = true
-  }
-  expect(caught).toBeTruthy()
 });
 
-test('gradle module should fail with unexpected format version', async () => {
-  let caught = false
+test("gradle module should fail with invalid format version", async () => {
+  let caught = false;
   try {
     await gradleModuleSchema.validate({
       ...(await sampleModule()),
-      formatVersion: '1.2',
-    })
+      formatVersion: "invalid-version",
+    });
   } catch (err) {
-    caught = true
+    caught = true;
   }
-  expect(caught).toBeTruthy()
+  expect(caught).toBeTruthy();
+});
+
+test("gradle module should fail with unexpected format version", async () => {
+  let caught = false;
+  try {
+    await gradleModuleSchema.validate({
+      ...(await sampleModule()),
+      formatVersion: "1.2",
+    });
+  } catch (err) {
+    caught = true;
+  }
+  expect(caught).toBeTruthy();
 });

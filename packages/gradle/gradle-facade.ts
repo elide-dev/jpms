@@ -11,9 +11,9 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { basename, dirname } from "node:path"
-import { GradleAttribute, GradleModuleSchema, GradleVariantSchema } from "./gradle-schema"
-import { GradleModuleOptions, gradleModule } from "./gradle-util"
+import { basename, dirname } from "node:path";
+import { GradleAttribute, GradleModuleSchema, GradleVariantSchema } from "./gradle-schema";
+import { GradleModuleOptions, gradleModule } from "./gradle-util";
 
 /**
  * Gradle Info
@@ -28,7 +28,7 @@ export interface GradleInfo {
    * @param attr Attribute to obtain a value for
    * @return Attribute value as a `string`, or `null`
    */
-  attribute(attr: GradleAttribute | string): string | null
+  attribute(attr: GradleAttribute | string): string | null;
 }
 
 /**
@@ -49,7 +49,7 @@ export class GradleVariant implements GradleInfo {
    * @return Value as a string, or `null`
    */
   attribute(attr: GradleAttribute): string | null {
-    return this._variant.attributes[attr] || null
+    return this._variant.attributes[attr] || null;
   }
 
   /**
@@ -59,7 +59,7 @@ export class GradleVariant implements GradleInfo {
    * @returns Wrapped variant data
    */
   static fromData(data: GradleVariantSchema): GradleVariant {
-    return new GradleVariant(data)
+    return new GradleVariant(data);
   }
 }
 
@@ -82,21 +82,21 @@ export class GradleModule implements GradleInfo {
    */
   private constructor(
     private readonly _module: GradleModuleSchema,
-    private readonly _file: string | null
+    private readonly _file: string | null,
   ) {}
 
   /**
    * @returns Underlying Gradle Module data
    */
   module(): GradleModuleSchema {
-    return this._module
+    return this._module;
   }
 
   /**
    * @returns File from which this definition was parsed, as applicable
    */
   file(): string | null {
-    return this._file
+    return this._file;
   }
 
   /**
@@ -106,9 +106,9 @@ export class GradleModule implements GradleInfo {
    * @return Requested Gradle Variant, or `null`
    */
   variant(name: string): GradleVariant | null {
-    const variantData = this._module.variants.find((it) => it.name === name)
-    if (variantData) return GradleVariant.fromData(variantData)
-    return null
+    const variantData = this._module.variants.find((it) => it.name === name);
+    if (variantData) return GradleVariant.fromData(variantData);
+    return null;
   }
 
   /**
@@ -118,7 +118,7 @@ export class GradleModule implements GradleInfo {
    * @return Value as a string, or `null`
    */
   attribute(attr: GradleAttribute | string): string | null {
-    return this._module.component.attributes[attr] || null
+    return this._module.component.attributes[attr] || null;
   }
 
   /**
@@ -129,7 +129,7 @@ export class GradleModule implements GradleInfo {
    * @return Wrapped module definition
    */
   static fromData(schema: GradleModuleSchema, file?: string): GradleModule {
-    return new GradleModule(schema, file || null)
+    return new GradleModule(schema, file || null);
   }
 
   /**
@@ -141,14 +141,17 @@ export class GradleModule implements GradleInfo {
    * @return Wrapped module definition
    */
   static async fromFile(path: string, optionalName?: string, options?: GradleModuleOptions): Promise<GradleModule> {
-    const parent = !!optionalName ? path : dirname(path)
-    const filename = !!optionalName ? optionalName : basename(path)
-    const mod = await gradleModule(parent, filename, options || {
-      validate: true,
-      lenient: true,
-    })
-    if (!mod)
-        throw new Error(`Failed to load Gradle module from file: ${parent}/${filename}`)
-    return this.fromData(mod.module, mod.path)
+    const parent = !!optionalName ? path : dirname(path);
+    const filename = !!optionalName ? optionalName : basename(path);
+    const mod = await gradleModule(
+      parent,
+      filename,
+      options || {
+        validate: true,
+        lenient: true,
+      },
+    );
+    if (!mod) throw new Error(`Failed to load Gradle module from file: ${parent}/${filename}`);
+    return this.fromData(mod.module, mod.path);
   }
 }

@@ -11,20 +11,20 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { resolve } from "node:path"
-import { env } from "node:process"
-import { expect, test } from "@jest/globals"
-import { JavaToolchain } from "../javahome"
+import { resolve } from "node:path";
+import { env } from "node:process";
+import { expect, test } from "@jest/globals";
+import { JavaToolchain } from "../javahome";
 
 test("obtain the current java toolchain from JAVA_HOME", () => {
-  expect(JavaToolchain.current()).toBeDefined()
-  const toolchain = JavaToolchain.current()
-  expect(toolchain.path()).toBeDefined()
-  expect(toolchain.versionInfo()).toBeDefined()
-  expect(toolchain.version()).toBeDefined()
-  expect(toolchain.semver()).toBeDefined()
+  expect(JavaToolchain.current()).toBeDefined();
+  const toolchain = JavaToolchain.current();
+  expect(toolchain.path()).toBeDefined();
+  expect(toolchain.versionInfo()).toBeDefined();
+  expect(toolchain.version()).toBeDefined();
+  expect(toolchain.semver()).toBeDefined();
 });
 
 test("obtain a java toolchain for a path", () => {
-  expect(JavaToolchain.forPath(resolve(env["JAVA_HOME"] as string))).toBeDefined()
+  expect(JavaToolchain.forPath(resolve(env["JAVA_HOME"] as string))).toBeDefined();
 });

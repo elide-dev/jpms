@@ -41,29 +41,27 @@
  * both MIT, with the original under Intuit's ownership, and extensions under Elide's ownership.
  */
 
-import fs from 'node:fs'
-import xml2js, { Options as XmlParseOptions } from 'xml2js'
-import traverse from 'traverse'
+import fs from "node:fs";
+import xml2js, { Options as XmlParseOptions } from "xml2js";
+import traverse from "traverse";
 
-export type {
-    XmlParseOptions
-}
+export type { XmlParseOptions };
 
 // xmljs options https://github.com/Leonidas-from-XIV/node-xml2js#options
 let XML2JS_OPTS = {
   trim: true,
   normalizeTags: true,
   normalize: true,
-  mergeAttrs: true
+  mergeAttrs: true,
 };
 
-export type PomProject = Record<string, any>
+export type PomProject = Record<string, any>;
 
 export type PomObject = {
-    project: PomProject,
+  project: PomProject;
 } & {
-    [key: string]: string,
-}
+  [key: string]: string;
+};
 
 export interface ParsedOutput {
   pomXml: string;
@@ -74,7 +72,7 @@ export interface ParsedOutput {
 /**
  * Options for the parser, with XML parsing options available as well.
  */
-export type ParseOptions = (XmlParseOptions & { filePath?: string; xmlContent?: string }) | null
+export type ParseOptions = (XmlParseOptions & { filePath?: string; xmlContent?: string }) | null;
 
 /**
  * Callback type for the parser.
@@ -82,32 +80,32 @@ export type ParseOptions = (XmlParseOptions & { filePath?: string; xmlContent?: 
 export type ParseCallback = (err: Error | null, result?: ParsedOutput | null) => void;
 
 const checkEmpty = (value: string | null | undefined): string => {
-  if (!!value) return value
-  throw new Error('Cannot parse empty or invalid XML')
-}
+  if (!!value) return value;
+  throw new Error("Cannot parse empty or invalid XML");
+};
 
 /**
  * This method exposes an `async/await` syntax to the older `parse` method and allows you to call the method with just
  * one argument.
- * 
+ *
  * @param {ParseOptions} opt the options to be used for parsing
  * @returns {Promise<ParsedOutput>} a `Promise` that holds the parsed output
  */
 export async function parseAsync(opt: ParseOptions): Promise<ParsedOutput> {
-  if (!opt) throw new Error(
-    "You must provide options: opt.filePath and any other option of " +
-    "https://github.com/Leonidas-from-XIV/node-xml2js#options"
-  )
-  if (!opt.xmlContent && !opt.filePath)
-    throw new Error("You must provide the opt.filePath or the opt.xmlContent");
+  if (!opt)
+    throw new Error(
+      "You must provide options: opt.filePath and any other option of " +
+        "https://github.com/Leonidas-from-XIV/node-xml2js#options",
+    );
+  if (!opt.xmlContent && !opt.filePath) throw new Error("You must provide the opt.filePath or the opt.xmlContent");
 
   if (opt.filePath) {
-    const xmlContent = checkEmpty(await readFileAsync(opt.filePath, "utf8"))
+    const xmlContent = checkEmpty(await readFileAsync(opt.filePath, "utf8"));
     const result = await _parseWithXml2js(xmlContent);
     return result;
   }
 
-  const result = await _parseWithXml2js(checkEmpty(opt.xmlContent || ''));
+  const result = await _parseWithXml2js(checkEmpty(opt.xmlContent || ""));
   delete result.xmlContent;
   return result;
 }
@@ -118,34 +116,42 @@ export async function parseAsync(opt: ParseOptions): Promise<ParsedOutput> {
  * @return {object} The pom object along with the timers.
  */
 function parse(opt: ParseOptions, callback: ParseCallback): void {
-  if (!opt) throw new Error(
-    "You must provide options: opt.filePath and any other option of " +
-    "https://github.com/Leonidas-from-XIV/node-xml2js#options"
-  )
+  if (!opt)
+    throw new Error(
+      "You must provide options: opt.filePath and any other option of " +
+        "https://github.com/Leonidas-from-XIV/node-xml2js#options",
+    );
 
-  if (!opt.xmlContent && !opt.filePath)
-    throw new Error("You must provide the opt.filePath or the opt.xmlContent");
+  if (!opt.xmlContent && !opt.filePath) throw new Error("You must provide the opt.filePath or the opt.xmlContent");
 
   // If the xml content is was not provided by the api client.
   // https://github.com/petkaantonov/bluebird/blob/master/API.md#error-rejectedhandler----promise
   if (opt.filePath) {
-    readFileAsync(opt.filePath, "utf8").then(function (xmlContent) {
-      return checkEmpty(xmlContent);
-    }).then(_parseWithXml2js).then(function (result) {
-      callback(null, result);
-    }, function (e) {
-      callback(e, null);
-    });
+    readFileAsync(opt.filePath, "utf8")
+      .then(function (xmlContent) {
+        return checkEmpty(xmlContent);
+      })
+      .then(_parseWithXml2js)
+      .then(
+        function (result) {
+          callback(null, result);
+        },
+        function (e) {
+          callback(e, null);
+        },
+      );
   } else if (opt.xmlContent) {
     // parse the xml provided by the api client.
-    _parseWithXml2js(checkEmpty(opt.xmlContent)).then(function (result) {
-      delete result.xmlContent;
-      callback(null, result);
-    }).catch(function (e) {
-      callback(e);
-    });
+    _parseWithXml2js(checkEmpty(opt.xmlContent))
+      .then(function (result) {
+        delete result.xmlContent;
+        callback(null, result);
+      })
+      .catch(function (e) {
+        callback(e);
+      });
   }
-};
+}
 
 /**
  * Parses the given xml content.
@@ -168,7 +174,7 @@ function _parseWithXml2js(xmlContent: string): Promise<ParsedOutput> {
       // Response to the call
       resolve({
         pomXml: xmlContent, // Only add the pomXml when loaded from the file-system.
-        pomObject: pomObject // Always add the object
+        pomObject: pomObject, // Always add the object
       });
     });
   });
@@ -194,11 +200,9 @@ function readFileAsync(path: string, encoding: BufferEncoding | undefined): Prom
       if (err) {
         reject(err);
       } else {
-        data instanceof Buffer
-          ? resolve(data.toString(encoding))
-          : resolve(data);
+        data instanceof Buffer ? resolve(data.toString(encoding)) : resolve(data);
       }
-    })
+    }),
   );
 }
 

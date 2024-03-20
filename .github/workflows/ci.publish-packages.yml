@@ -10,7 +10,7 @@ on:
       registry:
         description: "Registry"
         type: string
-        default: 'https://registry.npmjs.org'
+        default: "https://registry.npmjs.org"
       release:
         description: "Release to GitHub"
         type: boolean
@@ -45,7 +45,7 @@ on:
       registry:
         description: "Registry"
         type: string
-        default: 'https://registry.npmjs.org'
+        default: "https://registry.npmjs.org"
       release:
         description: "Release to GitHub"
         type: boolean

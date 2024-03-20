@@ -11,10 +11,10 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { existsSync } from "node:fs"
-import { join, resolve } from "node:path"
-import { readFile } from "node:fs/promises"
-import { GradleModuleType, GradleModuleInfo } from "./gradle-model"
+import { existsSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { readFile } from "node:fs/promises";
+import { GradleModuleType, GradleModuleInfo } from "./gradle-model";
 
 /**
  * Read a Gradle Module definition from the provided absolute path
@@ -23,14 +23,12 @@ import { GradleModuleType, GradleModuleInfo } from "./gradle-model"
  * @returns Promise for a decoded Gradle module
  */
 export async function readGradleModule(absolutePath: string): Promise<GradleModuleType> {
-  const contents = await readFile(absolutePath, { encoding: "utf8" })
-  if (!contents)
-    throw new Error(`Failed to read Gradle module at path '${absolutePath}'`)
+  const contents = await readFile(absolutePath, { encoding: "utf8" });
+  if (!contents) throw new Error(`Failed to read Gradle module at path '${absolutePath}'`);
 
-  const obj = JSON.parse(contents) as GradleModuleType
-  if (Object.keys(obj).length === 0)
-    throw new Error('Parsed Gradle Module is an empty object')
-  return obj
+  const obj = JSON.parse(contents) as GradleModuleType;
+  if (Object.keys(obj).length === 0) throw new Error("Parsed Gradle Module is an empty object");
+  return obj;
 }
 
 /**
@@ -38,11 +36,11 @@ export async function readGradleModule(absolutePath: string): Promise<GradleModu
  */
 export type GradleModuleOptions = {
   /** Whether to allow missing files and other lenient behavior. */
-  lenient?: boolean,
+  lenient?: boolean;
 
   /** Whether to perform schema validation steps on parsed Gradle Modules. */
-  validate?: boolean,
-}
+  validate?: boolean;
+};
 
 /**
  * Options that can be provided to `validateGradleModule` when verifying the schema expected for a Gradle Module
@@ -50,7 +48,7 @@ export type GradleModuleOptions = {
  */
 export type GradleModuleVerifyOptions = {
   // Nothing at this time.
-}
+};
 
 /**
  * Validate the structure/schema of a Gradle Module descriptor; based on the provided options, different validation may
@@ -61,8 +59,8 @@ export type GradleModuleVerifyOptions = {
  * @return Boolean (if there is no failure and `err` is not set in the options)
  */
 // @ts-ignore
-export function validateGradleModule(module: GradleModuleInfo, options?: GradleModuleVerifyOptions,): boolean {
-  return true  // not yet implemented
+export function validateGradleModule(module: GradleModuleInfo, options?: GradleModuleVerifyOptions): boolean {
+  return true; // not yet implemented
 }
 
 /**
@@ -83,29 +81,27 @@ export async function gradleModule(
   pomName: string,
   options?: GradleModuleOptions,
 ): Promise<GradleModuleInfo | undefined> {
-  const moduleName = pomName.replace(".pom", ".module")
-  const moduleNameAlt = pomName.replace(".pom", ".json")
-  const modulePath = resolve(join(path, moduleName))
-  const modulePathAlt = resolve(join(path, moduleNameAlt))
-  const moduleExists = existsSync(modulePath)
-  const moduleExistsAlt = existsSync(modulePathAlt)
+  const moduleName = pomName.replace(".pom", ".module");
+  const moduleNameAlt = pomName.replace(".pom", ".json");
+  const modulePath = resolve(join(path, moduleName));
+  const modulePathAlt = resolve(join(path, moduleNameAlt));
+  const moduleExists = existsSync(modulePath);
+  const moduleExistsAlt = existsSync(modulePathAlt);
 
   if (moduleExists || moduleExistsAlt) {
-    const moduleNameResolved = moduleExists ? moduleName : moduleNameAlt
-    const moduleTarget = moduleExists ? modulePath : modulePathAlt
+    const moduleNameResolved = moduleExists ? moduleName : moduleNameAlt;
+    const moduleTarget = moduleExists ? modulePath : modulePathAlt;
 
     const mod = {
       path: moduleTarget,
       module: await readGradleModule(join(path, moduleNameResolved)),
-    }
-    if (options?.validate !== false)
-      validateGradleModule(mod, { strict: true, err: true })
-    return mod
+    };
+    if (options?.validate !== false) validateGradleModule(mod, { strict: true, err: true });
+    return mod;
   }
 
-  if (options?.lenient !== true)
-    throw new Error(`Failed to locate Gradle Module at '${modulePath}'`)
+  if (options?.lenient !== true) throw new Error(`Failed to locate Gradle Module at '${modulePath}'`);
 
   // no module file found for this release
-  return undefined
+  return undefined;
 }

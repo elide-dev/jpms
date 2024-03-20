@@ -95,7 +95,7 @@ export type GradleComponent = {
   module: string;
   version: string;
   attributes: GradleAttributes;
-}
+};
 
 /**
  * Gradle Creator Info
@@ -103,8 +103,8 @@ export type GradleComponent = {
  * Describes information about a Gradle build agent that created a Gradle Module
  */
 export type GradleCreatorInfo = {
-  version: string
-}
+  version: string;
+};
 
 /**
  * Gradle Created-By
@@ -112,8 +112,8 @@ export type GradleCreatorInfo = {
  * Describes the build agent that created the Gradle Module info
  */
 export type GradleCreatedBy = {
-  gradle: GradleCreatorInfo,
-}
+  gradle: GradleCreatorInfo;
+};
 
 /**
  * Gradle Module
