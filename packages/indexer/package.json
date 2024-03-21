@@ -49,7 +49,7 @@
     "build": "tsc -p ."
   },
   "dependencies": {
-    "@endo/zip": "1.0.2",
+    "@endo/zip": "1.0.3",
     "@javamodules/gradle": "workspace:*",
     "@javamodules/java": "workspace:*",
     "@javamodules/maven": "workspace:*",

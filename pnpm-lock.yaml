@@ -67,8 +67,8 @@ importers:
   packages/indexer:
     dependencies:
       '@endo/zip':
-        specifier: 1.0.2
-        version: 1.0.2
+        specifier: 1.0.3
+        version: 1.0.3
       '@javamodules/gradle':
         specifier: workspace:*
         version: link:../gradle
@@ -119,8 +119,8 @@ importers:
   packages/java:
     dependencies:
       '@endo/zip':
-        specifier: 1.0.2
-        version: 1.0.2
+        specifier: 1.0.3
+        version: 1.0.3
       bytebuffer:
         specifier: 5.0.1
         version: 5.0.1
@@ -892,8 +892,8 @@ packages:
       chalk: 5.3.0
     dev: true
 
-  /@endo/zip@1.0.2:
-    resolution: {integrity: sha512-+CuclRetpit92j68XVjW5vPLuloKkwKwAW38eGaQKEUIeGG28VJdypwSFRHn9uFBTLJM0iPaAmB/P0xt8ywX5w==, tarball: https://registry.npmjs.org/@endo/zip/-/zip-1.0.2.tgz}
+  /@endo/zip@1.0.3:
+    resolution: {integrity: sha512-eq+YTx9Fj3CuOzjCWsB7ezG3ngUAXJgNRMzSKDs95t0X+ZgyfmuKZ2kcZ/c2dFy2HI6wY79xqhfha4XTgRomZw==, tarball: https://registry.npmjs.org/@endo/zip/-/zip-1.0.3.tgz}
     dev: false
 
   /@isaacs/cliui@8.0.2:
