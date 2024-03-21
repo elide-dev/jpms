@@ -11,22 +11,22 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { globSync } from "glob";
-import { existsSync } from "node:fs";
-import { readdir, stat, mkdir } from "node:fs/promises";
-import { join, resolve, sep, dirname, basename } from "node:path";
+import { globSync } from 'glob'
+import { existsSync } from 'node:fs'
+import { readdir, stat, mkdir } from 'node:fs/promises'
+import { join, resolve, sep, dirname, basename } from 'node:path'
 
-import { MavenCoordinate, mavenCoordinate } from "@javamodules/maven";
-import { GradleModuleInfo } from "@javamodules/gradle";
-import { gradleModule } from "@javamodules/gradle/util";
+import { MavenCoordinate, mavenCoordinate } from '@javamodules/maven'
+import { GradleModuleInfo } from '@javamodules/gradle'
+import { gradleModule } from '@javamodules/gradle/util'
 
-import { RepositoryPackage, RepositoryIndexBundle, RepositoryIndexFile } from "./indexer-model.mjs";
+import { RepositoryPackage, RepositoryIndexBundle, RepositoryIndexFile } from './indexer-model.mjs'
 
 function repositoryPackage(
   root: string,
   maven: MavenCoordinate,
   pom: string,
-  gradle?: GradleModuleInfo,
+  gradle?: GradleModuleInfo
 ): RepositoryPackage {
   return {
     maven,
@@ -34,57 +34,64 @@ function repositoryPackage(
     pom,
     gradle,
     valueOf: function () {
-      return `${pom} (${maven})`;
-    },
-  };
+      return `${pom} (${maven})`
+    }
+  }
 }
 
 function coordinateForPomPath(prefix: string, path: string) {
   if (!path.startsWith(prefix))
-    throw new Error(`Cannot generate coordinate for path '${path}' which is not under prefix '${prefix}'`);
+    throw new Error(`Cannot generate coordinate for path '${path}' which is not under prefix '${prefix}'`)
 
   // like `/.../jpms/repository/org/reactivestreams/reactive-streams/1.0.5-jpms/reactive-streams-1.0.5-jpms.pom`
-  const trimmed = path.slice(prefix.length + 1);
-  const segments = trimmed.split(sep);
+  const trimmed = path.slice(prefix.length + 1)
+  const segments = trimmed.split(sep)
 
   // like `reactive-streams-1.0.5-jpms.pom`
-  const pomName = segments[segments.length - 1];
+  const pomName = segments[segments.length - 1]
 
   // like `org/reactivestreams/reactive-streams/1.0.5-jpms`
-  const coordinateTarget = trimmed.slice(0, trimmed.length - 1 - pomName.length);
-  const coordinateSegments = coordinateTarget.split(sep);
+  const coordinateTarget = trimmed.slice(0, trimmed.length - 1 - pomName.length)
+  const coordinateSegments = coordinateTarget.split(sep)
 
   // like `1.0.5-jpms`
-  const versionString = coordinateSegments[coordinateSegments.length - 1];
+  const versionString = coordinateSegments[coordinateSegments.length - 1]
 
   // like `reactive-streams`
-  const artifactId = coordinateSegments[coordinateSegments.length - 2];
+  const artifactId = coordinateSegments[coordinateSegments.length - 2]
 
   // like ['org', 'reactivestreams']
-  const groupSegments = coordinateSegments.slice(0, coordinateSegments.length - 2);
+  const groupSegments = coordinateSegments.slice(0, coordinateSegments.length - 2)
 
-  return mavenCoordinate(groupSegments.join("."), artifactId, versionString);
+  return mavenCoordinate(groupSegments.join('.'), artifactId, versionString)
 }
 
 async function buildPackages(prefix: string, path: string) {
-  const found: RepositoryPackage[] = [];
-  const pathPoms = globSync(join(path, "**", "*.pom"));
+  const found: RepositoryPackage[] = []
+  const pathPoms = globSync(join(path, '**', '*.pom'))
   for (const pomPath of pathPoms) {
-    const coordinate = coordinateForPomPath(prefix, pomPath);
-    console.log(`- Scanning POM '${coordinate.valueOf()}'`);
-    found.push(repositoryPackage(path, coordinate, pomPath, await gradleModule(dirname(pomPath), basename(pomPath), {
-      lenient: true,
-    })));
+    const coordinate = coordinateForPomPath(prefix, pomPath)
+    console.log(`- Scanning POM '${coordinate.valueOf()}'`)
+    found.push(
+      repositoryPackage(
+        path,
+        coordinate,
+        pomPath,
+        await gradleModule(dirname(pomPath), basename(pomPath), {
+          lenient: true
+        })
+      )
+    )
   }
-  return found;
+  return found
 }
 
 async function buildRootPackage(prefix: string, path: string): Promise<RepositoryPackage[]> {
-  const filestat = await stat(path);
-  if (!filestat.isDirectory()) return []; // we are only processing directory roots
+  const filestat = await stat(path)
+  if (!filestat.isDirectory()) return [] // we are only processing directory roots
 
-  const target = resolve(path);
-  return await buildPackages(prefix, target);
+  const target = resolve(path)
+  return await buildPackages(prefix, target)
 }
 
 // @ts-ignore
@@ -92,27 +99,27 @@ function buildIndexes(all_packages: RepositoryPackage[]): RepositoryIndexBundle 
   // @TODO build indexes
   return {
     artifacts: [],
-    modules: [],
-  };
+    modules: []
+  }
 }
 
 // @ts-ignore
 async function prepareContent(indexes: RepositoryIndexBundle): Promise<RepositoryIndexFile[]> {
-  return [];
+  return []
 }
 
 // @ts-ignore
 async function writeIndexFile(write: RepositoryIndexFile) {}
 
 async function writeIndexes(outpath: string, all_packages: RepositoryPackage[]) {
-  const resolvedOut = resolve(outpath);
+  const resolvedOut = resolve(outpath)
   if (!existsSync(resolvedOut)) {
-    await mkdir(resolvedOut, { recursive: true });
+    await mkdir(resolvedOut, { recursive: true })
   }
-  const indexes = buildIndexes(all_packages);
-  const writes = await prepareContent(indexes);
+  const indexes = buildIndexes(all_packages)
+  const writes = await prepareContent(indexes)
   for (const write of writes) {
-    await writeIndexFile(write);
+    await writeIndexFile(write)
   }
 }
 
@@ -123,20 +130,20 @@ async function writeIndexes(outpath: string, all_packages: RepositoryPackage[]) 
  * @param outpath Output path (directory) for generated index files
  */
 export async function buildRepositoryIndexes(path: string, outpath: string) {
-  const prefix = resolve(path);
-  console.log(`Scanning repository '${prefix}'...`);
-  let all_packages: RepositoryPackage[] = [];
+  const prefix = resolve(path)
+  console.log(`Scanning repository '${prefix}'...`)
+  let all_packages: RepositoryPackage[] = []
   try {
-    const files = await readdir(path);
+    const files = await readdir(path)
     for (const file of files) {
-      all_packages = all_packages.concat(await buildRootPackage(prefix, join(path, file)));
+      all_packages = all_packages.concat(await buildRootPackage(prefix, join(path, file)))
     }
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 
-  writeIndexes(outpath, all_packages);
+  writeIndexes(outpath, all_packages)
 }
 
 // argument expected is path to repository
-await buildRepositoryIndexes(process.argv[2] || join("..", "..", "repository"), "./indexes");
+await buildRepositoryIndexes(process.argv[2] || join('..', '..', 'repository'), './indexes')

@@ -11,52 +11,55 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { resolve } from "node:path";
-import { readFile } from "node:fs/promises";
+import { resolve } from 'node:path'
+import { readFile } from 'node:fs/promises'
 
-import { TextDecoder } from "util";
-import { JavaClassFileReader, ClassFile } from "./javaclasses/java-class-reader";
-import { JavaModuleExport, JavaModuleInfo, JavaModuleProvides, JavaModuleRequires, JavaModuleUses, JvmTarget, jvmTargetForLevel } from "./java-model";
-
-import Modifier from "./javaclasses/modifier";
-import { AttributeName } from "./javaclasses/attribute";
-import { ModuleFlags, RequiresFlags } from "./javamodules/module-flags";
-
+import { TextDecoder } from 'util'
+import { JavaClassFileReader, ClassFile } from './javaclasses/java-class-reader'
 import {
-  AttributeInfoBase,
-  ClassInfo,
-  ConstantInfo,
-  ModuleInfoAttributes,
-} from "./javaclasses/java-class-types";
+  JavaModuleExport,
+  JavaModuleInfo,
+  JavaModuleProvides,
+  JavaModuleRequires,
+  JavaModuleUses,
+  JvmTarget,
+  jvmTargetForLevel
+} from './java-model'
+
+import Modifier from './javaclasses/modifier'
+import { AttributeName } from './javaclasses/attribute'
+import { ModuleFlags, RequiresFlags } from './javamodules/module-flags'
+
+import { AttributeInfoBase, ClassInfo, ConstantInfo, ModuleInfoAttributes } from './javaclasses/java-class-types'
 
 // Raw underlying class data.
-type RawClassData = ClassFile;
+type RawClassData = ClassFile
 
 // Read class data from a file, then parse it.
 async function readClassfile(path: string): Promise<RawClassData> {
   // need to do this to avoid a static import for environments like cloudflare workers
-  const { existsSync } = require('fs');
-  const classfilePath = resolve(path);
-  if (!existsSync(classfilePath)) throw new Error(`Class file does not exist: ${classfilePath}`);
-  return readClassfileData(await readFile(classfilePath));
+  const { existsSync } = require('fs')
+  const classfilePath = resolve(path)
+  if (!existsSync(classfilePath)) throw new Error(`Class file does not exist: ${classfilePath}`)
+  return readClassfileData(await readFile(classfilePath))
 }
 
 // Parse the provided classfile data.
 function readClassfileData(data: Buffer): RawClassData {
-  const classFile = JavaClassFileReader.readData(data);
+  const classFile = JavaClassFileReader.readData(data)
   // @ts-ignore
-  const textDecoder = new TextDecoder();
-  return classFile;
+  const textDecoder = new TextDecoder()
+  return classFile
 }
 
 // Decode the raw bytes of a constant-pool value into a string.
 function decodeConstantToString(constant: ConstantInfo): string {
-  return String.fromCharCode.apply(null, constant.bytes);
+  return String.fromCharCode.apply(null, constant.bytes)
 }
 
 // Decode the internal class name form (`some/class/Name`) into a package-qualified class name (`some.class.Name`).
 function internalClassNameToClassName(name: string): string {
-  return name.replace(/\//g, '.');
+  return name.replace(/\//g, '.')
 }
 
 // Determine whether a flag is set in a masked flag value.
@@ -79,7 +82,7 @@ export class JavaClassFile {
    * @return Raw parsed class data.
    */
   raw(): RawClassData {
-    return this._classdata;
+    return this._classdata
   }
 
   /**
@@ -89,7 +92,7 @@ export class JavaClassFile {
    * @return Parsed and validated class info
    */
   static async fromFile(file: string): Promise<JavaClassFile> {
-    return new JavaClassFile(await readClassfile(file));
+    return new JavaClassFile(await readClassfile(file))
   }
 
   /**
@@ -99,14 +102,14 @@ export class JavaClassFile {
    * @return Parsed and validated class info
    */
   static fromData(data: Buffer): JavaClassFile {
-    return new JavaClassFile(readClassfileData(data));
+    return new JavaClassFile(readClassfileData(data))
   }
 
   // Decode a constant from the constant pool.
   private constantString(index: number): string {
-    const constant = this._classdata.constant_pool[index];
-    if (!constant) throw new Error(`Required constant not found in pool at index ${index}`);
-    return decodeConstantToString(constant);
+    const constant = this._classdata.constant_pool[index]
+    if (!constant) throw new Error(`Required constant not found in pool at index ${index}`)
+    return decodeConstantToString(constant)
   }
 
   // Decode a constant from the constant pool, without failing if it is not found.
@@ -117,23 +120,27 @@ export class JavaClassFile {
 
   // Find a class by matching against the attribute name.
   private classAttribute<X extends AttributeInfoBase>(name: string): X | undefined {
-    return this._classdata.attributes.find((attr) => {
+    return this._classdata.attributes.find(attr => {
       return name === this.constantString(attr.attribute_name_index)
     })
   }
 
   // Decode a module attribute block.
-  private decodeModuleBlock(block: any[], nameAttr: string, flagsAttr?: string): {
-    [key: string]: any,
-    name: string,
-    flags: number,
+  private decodeModuleBlock(
+    block: any[],
+    nameAttr: string,
+    flagsAttr?: string
+  ): {
+    [key: string]: any
+    name: string
+    flags: number
   }[] {
-    return block.map((info) => {
+    return block.map(info => {
       return {
         name: this.decodeModuleNameAt(info[nameAttr]),
-        flags: flagsAttr ? info[flagsAttr] : 0,
+        flags: flagsAttr ? info[flagsAttr] : 0
       }
-    });
+    })
   }
 
   // Decode a module attribute block.
@@ -141,25 +148,25 @@ export class JavaClassFile {
     block: any[],
     nameAttr: string,
     qualifierAttr: string,
-    flagsAttr?: string,
+    flagsAttr?: string
   ): {
-    [key: string]: any,
-    name: string,
-    flags: number,
-    qualifiers: string[],
+    [key: string]: any
+    name: string
+    flags: number
+    qualifiers: string[]
   }[] {
-    return block.map((info) => {
-      const qualifierIndexes: number[] = info[qualifierAttr];
-      const qualifiers: string[] = qualifierIndexes.map((index) => {
-        return this.decodeModuleNameAt(index);
-      });
+    return block.map(info => {
+      const qualifierIndexes: number[] = info[qualifierAttr]
+      const qualifiers: string[] = qualifierIndexes.map(index => {
+        return this.decodeModuleNameAt(index)
+      })
 
       return {
         name: this.decodeModuleNameAt(info[nameAttr]),
         flags: flagsAttr ? info[flagsAttr] : 0,
-        qualifiers,
+        qualifiers
       }
-    });
+    })
   }
 
   // Decode an indirected module name at the specified constant pool index.
@@ -180,26 +187,26 @@ export class JavaClassFile {
       exports: exportStatements,
       opens: opensStatements,
       uses_index: usesStatements,
-      provides: providesStatements,
+      provides: providesStatements
     } = attr
 
     // top-level module info
     const name = this.decodeModuleNameAt(module_name_index)
-    const version = this.optionalConstantString(module_version_index) || undefined;
+    const version = this.optionalConstantString(module_version_index) || undefined
     const flags = {
-      open: flag(module_flags, ModuleFlags.OPEN),
+      open: flag(module_flags, ModuleFlags.OPEN)
     }
 
     // `requires`
     const requires: JavaModuleRequires[] = this.decodeModuleBlock(
       requiresStatements,
       'requires_index',
-      'requires_flags',
-    ).map((requires) => {
+      'requires_flags'
+    ).map(requires => {
       return {
         module: requires.name,
         static: flag(requires.flags, RequiresFlags.STATIC),
-        transitive: flag(requires.flags, RequiresFlags.TRANSITIVE),
+        transitive: flag(requires.flags, RequiresFlags.TRANSITIVE)
       }
     })
 
@@ -208,11 +215,11 @@ export class JavaClassFile {
       exportStatements,
       'exports_index',
       'exports_to_index',
-      'exports_flags',
-    ).map((exports) => {
+      'exports_flags'
+    ).map(exports => {
       return {
         package: exports.name,
-        to: exports.qualifiers.length > 0 ? exports.qualifiers : [],
+        to: exports.qualifiers.length > 0 ? exports.qualifiers : []
       }
     })
 
@@ -221,18 +228,18 @@ export class JavaClassFile {
       opensStatements,
       'opens_index',
       'opens_to_index',
-      'opens_flags',
-    ).map((exports) => {
+      'opens_flags'
+    ).map(exports => {
       return {
         package: exports.name,
-        to: exports.qualifiers.length > 0 ? exports.qualifiers : [],
+        to: exports.qualifiers.length > 0 ? exports.qualifiers : []
       }
     })
 
     // `uses`
-    const uses: JavaModuleUses[] = usesStatements.map((usesIndex) => {
+    const uses: JavaModuleUses[] = usesStatements.map(usesIndex => {
       return {
-        service: internalClassNameToClassName(this.decodeModuleNameAt(usesIndex)),
+        service: internalClassNameToClassName(this.decodeModuleNameAt(usesIndex))
       }
     })
 
@@ -240,13 +247,13 @@ export class JavaClassFile {
     const provides: JavaModuleProvides[] = this.decodeModuleBlockWithQualifier(
       providesStatements,
       'provides_index',
-      'provides_with_index',
-    ).map((provides) => {
+      'provides_with_index'
+    ).map(provides => {
       return {
         service: internalClassNameToClassName(provides.name),
-        with: provides.qualifiers.map((className) => internalClassNameToClassName(className)),
+        with: provides.qualifiers.map(className => internalClassNameToClassName(className))
       }
-    }) 
+    })
 
     return {
       name,
@@ -256,7 +263,7 @@ export class JavaClassFile {
       opens,
       uses,
       provides,
-      flags,
+      flags
     }
   }
 
@@ -325,7 +332,7 @@ export class JavaClassFile {
    */
   moduleInfo(): JavaModuleInfo {
     const attr = this.classAttribute<ModuleInfoAttributes>(AttributeName.MODULE)
-    if (!attr) throw new Error("This class is not a module");
-    return this.decodeModuleInfo(attr);
+    if (!attr) throw new Error('This class is not a module')
+    return this.decodeModuleInfo(attr)
   }
 }

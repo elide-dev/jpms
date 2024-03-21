@@ -1,6 +1,6 @@
-name: "PR Group"
+name: 'PR Group'
 
-"on":
+'on':
   merge_group: {}
 
 permissions:
@@ -8,15 +8,15 @@ permissions:
 
 jobs:
   build-test:
-    name: "Build & Test"
+    name: 'Build & Test'
     uses: ./.github/workflows/ci.build-test.yml
     with:
       tests: false
 
   checks-gradle:
-    name: "Checks"
+    name: 'Checks'
     uses: ./.github/workflows/check.gradle-wrapper.yml
 
   checks-hashes:
-    name: "Checks"
+    name: 'Checks'
     uses: ./.github/workflows/check.hashes.yml

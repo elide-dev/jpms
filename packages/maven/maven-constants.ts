@@ -14,4 +14,4 @@
 /**
  * Expected Project Object Model (POM) version.
  */
-export const POM_MODEL_VERSION = "4.0.0";
+export const POM_MODEL_VERSION = '4.0.0'

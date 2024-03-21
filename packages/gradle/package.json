@@ -1,45 +1,27 @@
 {
   "name": "@javamodules/gradle",
   "version": "1.0.2",
-  "type": "module",
-  "main": "dist/index.mjs",
   "description": "Tools for working with Gradle Module metadata from JavaScript.",
-  "license": "Apache-2.0",
-  "homepage": "https://github.com/javamodules",
-  "files": [
-    "dist/**",
-    "!dist/*test*",
-    "!dist/tests"
-  ],
   "keywords": [
     "tools",
     "java",
     "gradle"
   ],
-  "publishConfig": {
-    "provenance": true,
-    "access": "public"
+  "homepage": "https://github.com/javamodules",
+  "bugs": {
+    "url": "https://github.com/elide-dev/jpms/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/elide-dev/jpms",
     "directory": "packages/maven"
   },
-  "bugs": {
-    "url": "https://github.com/elide-dev/jpms/issues"
-  },
+  "license": "Apache-2.0",
   "author": {
     "name": "Sam Gammon",
     "url": "https://github.com/sgammon"
   },
-  "scripts": {
-    "test:bun": "bun test",
-    "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "publish:dry": "npm publish --no-git-checks --dry-run",
-    "publish:live": "npm publish --no-git-checks",
-    "pack": "npm pack",
-    "build": "tsc -p ."
-  },
+  "type": "module",
   "imports": {
     "#tests": {
       "bun": "bun:test",
@@ -56,28 +38,29 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "devDependencies": {
-    "@jest/globals": "29.7.0",
-    "@types/jest": "29.5.12",
-    "@types/node": "20.11.29",
-    "jest": "29.7.0",
-    "jest-junit": "16.0.0",
-    "semver": "7.6.0",
-    "ts-jest": "29.1.2",
-    "typescript": "5.4.2"
-  },
-  "dependencies": {
-    "yup": "1.4.0"
+  "main": "dist/index.mjs",
+  "files": [
+    "dist/**",
+    "!dist/*test*",
+    "!dist/tests"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "pack": "npm pack",
+    "publish:dry": "npm publish --no-git-checks --dry-run",
+    "publish:live": "npm publish --no-git-checks",
+    "test:bun": "bun test",
+    "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "jest": {
-    "preset": "ts-jest",
     "collectCoverage": true,
-    "coverageProvider": "v8",
     "coverageDirectory": "reports",
+    "coverageProvider": "v8",
     "coverageReporters": [
       "lcov",
       "text-summary"
     ],
+    "preset": "ts-jest",
     "reporters": [
       "default",
       "github-actions",
@@ -92,5 +75,22 @@
     "testMatch": [
       "<rootDir>/tests/*.test.ts"
     ]
+  },
+  "dependencies": {
+    "yup": "1.4.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "29.7.0",
+    "@types/jest": "29.5.12",
+    "@types/node": "20.11.29",
+    "jest": "29.7.0",
+    "jest-junit": "16.0.0",
+    "semver": "7.6.0",
+    "ts-jest": "29.1.2",
+    "typescript": "5.4.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

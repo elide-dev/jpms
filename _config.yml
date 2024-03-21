@@ -20,12 +20,11 @@
 
 title: JPMS Attic
 description: >- # this means to ignore newlines until "baseurl:"
-  Provides a Maven repository which can be used with Java build tools like Maven,
-  Gradle, Bazel, and so on, to build with popular JPMS-compatible libraries before
-  they have been publicly released.
+  Provides a Maven repository which can be used with Java build tools like Maven, Gradle, Bazel, and so on, to build
+  with popular JPMS-compatible libraries before they have been publicly released.
 
-baseurl: "/"
-url: "https://jpms.pkg.st"
+baseurl: '/'
+url: 'https://jpms.pkg.st'
 github_username: javamodules
 remote_theme: pages-themes/primer@v0.6.0
 repository: elide-dev/jpms

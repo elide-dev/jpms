@@ -18,7 +18,7 @@
  * Licensed under the MIT License. See LICENSE file in the project root for full license information.
  */
 
-import Opcode from "./opcode";
+import Opcode from './opcode'
 
 // -1 = variable length
 // index = opcode
@@ -70,10 +70,10 @@ class Instruction {
   constructor(
     readonly opcode: Opcode,
     readonly operands: number[],
-    readonly bytecodeOffset: number,
+    readonly bytecodeOffset: number
   ) {
-    if (typeof opcode !== "number") throw TypeError("opcode must be a number");
-    if (!Array.isArray(operands)) throw TypeError("operands must be an array");
+    if (typeof opcode !== 'number') throw TypeError('opcode must be a number')
+    if (!Array.isArray(operands)) throw TypeError('operands must be an array')
   }
 
   /**
@@ -83,8 +83,8 @@ class Instruction {
    */
   toString(): string {
     const opcodeMnemonic =
-      opcodeMnemonics[this.opcode] || (this.opcode === 0xfe ? "impdep1" : this.opcode === 0xff ? "impdep2" : undefined);
-    return `Instruction { opcode: ${opcodeMnemonic}, operands: [${this.operands}] }`;
+      opcodeMnemonics[this.opcode] || (this.opcode === 0xfe ? 'impdep1' : this.opcode === 0xff ? 'impdep2' : undefined)
+    return `Instruction { opcode: ${opcodeMnemonic}, operands: [${this.operands}] }`
   }
 }
 
@@ -102,22 +102,22 @@ class InstructionParser {
    * @returns Serialized bytecode
    */
   static toBytecode(instructions: Instruction[]): number[] {
-    if (!Array.isArray(instructions)) throw TypeError("instructions must be an array.");
+    if (!Array.isArray(instructions)) throw TypeError('instructions must be an array.')
 
-    const bytecode: Opcode[] = [];
+    const bytecode: Opcode[] = []
     for (const { opcode, operands } of instructions) {
-      bytecode.push(opcode);
+      bytecode.push(opcode)
       if (opcode === Opcode.TABLESWITCH || opcode === Opcode.LOOKUPSWITCH) {
-        let padding = bytecode.length % 4 ? 4 - (bytecode.length % 4) : 0;
+        let padding = bytecode.length % 4 ? 4 - (bytecode.length % 4) : 0
         while (padding-- > 0) {
-          bytecode.push(0);
+          bytecode.push(0)
         }
       }
 
       // we assume we are given valid operands
-      bytecode.push(...operands);
+      bytecode.push(...operands)
     }
-    return bytecode;
+    return bytecode
   }
 
   /**
@@ -128,70 +128,70 @@ class InstructionParser {
    * @returns Parsed instructions
    */
   static fromBytecode(bytecode: number[]): Instruction[] {
-    if (!Array.isArray(bytecode)) throw TypeError("bytecode must be an array of bytes.");
-    const instructions: Instruction[] = [];
-    let offset = 0;
+    if (!Array.isArray(bytecode)) throw TypeError('bytecode must be an array of bytes.')
+    const instructions: Instruction[] = []
+    let offset = 0
 
     while (offset < bytecode.length) {
-      const bytecodeOffset = offset;
-      const opcode = bytecode[offset++];
-      let numOperandBytes;
+      const bytecodeOffset = offset
+      const opcode = bytecode[offset++]
+      let numOperandBytes
 
       switch (opcode) {
         // https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.lookupswitch
         case Opcode.LOOKUPSWITCH: {
-          const padding = offset % 4 ? 4 - (offset % 4) : 0;
-          offset += padding; // skip padding
+          const padding = offset % 4 ? 4 - (offset % 4) : 0
+          offset += padding // skip padding
 
           const npairs =
             (bytecode[offset + 4] << 24) |
             (bytecode[offset + 5] << 16) |
             (bytecode[offset + 6] << 8) |
-            bytecode[offset + 7];
+            bytecode[offset + 7]
 
-          numOperandBytes = 8 + npairs * 8;
-          break;
+          numOperandBytes = 8 + npairs * 8
+          break
         }
 
         // https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.tableswitch
         case Opcode.TABLESWITCH: {
-          const padding = offset % 4 ? 4 - (offset % 4) : 0;
-          offset += padding; // skip padding
+          const padding = offset % 4 ? 4 - (offset % 4) : 0
+          offset += padding // skip padding
 
           const low =
             (bytecode[offset + 4] << 24) |
             (bytecode[offset + 5] << 16) |
             (bytecode[offset + 6] << 8) |
-            bytecode[offset + 7];
+            bytecode[offset + 7]
           const high =
             (bytecode[offset + 8] << 24) |
             (bytecode[offset + 9] << 16) |
             (bytecode[offset + 10] << 8) |
-            bytecode[offset + 11];
-          const numJumpOffsets = high - low + 1;
-          numOperandBytes = 3 * 4 + numJumpOffsets * 4;
-          break;
+            bytecode[offset + 11]
+          const numJumpOffsets = high - low + 1
+          numOperandBytes = 3 * 4 + numJumpOffsets * 4
+          break
         }
 
         // https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.wide
         case Opcode.WIDE:
-          numOperandBytes = bytecode[offset] === Opcode.IINC ? 5 : 3;
-          break;
+          numOperandBytes = bytecode[offset] === Opcode.IINC ? 5 : 3
+          break
 
         default:
-          numOperandBytes = opcodeOperandCount[opcode];
-          if (numOperandBytes === undefined) throw Error(`Unexpected opcode: ${opcode}`);
-          break;
+          numOperandBytes = opcodeOperandCount[opcode]
+          if (numOperandBytes === undefined) throw Error(`Unexpected opcode: ${opcode}`)
+          break
       }
 
-      const operands = bytecode.slice(offset, offset + numOperandBytes);
-      const instruction = new Instruction(opcode, operands, bytecodeOffset);
+      const operands = bytecode.slice(offset, offset + numOperandBytes)
+      const instruction = new Instruction(opcode, operands, bytecodeOffset)
 
-      instructions.push(instruction);
-      offset += numOperandBytes;
+      instructions.push(instruction)
+      offset += numOperandBytes
     }
-    return instructions;
+    return instructions
   }
 }
 
-export { Instruction, InstructionParser };
+export { Instruction, InstructionParser }

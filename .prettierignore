@@ -23,3 +23,5 @@ dist
 
 pnpm-lock.yaml
 bun.lockb
+
+packages/*/reports/*

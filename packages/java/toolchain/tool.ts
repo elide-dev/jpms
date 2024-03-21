@@ -11,18 +11,18 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { BinInfo, ExecSpec, JavaTool, ToolArgs, ToolRun } from "./abstract";
-import type { JavaToolchain } from "../java-home";
+import { BinInfo, ExecSpec, JavaTool, ToolArgs, ToolRun } from './abstract'
+import type { JavaToolchain } from '../java-home'
 
 /**
  * Generic JDK Tool
  */
 export class JdkTool extends JavaTool {
-  private readonly _bin: BinInfo;
+  private readonly _bin: BinInfo
 
   private constructor(toolchain: JavaToolchain, tool: string) {
-    super(toolchain);
-    this._bin = this.bin(tool);
+    super(toolchain)
+    this._bin = this.bin(tool)
   }
 
   /**
@@ -34,14 +34,14 @@ export class JdkTool extends JavaTool {
    */
   // @ts-ignore
   static forToolchain(toolchain: JavaToolchain, tool: string): JdkTool {
-    return new JdkTool(toolchain, tool);
+    return new JdkTool(toolchain, tool)
   }
 
   // Execute the binary with the provided arguments.
   protected override exec(args: ToolArgs): ExecSpec {
     return {
       bin: this._bin,
-      args,
+      args
     }
   }
 
@@ -51,8 +51,8 @@ export class JdkTool extends JavaTool {
    * @param args Arguments to pass to the tool
    */
   async run(args: ToolArgs): Promise<ToolRun> {
-    return await this.invoke(args);
+    return await this.invoke(args)
   }
 }
 
-export default JdkTool;
+export default JdkTool

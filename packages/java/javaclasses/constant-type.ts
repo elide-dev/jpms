@@ -40,5 +40,5 @@ export enum ConstantType {
   DYNAMIC = 17,
   INVOKE_DYNAMIC = 18,
   MODULE = 19,
-  PACKAGE = 20,
+  PACKAGE = 20
 }

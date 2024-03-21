@@ -1,6 +1,7 @@
 # Packages
 
-Sub-directories in this path define NPM packages which are published under the `@javamodules` namespace. These packages are used as tools for indexing Maven repositories, parsing POMs and Gradle module definitions, and so on.
+Sub-directories in this path define NPM packages which are published under the `@javamodules` namespace. These packages
+are used as tools for indexing Maven repositories, parsing POMs and Gradle module definitions, and so on.
 
 ## Available Utilities
 
@@ -13,7 +14,8 @@ Sub-directories in this path define NPM packages which are published under the `
 
 ## Usage
 
-Check each module's documentation in the project README or on NPM. These utilities are pretty specific and may not be fully documented or tested. Contributions and issues are welcome.
+Check each module's documentation in the project README or on NPM. These utilities are pretty specific and may not be
+fully documented or tested. Contributions and issues are welcome.
 
 [0]: ./gradle
 [1]: ./indexer

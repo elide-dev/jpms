@@ -18,7 +18,7 @@
  */
 export const ModularFlags = {
   SYNTHETIC: 0x1000,
-  MANDATED: 0x8000,
+  MANDATED: 0x8000
 }
 
 /**
@@ -28,7 +28,7 @@ export const ModularFlags = {
  */
 export const ModuleFlags = {
   ...ModularFlags,
-  OPEN: 0x0020,
+  OPEN: 0x0020
 }
 
 /**
@@ -39,7 +39,7 @@ export const ModuleFlags = {
 export const RequiresFlags = {
   ...ModularFlags,
   TRANSITIVE: 0x0020,
-  STATIC: 0x0040,
+  STATIC: 0x0040
 }
 
 /**

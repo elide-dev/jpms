@@ -17,13 +17,13 @@
  * Enumerates well-known or commonly used Gradle attribute names
  */
 export enum GradleAttribute {
-  STATUS = "org.gradle.status",
-  CATEGORY = "org.gradle.category",
-  USAGE = "org.gradle.usage",
-  BUNDLING = "org.gradle.dependency.bundling",
-  DOCS_TYPE = "org.gradle.docstype",
-  KOTLIN_PLATFORM = "org.jetbrains.kotlin.platform.type",
-  KOTLIN_NATIVE_TARGET = "org.jetbrains.kotlin.native.target",
+  STATUS = 'org.gradle.status',
+  CATEGORY = 'org.gradle.category',
+  USAGE = 'org.gradle.usage',
+  BUNDLING = 'org.gradle.dependency.bundling',
+  DOCS_TYPE = 'org.gradle.docstype',
+  KOTLIN_PLATFORM = 'org.jetbrains.kotlin.platform.type',
+  KOTLIN_NATIVE_TARGET = 'org.jetbrains.kotlin.native.target'
 }
 
 /**
@@ -32,8 +32,8 @@ export enum GradleAttribute {
  * Describes the type structure of generic Gradle attributes, which may or may not be known
  */
 export type GradleAttributes = {
-  [key: GradleAttribute | string]: string;
-};
+  [key: GradleAttribute | string]: string
+}
 
 /**
  * Gradle Version Spec
@@ -41,10 +41,10 @@ export type GradleAttributes = {
  * Describes the version specification info for a given Gradle Module dependency
  */
 export type GradleVersionSpec = {
-  requires?: string;
-  prefers?: string;
-  strictly?: string;
-};
+  requires?: string
+  prefers?: string
+  strictly?: string
+}
 
 /**
  * Gradle Dependency
@@ -52,10 +52,10 @@ export type GradleVersionSpec = {
  * Describes a dependency declared for a Gradle Module
  */
 export type GradleDependencyDeclaration = {
-  group: string;
-  module: string;
-  version: GradleVersionSpec;
-};
+  group: string
+  module: string
+  version: GradleVersionSpec
+}
 
 /**
  * Gradle Release File
@@ -63,14 +63,14 @@ export type GradleDependencyDeclaration = {
  * Describes a file which is referenced by a variant in a Gradle Module
  */
 export type GradleReleaseFile = {
-  name: string;
-  url: string;
-  size: number;
-  md5: string;
-  sha1: string;
-  sha256?: string;
-  sha512?: string;
-};
+  name: string
+  url: string
+  size: number
+  md5: string
+  sha1: string
+  sha256?: string
+  sha512?: string
+}
 
 /**
  * Gradle Variant
@@ -78,11 +78,11 @@ export type GradleReleaseFile = {
  * Describes a single variant of a Gradle module
  */
 export type GradleVariant = {
-  name: string;
-  attributes: GradleAttributes;
-  files?: GradleReleaseFile[];
-  dependencies?: GradleDependencyDeclaration[];
-};
+  name: string
+  attributes: GradleAttributes
+  files?: GradleReleaseFile[]
+  dependencies?: GradleDependencyDeclaration[]
+}
 
 /**
  * Gradle Component
@@ -90,12 +90,12 @@ export type GradleVariant = {
  * Describes the module being provided by a Gradle Module definition
  */
 export type GradleComponent = {
-  url: string;
-  group: string;
-  module: string;
-  version: string;
-  attributes: GradleAttributes;
-};
+  url: string
+  group: string
+  module: string
+  version: string
+  attributes: GradleAttributes
+}
 
 /**
  * Gradle Creator Info
@@ -103,8 +103,8 @@ export type GradleComponent = {
  * Describes information about a Gradle build agent that created a Gradle Module
  */
 export type GradleCreatorInfo = {
-  version: string;
-};
+  version: string
+}
 
 /**
  * Gradle Created-By
@@ -112,8 +112,8 @@ export type GradleCreatorInfo = {
  * Describes the build agent that created the Gradle Module info
  */
 export type GradleCreatedBy = {
-  gradle: GradleCreatorInfo;
-};
+  gradle: GradleCreatorInfo
+}
 
 /**
  * Gradle Module
@@ -121,11 +121,11 @@ export type GradleCreatedBy = {
  * Describes the raw type structure of a Gradle module info file
  */
 export type GradleModuleType = {
-  formatVersion: string;
-  component: GradleComponent;
-  createdBy: GradleCreatedBy;
-  variants: GradleVariant[];
-};
+  formatVersion: string
+  component: GradleComponent
+  createdBy: GradleCreatedBy
+  variants: GradleVariant[]
+}
 
 /**
  * Gradle Module Info
@@ -133,6 +133,6 @@ export type GradleModuleType = {
  * Gathers the path for a Gradle module file with its contents
  */
 export type GradleModuleInfo = {
-  path: string;
-  module: GradleModuleType;
-};
+  path: string
+  module: GradleModuleType
+}

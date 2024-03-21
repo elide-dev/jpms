@@ -12,7 +12,7 @@
  */
 
 // @ts-ignore
-import { JavaClassFile } from "./java-classfile";
+import { JavaClassFile } from './java-classfile'
 
 /**
  *

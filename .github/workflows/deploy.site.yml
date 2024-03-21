@@ -10,12 +10,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
   build:
-    name: "Build Site"
+    name: 'Build Site'
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
@@ -24,31 +24,29 @@ jobs:
           disable-sudo: true
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            index.rubygems.org:443
-      - name: "Setup: Checkout"
+            api.github.com:443 github.com:443 index.rubygems.org:443
+      - name: 'Setup: Checkout'
         uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
         with:
           persist-credentials: false
-      - name: "Setup: Ruby"
+      - name: 'Setup: Ruby'
         uses: ruby/setup-ruby@d4526a55538b775af234ba4af27118ed6f8f6677 # v1.172.0
         with:
-          ruby-version: "3.1"
+          ruby-version: '3.1'
           bundler-cache: true
           cache-version: 0
-      - name: "Setup: Pages"
+      - name: 'Setup: Pages'
         id: pages
         uses: actions/configure-pages@1f0c5cde4bc74cd7e1254d0cb4de8d49e9068c7d # v4.0.0
-      - name: "Build: Jekyll"
+      - name: 'Build: Jekyll'
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-      - name: "Artifact: Site"
+      - name: 'Artifact: Site'
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
 
   deploy:
-    name: "Deploy Site"
+    name: 'Deploy Site'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -61,9 +59,7 @@ jobs:
           disable-sudo: true
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            index.rubygems.org:443
-      - name: "Deploy: Pages"
+            api.github.com:443 github.com:443 index.rubygems.org:443
+      - name: 'Deploy: Pages'
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5

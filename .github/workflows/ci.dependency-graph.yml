@@ -1,6 +1,6 @@
-name: "Dependency Graph"
+name: 'Dependency Graph'
 
-"on":
+'on':
   workflow_call: {}
   workflow_dispatch: {}
 
@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build-graph:
-    name: "Dependency Graph"
+    name: 'Dependency Graph'
     runs-on: ubuntu-latest
     permissions:
       contents: write # needed for graph write
@@ -20,22 +20,18 @@ jobs:
           disable-sudo: true
           egress-policy: block
           allowed-endpoints: >
-            api.azul.com:443
-            api.github.com:443
-            cdn.azul.com:443
-            github.com:443
-            jpms.pkg.st:443
+            api.azul.com:443 api.github.com:443 cdn.azul.com:443 github.com:443 jpms.pkg.st:443
             repo.maven.apache.org:443
-      - name: "Setup: Checkout"
+      - name: 'Setup: Checkout'
         uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
         with:
           persist-credentials: false
-      - name: "Setup: Java 21"
+      - name: 'Setup: Java 21'
         uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9 # v4.2.1
         with:
-          java-version: "21"
-          distribution: "zulu"
-      - name: "Build: Maven Dependency Graph"
+          java-version: '21'
+          distribution: 'zulu'
+      - name: 'Build: Maven Dependency Graph'
         continue-on-error: true
         uses: advanced-security/maven-dependency-submission-action@bfd2106013da0957cdede0b6c39fb5ca25ae375e # v4.0.2
         with:

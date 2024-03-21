@@ -14,4 +14,4 @@
 /**
  * Currently-latest Gradle Module schema version.
  */
-export const GRADLE_SCHEMA_VERSION = "1.1";
+export const GRADLE_SCHEMA_VERSION = '1.1'

@@ -21,7 +21,7 @@ export enum JvmPlatform {
   LINUX_AARCH64 = 'linux-aarch64',
   DARWIN_AMD64 = 'darwin-amd64',
   DARWIN_AARCH64 = 'darwin-aarch64',
-  WINDOWS_AMD64 = 'windows-amd64',
+  WINDOWS_AMD64 = 'windows-amd64'
 }
 
 /**
@@ -30,25 +30,25 @@ export enum JvmPlatform {
  * Enumerates JVM bytecode targets that are supported by this indexer tool
  */
 export enum JvmTarget {
-  JDK_5 = "1.5",
-  JDK_6 = "1.6",
-  JDK_7 = "1.7",
-  JDK_8 = "1.8",
-  JDK_9 = "9",
-  JDK_10 = "10",
-  JDK_11 = "11",
-  JDK_12 = "12",
-  JDK_13 = "13",
-  JDK_14 = "14",
-  JDK_15 = "15",
-  JDK_16 = "16",
-  JDK_17 = "17",
-  JDK_18 = "18",
-  JDK_19 = "19",
-  JDK_20 = "20",
-  JDK_21 = "21",
-  JDK_22 = "22",
-  JDK_23 = "23",
+  JDK_5 = '1.5',
+  JDK_6 = '1.6',
+  JDK_7 = '1.7',
+  JDK_8 = '1.8',
+  JDK_9 = '9',
+  JDK_10 = '10',
+  JDK_11 = '11',
+  JDK_12 = '12',
+  JDK_13 = '13',
+  JDK_14 = '14',
+  JDK_15 = '15',
+  JDK_16 = '16',
+  JDK_17 = '17',
+  JDK_18 = '18',
+  JDK_19 = '19',
+  JDK_20 = '20',
+  JDK_21 = '21',
+  JDK_22 = '22',
+  JDK_23 = '23'
 }
 
 const jvmTargetByVersion: Record<number, JvmTarget> = {
@@ -70,8 +70,8 @@ const jvmTargetByVersion: Record<number, JvmTarget> = {
   20: JvmTarget.JDK_20,
   21: JvmTarget.JDK_21,
   22: JvmTarget.JDK_22,
-  23: JvmTarget.JDK_23,
-};
+  23: JvmTarget.JDK_23
+}
 
 const jvmTargetByLevel: Record<number, JvmTarget> = {
   49: JvmTarget.JDK_5,
@@ -92,7 +92,7 @@ const jvmTargetByLevel: Record<number, JvmTarget> = {
   64: JvmTarget.JDK_20,
   65: JvmTarget.JDK_21,
   66: JvmTarget.JDK_22,
-  67: JvmTarget.JDK_23,
+  67: JvmTarget.JDK_23
 }
 
 /**
@@ -102,7 +102,7 @@ const jvmTargetByLevel: Record<number, JvmTarget> = {
  * @returns JVM target for the given JDK version
  */
 export function jvmTargetForVersion(version: number): JvmTarget {
-  const target = jvmTargetByVersion[version];
+  const target = jvmTargetByVersion[version]
   if (!target) throw new Error(`Unsupported JDK version: ${version}`)
   return target
 }
@@ -114,7 +114,7 @@ export function jvmTargetForVersion(version: number): JvmTarget {
  * @returns JVM target for the given bytecode level
  */
 export function jvmTargetForLevel(level: number): JvmTarget {
-  const target = jvmTargetByLevel[level];
+  const target = jvmTargetByLevel[level]
   if (!target) throw new Error(`Unsupported bytecode level: ${level}`)
   return target
 }
@@ -133,70 +133,70 @@ export function jvmLevelForTarget(target: JvmTarget): number {
  * Describes an `export` declared in a JPMS module.
  */
 export type JavaModuleExport = {
-  package: string;
-  to: string[];
-};
+  package: string
+  to: string[]
+}
 
 /**
  * Describes a `requires` declaration in a JPMS module.
  */
 export type JavaModuleRequires = {
-  module: string;
-  static: boolean;
-  transitive: boolean;
-};
+  module: string
+  static: boolean
+  transitive: boolean
+}
 
 /**
  * Describes an `opens` declaration in a JPMS module.
  */
 export type JavaModuleOpens = {
-  package: string;
-  to: string[];
-};
+  package: string
+  to: string[]
+}
 
 /**
  * Describes a `provides` declaration in a JPMS module.
  */
 export type JavaModuleProvides = {
-  service: string;
-  with: string[];
-};
+  service: string
+  with: string[]
+}
 
 /**
  * Describes a `uses` declaration in a JPMS module.
  */
 export type JavaModuleUses = {
-  service: string;
+  service: string
 }
 
 /**
  * Flags which can be set on a Java Module definition.
  */
 export type JavaModuleFlags = {
-  open: boolean,
+  open: boolean
 }
 
 /**
  * Describes a JPMS module.
  */
 export type JavaModuleInfo = {
-  name: string;
-  version?: string;
-  main?: string;
-  flags: JavaModuleFlags;
-  requires: JavaModuleRequires[];
-  exports: JavaModuleExport[];
-  opens: JavaModuleOpens[];
-  provides: JavaModuleProvides[];
-  uses: JavaModuleUses[];
-};
+  name: string
+  version?: string
+  main?: string
+  flags: JavaModuleFlags
+  requires: JavaModuleRequires[]
+  exports: JavaModuleExport[]
+  opens: JavaModuleOpens[]
+  provides: JavaModuleProvides[]
+  uses: JavaModuleUses[]
+}
 
 /**
  * Describes Java release feature attributes.
  */
 export type ReleaseFeatures = {
-  minimumTarget?: JvmTarget;
-  definedTargets?: JvmTarget[];
-  module?: JavaModuleInfo;
-  multiRelease?: boolean;
-};
+  minimumTarget?: JvmTarget
+  definedTargets?: JvmTarget[]
+  module?: JavaModuleInfo
+  multiRelease?: boolean
+}

@@ -11,32 +11,32 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { resolve } from "node:path";
-import { env } from "node:process";
-import { expect, test } from "@jest/globals";
-import { JavaToolchain } from "../java-home";
+import { resolve } from 'node:path'
+import { env } from 'node:process'
+import { expect, test } from '@jest/globals'
+import { JavaToolchain } from '../java-home'
 
-test("obtain the current java toolchain from JAVA_HOME", () => {
-  expect(JavaToolchain.current()).toBeDefined();
-  const toolchain = JavaToolchain.current();
-  expect(toolchain.path()).toBeDefined();
-  expect(toolchain.versionInfo()).toBeDefined();
-  expect(toolchain.version()).toBeDefined();
-  expect(toolchain.semver()).toBeDefined();
-});
+test('obtain the current java toolchain from JAVA_HOME', () => {
+  expect(JavaToolchain.current()).toBeDefined()
+  const toolchain = JavaToolchain.current()
+  expect(toolchain.path()).toBeDefined()
+  expect(toolchain.versionInfo()).toBeDefined()
+  expect(toolchain.version()).toBeDefined()
+  expect(toolchain.semver()).toBeDefined()
+})
 
-test("obtain a java toolchain for a path", () => {
-  expect(JavaToolchain.forPath(resolve(env["JAVA_HOME"] as string))).toBeDefined();
-});
+test('obtain a java toolchain for a path', () => {
+  expect(JavaToolchain.forPath(resolve(env['JAVA_HOME'] as string))).toBeDefined()
+})
 
-test("obtain the current java compiler from JAVA_HOME", () => {
-  expect(JavaToolchain.current().compiler()).toBeDefined();
-});
+test('obtain the current java compiler from JAVA_HOME', () => {
+  expect(JavaToolchain.current().compiler()).toBeDefined()
+})
 
-test("obtain the current java launcher from JAVA_HOME", () => {
-  expect(JavaToolchain.current().launcher()).toBeDefined();
-});
+test('obtain the current java launcher from JAVA_HOME', () => {
+  expect(JavaToolchain.current().launcher()).toBeDefined()
+})
 
-test("obtain the current jar tool from JAVA_HOME", () => {
-  expect(JavaToolchain.current().tool('jar')).toBeDefined();
-});
+test('obtain the current jar tool from JAVA_HOME', () => {
+  expect(JavaToolchain.current().tool('jar')).toBeDefined()
+})

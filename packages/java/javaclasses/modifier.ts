@@ -46,7 +46,7 @@ export enum Modifier {
   ENUM = 0x4000,
 
   // Java SE 9
-  MODULE = 0x8000,
+  MODULE = 0x8000
 }
 
-export default Modifier;
+export default Modifier

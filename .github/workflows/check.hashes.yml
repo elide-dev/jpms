@@ -1,6 +1,6 @@
-name: "Checks: Hashes"
+name: 'Checks: Hashes'
 
-"on":
+'on':
   workflow_call: {}
   workflow_dispatch: {}
 
@@ -9,16 +9,16 @@ permissions:
 
 jobs:
   validation:
-    name: "Check: Hashes"
+    name: 'Check: Hashes'
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
         with:
           egress-policy: audit
-      - name: "Setup: Checkout"
+      - name: 'Setup: Checkout'
         uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
         with:
           persist-credentials: false
-      - name: "Check: Hashes"
+      - name: 'Check: Hashes'
         uses: sgammon/verify-hashes@cac7d57e01915a3fc9bda26373fb85d3f71dea68 # v1.0.0-rc1
