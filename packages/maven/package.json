@@ -1,6 +1,6 @@
 {
   "name": "@javamodules/maven",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "main": "dist/index.mjs",
   "description": "Tools for working with Maven projects and metadata from JavaScript.",

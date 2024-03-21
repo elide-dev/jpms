@@ -72,7 +72,9 @@ async function buildPackages(prefix: string, path: string) {
   for (const pomPath of pathPoms) {
     const coordinate = coordinateForPomPath(prefix, pomPath);
     console.log(`- Scanning POM '${coordinate.valueOf()}'`);
-    found.push(repositoryPackage(path, coordinate, pomPath, await gradleModule(dirname(pomPath), basename(pomPath))));
+    found.push(repositoryPackage(path, coordinate, pomPath, await gradleModule(dirname(pomPath), basename(pomPath), {
+      lenient: true,
+    })));
   }
   return found;
 }

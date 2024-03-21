@@ -23,7 +23,8 @@
     "test": "pnpm run test:bun",
     "prettier": "prettier",
     "prepare": "husky",
-    "hashcheck": "node node_modules/verify-hashes/dist/cli.js check ."
+    "hashcheck": "node node_modules/verify-hashes/dist/cli.js check .",
+    "lockfiles": "rm -fr node_modules && bun i && rm -fr node_modules && pnpm i"
   },
   "devDependencies": {
     "@changesets/cli": "2.27.1",
@@ -32,6 +33,7 @@
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
+    "prettier-plugin-packagejson": "2.4.12",
     "typescript": "5.4.2",
     "verify-hashes": "1.0.0-rc1"
   },

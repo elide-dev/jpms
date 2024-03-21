@@ -13,3 +13,4 @@
 
 export { JavaCompiler } from "./compiler";
 export { JavaLauncher } from "./launcher";
+export { JdkTool } from "./tool";

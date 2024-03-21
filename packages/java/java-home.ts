@@ -16,7 +16,7 @@ import { resolve, join } from "node:path";
 import { env } from "node:process";
 import semver, { SemVer } from "semver";
 
-import { JavaCompiler, JavaLauncher } from "./toolchain";
+import { JavaCompiler, JavaLauncher, JdkTool } from "./toolchain";
 
 // Version block regex.
 //
@@ -245,5 +245,12 @@ export class JavaToolchain {
    */
   compiler(): JavaCompiler {
     return JavaCompiler.forToolchain(this);
+  }
+
+  /**
+   * @return Java tool wrapper for this toolchain.
+   */
+  tool(name: string): JdkTool {
+    return JdkTool.forToolchain(this, name);
   }
 }

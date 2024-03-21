@@ -11,11 +11,12 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { expect, test } from "@jest/globals";
-import { JavaClassFile } from "../classfile-parser";
+// @ts-ignore
+import { JavaClassFile } from "./java-classfile";
 
-test("parse a basic java class", () => {
+/**
+ *
+ */
+export class JarFile {
   //
-  expect(5).toBe(5);
-  expect(JavaClassFile).toBeDefined();
-});
+}

@@ -15,40 +15,29 @@ import { BinInfo, ExecSpec, JavaTool, ToolArgs, ToolRun } from "./abstract";
 import type { JavaToolchain } from "../java-home";
 
 /**
- * Name of the Java launcher binary.
+ * Generic JDK Tool
  */
-const LAUNCHER_BINARY_NAME = 'java'
-
-/**
- * Structure of a return result from a run of the Java launcher.
- */
-export type LauncherResult = {
-  run: ToolRun,
-}
-
-/**
- * Java Launcher
- */
-export class JavaLauncher extends JavaTool {
+export class JdkTool extends JavaTool {
   private readonly _bin: BinInfo;
 
-  private constructor(toolchain: JavaToolchain) {
+  private constructor(toolchain: JavaToolchain, tool: string) {
     super(toolchain);
-    this._bin = this.bin(LAUNCHER_BINARY_NAME);
+    this._bin = this.bin(tool);
   }
 
   /**
-   * Wrap the provided toolchain for Java compiler use
+   * Wrap the provided toolchain for use with an arbitrary binary
    *
    * @param toolchain Toolchain to wrap
-   * @return Java Compiler wrapper
+   * @param tool Tool to wrap
+   * @return Tool wrapper
    */
   // @ts-ignore
-  static forToolchain(toolchain: JavaToolchain): JavaLauncher {
-    return new JavaLauncher(toolchain);
+  static forToolchain(toolchain: JavaToolchain, tool: string): JdkTool {
+    return new JdkTool(toolchain, tool);
   }
 
-  // Execute the Java launcher with the provided arguments.
+  // Execute the binary with the provided arguments.
   protected override exec(args: ToolArgs): ExecSpec {
     return {
       bin: this._bin,
@@ -57,14 +46,13 @@ export class JavaLauncher extends JavaTool {
   }
 
   /**
-   * Run the compiler with the provided arguments, producing a structured result
+   * Run the tool with the provided arguments, producing a structured result
    *
-   * @param args Arguments to pass to the compiler
+   * @param args Arguments to pass to the tool
    */
-  async launch(args: ToolArgs): Promise<LauncherResult> {
-    const run = await this.invoke(args);
-    return { run };
+  async run(args: ToolArgs): Promise<ToolRun> {
+    return await this.invoke(args);
   }
 }
 
-export default JavaLauncher;
+export default JdkTool;

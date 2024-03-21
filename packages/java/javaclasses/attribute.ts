@@ -11,12 +11,11 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-// @ts-ignore
-import { JavaClassFile } from "./classfile-parser";
-
 /**
+ * Attribute Names
  *
+ * Enumerates Java Class attribute names of note.
  */
-export class JarFile {
-  //
+export enum AttributeName {
+  MODULE = 'Module'
 }
