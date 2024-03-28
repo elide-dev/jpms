@@ -11,15 +11,30 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { JavaTool } from "./abstract";
-import type { JavaToolchain } from "../javahome";
+import { BinInfo, ExecSpec, JavaTool, ToolArgs, ToolRun } from './abstract'
+import type { JavaToolchain } from '../java-home'
+
+/**
+ * Name of the Java compiler binary.
+ */
+const COMPILER_BINARY_NAME = 'javac'
+
+/**
+ * Structure of a compiler return result.
+ */
+export type CompileResult = {
+  run: ToolRun
+}
 
 /**
  * Java Compiler
  */
 export class JavaCompiler extends JavaTool {
+  private readonly _bin: BinInfo
+
   private constructor(toolchain: JavaToolchain) {
-    super(toolchain);
+    super(toolchain)
+    this._bin = this.bin(COMPILER_BINARY_NAME)
   }
 
   /**
@@ -30,8 +45,26 @@ export class JavaCompiler extends JavaTool {
    */
   // @ts-ignore
   static forToolchain(toolchain: JavaToolchain): JavaCompiler {
-    throw new Error("not yet implemented");
+    return new JavaCompiler(toolchain)
+  }
+
+  // Execute the compiler with the provided arguments.
+  protected override exec(args: ToolArgs): ExecSpec {
+    return {
+      bin: this._bin,
+      args
+    }
+  }
+
+  /**
+   * Run the compiler with the provided arguments, producing a structured result
+   *
+   * @param args Arguments to pass to the compiler
+   */
+  async compile(args: ToolArgs): Promise<CompileResult> {
+    const run = await this.invoke(args)
+    return { run }
   }
 }
 
-export default JavaCompiler;
+export default JavaCompiler

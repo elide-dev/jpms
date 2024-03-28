@@ -1,69 +1,69 @@
-name: "Publish: Packages"
+name: 'Publish: Packages'
 
 on:
   workflow_call:
     inputs:
       dry-run:
-        description: "Dry Run"
+        description: 'Dry Run'
         type: boolean
         default: false
       registry:
-        description: "Registry"
+        description: 'Registry'
         type: string
-        default: "https://registry.npmjs.org"
+        default: 'https://registry.npmjs.org'
       release:
-        description: "Release to GitHub"
+        description: 'Release to GitHub'
         type: boolean
         default: false
       tag:
-        description: "Release: Tag"
+        description: 'Release: Tag'
         type: string
       draft:
-        description: "Release: Draft"
+        description: 'Release: Draft'
         type: boolean
       prerelease:
-        description: "Release: Pre-release"
+        description: 'Release: Pre-release'
         type: boolean
       release-generate:
-        description: "Release: Generate Notes"
+        description: 'Release: Generate Notes'
         type: boolean
       release-latest:
-        description: "Release: Latest"
+        description: 'Release: Latest'
         type: boolean
 
     secrets:
       NPM_PUBLISH_TOKEN:
-        description: "NPM Publishing Token"
+        description: 'NPM Publishing Token'
         required: true
 
   workflow_dispatch:
     inputs:
       dry-run:
-        description: "Dry Run"
+        description: 'Dry Run'
         type: boolean
         default: false
       registry:
-        description: "Registry"
+        description: 'Registry'
         type: string
-        default: "https://registry.npmjs.org"
+        default: 'https://registry.npmjs.org'
       release:
-        description: "Release to GitHub"
+        description: 'Release to GitHub'
         type: boolean
         default: false
       tag:
-        description: "Release: Tag"
+        description: 'Release: Tag'
         type: string
       draft:
-        description: "Release: Draft"
+        description: 'Release: Draft'
         type: boolean
       prerelease:
-        description: "Release: Pre-release"
+        description: 'Release: Pre-release'
         type: boolean
       release-generate:
-        description: "Release: Generate Notes"
+        description: 'Release: Generate Notes'
         type: boolean
       release-latest:
-        description: "Release: Latest"
+        description: 'Release: Latest'
         type: boolean
 
 permissions:
@@ -71,7 +71,7 @@ permissions:
 
 jobs:
   publish-npm-java:
-    name: "Publish to NPM"
+    name: 'Publish to NPM'
     uses: ./.github/workflows/ci.publish-package.yml
     secrets:
       PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
@@ -91,7 +91,7 @@ jobs:
       release-latest: ${{ inputs.release-latest }}
 
   publish-npm-gradle:
-    name: "Publish to NPM"
+    name: 'Publish to NPM'
     uses: ./.github/workflows/ci.publish-package.yml
     secrets:
       PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
@@ -111,7 +111,7 @@ jobs:
       release-latest: ${{ inputs.release-latest }}
 
   publish-npm-maven:
-    name: "Publish to NPM"
+    name: 'Publish to NPM'
     uses: ./.github/workflows/ci.publish-package.yml
     secrets:
       PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

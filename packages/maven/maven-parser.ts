@@ -41,48 +41,48 @@
  * both MIT, with the original under Intuit's ownership, and extensions under Elide's ownership.
  */
 
-import fs from "node:fs";
-import xml2js, { Options as XmlParseOptions } from "xml2js";
-import traverse from "traverse";
+import fs from 'node:fs'
+import xml2js, { Options as XmlParseOptions } from 'xml2js'
+import traverse from 'traverse'
 
-export type { XmlParseOptions };
+export type { XmlParseOptions }
 
 // xmljs options https://github.com/Leonidas-from-XIV/node-xml2js#options
 let XML2JS_OPTS = {
   trim: true,
   normalizeTags: true,
   normalize: true,
-  mergeAttrs: true,
-};
+  mergeAttrs: true
+}
 
-export type PomProject = Record<string, any>;
+export type PomProject = Record<string, any>
 
 export type PomObject = {
-  project: PomProject;
+  project: PomProject
 } & {
-  [key: string]: string;
-};
+  [key: string]: string
+}
 
 export interface ParsedOutput {
-  pomXml: string;
-  pomObject: PomObject;
-  xmlContent?: string;
+  pomXml: string
+  pomObject: PomObject
+  xmlContent?: string
 }
 
 /**
  * Options for the parser, with XML parsing options available as well.
  */
-export type ParseOptions = (XmlParseOptions & { filePath?: string; xmlContent?: string }) | null;
+export type ParseOptions = (XmlParseOptions & { filePath?: string; xmlContent?: string }) | null
 
 /**
  * Callback type for the parser.
  */
-export type ParseCallback = (err: Error | null, result?: ParsedOutput | null) => void;
+export type ParseCallback = (err: Error | null, result?: ParsedOutput | null) => void
 
 const checkEmpty = (value: string | null | undefined): string => {
-  if (!!value) return value;
-  throw new Error("Cannot parse empty or invalid XML");
-};
+  if (!!value) return value
+  throw new Error('Cannot parse empty or invalid XML')
+}
 
 /**
  * This method exposes an `async/await` syntax to the older `parse` method and allows you to call the method with just
@@ -94,20 +94,20 @@ const checkEmpty = (value: string | null | undefined): string => {
 export async function parseAsync(opt: ParseOptions): Promise<ParsedOutput> {
   if (!opt)
     throw new Error(
-      "You must provide options: opt.filePath and any other option of " +
-        "https://github.com/Leonidas-from-XIV/node-xml2js#options",
-    );
-  if (!opt.xmlContent && !opt.filePath) throw new Error("You must provide the opt.filePath or the opt.xmlContent");
+      'You must provide options: opt.filePath and any other option of ' +
+        'https://github.com/Leonidas-from-XIV/node-xml2js#options'
+    )
+  if (!opt.xmlContent && !opt.filePath) throw new Error('You must provide the opt.filePath or the opt.xmlContent')
 
   if (opt.filePath) {
-    const xmlContent = checkEmpty(await readFileAsync(opt.filePath, "utf8"));
-    const result = await _parseWithXml2js(xmlContent);
-    return result;
+    const xmlContent = checkEmpty(await readFileAsync(opt.filePath, 'utf8'))
+    const result = await _parseWithXml2js(xmlContent)
+    return result
   }
 
-  const result = await _parseWithXml2js(checkEmpty(opt.xmlContent || ""));
-  delete result.xmlContent;
-  return result;
+  const result = await _parseWithXml2js(checkEmpty(opt.xmlContent || ''))
+  delete result.xmlContent
+  return result
 }
 
 /**
@@ -118,38 +118,38 @@ export async function parseAsync(opt: ParseOptions): Promise<ParsedOutput> {
 function parse(opt: ParseOptions, callback: ParseCallback): void {
   if (!opt)
     throw new Error(
-      "You must provide options: opt.filePath and any other option of " +
-        "https://github.com/Leonidas-from-XIV/node-xml2js#options",
-    );
+      'You must provide options: opt.filePath and any other option of ' +
+        'https://github.com/Leonidas-from-XIV/node-xml2js#options'
+    )
 
-  if (!opt.xmlContent && !opt.filePath) throw new Error("You must provide the opt.filePath or the opt.xmlContent");
+  if (!opt.xmlContent && !opt.filePath) throw new Error('You must provide the opt.filePath or the opt.xmlContent')
 
   // If the xml content is was not provided by the api client.
   // https://github.com/petkaantonov/bluebird/blob/master/API.md#error-rejectedhandler----promise
   if (opt.filePath) {
-    readFileAsync(opt.filePath, "utf8")
+    readFileAsync(opt.filePath, 'utf8')
       .then(function (xmlContent) {
-        return checkEmpty(xmlContent);
+        return checkEmpty(xmlContent)
       })
       .then(_parseWithXml2js)
       .then(
         function (result) {
-          callback(null, result);
+          callback(null, result)
         },
         function (e) {
-          callback(e, null);
-        },
-      );
+          callback(e, null)
+        }
+      )
   } else if (opt.xmlContent) {
     // parse the xml provided by the api client.
     _parseWithXml2js(checkEmpty(opt.xmlContent))
       .then(function (result) {
-        delete result.xmlContent;
-        callback(null, result);
+        delete result.xmlContent
+        callback(null, result)
       })
       .catch(function (e) {
-        callback(e);
-      });
+        callback(e)
+      })
   }
 }
 
@@ -165,19 +165,19 @@ function _parseWithXml2js(xmlContent: string): Promise<ParsedOutput> {
     xml2js.parseString(xmlContent, XML2JS_OPTS, function (err, pomObject) {
       if (err) {
         // Reject with the error
-        reject(err);
+        reject(err)
       }
 
       // Replace the arrays with single elements with strings
-      removeSingleArrays(pomObject);
+      removeSingleArrays(pomObject)
 
       // Response to the call
       resolve({
         pomXml: xmlContent, // Only add the pomXml when loaded from the file-system.
-        pomObject: pomObject, // Always add the object
-      });
-    });
-  });
+        pomObject: pomObject // Always add the object
+      })
+    })
+  })
 }
 
 /**
@@ -189,21 +189,21 @@ function removeSingleArrays(obj: Object): void {
   traverse(obj).forEach(function traversing(value) {
     // As the XML parser returns single fields as arrays.
     if (value instanceof Array && value.length === 1) {
-      this.update(value[0]);
+      this.update(value[0])
     }
-  });
+  })
 }
 
 function readFileAsync(path: string, encoding: BufferEncoding | undefined): Promise<string> {
   return new Promise((resolve, reject) =>
     fs.readFile(path, { encoding }, (err, data) => {
       if (err) {
-        reject(err);
+        reject(err)
       } else {
-        data instanceof Buffer ? resolve(data.toString(encoding)) : resolve(data);
+        data instanceof Buffer ? resolve(data.toString(encoding)) : resolve(data)
       }
-    }),
-  );
+    })
+  )
 }
 
-export default parse;
+export default parse

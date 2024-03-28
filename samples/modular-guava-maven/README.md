@@ -1,6 +1,7 @@
 # Modular Guava (Maven)
 
-This sample builds a Guava-dependent pure-Java app [with the JPMS attic](../..). The app's module is `demo.modularguava`:
+This sample builds a Guava-dependent pure-Java app [with the JPMS attic](../..). The app's module is
+`demo.modularguava`:
 
 ```java
 module demo.modularguava {

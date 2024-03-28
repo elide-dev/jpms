@@ -1,4 +1,4 @@
-name: "Release"
+name: 'Release'
 
 on:
   release:
@@ -9,12 +9,12 @@ permissions:
 
 jobs:
   build-test:
-    name: "Build & Test"
+    name: 'Build & Test'
     uses: ./.github/workflows/ci.build-test.yml
     secrets: inherit
 
   publish-npm:
-    name: "Publish"
+    name: 'Publish'
     needs: [build-test]
     uses: ./.github/workflows/ci.publish-packages.yml
     secrets: inherit
@@ -27,7 +27,7 @@ jobs:
       release: true
 
   deploy-site:
-    name: "Deploy"
+    name: 'Deploy'
     needs: [build-test]
     uses: ./.github/workflows/deploy.site.yml
     secrets: inherit

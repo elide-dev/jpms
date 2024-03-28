@@ -1,49 +1,49 @@
-name: "Publish: Package"
+name: 'Publish: Package'
 
 on:
   workflow_call:
     inputs:
       package:
-        description: "Package"
+        description: 'Package'
         type: string
         required: true
       registry:
-        description: "Registry"
+        description: 'Registry'
         type: string
-        default: "https://registry.npmjs.org"
+        default: 'https://registry.npmjs.org'
       dry-run:
-        description: "Dry Run"
+        description: 'Dry Run'
         type: boolean
         default: false
       release:
-        description: "Release to GitHub"
+        description: 'Release to GitHub'
         type: boolean
         default: false
       tag:
-        description: "Release: Tag"
+        description: 'Release: Tag'
         type: string
       draft:
-        description: "Release: Draft"
+        description: 'Release: Draft'
         type: boolean
       prerelease:
-        description: "Release: Pre-release"
+        description: 'Release: Pre-release'
         type: boolean
       release-generate:
-        description: "Release: Generate Notes"
+        description: 'Release: Generate Notes'
         type: boolean
       release-latest:
-        description: "Release: Latest"
+        description: 'Release: Latest'
         type: boolean
 
     secrets:
       PUBLISH_TOKEN:
-        description: "Publishing Token"
+        description: 'Publishing Token'
         required: true
 
   workflow_dispatch:
     inputs:
       package:
-        description: "Package"
+        description: 'Package'
         type: choice
         required: true
         options:
@@ -52,36 +52,36 @@ on:
           - gradle
           - indexer
       dry-run:
-        description: "Dry Run"
+        description: 'Dry Run'
         type: boolean
         default: false
       registry:
-        description: "Registry"
+        description: 'Registry'
         type: string
-        default: "https://registry.npmjs.org"
+        default: 'https://registry.npmjs.org'
       release:
-        description: "Release to GitHub"
+        description: 'Release to GitHub'
         type: boolean
         default: false
       tag:
-        description: "Release Tag"
+        description: 'Release Tag'
         type: string
       draft:
-        description: "Release: Draft"
+        description: 'Release: Draft'
         type: boolean
       prerelease:
-        description: "Release: Pre-release"
+        description: 'Release: Pre-release'
         type: boolean
       release-generate:
-        description: "Release: Generate Notes"
+        description: 'Release: Generate Notes'
         type: boolean
       release-latest:
-        description: "Release: Latest"
+        description: 'Release: Latest'
         type: boolean
 
 jobs:
   build:
-    name: "Package: Build (${{ inputs.package }})"
+    name: 'Package: Build (${{ inputs.package }})'
     runs-on: ubuntu-latest
     outputs:
       hashes: ${{ steps.hash.outputs.hashes }}
@@ -89,29 +89,29 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - name: "Setup: Harden Runner"
+      - name: 'Setup: Harden Runner'
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
         with:
           egress-policy: audit
-      - name: "Setup: Checkout"
+      - name: 'Setup: Checkout'
         uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
         with:
           persist-credentials: false
-      - name: "Setup: Node"
+      - name: 'Setup: Node'
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: ${{ vars.NODE_VERSION || '21' }}
-          registry-url: "https://registry.npmjs.org"
-      - name: "Setup: PNPM"
+          registry-url: 'https://registry.npmjs.org'
+      - name: 'Setup: PNPM'
         uses: pnpm/action-setup@a3252b78c470c02df07e9d59298aecedc3ccdd6d # v3.0.0
         with:
           version: ${{ vars.PNPM_VERSION || '8' }}
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
-      - name: "Build: Package (${{ inputs.package }})"
+      - name: 'Build: Package (${{ inputs.package }})'
         run: cd packages/${{ inputs.package }} && pnpm run build && pnpm pack
-      - name: "Build: Provenance Hashes"
+      - name: 'Build: Provenance Hashes'
         shell: bash
         id: hash
         run: |
@@ -132,7 +132,7 @@ jobs:
           echo ""
 
           echo "hashes=$(cat ./packages/${{ inputs.package }}/pkg-hashes-encoded.txt)" >> "$GITHUB_OUTPUT"
-      - name: "Artifact: Packages"
+      - name: 'Artifact: Packages'
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4.3.1
         with:
           name: javamodules-pkg-${{ inputs.package }}-${{ github.sha }}
@@ -145,7 +145,7 @@ jobs:
             packages/${{ inputs.package }}/pkg-hashes-encoded.txt
 
   provenance:
-    name: "SLSA Provenance (${{ inputs.package }})"
+    name: 'SLSA Provenance (${{ inputs.package }})'
     needs: [build]
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.10.0
     permissions:
@@ -153,27 +153,27 @@ jobs:
       id-token: write
       contents: write
     with:
-      base64-subjects: "${{ needs.build.outputs.hashes }}"
+      base64-subjects: '${{ needs.build.outputs.hashes }}'
       upload-assets: ${{ inputs.dry-run != true }}
       upload-tag-name: ${{ inputs.tag || github.ref }}
       draft-release: ${{ inputs.draft }}
 
   release:
-    name: "Release to GitHub (${{ inputs.package }})"
+    name: 'Release to GitHub (${{ inputs.package }})'
     needs: [build, provenance]
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/') || inputs.release
     steps:
-      - name: "Setup: Harden Runner"
+      - name: 'Setup: Harden Runner'
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
         with:
           egress-policy: audit
-      - name: "Artifact: Package"
+      - name: 'Artifact: Package'
         id: releaseArtifact
         uses: actions/download-artifact@c850b930e6ba138125429b7e5c93fc707a7f8427 # v4.1.4
         with:
           name: javamodules-pkg-${{ inputs.package }}-${{ github.sha }}
-      - name: "Publish: Release"
+      - name: 'Publish: Release'
         uses: softprops/action-gh-release@d99959edae48b5ffffd7b00da66dcdb0a33a52ee # v2.0.2
         with:
           draft: ${{ inputs.draft }}
@@ -186,7 +186,7 @@ jobs:
             javamodules-${{ inputs.package }}-${{ inputs.tag || github.ref }}.tgz
 
   publish-npm:
-    name: "Publish to Registry (${{ inputs.package }})"
+    name: 'Publish to Registry (${{ inputs.package }})'
     needs: [build, provenance, release]
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/') || inputs.release
@@ -195,29 +195,29 @@ jobs:
       contents: write
       packages: write
     steps:
-      - name: "Setup: Harden Runner"
+      - name: 'Setup: Harden Runner'
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
         with:
           egress-policy: audit
-      - name: "Setup: Checkout"
+      - name: 'Setup: Checkout'
         uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
         with:
           persist-credentials: false
-      - name: "Setup: Node"
+      - name: 'Setup: Node'
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: ${{ vars.NODE_VERSION || '21' }}
-          registry-url: "https://registry.npmjs.org"
-      - name: "Setup: PNPM"
+          registry-url: 'https://registry.npmjs.org'
+      - name: 'Setup: PNPM'
         uses: pnpm/action-setup@a3252b78c470c02df07e9d59298aecedc3ccdd6d # v3.0.0
         with:
           version: ${{ vars.PNPM_VERSION || '8' }}
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
-      - name: "Build: All Packages"
+      - name: 'Build: All Packages'
         run: pnpm run build
-      - name: "Publish to Registry"
+      - name: 'Publish to Registry'
         run: cd packages/${{ inputs.package }} && npm publish ${{ inputs.dry-run && '--dry-run' || '' }} --registry=${{ inputs.registry }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}

@@ -11,8 +11,8 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { expect, test } from "@jest/globals";
+import { expect, test } from '@jest/globals'
 
-test("2 + 2", () => {
-  expect(2 + 2).toBe(4);
-});
+test('2 + 2', () => {
+  expect(2 + 2).toBe(4)
+})

@@ -4,8 +4,8 @@
 company, which is known formally as _Elide Technologies, Inc._, a registered Delaware Limited Liability Company. Elide
 is also supported by contributions from independent engineers all over the world.
 
-Elide is a community project, and we welcome new contributors. We are committed to fostering a welcoming environment.
-We expect contributors to follow the [Contributor Covenant Code of Conduct][2] when discussing the project in any forum.
+Elide is a community project, and we welcome new contributors. We are committed to fostering a welcoming environment. We
+expect contributors to follow the [Contributor Covenant Code of Conduct][2] when discussing the project in any forum.
 
 ## Project Leadership
 

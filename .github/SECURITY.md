@@ -9,9 +9,8 @@ Security issues are addressed promptly, and we continuously enhance project secu
 
 ## Supported Versions
 
-The Elide project is still early, but we intend to support the latest release and immediate past release.
-Once the project hits a level of stability suitable for a `1.0` version we will update this document and issue an
-LTS release.
+The Elide project is still early, but we intend to support the latest release and immediate past release. Once the
+project hits a level of stability suitable for a `1.0` version we will update this document and issue an LTS release.
 
 **Current version support matrix:**
 
@@ -23,9 +22,9 @@ LTS release.
 
 ## Reporting a Vulnerability
 
-**We use GitHub issues to track vulnerabilities.** [Click here][9] to report a new issue.
-If you need to report a vulnerability privately, please use the email address on our main GitHub organization page
-(`apps` at `elide` dot `cloud`).
+**We use GitHub issues to track vulnerabilities.** [Click here][9] to report a new issue. If you need to report a
+vulnerability privately, please use the email address on our main GitHub organization page (`apps` at `elide` dot
+`cloud`).
 
 If you need to provide secure information or your report needs to be encrypted, please use our PGP key, as listed on
 public key servers at the same email address.
@@ -42,8 +41,8 @@ Other (older) releases may receive backports on a case-by-case basis.
 
 We will publish security advisories for any vulnerabilities that we address.
 
-These advisories will be published on our GitHub organization page and will be linked to from this document;
-the main `elide` repository will also have a link to this document.
+These advisories will be published on our GitHub organization page and will be linked to from this document; the main
+`elide` repository will also have a link to this document.
 
 **At this time, no security advisories have been announced.**
 
@@ -60,9 +59,8 @@ Elide employs Gradle for dependency assurance, with `SHA-256` and `PGP` used for
 
 ### Attestations and Signing
 
-Elide ships with [SLSA attestations][3] for all modules, and embeds an SBOM with each binary artifact.
-Library releases are signed with PGP and published to Maven Central; all releases are additionally registered with
-[Sigstore][4].
+Elide ships with [SLSA attestations][3] for all modules, and embeds an SBOM with each binary artifact. Library releases
+are signed with PGP and published to Maven Central; all releases are additionally registered with [Sigstore][4].
 
 Container image bases carry SLSA attestations and are registered with Sigstore.
 

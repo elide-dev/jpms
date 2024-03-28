@@ -1,6 +1,6 @@
-name: "PR"
+name: 'PR'
 
-"on":
+'on':
   pull_request:
     branches:
       - main
@@ -10,25 +10,25 @@ permissions:
 
 jobs:
   build-test:
-    name: "Build & Test"
+    name: 'Build & Test'
     uses: ./.github/workflows/ci.build-test.yml
     secrets: inherit
 
   build-dependency-graph:
-    name: "Build & Test"
+    name: 'Build & Test'
     uses: ./.github/workflows/ci.dependency-graph.yml
     permissions:
       contents: write # needed for graph write
 
   checks-gradle:
-    name: "Checks"
+    name: 'Checks'
     uses: ./.github/workflows/check.gradle-wrapper.yml
 
   checks-dependency-review:
-    name: "Checks"
+    name: 'Checks'
     needs: [build-dependency-graph]
     uses: ./.github/workflows/check.dependency-review.yml
 
   checks-hashes:
-    name: "Checks"
+    name: 'Checks'
     uses: ./.github/workflows/check.hashes.yml

@@ -1,6 +1,7 @@
 # Contribution Guidelines
 
-This repository is open to contributions: fixes and new libraries are both welcome. See the guide below for directions to build and test the codebase, and to add a new library or amend or update an existing oen.
+This repository is open to contributions: fixes and new libraries are both welcome. See the guide below for directions
+to build and test the codebase, and to add a new library or amend or update an existing oen.
 
 ## Build / Test
 
@@ -10,7 +11,8 @@ You can build everything and run all tests with:
 make
 ```
 
-The embedded projects generally use `mvnw` and `gradlew`, where possible, so you should only need a recent copy of Java. [Java 21 on OpenJDK](https://jdk.java.net/21/) is suggested.
+The embedded projects generally use `mvnw` and `gradlew`, where possible, so you should only need a recent copy of Java.
+[Java 21 on OpenJDK](https://jdk.java.net/21/) is suggested.
 
 At least one project calls out to `mvn`, so you may need to [install Maven](https://maven.apache.org/install.html).
 
@@ -65,7 +67,8 @@ make setup dev
 
 ## Making changes
 
-Generally, when making changes, make sure to add tests and samples, where applicable. New libraries will need build steps.
+Generally, when making changes, make sure to add tests and samples, where applicable. New libraries will need build
+steps.
 
 ### Adding a library
 
@@ -127,7 +130,8 @@ clean:  ## Clean all built targets.
 
 #### Mapping versions
 
-You will also need to add variables to pin the version for the added library, both in `SNAPSHOT` and non-`SNAPSHOT` forms. For example:
+You will also need to add variables to pin the version for the added library, both in `SNAPSHOT` and non-`SNAPSHOT`
+forms. For example:
 
 ```make
 ifeq ($(SNAPSHOT),yes)
@@ -145,18 +149,22 @@ Make sure this version variable overrides the published version in the embedded 
 
 #### Adding a POM
 
-At `install` into the local repository, a custom POM can be used. This is useful because the published POM may not map to the right transitive JPMS-enabled versions.
+At `install` into the local repository, a custom POM can be used. This is useful because the published POM may not map
+to the right transitive JPMS-enabled versions.
 
 Add your pom to `tools/poms`, and see examples of use in the Makefile.
 
 #### Adding to Git
 
-Check the `git-add` command in the `Makefile`, making sure that your artifacts are expressed. This ensures they will not be ignored when publishing.
+Check the `git-add` command in the `Makefile`, making sure that your artifacts are expressed. This ensures they will not
+be ignored when publishing.
 
 ## Publishing
 
-File a PR following the above instructions. Once reviewed and merged, the resulting repository artifacts will be published via GitHub Pages automatically.
+File a PR following the above instructions. Once reviewed and merged, the resulting repository artifacts will be
+published via GitHub Pages automatically.
 
 ## Thank you!
 
-If you are reading this, **you rock.** Open source is a team sport, thank you for considering contributions to this project!
+If you are reading this, **you rock.** Open source is a team sport, thank you for considering contributions to this
+project!

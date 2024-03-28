@@ -1,5 +1,5 @@
-import { MavenCoordinate } from "@javamodules/maven";
-import { GradleModuleInfo } from "@javamodules/gradle";
+import { MavenCoordinate } from '@javamodules/maven'
+import { GradleModuleInfo } from '@javamodules/gradle'
 
 /**
  * Repository Package
@@ -8,12 +8,12 @@ import { GradleModuleInfo } from "@javamodules/gradle";
  * content, as needed and applicable
  */
 export type RepositoryPackage = {
-  maven: MavenCoordinate;
-  pom: string;
-  root: string;
-  gradle?: GradleModuleInfo;
-  valueOf: any;
-};
+  maven: MavenCoordinate
+  pom: string
+  root: string
+  gradle?: GradleModuleInfo
+  valueOf: any
+}
 
 /**
  * Indexed Artifact
@@ -22,12 +22,12 @@ export type RepositoryPackage = {
  * Gradle Module, and parsed metadata from the POM and Gradle Module.
  */
 export type IndexedArtifact = {
-  maven: MavenCoordinate;
-  pom: string;
-  name?: string;
-  description?: string;
-  gradle?: GradleModuleInfo;
-};
+  maven: MavenCoordinate
+  pom: string
+  name?: string
+  description?: string
+  gradle?: GradleModuleInfo
+}
 
 /**
  * Repository Artifacts Index
@@ -35,7 +35,7 @@ export type IndexedArtifact = {
  * Describes an index file which maps artifacts to their metadata; includes an index of
  * all available versions for a given artifact.
  */
-export type RepositoryArtifactsIndex = {};
+export type RepositoryArtifactsIndex = {}
 
 /**
  * Repository Modules Index
@@ -43,7 +43,7 @@ export type RepositoryArtifactsIndex = {};
  * Describes an index file which maps indexed artifacts by their Java Module coordinate;
  * this mapping can produce an offset in the `RepositoryArtifactsIndex`.
  */
-export type RepositoryModulesIndex = {};
+export type RepositoryModulesIndex = {}
 
 /**
  * Repository Index Bundle
@@ -52,9 +52,9 @@ export type RepositoryModulesIndex = {};
  * as an intermediate data structure before indexes are written.
  */
 export type RepositoryIndexBundle = {
-  artifacts: RepositoryArtifactsIndex;
-  modules: RepositoryModulesIndex;
-};
+  artifacts: RepositoryArtifactsIndex
+  modules: RepositoryModulesIndex
+}
 
 /**
  * Repository Index File
@@ -66,11 +66,11 @@ export type RepositoryIndexBundle = {
  * Hashes are written to the `<name>.<hash>` as peers to the index file.
  */
 export type RepositoryIndexFile = {
-  name: string;
-  contents: string;
-  gzip?: string;
-  md5: string;
-  sha1: string;
-  sha256: string;
-  sha512: string;
-};
+  name: string
+  contents: string
+  gzip?: string
+  md5: string
+  sha1: string
+  sha256: string
+  sha512: string
+}

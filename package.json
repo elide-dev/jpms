@@ -2,8 +2,8 @@
   "name": "@javamodules/attic",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "license": "Apache-2.0",
+  "type": "module",
   "workspaces": [
     "packages/java",
     "packages/maven",
@@ -11,43 +11,25 @@
     "packages/indexer"
   ],
   "scripts": {
+    "build": "pnpm run -r build",
     "check": "pnpm run /:check$/",
     "clean": "make clean",
-    "format": "pnpm run fmt:write",
     "fmt:check": "prettier . --check",
     "fmt:write": "prettier . --write",
+    "format": "pnpm run fmt:write",
+    "hashcheck": "node node_modules/verify-hashes/dist/cli.js check .",
     "indexer": "cd packages/indexer && pnpm run index",
-    "build": "pnpm run -r build",
-    "test:bun": "pnpm run -r test:bun",
-    "test:node": "pnpm run -r test:node",
-    "test": "pnpm run test:bun",
-    "prettier": "prettier",
+    "lockfiles": "rm -fr node_modules && bun i && rm -fr node_modules && pnpm i",
     "prepare": "husky",
-    "hashcheck": "node node_modules/verify-hashes/dist/cli.js check ."
-  },
-  "devDependencies": {
-    "@changesets/cli": "2.27.1",
-    "@commitlint/cli": "19.2.0",
-    "@commitlint/config-conventional": "19.1.0",
-    "husky": "9.0.11",
-    "lint-staged": "15.2.2",
-    "prettier": "3.2.5",
-    "typescript": "5.4.2",
-    "verify-hashes": "1.0.0-rc1"
+    "prettier": "prettier",
+    "test": "pnpm run test:bun",
+    "test:bun": "pnpm run -r test:bun",
+    "test:node": "pnpm run -r test:node"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "pnpm": {
-    "allowDeprecated": {
-      "rollup-plugin-inject": "*",
-      "sourcemap-codec": "*"
-    }
-  },
-  "lint-staged": {
-    "*": "pnpm run check"
   },
   "commitlint": {
     "extends": [
@@ -60,5 +42,25 @@
       ]
     }
   },
-  "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589"
+  "lint-staged": {
+    "*": "pnpm run check"
+  },
+  "devDependencies": {
+    "@changesets/cli": "2.27.1",
+    "@commitlint/cli": "19.2.0",
+    "@commitlint/config-conventional": "19.1.0",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.2",
+    "prettier": "3.2.5",
+    "prettier-plugin-packagejson": "2.4.12",
+    "typescript": "5.4.2",
+    "verify-hashes": "1.0.0-rc1"
+  },
+  "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589",
+  "pnpm": {
+    "allowDeprecated": {
+      "rollup-plugin-inject": "*",
+      "sourcemap-codec": "*"
+    }
+  }
 }

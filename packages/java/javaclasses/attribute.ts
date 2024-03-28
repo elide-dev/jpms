@@ -11,11 +11,11 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { expect, test } from "@jest/globals";
-import { JavaClassFile } from "../classfile-parser";
-
-test("parse a basic java class", () => {
-  //
-  expect(5).toBe(5);
-  expect(JavaClassFile).toBeDefined();
-});
+/**
+ * Attribute Names
+ *
+ * Enumerates Java Class attribute names of note.
+ */
+export enum AttributeName {
+  MODULE = 'Module'
+}

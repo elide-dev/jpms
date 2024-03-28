@@ -1,45 +1,27 @@
 {
   "name": "@javamodules/maven",
-  "version": "1.0.1",
-  "type": "module",
-  "main": "dist/index.mjs",
+  "version": "1.0.2",
   "description": "Tools for working with Maven projects and metadata from JavaScript.",
-  "homepage": "https://github.com/javamodules",
-  "license": "Apache-2.0",
-  "files": [
-    "dist/**",
-    "!dist/*test*",
-    "!dist/tests"
-  ],
   "keywords": [
     "tools",
     "java",
     "maven"
   ],
-  "publishConfig": {
-    "provenance": true,
-    "access": "public"
+  "homepage": "https://github.com/javamodules",
+  "bugs": {
+    "url": "https://github.com/elide-dev/jpms/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/elide-dev/jpms",
     "directory": "packages/maven"
   },
-  "bugs": {
-    "url": "https://github.com/elide-dev/jpms/issues"
-  },
+  "license": "Apache-2.0",
   "author": {
     "name": "Sam Gammon",
     "url": "https://github.com/sgammon"
   },
-  "scripts": {
-    "test:bun": "bun test",
-    "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "publish:dry": "npm publish --no-git-checks --dry-run",
-    "publish:live": "npm publish --no-git-checks",
-    "pack": "npm pack",
-    "build": "tsc -p ."
-  },
+  "type": "module",
   "imports": {
     "#tests": {
       "bun": "bun:test",
@@ -55,6 +37,44 @@
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     }
+  },
+  "main": "dist/index.mjs",
+  "files": [
+    "dist/**",
+    "!dist/*test*",
+    "!dist/tests"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "pack": "npm pack",
+    "publish:dry": "npm publish --no-git-checks --dry-run",
+    "publish:live": "npm publish --no-git-checks",
+    "test:bun": "bun test",
+    "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "reports",
+    "coverageProvider": "v8",
+    "coverageReporters": [
+      "lcov",
+      "text-summary"
+    ],
+    "preset": "ts-jest",
+    "reporters": [
+      "default",
+      "github-actions",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "reports",
+          "outputName": "report.xml"
+        }
+      ]
+    ],
+    "testMatch": [
+      "<rootDir>/tests/*.test.ts"
+    ]
   },
   "dependencies": {
     "traverse": "0.6.8",
@@ -73,28 +93,8 @@
     "ts-jest": "29.1.2",
     "typescript": "5.4.2"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "collectCoverage": true,
-    "coverageProvider": "v8",
-    "coverageDirectory": "reports",
-    "coverageReporters": [
-      "lcov",
-      "text-summary"
-    ],
-    "reporters": [
-      "default",
-      "github-actions",
-      [
-        "jest-junit",
-        {
-          "outputDirectory": "reports",
-          "outputName": "report.xml"
-        }
-      ]
-    ],
-    "testMatch": [
-      "<rootDir>/tests/*.test.ts"
-    ]
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
