@@ -18,7 +18,7 @@
  * Licensed under the MIT License. See LICENSE file in the project root for full license information.
  */
 
-import Opcode from './opcode'
+import Opcode from './opcode.js'
 
 // -1 = variable length
 // index = opcode

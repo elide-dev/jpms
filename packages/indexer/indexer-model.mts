@@ -1,5 +1,44 @@
+/*
+ * Copyright (c) 2024 Elide Technologies, Inc.
+ *
+ * Licensed under the MIT license (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ *   https://opensource.org/license/mit/
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under the License.
+ */
+
 import { MavenCoordinate } from '@javamodules/maven'
+import { ParsedOutput as MavenPom } from '@javamodules/maven/parser'
 import { GradleModuleInfo } from '@javamodules/gradle'
+import { JavaModuleInfo } from '@javamodules/java/model'
+
+/**
+ * Repository JAR Info
+ *
+ * Describes decoded/parsed/interpreted information about a JAR.
+ */
+export type RepositoryJarInfo = {
+  modular: boolean
+  automaticModuleName?: string
+  mainClass?: string
+  module?: JavaModuleInfo
+}
+
+/**
+ * Repository JAR
+ *
+ * Describes information about a JAR within a Maven repository.
+ */
+export type RepositoryJar = RepositoryJarInfo & {
+  path: string
+  name: string
+  coordinate: MavenCoordinate
+  size: number
+}
 
 /**
  * Repository Package
@@ -8,10 +47,12 @@ import { GradleModuleInfo } from '@javamodules/gradle'
  * content, as needed and applicable
  */
 export type RepositoryPackage = {
-  maven: MavenCoordinate
+  coordinate: MavenCoordinate
   pom: string
   root: string
   gradle?: GradleModuleInfo
+  maven: MavenPom
+  jars: RepositoryJar[]
   valueOf: any
 }
 

@@ -218,6 +218,7 @@ jobs:
       - name: 'Build: All Packages'
         run: pnpm run build
       - name: 'Publish to Registry'
+        # prettier-ignore
         run: cd packages/${{ inputs.package }} && npm publish ${{ inputs.dry-run && '--dry-run' || '' }} --registry=${{ inputs.registry }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}

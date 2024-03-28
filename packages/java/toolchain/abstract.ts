@@ -13,7 +13,7 @@
 
 import { spawn, SpawnOptions } from 'node:child_process'
 import { join, normalize } from 'node:path'
-import { JavaToolchain } from '../java-home'
+import { JavaToolchain } from '../java-home.js'
 import { Readable } from 'node:stream'
 
 /**

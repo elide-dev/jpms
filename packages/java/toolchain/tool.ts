@@ -11,8 +11,8 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { BinInfo, ExecSpec, JavaTool, ToolArgs, ToolRun } from './abstract'
-import type { JavaToolchain } from '../java-home'
+import { BinInfo, ExecSpec, JavaTool, ToolArgs, ToolRun } from './abstract.js'
+import type { JavaToolchain } from '../java-home.js'
 
 /**
  * Generic JDK Tool

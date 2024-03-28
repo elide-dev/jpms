@@ -13,9 +13,15 @@
 
 import { FlateError, Unzip, UnzipFile, UnzipInflate } from 'fflate'
 import ByteBuffer from 'bytebuffer'
-import JarManifest, { JarManifest as JarManifestApi, JarManifestBaseline, JarManifestBuilder, JarManifestKeyString, manifestPath } from './java-manifest'
-import { JavaModuleInfo, QualifiedClassName, SimpleClassName } from './java-model'
-import { JavaClassFile } from './java-classfile'
+import JarManifest, {
+  JarManifest as JarManifestApi,
+  JarManifestBaseline,
+  JarManifestBuilder,
+  JarManifestKeyString,
+  manifestPath
+} from './java-manifest.js'
+import { JavaModuleInfo, QualifiedClassName, SimpleClassName } from './java-model.js'
+import { JavaClassFile } from './java-classfile.js'
 
 /**
  * Default size to use for chunks of Zip data
@@ -26,25 +32,25 @@ const defaultZipChunkSize = 1024
  * Utility that produces data for a named file from a zip
  */
 interface FileContentProducer {
-  name: string,
-  read(): Promise<ByteBuffer>
+  name: string
+  read(): Promise<Buffer>
 }
 
 /**
  * Describes a streamed/async unzip operation for reading a JAR
  */
 type UnzipOperation = {
-  op: Unzip,
-  files: Map<string, ZipFileMetadata>,
-  content: Map<string, FileContentProducer>,
+  op: Unzip
+  files: Map<string, ZipFileMetadata>
+  content: Map<string, () => Promise<FileContentProducer>>
 }
 
 /**
  * Chunk of zip data consumed as an async iterable
  */
 type ZipChunk = {
-  chunk: Uint8Array,
-  final?: boolean,
+  chunk: Uint8Array
+  final?: boolean
 }
 
 /**
@@ -62,7 +68,7 @@ export enum JarCompression {
   IDENTITY = 0,
 
   /** Deflate compression is applied */
-  DEFLATE = 1,
+  DEFLATE = 1
 }
 
 /**
@@ -107,7 +113,17 @@ export interface JarEntry {
   /**
    * Relative path to the entry within the JAR.
    */
-  path: string;
+  path: string
+
+  /**
+   * Whether the entry is compressed.
+   */
+  compression?: JarCompression
+
+  /**
+   * Deferred file content producer
+   */
+  data: () => Promise<FileContentProducer>
 }
 
 /**
@@ -119,22 +135,7 @@ export interface JarResource extends JarEntry {
   /**
    * Size of the resource as a count of bytes.
    */
-  size: number;
-
-  /**
-   * Whether the entry is compressed.
-   */
-  compression?: JarCompression;
-
-  /**
-   * MIME type of the file, if known.
-   */
-  mime?: string;
-
-  /**
-   * Deferred file content producer
-   */
-  data: FileContentProducer;
+  size: number
 }
 
 /**
@@ -146,7 +147,7 @@ export interface JarManifestEntry extends JarEntry {
   /**
    * Parsed manifest attributes.
    */
-  manifest: JarManifest;
+  manifest: JarManifest
 }
 
 /**
@@ -159,12 +160,12 @@ export interface JarServiceEntry extends JarEntry {
   /**
    * Name of the service mapped by this entry
    */
-  service: QualifiedClassName;
+  service: QualifiedClassName
 
   /**
    * Implementations mapped for this service entry
    */
-  impls: QualifiedClassName[];
+  impls: QualifiedClassName[]
 }
 
 /**
@@ -176,17 +177,17 @@ export interface JarClassEntry extends JarEntry {
   /**
    * Qualified name of the class.
    */
-  qualifiedName: QualifiedClassName;
+  qualifiedName: QualifiedClassName
 
   /**
    * Simple name of the class.
    */
-  simpleName: SimpleClassName;
+  simpleName: SimpleClassName
 
   /**
    * Interpreted/loaded information about the class.
    */
-  classfile: Promise<JavaClassFile>;
+  classfile: () => Promise<JavaClassFile>
 }
 
 /**
@@ -198,7 +199,7 @@ export interface JarModuleEntry extends JarClassEntry {
   /**
    * Parsed module information.
    */
-  moduleInfo: Promise<JavaModuleInfo>;
+  moduleInfo: () => Promise<JavaModuleInfo>
 }
 
 /**
@@ -214,35 +215,12 @@ export interface JarModuleEntry extends JarClassEntry {
  */
 async function readZipInMemory(
   chunkConsumer: AsyncGenerator<ZipChunk, void, unknown>,
-  predicate: JarPredicate,
+  predicate: JarPredicate
 ): Promise<UnzipOperation> {
-  const unzipper = new Unzip();
-  unzipper.register(UnzipInflate);
-  const readFiles = new Set<string>();
-  const allFiles: Map<string, ZipFileMetadata> = new Map();
-  const content: Map<string, FileContentProducer> = new Map();
-
-  const acceptFile = (file: UnzipFile) => {
-    const buf = new ByteBuffer()
-    file.ondata = (err: FlateError | null, data: Uint8Array, final: boolean) => {
-      if (err) {
-        // cancel file on error
-      } else {
-        // gather bytes
-        buf.append(data)
-        if (final) {
-          readFiles.add(file.name);
-          content.set(file.name, {
-            name: file.name,
-            read: async () => buf,
-          });
-        }
-      }
-    };
-
-    // start the stream
-    file.start();
-  }
+  const unzipper = new Unzip()
+  unzipper.register(UnzipInflate)
+  const allFiles: Map<string, ZipFileMetadata> = new Map()
+  const content: Map<string, () => Promise<FileContentProducer>> = new Map()
 
   unzipper.onfile = file => {
     // always keep the file metadata
@@ -250,25 +228,51 @@ async function readZipInMemory(
       name: file.name,
       size: file.size,
       originalSize: file.originalSize,
-      compression: file.compression,
+      compression: file.compression
     })
 
     // if the file matches any predicate, include it
-    if (predicate(file)) acceptFile(file)
-  };
+    if (predicate(file)) {
+      content.set(
+        file.name,
+        () =>
+          new Promise((accept, reject) => {
+            const buf = new ByteBuffer(file.size)
+            file.ondata = (err: FlateError | null, data: Uint8Array, final: boolean) => {
+              if (err) {
+                reject(err)
+                return
+              } else {
+                // gather bytes
+                buf.append(data)
+                if (final) {
+                  accept({
+                    name: file.name,
+                    read: async () => buf.buffer
+                  })
+                }
+              }
+            }
+
+            // start the stream
+            file.start()
+          })
+      )
+    }
+  }
 
   // consume zip data in chunks, passing to unzipper as we go
   let gotChunks = false
   for await (const chunk of chunkConsumer) {
     gotChunks = true
-    unzipper.push(chunk.chunk, chunk.final === true);
+    unzipper.push(chunk.chunk, chunk.final === true)
   }
   if (!gotChunks) throw new Error('No zip chunks provided')
 
   return {
     op: unzipper,
     files: allFiles,
-    content,
+    content
   }
 }
 
@@ -282,7 +286,7 @@ async function readZipInMemory(
 export async function readZipFromData(
   data: Buffer,
   predicate: JarPredicate,
-  chunkSize: number = defaultZipChunkSize,
+  chunkSize: number = defaultZipChunkSize
 ): Promise<UnzipOperation> {
   if (typeof data.length !== 'number' || data.length < 1) {
     console.error('invalid buffer', data)
@@ -294,7 +298,7 @@ export async function readZipFromData(
   // slice buffer into ~1024 byte sections
   const chunks = Math.ceil(data.length / chunkSize)
   let offset = 0
-  const chunker = async function*() {
+  const chunker = async function* () {
     for (let i = 0; i < chunks; i++) {
       const chunk = data.subarray(offset, offset + chunkSize)
       offset += chunkSize
@@ -313,10 +317,10 @@ export async function readZipFromData(
  */
 export function identifyEntry(path: string): JarEntryType {
   const match = [
-    () => path === manifestPath ? JarEntryType.MANIFEST : null,
-    () => path.endsWith('module-info.class') ? JarEntryType.MODULE : null,
-    () => path.endsWith('.class') ? JarEntryType.CLASS : null,
-    () => path.startsWith('META-INF/services/') ? JarEntryType.SERVICE : null,
+    () => (path === manifestPath ? JarEntryType.MANIFEST : null),
+    () => (path.endsWith('module-info.class') ? JarEntryType.MODULE : null),
+    () => (path.endsWith('.class') ? JarEntryType.CLASS : null),
+    () => (path.startsWith('META-INF/services/') ? JarEntryType.SERVICE : null)
   ]
   for (const matcher of match) {
     const result = matcher()
@@ -333,69 +337,56 @@ export function identifyEntry(path: string): JarEntryType {
  * @param content Raw content for the entry
  * @return Promise for an inflated JAR entry
  */
-export async function inflateEntry(
-  type: JarEntryType,
-  path: string,
-  content: FileContentProducer,
-): Promise<JarEntry> {
+export async function inflateEntry(type: JarEntryType, path: string, content: FileContentProducer): Promise<JarEntry> {
   return new Promise(async (accept, reject) => {
+    const classfileDecode: () => Promise<JavaClassFile> = () => {
+      return new Promise(async (innerAccept, innerReject) => {
+        try {
+          innerAccept(JavaClassFile.fromData(await content.read()))
+        } catch (err) {
+          innerReject(err)
+        }
+      })
+    }
+
     switch (type) {
       case JarEntryType.RESOURCE:
         accept({ path } as JarResource)
         break
-  
+
       case JarEntryType.MANIFEST:
-        const manifest = await JarManifest.fromData((await content.read()).buffer)
+        const manifest = await JarManifest.fromData(await content.read())
         accept({ path, manifest } as JarManifestEntry)
         break
 
       case JarEntryType.SERVICE:
         const servicefile = await content.read()
         const service = servicefile.toString('utf-8').trim()
-        const impls = service.split('\n').map(line => line.trim()).filter(line => line.length > 0)
+        const impls = service
+          .split('\n')
+          .map(line => line.trim())
+          .filter(line => line.length > 0)
         accept(jarService(path, service, ...impls))
         break
-  
+
       case JarEntryType.MODULE:
-        const modulefile: Promise<JavaClassFile> = new Promise(async (innerAccept, innerReject) => {
-          try {
-            innerAccept(JavaClassFile.fromData((await content.read()).buffer))
-          } catch (err) {
-            innerReject(err)
-          }
-        })
-        const moduleinfo: Promise<JavaModuleInfo> = new Promise(async (innerAccept, innerReject) => {
-          try {
-            const file = await modulefile
-            innerAccept(file.moduleInfo())
-          } catch (err) {
-            innerReject(err)
-          }
-        })
         accept({
           path,
-          classfile: modulefile,
-          moduleInfo: moduleinfo,
           qualifiedName: jarPathToQualifiedClass(path),
           simpleName: qualifiedNameToSimpleName(jarPathToQualifiedClass(path)),
+          moduleInfo: async () => (await classfileDecode()).moduleInfo(),
+          classfile: () => classfileDecode()
         } as JarModuleEntry)
         break
-  
+
       case JarEntryType.CLASS:
-        const classfile = new Promise(async (innerAccept, innerReject) => {
-          try {
-            innerAccept(JavaClassFile.fromData((await content.read()).buffer))
-          } catch (err) {
-            innerReject(err)
-          }
-        })
         accept({
-          classfile,
           qualifiedName: jarPathToQualifiedClass(path),
           simpleName: qualifiedNameToSimpleName(jarPathToQualifiedClass(path)),
+          classfile: () => classfileDecode()
         } as JarClassEntry)
         break
-  
+
       default:
         reject(new Error('not yet implemented: ' + type))
         break
@@ -410,36 +401,44 @@ export async function inflateEntry(
  * @returns Promise for an interpreted manifest (if any) and an async iterable of JAR entries
  */
 export async function inflateFromZip(op: Promise<UnzipOperation>): Promise<{
-  manifest: JarManifestApi | null,
-  entries: Map<string, DeferredJarEntry>,
+  manifest: JarManifestApi | null
+  entries: Map<string, DeferredJarEntry>
+  entryIndex: Map<JarEntryType, string[]>
 }> {
   // wait for the unzip operation
-  const unzip = (await op)
+  const unzip = await op
 
   // try to resolve manifest content
   const manifestContent = unzip.content.get(manifestPath)
   let foundManifest: Promise<JarManifestApi | null>
   if (manifestContent) {
-    foundManifest = JarManifest.fromData((await manifestContent.read()).buffer)
+    foundManifest = JarManifest.fromData(await (await manifestContent()).read())
   } else {
     foundManifest = Promise.resolve(null)
   }
 
   // convert all entries into jar entries
   const entries: Map<string, DeferredJarEntry> = new Map()
+  const entryIndex: Map<JarEntryType, string[]> = new Map()
+
   for (const [path, content] of unzip.content) {
-    if (path.endsWith('/')) continue  // skip directories
+    if (path.endsWith('/')) continue // skip directories
     const entryType = identifyEntry(path)
+    if (!entryIndex.has(entryType)) entryIndex.set(entryType, [])
+    ;(entryIndex.get(entryType) as string[]).push(path)
+
     if (entries.has(path)) throw new Error(`duplicate path in jar: ${path}`)
     entries.set(path, {
       path,
       type: entryType,
-      entry: inflateEntry(entryType, path, content),
+      data: content,
+      entry: async () => inflateEntry(entryType, path, await content())
     })
   }
   return {
     manifest: await foundManifest,
     entries,
+    entryIndex
   }
 }
 
@@ -480,7 +479,7 @@ export function qualifiedNameToSimpleName(name: QualifiedClassName): SimpleClass
  */
 export type JarPredicate = ((name: ZipFileMetadata) => boolean) & {
   /** Invert the match: if `true` is returned, the file is not included. */
-  invert?: boolean,
+  invert?: boolean
 }
 
 /**
@@ -490,7 +489,7 @@ export type JarPredicate = ((name: ZipFileMetadata) => boolean) & {
  */
 export type BaseJarOperationOptions = {
   /** Predicate matchers for JAR contents; if any match, the file is included. */
-  predicate: JarPredicate[],
+  predicate: JarPredicate[]
 }
 
 /**
@@ -501,7 +500,7 @@ export type BaseJarOperationOptions = {
  */
 export type JarReaderOptions = BaseJarOperationOptions & {
   /** Read all file metadata in the JAR eagerly. */
-  eager: boolean,
+  eager: boolean
 }
 
 /**
@@ -515,11 +514,11 @@ export type JarEntryIterableOptions = BaseJarOperationOptions & {}
  * Default options to apply when iterating over JAR entries.
  */
 const defaultEntryIterableOptions = {
-  predicate: [],
-};
+  predicate: []
+}
 
 type JarPredicateFactory = () => JarPredicate & {
-  invert: () => JarPredicate,
+  invert: () => JarPredicate
 }
 
 function predicateFactory(factory: () => JarPredicate): JarPredicateFactory {
@@ -556,36 +555,33 @@ export const jarMatcher: { [key: string]: JarPredicateFactory } = {
   manifest: predicateFactory(() => (file: ZipFileMetadata) => file.name === 'META-INF/MANIFEST.MF'),
 
   /** Match all manifests in the JAR. */
-  allManifests: predicateFactory(() => (file: ZipFileMetadata) => jarMatcher.manifest()(file) || file.name.startsWith('META-INF/') && file.name.endsWith('.MF')),
+  allManifests: predicateFactory(
+    () => (file: ZipFileMetadata) =>
+      jarMatcher.manifest()(file) || (file.name.startsWith('META-INF/') && file.name.endsWith('.MF'))
+  ),
 
   /** Match the primary module info. */
   moduleInfo: predicateFactory(() => (file: ZipFileMetadata) => file.name === 'module-info.class'),
 
   /** Match all module info declarations in the JAR. */
-  allModuleInfos: predicateFactory(() => (file: ZipFileMetadata) => file.name.endsWith('module-info.class')),
+  allModuleInfos: predicateFactory(() => (file: ZipFileMetadata) => file.name.endsWith('module-info.class'))
 }
 
 // Default reader options.
 const defaultReaderOptions: JarReaderOptions = {
   eager: false,
-  predicate: [],
+  predicate: []
 }
 
 // Matchers which always apply on top of developer-provided predicates.
-const unconditionalPredicates: JarPredicate[] = [
-  jarMatcher.allManifests(),
-  jarMatcher.allModuleInfos(),
-]
+const unconditionalPredicates: JarPredicate[] = [jarMatcher.allManifests(), jarMatcher.allModuleInfos()]
 
 // Merge defaults to produce final reader options.
 function readerOptions(options?: JarReaderOptions): JarReaderOptions {
   return {
     ...defaultReaderOptions,
     ...options,
-    predicate: [
-      ...unconditionalPredicates,
-      ...options?.predicate || [],
-    ]
+    predicate: [...unconditionalPredicates, ...(options?.predicate || [])]
   }
 }
 
@@ -669,9 +665,10 @@ export class JarBuilder {
  * JAR entry which defers decoding of its contents.
  */
 type DeferredJarEntry = {
-  path: string,
-  type: JarEntryType,
-  entry: Promise<JarEntry>
+  path: string
+  type: JarEntryType
+  entry: () => Promise<JarEntry>
+  data: () => Promise<FileContentProducer>
 }
 
 /**
@@ -726,28 +723,40 @@ export class JarFile implements JarManifestBaseline {
   private constructor(
     private readonly _options: JarReaderOptions,
     private readonly _entries: Map<string, DeferredJarEntry>,
-    private readonly _manifest: JarManifestApi | null) {}
+    private readonly _entryIndex: Map<JarEntryType, string[]>,
+    private readonly _manifest: JarManifestApi | null
+  ) {}
+
+  // Retrieve a list of JAR entries of a specific type.
+  private entriesOfType(type: JarEntryType): string[] {
+    return this._entryIndex.get(type) || []
+  }
 
   // Walk the contents of the managed JAR file.
   private async *contents(): AsyncIterable<JarEntry> {
     for (const entry of this._entries.values()) {
-      yield await entry.entry
+      yield await entry.entry()
     }
   }
 
   // Decide whether a JAR entry is eligible for consideration.
   private eligible(options: JarEntryIterableOptions, file: JarEntry): boolean {
-    return (options.predicate.length === 0 || options.predicate.some(pred => pred({
-      name: file.path,
-      compression: JarCompression.IDENTITY,  // @TODO
-    })))
+    return (
+      options.predicate.length === 0 ||
+      options.predicate.some(pred =>
+        pred({
+          name: file.path,
+          compression: JarCompression.IDENTITY // @TODO
+        })
+      )
+    )
   }
 
   /**
    * Reader options
    */
   public get options(): JarReaderOptions {
-    return this._options;
+    return this._options
   }
 
   /**
@@ -774,7 +783,7 @@ export class JarFile implements JarManifestBaseline {
    * @return Promise for modular status
    */
   public get modular(): Promise<boolean> {
-    throw new Error('not yet implemented')
+    return Promise.resolve(this.entriesOfType(JarEntryType.MODULE).length > 0)
   }
 
   /**
@@ -783,7 +792,23 @@ export class JarFile implements JarManifestBaseline {
    * @return Promise for module info
    */
   public get moduleInfo(): Promise<JavaModuleInfo> {
-    throw new Error('not yet implemented')
+    if (!this.modular) throw new Error('not a modular JAR')
+    const moduleDefs = this.entriesOfType(JarEntryType.MODULE)
+    const main = moduleDefs.find(path => !path.includes('META-INF/versions/'))
+    const target = main || moduleDefs.at(0)
+    if (!target) {
+      console.error('no usable module definition', moduleDefs, this._entryIndex[JarEntryType.MODULE])
+      throw new Error('no usable module definition found')
+    }
+
+    return new Promise(async (accept, reject) => {
+      try {
+        const mainDef = (await (this._entries.get(target) as DeferredJarEntry).entry()) as JarModuleEntry
+        mainDef.moduleInfo().then(accept).catch(reject)
+      } catch (err) {
+        reject(err)
+      }
+    })
   }
 
   /** @inheritdoc */
@@ -852,25 +877,28 @@ export class JarFile implements JarManifestBaseline {
    * @param manifest Optional manifest to include in the JAR
    * @return JAR file instance
    */
-  static fromRaw(
-    entries: JarEntry[],
-    manifest?: JarManifest,
-    options?: JarReaderOptions,
-  ): JarFile {
+  static fromRaw(entries: JarEntry[], manifest?: JarManifest, options?: JarReaderOptions): JarFile {
     const opts = readerOptions(options)
+    const entryIndex = new Map<JarEntryType, string[]>()
     const map: Map<string, DeferredJarEntry> = new Map()
+
     for (const entry of entries) {
+      const type = identifyEntry(entry.path)
+      if (!entryIndex.has(type)) entryIndex.set(type, [])
+      ;(entryIndex.get(type) as string[]).push(entry.path)
+
       map.set(entry.path, {
         path: entry.path,
-        type: identifyEntry(entry.path),
-        entry: Promise.resolve(entry),
+        type,
+        entry: () => Promise.resolve(entry),
+        data: () =>
+          Promise.resolve({
+            name: entry.path,
+            read: async () => await (await entry.data()).read()
+          })
       })
     }
-    return new JarFile(
-      opts,
-      map,
-      manifest || null,
-    )
+    return new JarFile(opts, map, entryIndex, manifest || null)
   }
 
   /**
@@ -882,14 +910,8 @@ export class JarFile implements JarManifestBaseline {
    */
   static async fromData(data: Buffer, options?: JarReaderOptions): Promise<JarFile> {
     const opts = readerOptions(options)
-    const { manifest, entries } = await inflateFromZip(
-      readZipFromData(data, buildPredicate(opts)),
-    )
-    return new JarFile(
-      opts,
-      entries,
-      manifest || null,
-    )
+    const { manifest, entries, entryIndex } = await inflateFromZip(readZipFromData(data, buildPredicate(opts)))
+    return new JarFile(opts, entries, entryIndex, manifest || null)
   }
 
   /**
@@ -901,26 +923,23 @@ export class JarFile implements JarManifestBaseline {
    */
   static async fromFile(path: string, options?: JarReaderOptions): Promise<JarFile> {
     const opts = readerOptions(options)
-    const { manifest, entries } = await inflateFromZip(
-      readZipFromData(await require("fs/promises").readFile(path), buildPredicate(opts)),
+    const fs = await import('fs/promises')
+    const { manifest, entries, entryIndex } = await inflateFromZip(
+      readZipFromData(await fs.readFile(path), buildPredicate(opts))
     )
-    return new JarFile(
-      opts,
-      entries,
-      manifest || null,
-    )
+    return new JarFile(opts, entries, entryIndex, manifest || null)
   }
 
   /**
    * Efficiently decompress and iterate over entries in the JAR matching the provided optional criteria.
    *
    * @param options Options governing how the iterator should behave.
-   * @return Async iterable which produces JAR entries. 
+   * @return Async iterable which produces JAR entries.
    */
   public async *entries(options?: JarEntryIterableOptions): AsyncIterable<JarEntry> {
     const opts: JarEntryIterableOptions = {
       ...defaultEntryIterableOptions,
-      ...(options || {}),
+      ...(options || {})
     }
 
     for await (const entry of this.contents()) {
@@ -943,10 +962,11 @@ export function jarResource(path: string, data?: Buffer, compression?: JarCompre
     path,
     size: data?.length || 0,
     compression: compression || JarCompression.IDENTITY,
-    data: {
-      name: path,
-      read: async () => data ? ByteBuffer.wrap(data) : ByteBuffer.allocate(0),
-    }
+    data: () =>
+      Promise.resolve({
+        name: path,
+        read: async () => (data ? data : Buffer.alloc(0))
+      })
   }
 }
 
@@ -957,22 +977,25 @@ export function jarResource(path: string, data?: Buffer, compression?: JarCompre
  * @param data Serialized or loaded class data for the class
  * @return JAR class entry
  */
-export function jarClass(name: QualifiedClassName, data: Buffer | Promise<JavaClassFile>): JarClassEntry {
+export function jarClass(name: QualifiedClassName, data: Buffer): JarClassEntry {
   return {
     qualifiedName: name,
     simpleName: qualifiedNameToSimpleName(name),
     path: qualifiedClassToJarPath(name),
-    classfile: new Promise(async (accept, reject) => {
-      if (data instanceof Buffer) {
+    data: () =>
+      Promise.resolve({
+        name: qualifiedClassToJarPath(name),
+        read: async () => data
+      }),
+    classfile: () => {
+      return new Promise(async (accept, reject) => {
         try {
           accept(JavaClassFile.fromData(data))
         } catch (err) {
           reject(err)
         }
-      } else {
-        accept(await data)
-      }
-    }),
+      })
+    }
   }
 }
 
@@ -984,14 +1007,16 @@ export function jarClass(name: QualifiedClassName, data: Buffer | Promise<JavaCl
  * @param impl Implementation classes to include (optional)
  * @return JAR service entry
  */
-export function jarService(
-  name: QualifiedClassName,
-  ...impl: string[]
-): JarServiceEntry {
+export function jarService(name: QualifiedClassName, ...impl: string[]): JarServiceEntry {
   return {
     path: `META-INF/services/${name}`,
     service: name,
     impls: impl,
+    data: () =>
+      Promise.resolve({
+        name: `META-INF/services/${name}`,
+        read: async () => Buffer.from(impl.join('\n'))
+      })
   }
 }
 
@@ -1004,6 +1029,5 @@ export function jarManifest(): JarManifestBuilder {
   return JarManifest.builder()
 }
 
-
 // Default entrypoint.
-export default JarFile;
+export default JarFile

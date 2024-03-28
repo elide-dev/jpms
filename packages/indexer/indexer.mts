@@ -17,22 +17,65 @@ import { readdir, stat, mkdir } from 'node:fs/promises'
 import { join, resolve, sep, dirname, basename } from 'node:path'
 
 import { MavenCoordinate, mavenCoordinate } from '@javamodules/maven'
+import { parseAsync as parsePomAsync } from '@javamodules/maven/parser'
 import { GradleModuleInfo } from '@javamodules/gradle'
+import { JarFile } from '@javamodules/java/jar'
 import { gradleModule } from '@javamodules/gradle/util'
 
-import { RepositoryPackage, RepositoryIndexBundle, RepositoryIndexFile } from './indexer-model.mjs'
+import { RepositoryPackage, RepositoryJar, RepositoryIndexBundle, RepositoryIndexFile } from './indexer-model.mjs'
+import { JavaModuleInfo } from '@javamodules/java/model'
 
-function repositoryPackage(
+async function buildRepositoryJar(coordinate: MavenCoordinate, path: string): Promise<RepositoryJar> {
+  // capture size while parsing jar
+  const sizeOp = stat(path)
+  const jar = await JarFile.fromFile(path)
+  const size = (await sizeOp).size
+  const name = basename(path)
+
+  // interrogate for jar metadata
+  const { mainClass, automaticModuleName } = jar
+  const modular = await jar.modular
+  let module: JavaModuleInfo | undefined
+  if (modular) {
+    module = await jar.moduleInfo
+  }
+
+  return {
+    path,
+    coordinate,
+    name,
+    size,
+    modular,
+    mainClass: mainClass || undefined,
+    automaticModuleName: automaticModuleName || undefined,
+    module
+  }
+}
+
+async function repositoryPackage(
   root: string,
   maven: MavenCoordinate,
   pom: string,
   gradle?: GradleModuleInfo
-): RepositoryPackage {
+): Promise<RepositoryPackage> {
+  // capture the suite of jars for this pom
+  const project = await parsePomAsync({
+    filePath: pom
+  })
+
+  // find jars within this package directory
+  const jarOps = globSync(join(dirname(pom), '**', '*.jar')).map(jarPath => buildRepositoryJar(maven, jarPath))
+
+  // wait for jar indexing to complete
+  const jars = await Promise.all(jarOps)
+
   return {
-    maven,
+    coordinate: maven,
+    maven: project,
     root,
     pom,
     gradle,
+    jars,
     valueOf: function () {
       return `${pom} (${maven})`
     }
@@ -71,10 +114,10 @@ async function buildPackages(prefix: string, path: string) {
   const pathPoms = globSync(join(path, '**', '*.pom'))
   for (const pomPath of pathPoms) {
     const coordinate = coordinateForPomPath(prefix, pomPath)
-    console.log(`- Scanning POM '${coordinate.valueOf()}'`)
+    console.log(`- Scanning '${coordinate.valueOf()}'`)
     found.push(
-      repositoryPackage(
-        path,
+      await repositoryPackage(
+        prefix,
         coordinate,
         pomPath,
         await gradleModule(dirname(pomPath), basename(pomPath), {
@@ -89,14 +132,13 @@ async function buildPackages(prefix: string, path: string) {
 async function buildRootPackage(prefix: string, path: string): Promise<RepositoryPackage[]> {
   const filestat = await stat(path)
   if (!filestat.isDirectory()) return [] // we are only processing directory roots
-
-  const target = resolve(path)
-  return await buildPackages(prefix, target)
+  return await buildPackages(prefix, path)
 }
 
 // @ts-ignore
 function buildIndexes(all_packages: RepositoryPackage[]): RepositoryIndexBundle {
   // @TODO build indexes
+  console.log('all packages', all_packages)
   return {
     artifacts: [],
     modules: []
@@ -109,10 +151,13 @@ async function prepareContent(indexes: RepositoryIndexBundle): Promise<Repositor
 }
 
 // @ts-ignore
-async function writeIndexFile(write: RepositoryIndexFile) {}
+async function writeIndexFile(write: RepositoryIndexFile) {
+  console.log('write', write)
+}
 
 async function writeIndexes(outpath: string, all_packages: RepositoryPackage[]) {
   const resolvedOut = resolve(outpath)
+  console.log(`Writing indexes → ${resolvedOut}`)
   if (!existsSync(resolvedOut)) {
     await mkdir(resolvedOut, { recursive: true })
   }
@@ -121,6 +166,7 @@ async function writeIndexes(outpath: string, all_packages: RepositoryPackage[]) 
   for (const write of writes) {
     await writeIndexFile(write)
   }
+  console.info('Index write complete.')
 }
 
 /**
@@ -134,9 +180,9 @@ export async function buildRepositoryIndexes(path: string, outpath: string) {
   console.log(`Scanning repository '${prefix}'...`)
   let all_packages: RepositoryPackage[] = []
   try {
-    const files = await readdir(path)
+    const files = await readdir(prefix)
     for (const file of files) {
-      all_packages = all_packages.concat(await buildRootPackage(prefix, join(path, file)))
+      all_packages = all_packages.concat(await buildRootPackage(prefix, join(prefix, file)))
     }
   } catch (err) {
     console.error(err)

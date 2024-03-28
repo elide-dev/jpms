@@ -12,10 +12,8 @@
  */
 
 import { resolve } from 'node:path'
-import { readFile } from 'node:fs/promises'
-
-import { TextDecoder } from 'util'
-import { JavaClassFileReader, ClassFile } from './javaclasses/java-class-reader'
+import { TextDecoder } from 'node:util'
+import { JavaClassFileReader, ClassFile } from './javaclasses/java-class-reader.js'
 import {
   JavaModuleExport,
   JavaModuleInfo,
@@ -24,13 +22,13 @@ import {
   JavaModuleUses,
   JvmTarget,
   jvmTargetForLevel
-} from './java-model'
+} from './java-model.js'
 
-import Modifier from './javaclasses/modifier'
-import { AttributeName } from './javaclasses/attribute'
-import { ModuleFlags, RequiresFlags } from './javamodules/module-flags'
+import Modifier from './javaclasses/modifier.js'
+import { AttributeName } from './javaclasses/attribute.js'
+import { ModuleFlags, RequiresFlags } from './javamodules/module-flags.js'
 
-import { AttributeInfoBase, ClassInfo, ConstantInfo, ModuleInfoAttributes } from './javaclasses/java-class-types'
+import { AttributeInfoBase, ClassInfo, ConstantInfo, ModuleInfoAttributes } from './javaclasses/java-class-types.js'
 
 // Raw underlying class data.
 type RawClassData = ClassFile
@@ -38,7 +36,8 @@ type RawClassData = ClassFile
 // Read class data from a file, then parse it.
 async function readClassfile(path: string): Promise<RawClassData> {
   // need to do this to avoid a static import for environments like cloudflare workers
-  const { existsSync } = require('fs')
+  const { existsSync } = await import('node:fs')
+  const { readFile } = await import('node:fs/promises')
   const classfilePath = resolve(path)
   if (!existsSync(classfilePath)) throw new Error(`Class file does not exist: ${classfilePath}`)
   return readClassfileData(await readFile(classfilePath))
@@ -218,7 +217,7 @@ export class JavaClassFile {
       'exports_flags'
     ).map(exports => {
       return {
-        package: exports.name,
+        package: internalClassNameToClassName(exports.name),
         to: exports.qualifiers.length > 0 ? exports.qualifiers : []
       }
     })
@@ -231,7 +230,7 @@ export class JavaClassFile {
       'opens_flags'
     ).map(exports => {
       return {
-        package: exports.name,
+        package: internalClassNameToClassName(exports.name),
         to: exports.qualifiers.length > 0 ? exports.qualifiers : []
       }
     })

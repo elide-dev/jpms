@@ -1,8 +1,12 @@
 {
   "extends": "../tsconfig.json",
-  "exclude": ["dist", "reports"],
+  "exclude": ["dist", "reports", "tests"],
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["esnext"],
     "outDir": "dist",
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "checkJs": false
   }
 }

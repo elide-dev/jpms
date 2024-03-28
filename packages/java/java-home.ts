@@ -16,7 +16,7 @@ import { resolve, join } from 'node:path'
 import { env } from 'node:process'
 import semver, { SemVer } from 'semver'
 
-import { JavaToolchainVendor } from './java-model'
+import { JavaToolchainVendor } from './java-model.js'
 import { JavaCompiler, JavaLauncher, JdkTool } from './toolchain'
 
 // Version block regex.

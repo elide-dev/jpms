@@ -22,7 +22,7 @@ import { InstructionParser } from '../javaclasses/instruction-parser'
 import Modifier from '../javaclasses/modifier'
 import { ClassFile } from '../javaclasses/java-class-reader'
 import { ConstantType } from '../javaclasses/constant-type'
-import { compileJava } from './testutil.test'
+import { compileJava } from './testutil'
 import { JavaToolchain } from '../java-home'
 import { JavaClassFile } from '../java-classfile'
 
