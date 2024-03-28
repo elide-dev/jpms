@@ -16,6 +16,7 @@ import { resolve, join } from 'node:path'
 import { env } from 'node:process'
 import semver, { SemVer } from 'semver'
 
+import { JavaToolchainVendor } from './java-model'
 import { JavaCompiler, JavaLauncher, JdkTool } from './toolchain'
 
 // Version block regex.
@@ -41,15 +42,6 @@ import { JavaCompiler, JavaLauncher, JdkTool } from './toolchain'
 // https://regex101.com/r/ktTvDu/2
 // prettier-ignore
 const javaVersionBlockRegex = /openjdk.* \"{0,1}(?<version>[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2})\"{0,1} (?<releaseDate>[0-9]{4}-[0-9]{2}-[0-9]{2})\ {0,1}(?<lts>LTS){0,1}\nOpenJDK Runtime Environment\ (?<vendor>GraalVM CE|Oracle GraalVM|Zulu){0,1}.*\ {0,1}[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}(\+(?<patch>[0-9]{1,2}(\.[0-9]{0,2}){0,1})){0,1}.*\nOpenJDK\ (?<bitness>64|32)-Bit\ (?<vmType>Client|Server)\ VM.*(\,\ (?<flags>mixed mode\, sharing|mixed mode),{0,1})\){0,1}/gm
-
-/**
- * Java Toolchain Vendor
- */
-export enum JavaToolchainVendor {
-  OPENJDK = 'openjdk',
-  GRAALVM = 'graalvm',
-  AZUL = 'azul'
-}
 
 /**
  * Java Version Info

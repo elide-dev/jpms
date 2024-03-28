@@ -69,14 +69,18 @@
     ]
   },
   "dependencies": {
-    "@endo/zip": "1.0.2",
+    "@cloudpss/zstd": "0.2.15",
+    "@sqlite.org/sqlite-wasm": "3.45.2-build1",
     "@javamodules/gradle": "workspace:*",
     "@javamodules/java": "workspace:*",
     "@javamodules/maven": "workspace:*",
     "chalk": "5.3.0",
     "commander": "12.0.0",
+    "fflate": "0.8.2",
     "glob": "10.3.10",
-    "inquirer": "9.2.16"
+    "inquirer": "9.2.16",
+    "snappy-wasm": "0.3.0",
+    "wasm-gzip": "2.0.3"
   },
   "devDependencies": {
     "@jest/globals": "29.7.0",

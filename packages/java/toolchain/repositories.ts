@@ -11,8 +11,7 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { JavaToolchainVendor } from '../java-home'
-import { JvmPlatform, JvmTarget } from '../java-model'
+import { JvmPlatform, JvmTarget, JavaToolchainVendor } from '../java-model'
 
 type LatestVersionTag = {
   latest: string

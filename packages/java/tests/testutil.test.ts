@@ -28,6 +28,26 @@ export function mockPath(path: string) {
   return resolve(normalize(join(__dirname, path)))
 }
 
+export function repoPath(path: string) {
+  return resolve(normalize(join(__dirname, '..', '..', '..', 'repository', path)))
+}
+
+export function repoJar(group: string, artifact: string, version: string): { relative: string, resolved: string } {
+  const pathSegments: string[] = []
+  const groupSegments = group.split('.')
+  pathSegments.push(...groupSegments)
+  pathSegments.push(artifact)
+  pathSegments.push(version)
+  pathSegments.push(`${artifact}-${version}.jar`)
+  return repoJarByPath(join(...pathSegments))
+}
+
+export function repoJarByPath(path: string): { relative: string, resolved: string } {
+  return {
+    resolved: repoPath(path),
+    relative: path,
+  }
+}
 export async function testTmpdir(): Promise<string> {
   return await mkdtemp('/tmp/java-toolchain-test-')
 }

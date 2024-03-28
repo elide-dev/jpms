@@ -12,6 +12,25 @@
  */
 
 /**
+ * String type-alias for a simple, un-qualified class name.
+ */
+export type SimpleClassName = string
+
+/**
+ * String type-alias for a well-qualified Java class name.
+ */
+export type QualifiedClassName = string
+
+/**
+ * Java Toolchain Vendor
+ */
+export enum JavaToolchainVendor {
+  OPENJDK = 'openjdk',
+  GRAALVM = 'graalvm',
+  AZUL = 'azul'
+}
+
+/**
  * JVM Platform
  *
  * Enumerates JVM platforms (OS/arch pairs).
