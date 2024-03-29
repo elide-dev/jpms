@@ -12,7 +12,7 @@
  */
 
 import { MavenCoordinate } from '@javamodules/maven'
-import { ParsedOutput as MavenPom } from '@javamodules/maven/parser'
+import { PomProject } from '@javamodules/maven/parser'
 import { GradleModuleInfo } from '@javamodules/gradle'
 import { JavaModuleInfo } from '@javamodules/java/model'
 
@@ -47,11 +47,11 @@ export type RepositoryJar = RepositoryJarInfo & {
  * content, as needed and applicable
  */
 export type RepositoryPackage = {
+  key: string
   coordinate: MavenCoordinate
   pom: string
-  root: string
   gradle?: GradleModuleInfo
-  maven: MavenPom
+  maven: PomProject
   jars: RepositoryJar[]
   valueOf: any
 }
@@ -78,13 +78,21 @@ export type IndexedArtifact = {
  */
 export type RepositoryArtifactsIndex = {}
 
+export type JarModulePair = {
+  jar: string
+  module: JavaModuleInfo
+}
+
 /**
- * Repository Modules Index
+ * Repository Modules Index Entry
  *
  * Describes an index file which maps indexed artifacts by their Java Module coordinate;
  * this mapping can produce an offset in the `RepositoryArtifactsIndex`.
  */
-export type RepositoryModulesIndex = {}
+export type RepositoryModulesIndexEntry = {
+  coordinate: MavenCoordinate
+  modules: JarModulePair[]
+}
 
 /**
  * Repository Index Bundle
@@ -94,7 +102,7 @@ export type RepositoryModulesIndex = {}
  */
 export type RepositoryIndexBundle = {
   artifacts: RepositoryArtifactsIndex
-  modules: RepositoryModulesIndex
+  modules: RepositoryModulesIndexEntry[]
 }
 
 /**
