@@ -21,4 +21,4 @@ jobs:
         with:
           persist-credentials: false
       - name: 'Check: Hashes'
-        uses: sgammon/verify-hashes@cac7d57e01915a3fc9bda26373fb85d3f71dea68 # v1.0.0-rc1
+        uses: sgammon/verify-hashes@b899dd2df3c365407e4f9cccbd9a0726b4842a78 # v1.0.0-rc1
