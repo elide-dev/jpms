@@ -17,6 +17,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: 19.1.0
         version: 19.1.0
+      hashlock:
+        specifier: 1.0.1
+        version: 1.0.1
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -32,9 +35,6 @@ importers:
       typescript:
         specifier: 5.4.3
         version: 5.4.3
-      verify-hashes:
-        specifier: 1.0.0-rc1
-        version: 1.0.0-rc1
 
   packages/gradle:
     dependencies:
@@ -96,6 +96,9 @@ importers:
       glob:
         specifier: 10.3.10
         version: 10.3.10
+      hashlock:
+        specifier: 1.0.1
+        version: 1.0.1
       inquirer:
         specifier: 9.2.16
         version: 9.2.16
@@ -2775,6 +2778,11 @@ packages:
       has-symbols: 1.0.3
     dev: true
 
+  /hashlock@1.0.1:
+    resolution: {integrity: sha512-93HL8vc28YAppjAqMkdCzckfRQCKOPhWW7UC4J4BUfB2wuEEiTSfE8Whwk/qlUyYYOscE3qDFeJmHLVZHolv7g==, tarball: https://registry.npmjs.org/hashlock/-/hashlock-1.0.1.tgz}
+    engines: {node: '>=20'}
+    hasBin: true
+
   /hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==, tarball: https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz}
     engines: {node: '>= 0.4'}
@@ -5145,11 +5153,6 @@ packages:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
-    dev: true
-
-  /verify-hashes@1.0.0-rc1:
-    resolution: {integrity: sha512-/2jsGtKRCRGRMQ0kvv3dwz7GgVnhmli9HPYVrcpF2WdC2LAOg8JxUGv4Vsw942n7aHBoPc5/9KGHOsJcPx882Q==, tarball: https://registry.npmjs.org/verify-hashes/-/verify-hashes-1.0.0-rc1.tgz}
-    engines: {node: '>=20'}
     dev: true
 
   /walker@1.0.8:
