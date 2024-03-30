@@ -1,6 +1,6 @@
 {
   "name": "@javamodules/java",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tools for working with Java class files, Java toolchains, and for compiling Java.",
   "keywords": [
     "java",
@@ -23,16 +23,30 @@
     "url": "https://github.com/sgammon"
   },
   "type": "module",
-  "imports": {
-    "#tests": {
-      "bun": "bun:test",
-      "default": "@jest/globals"
-    }
-  },
   "exports": {
-    "./util": {
-      "import": "./dist/java-util.js",
-      "types": "./dist/java-util.d.ts"
+    "./classes": {
+      "import": "./dist/java-classfile.js",
+      "types": "./dist/java-classfile.d.ts"
+    },
+    "./home": {
+      "import": "./dist/java-home.js",
+      "types": "./dist/java-home.d.ts"
+    },
+    "./jar": {
+      "import": "./dist/java-jar.js",
+      "types": "./dist/java-jar.d.ts"
+    },
+    "./manifest": {
+      "import": "./dist/java-manifest.js",
+      "types": "./dist/java-manifest.d.ts"
+    },
+    "./model": {
+      "import": "./dist/java-model.js",
+      "types": "./dist/java-model.d.ts"
+    },
+    "./modules": {
+      "import": "./dist/javamodules/jdk-modules.js",
+      "types": "./dist/javamodules/jdk-modules.d.ts"
     },
     ".": {
       "import": "./dist/index.mjs",
@@ -46,21 +60,42 @@
     "!dist/tests"
   ],
   "scripts": {
+    "bench:jar": "hyperfine --warmup 50 --runs 250 --shell none -n bun \"bun run ./tests/jar-bench.js 1\" -n node \"node --experimental-vm-modules ./tests/jar-bench.js 1\"",
     "build": "tsc -p .",
+    "jartest:allocations": "MIMALLOC_SHOW_STATS=1 bun run ./tests/jar-bench.js",
+    "jartest:bun": "bun run ./tests/jar-bench.js",
+    "jartest:bun:concurrent": "bun run ./tests/jar-bench-concurrent.js",
+    "jartest:node": "node --experimental-vm-modules ./tests/jar-bench.js",
+    "jartest:node:concurrent": "node --experimental-vm-modules ./tests/jar-bench-concurrent.js",
+    "jartest:profile": "node --experimental-vm-modules --prof ./tests/jar-bench.js",
     "pack": "npm pack",
     "publish:dry": "npm publish --no-git-checks --dry-run",
     "publish:live": "npm publish --no-git-checks",
+    "test": "bun test",
     "test:bun": "bun test",
     "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": "reports",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/",
+      "testutil",
+      "tests/testutil.ts"
+    ],
     "coverageProvider": "v8",
     "coverageReporters": [
       "lcov",
       "text-summary"
     ],
+    "extensionsToTreatAsEsm": [
+      ".ts",
+      ".mts"
+    ],
+    "moduleNameMapper": {
+      "(.+)\\.js": "$1"
+    },
     "preset": "ts-jest",
     "reporters": [
       "default",
@@ -73,9 +108,18 @@
         }
       ]
     ],
+    "slowTestThreshold": 30,
     "testMatch": [
       "<rootDir>/tests/*.test.ts"
-    ]
+    ],
+    "transform": {
+      "^.+\\.ts?$": [
+        "ts-jest",
+        {
+          "useESM": true
+        }
+      ]
+    }
   },
   "dependencies": {
     "bytebuffer": "5.0.1",
@@ -92,6 +136,7 @@
     "jest": "29.7.0",
     "jest-junit": "16.0.0",
     "ts-jest": "29.1.2",
+    "ts-node": "10.9.2",
     "typescript": "5.4.3"
   },
   "publishConfig": {

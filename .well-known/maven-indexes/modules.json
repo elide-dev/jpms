@@ -1,0 +1,905 @@
+[
+  {
+    "coordinate": {
+      "artifactId": "error_prone_annotations",
+      "groupId": "com.google.errorprone",
+      "version": "2.25.0-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "error_prone_annotations-2.25.0-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.errorprone.annotations",
+            "to": []
+          },
+          {
+            "package": "com.google.errorprone.annotations.concurrent",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.errorprone.annotations",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "java.compiler",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": [],
+        "version": "2.25.0-jpms"
+      }
+    },
+    "objectID": "com.google.errorprone:error_prone_annotations:2.25.0-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "error_prone_annotations",
+      "groupId": "com.google.errorprone",
+      "version": "2.26.1"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "error_prone_annotations-2.26.1.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.errorprone.annotations",
+            "to": []
+          },
+          {
+            "package": "com.google.errorprone.annotations.concurrent",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.errorprone.annotations",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "java.compiler",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": [],
+        "version": "2.26.1"
+      }
+    },
+    "objectID": "com.google.errorprone:error_prone_annotations:2.26.1"
+  },
+  {
+    "coordinate": {
+      "artifactId": "failureaccess",
+      "groupId": "com.google.guava",
+      "version": "1.0.3-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "failureaccess-1.0.3-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.common.util.concurrent.internal",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": false
+        },
+        "name": "com.google.common.util.concurrent.internal",
+        "opens": [],
+        "provides": [],
+        "requires": [],
+        "uses": [],
+        "version": "1.0.3-jpms"
+      }
+    },
+    "objectID": "com.google.guava:failureaccess:1.0.3-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "guava-testlib",
+      "groupId": "com.google.guava",
+      "version": "33.0.0-jre-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "guava-testlib-33.0.0-jre-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.common.collect.testing",
+            "to": []
+          },
+          {
+            "package": "com.google.common.collect.testing.features",
+            "to": []
+          },
+          {
+            "package": "com.google.common.collect.testing.google",
+            "to": []
+          },
+          {
+            "package": "com.google.common.collect.testing.testers",
+            "to": []
+          },
+          {
+            "package": "com.google.common.escape.testing",
+            "to": []
+          },
+          {
+            "package": "com.google.common.testing",
+            "to": []
+          },
+          {
+            "package": "com.google.common.testing.math",
+            "to": []
+          },
+          {
+            "package": "com.google.common.util.concurrent.testing",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.common.testlib",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "java.logging",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "com.google.common",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "com.google.common.util.concurrent.internal",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": [],
+        "version": "33.0.0-jre-jpms"
+      }
+    },
+    "objectID": "com.google.guava:guava-testlib:33.0.0-jre-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "guava",
+      "groupId": "com.google.guava",
+      "version": "33.0.0-jre-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "guava-33.0.0-jre-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.common.annotations",
+            "to": []
+          },
+          {
+            "package": "com.google.common.base",
+            "to": []
+          },
+          {
+            "package": "com.google.common.cache",
+            "to": []
+          },
+          {
+            "package": "com.google.common.collect",
+            "to": []
+          },
+          {
+            "package": "com.google.common.escape",
+            "to": []
+          },
+          {
+            "package": "com.google.common.eventbus",
+            "to": []
+          },
+          {
+            "package": "com.google.common.graph",
+            "to": []
+          },
+          {
+            "package": "com.google.common.hash",
+            "to": []
+          },
+          {
+            "package": "com.google.common.html",
+            "to": []
+          },
+          {
+            "package": "com.google.common.io",
+            "to": []
+          },
+          {
+            "package": "com.google.common.math",
+            "to": []
+          },
+          {
+            "package": "com.google.common.net",
+            "to": []
+          },
+          {
+            "package": "com.google.common.primitives",
+            "to": []
+          },
+          {
+            "package": "com.google.common.reflect",
+            "to": []
+          },
+          {
+            "package": "com.google.common.util.concurrent",
+            "to": []
+          },
+          {
+            "package": "com.google.common.xml",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": false
+        },
+        "name": "com.google.common",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "jdk.unsupported",
+            "static": true,
+            "transitive": false
+          },
+          {
+            "module": "java.logging",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "com.google.common.util.concurrent.internal",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": [],
+        "version": "1.0-HEAD-jre-SNAPSHOT"
+      }
+    },
+    "objectID": "com.google.guava:guava:33.0.0-jre-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "j2objc-annotations",
+      "groupId": "com.google.j2objc",
+      "version": "3.0.0"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "j2objc-annotations-3.0.0.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.j2objc.annotations",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.j2objc.annotations",
+        "opens": [],
+        "provides": [],
+        "requires": [],
+        "uses": [],
+        "version": "3.0.0"
+      }
+    },
+    "objectID": "com.google.j2objc:j2objc-annotations:3.0.0"
+  },
+  {
+    "coordinate": {
+      "artifactId": "j2objc-annotations",
+      "groupId": "com.google.j2objc",
+      "version": "3.0.0-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "j2objc-annotations-3.0.0-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.j2objc.annotations",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.j2objc.annotations",
+        "opens": [],
+        "provides": [],
+        "requires": [],
+        "uses": [],
+        "version": "3.0.0-jpms"
+      }
+    },
+    "objectID": "com.google.j2objc:j2objc-annotations:3.0.0-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "protobuf-java",
+      "groupId": "com.google.protobuf",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "protobuf-java-4.26.0-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.protobuf",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.protobuf",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "java.logging",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": []
+      }
+    },
+    "objectID": "com.google.protobuf:protobuf-java:4.26.0-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "protobuf-javalite",
+      "groupId": "com.google.protobuf",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "protobuf-javalite-4.26.0-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.protobuf",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.protobuf",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "java.logging",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": []
+      }
+    },
+    "objectID": "com.google.protobuf:protobuf-javalite:4.26.0-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "protobuf-kotlin-lite",
+      "groupId": "com.google.protobuf",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "protobuf-kotlin-lite-4.26.0-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.protobuf.kotlin",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.protobuf.kotlin",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "com.google.protobuf",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": []
+      }
+    },
+    "objectID": "com.google.protobuf:protobuf-kotlin-lite:4.26.0-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "protobuf-kotlin",
+      "groupId": "com.google.protobuf",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "protobuf-kotlin-4.26.0-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.protobuf",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.protobuf",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "java.logging",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": []
+      }
+    },
+    "objectID": "com.google.protobuf:protobuf-kotlin:4.26.0-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "protobuf-util",
+      "groupId": "com.google.protobuf",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "protobuf-util-4.26.0-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "com.google.protobuf.util",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": true
+        },
+        "name": "com.google.protobuf.util",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "com.google.common",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "com.google.protobuf",
+            "static": false,
+            "transitive": false
+          }
+        ],
+        "uses": []
+      }
+    },
+    "objectID": "com.google.protobuf:protobuf-util:4.26.0-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "geantyref",
+      "groupId": "io.leangen.geantyref",
+      "version": "1.3.15-jpms"
+    },
+    "flags": {
+      "gradleModule": false,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "geantyref-1.3.15-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "io.leangen.geantyref",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": false
+        },
+        "name": "io.leangen.geantyref",
+        "opens": [],
+        "provides": [],
+        "requires": [],
+        "uses": [],
+        "version": "1.3.15-jpms"
+      }
+    },
+    "objectID": "io.leangen.geantyref:geantyref:1.3.15-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "checker-qual",
+      "groupId": "org.checkerframework",
+      "version": "3.43.0-SNAPSHOT"
+    },
+    "flags": {
+      "gradleModule": true,
+      "minimumBytecodeTarget": "1.8",
+      "modular": true,
+      "mrjar": false
+    },
+    "module": {
+      "jar": "checker-qual-3.43.0-SNAPSHOT.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "org.checkerframework.checker.builder.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.calledmethods.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.compilermsgs.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.fenum.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.formatter.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.guieffect.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.i18n.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.i18nformatter.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.index.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.initialization.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.interning.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.lock.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.mustcall.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.nullness.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.optional.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.propkey.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.regex.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.signature.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.signedness.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.tainting.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.checker.units.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.common.aliasing.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.common.initializedfields.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.common.reflection.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.common.returnsreceiver.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.common.subtyping.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.common.util.count.report.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.common.value.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.dataflow.qual",
+            "to": []
+          },
+          {
+            "package": "org.checkerframework.framework.qual",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": false
+        },
+        "name": "org.checkerframework.checker.qual",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "java.compiler",
+            "static": true,
+            "transitive": false
+          },
+          {
+            "module": "java.desktop",
+            "static": true,
+            "transitive": false
+          },
+          {
+            "module": "jdk.compiler",
+            "static": true,
+            "transitive": false
+          }
+        ],
+        "uses": []
+      }
+    },
+    "objectID": "org.checkerframework:checker-qual:3.43.0-SNAPSHOT"
+  },
+  {
+    "coordinate": {
+      "artifactId": "kotlinx-collections-immutable-jvm",
+      "groupId": "org.jetbrains.kotlinx",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "gradleModule": true,
+      "modular": true,
+      "mrjar": false
+    },
+    "module": {
+      "jar": "kotlinx-collections-immutable-jvm-0.4.1-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "kotlinx.collections.immutable",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": false
+        },
+        "name": "kotlinx.collections.immutable",
+        "opens": [],
+        "provides": [],
+        "requires": [
+          {
+            "module": "java.base",
+            "static": false,
+            "transitive": false
+          },
+          {
+            "module": "kotlin.stdlib",
+            "static": false,
+            "transitive": true
+          }
+        ],
+        "uses": []
+      }
+    },
+    "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm:0.4.1-jpms"
+  },
+  {
+    "coordinate": {
+      "artifactId": "reactive-streams",
+      "groupId": "org.reactivestreams",
+      "version": "1.0.5-jpms"
+    },
+    "flags": {
+      "gradleModule": true,
+      "minimumBytecodeTarget": "9",
+      "modular": true,
+      "mrjar": true
+    },
+    "module": {
+      "jar": "reactive-streams-1.0.5-jpms.jar",
+      "module": {
+        "exports": [
+          {
+            "package": "org.reactivestreams",
+            "to": []
+          }
+        ],
+        "flags": {
+          "open": false
+        },
+        "name": "org.reactivestreams",
+        "opens": [],
+        "provides": [],
+        "requires": [],
+        "uses": []
+      }
+    },
+    "objectID": "org.reactivestreams:reactive-streams:1.0.5-jpms"
+  }
+]

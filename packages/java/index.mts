@@ -11,4 +11,8 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-export * from './java-model.js'
+export * as classes from './java-classfile'
+export * as model from './java-model'
+export * as jar from './java-jar'
+export * as manifest from './java-manifest'
+export * as modules from './javamodules/jdk-modules'

@@ -44,7 +44,7 @@ describe('jar manifests', () => {
     expect(serialized).toContain('Main-Class: com.example.Main')
     expect(serialized).toContain('Implementation-Title: Example')
     // prettier-ignore
-    expect(serialized).toEqual(`Manifest-Version: 1.1
+    expect(serialized).toEqual(`Manifest-Version: 1.0
 Created-By: javatools/dev
 Main-Class: com.example.Main
 Implementation-Title: Example
@@ -65,7 +65,7 @@ Implementation-Title: Example
     expect(serialized).toContain('Main-Class: com.example.Main')
     expect(serialized).toContain('Implementation-Title: Example')
     // prettier-ignore
-    expect(serialized).toEqual(`Manifest-Version: 1.1
+    expect(serialized).toEqual(`Manifest-Version: 1.0
 Created-By: javatools/dev
 Main-Class: com.example.Main
 Implementation-Title: Example
@@ -92,7 +92,7 @@ Implementation-Title: Example
     expect(serialized).toContain('Main-Class: com.example.Main')
     expect(serialized).toContain('Implementation-Title: Example')
     // prettier-ignore
-    expect(serialized).toEqual(`Manifest-Version: 1.1
+    expect(serialized).toEqual(`Manifest-Version: 1.0
 Created-By: javatools/dev
 Main-Class: com.example.Main
 Implementation-Title: Example
@@ -137,7 +137,7 @@ Implementation-Title: Example
     expect(serialized).toContain('Name: something')
     expect(serialized).toContain('Sealed: true')
     // prettier-ignore
-    expect(serialized).toEqual(`Manifest-Version: 1.1
+    expect(serialized).toEqual(`Manifest-Version: 1.0
 Created-By: javatools/dev
 Main-Class: com.example.Main
 Implementation-Title: Example
@@ -165,7 +165,7 @@ Sealed: true
     expect(serialized).toContain('Name: something')
     expect(serialized).toContain('Sealed: true')
     // prettier-ignore
-    expect(serialized).toEqual(`Manifest-Version: 1.1
+    expect(serialized).toEqual(`Manifest-Version: 1.0
 Created-By: javatools/dev
 Main-Class: com.example.Main
 Implementation-Title: Example
@@ -201,7 +201,7 @@ Sealed: true
     expect(serialized).toContain('Name: something')
     expect(serialized).toContain('Sealed: true')
     // prettier-ignore
-    expect(serialized).toEqual(`Manifest-Version: 1.1
+    expect(serialized).toEqual(`Manifest-Version: 1.0
 Created-By: javatools/dev
 Main-Class: com.example.Main
 Implementation-Title: Example
@@ -240,7 +240,7 @@ Sealed: true
     expect(serialized).toContain('Name: something')
     expect(serialized).toContain('Sealed: true')
     // prettier-ignore
-    expect(serialized).toEqual(`Manifest-Version: 1.1
+    expect(serialized).toEqual(`Manifest-Version: 1.0
 Created-By: javatools/dev
 Main-Class: com.example.Main
 Implementation-Title: Example
@@ -266,8 +266,8 @@ Sealed: true
     expect(manifest).toBeDefined()
     expect(manifest).toBeInstanceOf(JarManifest)
     expect(manifest.get(JarManifestKey.MAIN_CLASS)).toEqual('com.example.Main')
-    expect(manifest.get(JarManifestKey.MANIFEST_VERSION)).toEqual('1.1')
-    expect(manifest.manifestVersion).toBe('1.1')
+    expect(manifest.get(JarManifestKey.MANIFEST_VERSION)).toEqual('1.0')
+    expect(manifest.manifestVersion).toBe('1.0')
   })
 
   test('should be able to check for value membership', () => {
@@ -291,8 +291,8 @@ Sealed: true
     expect(manifest).toBeDefined()
     expect(manifest).toBeInstanceOf(JarManifest)
     expect(manifest.get(JarManifestKey.MAIN_CLASS)).toEqual('com.example.Main')
-    expect(manifest.get(JarManifestKey.MANIFEST_VERSION)).toEqual('1.1')
-    expect(manifest.manifestVersion).toBe('1.1')
+    expect(manifest.get(JarManifestKey.MANIFEST_VERSION)).toEqual('1.0')
+    expect(manifest.manifestVersion).toBe('1.0')
     expect(manifest.rawManifest).toBeDefined()
   })
 })

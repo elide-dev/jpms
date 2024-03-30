@@ -1,6 +1,6 @@
 {
   "name": "@javamodules/indexer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "Generates JSON indexes for Maven repositories.",
   "keywords": [
@@ -24,9 +24,33 @@
   },
   "type": "module",
   "imports": {
-    "#tests": {
-      "bun": "bun:test",
-      "default": "@jest/globals"
+    "#depsdev/api": {
+      "import": "./gen/api/v3/api_pb.js",
+      "types": "./gen/api/v3/api_pb.d.ts"
+    },
+    "#depsdev/service": {
+      "import": "./gen/api/v3/api_connect.js",
+      "types": "./gen/api/v3/api_connect.d.ts"
+    }
+  },
+  "exports": {
+    "./depsdev": {
+      "import": "./dist/client-depsdev.mjs"
+    },
+    "./github": {
+      "import": "./dist/client-github.mjs"
+    },
+    "./model": {
+      "import": "./dist/indexer-model.mjs"
+    },
+    "./info/model": {
+      "import": "./dist/info-model.mjs"
+    },
+    "./info/project": {
+      "import": "./dist/info-project.mjs"
+    },
+    ".": {
+      "import": "./dist/indexer.mjs"
     }
   },
   "main": "dist/indexer.mjs",
@@ -36,11 +60,13 @@
     "!dist/tests"
   ],
   "scripts": {
-    "build": "tsc -p .",
-    "index": "bun run build && bun dist/indexer.mjs ../../repository",
+    "build": "pnpm run gen:model && tsc -p .",
+    "gen:model": "buf generate --include-imports",
+    "index": "bun src/indexer.mts ../../repository",
     "pack": "npm pack",
     "publish:dry": "npm publish --no-git-checks --dry-run",
     "publish:live": "npm publish --no-git-checks",
+    "test": "bun test",
     "test:bun": "bun test",
     "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
@@ -69,23 +95,45 @@
     ]
   },
   "dependencies": {
+    "@bufbuild/protobuf": "1.8.0",
     "@cloudpss/zstd": "0.2.15",
-    "@sqlite.org/sqlite-wasm": "3.45.2-build1",
+    "@connectrpc/connect": "1.4.0",
+    "@connectrpc/connect-web": "1.4.0",
+    "@cyclonedx/cyclonedx-library": "6.4.2",
     "@javamodules/gradle": "workspace:*",
     "@javamodules/java": "workspace:*",
     "@javamodules/maven": "workspace:*",
+    "@octokit/core": "6.0.1",
+    "@octokit/endpoint": "10.0.0",
+    "@octokit/graphql": "8.0.1",
+    "@octokit/request": "9.0.1",
+    "@sqlite.org/sqlite-wasm": "3.45.2-build1",
     "chalk": "5.3.0",
     "commander": "12.0.0",
     "fflate": "0.8.2",
     "glob": "10.3.10",
+    "hashlock": "1.0.1",
     "inquirer": "9.2.16",
+    "json-stable-stringify": "1.1.1",
+    "openpgp": "5.11.1",
+    "ora": "8.0.1",
+    "packageurl-js": "1.2.1",
+    "sigstore": "2.2.2",
     "snappy-wasm": "0.3.0",
+    "spdx-exceptions": "2.5.0",
+    "spdx-expression-parse": "4.0.0",
+    "spdx-license-ids": "3.0.17",
+    "spdx-satisfies": "5.0.1",
     "wasm-gzip": "2.0.3"
   },
   "devDependencies": {
+    "@bufbuild/buf": "1.30.0",
     "@jest/globals": "29.7.0",
+    "@octokit/types": "12.6.0",
     "@types/jest": "29.5.12",
+    "@types/json-stable-stringify": "1.0.36",
     "@types/node": "20.11.29",
+    "@types/spdx-expression-parse": "3.0.5",
     "jest": "29.7.0",
     "jest-junit": "16.0.0",
     "semver": "7.6.0",

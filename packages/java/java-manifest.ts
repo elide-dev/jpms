@@ -11,7 +11,7 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { QualifiedClassName } from './java-model'
+import { QualifiedClassName } from './java-model.js'
 
 /**
  * Vendor string for this tool.
@@ -26,7 +26,7 @@ export const createdByStamp = 'javatools/dev'
 /**
  * Current version expected for JAR manifests, and used by this tool when generating manifests.
  */
-export const currentManifestVersion = '1.1'
+export const currentManifestVersion = '1.0'
 
 /**
  * Expected path within JARs where the manifest should be located
@@ -68,6 +68,16 @@ export enum JarManifestKey {
    * Embedded `Class-Path` for a JAR.
    */
   CLASS_PATH = 'Class-Path',
+
+  /**
+   * `Add-Opens` declarations for the JAR
+   */
+  ADD_OPENS = 'Add-Opens',
+
+  /**
+   * `Add-Reads` declarations for a JAR
+   */
+  ADD_READS = 'Add-Reads',
 
   /**
    * Refers to a "sealed" JAR; see below for more information:
@@ -128,7 +138,39 @@ export enum JarManifestKey {
   /**
    * "Magic" attribute for certain key-value pairs in JAR entries.
    */
-  MAGIC = 'Magic',
+  MAGIC = 'Magic'
+}
+
+/**
+ * OSGi Manifest Key
+ *
+ * Well-known JAR manifest keys.
+ */
+export enum OGSIManifestKey {
+  /**
+   * The `Bundle-SymbolicName` for an OSGi bundle.
+   */
+  BUNDLE_SYMBOLIC_NAME = 'Bundle-SymbolicName',
+
+  /**
+   * The `Bundle-Version` for an OSGi bundle.
+   */
+  BUNDLE_VERSION = 'Bundle-Version',
+
+  /**
+   * The `Bundle-Activator` for an OSGi bundle.
+   */
+  BUNDLE_ACTIVATOR = 'Bundle-Activator',
+
+  /**
+   * The `Bundle-Name` for an OSGi bundle.
+   */
+  BUNDLE_NAME = 'Bundle-Name',
+
+  /**
+   * The `Bundle-Description` for an OSGi bundle.
+   */
+  BUNDLE_DESCRIPTION = 'Bundle-Description'
 }
 
 /**
@@ -136,7 +178,7 @@ export enum JarManifestKey {
  *
  * Maps either pure strings or known keys to JAR manifest keys.
  */
-export type JarManifestKeyString = (typeof JarManifestKey) | string
+export type JarManifestKeyString = typeof JarManifestKey | string
 
 /**
  * JAR Manifest Data
@@ -144,7 +186,7 @@ export type JarManifestKeyString = (typeof JarManifestKey) | string
  * Describes the shape of raw JAR manifest data.
  */
 export type JarManifestData = {
-  [Property in (keyof JarManifestKey | string)]: string | undefined;
+  [Property in keyof JarManifestKey | string]: string | undefined
 }
 
 /**
@@ -156,7 +198,7 @@ export type JarManifestQualifiedData = JarManifestData & {
   /**
    * Package path or class name.
    */
-  qualifierName: string;
+  qualifierName: string
 }
 
 /**
@@ -168,7 +210,7 @@ export type RawJarManifest = JarManifestData & {
   /**
    * JAR manifest sections, if any.
    */
-  sections: JarManifestQualifiedData[];
+  sections: JarManifestQualifiedData[]
 }
 
 /**
@@ -181,22 +223,22 @@ export interface JarManifestBaseline {
   /**
    * Return the `Manifest-Version` specified for a JAR, or `null` if no version is defined.
    */
-  manifestVersion: string | null;
+  manifestVersion: string | null
 
   /**
-   * Return the `Main-Class` specified for a JAR, or `null` if no main class is defined. 
+   * Return the `Main-Class` specified for a JAR, or `null` if no main class is defined.
    */
-  mainClass: QualifiedClassName | null;
+  mainClass: QualifiedClassName | null
 
   /**
    * Return the `Automatic-Module-Name` specified for a JAR, or `null` if no module name is defined.
    */
-  automaticModuleName: string | null;
+  automaticModuleName: string | null
 
   /**
    * Return the `Multi-Release` flag specified for a JAR, or `null` if no flag is defined.
    */
-  multiRelease: boolean;
+  multiRelease: boolean
 }
 
 /**
@@ -209,19 +251,19 @@ export interface JarManifest extends JarManifestBaseline {
   /**
    * Return the `Created-By` stamp present in the JAR manifest, if any, or `null`.
    */
-  createdBy: string | null;
+  createdBy: string | null
 
   /**
    * Return a raw JSON-style primitive representation of the JAR manifest.
    */
-  rawManifest: RawJarManifest;
+  rawManifest: RawJarManifest
 
   /**
    * Serialize into a raw string representation, suitable to write to disk.
    *
    * @return Rendered string representation of the manifest.
    */
-  serializeManifest(): string;
+  serializeManifest(): string
 
   /**
    * Retrieve the value of a top-level JAR manifest key, or return `null`.
@@ -229,7 +271,7 @@ export interface JarManifest extends JarManifestBaseline {
    * @param key Key to retrieve (top-level) from the JAR manifest
    * @return Value of the key, or `null` if not present
    */
-  get(key: JarManifestKeyString): string | null;
+  get(key: JarManifestKeyString): string | null
 
   /**
    * Retrieve the value of a qualified JAR manifest key, or return `null`.
@@ -238,14 +280,14 @@ export interface JarManifest extends JarManifestBaseline {
    * @param key Key to retrieve from the qualified section
    * @return Value of the key, or `null` if not present
    */
-  getQualified(qualifierName: string, key: JarManifestKeyString): string | null;
+  getQualified(qualifierName: string, key: JarManifestKeyString): string | null
 
   /**
    * Check if a top-level key is present in the JAR manifest.
    *
    * @param key Key to check for membership in the JAR manifest
    */
-  has(key: JarManifestKeyString): boolean;
+  has(key: JarManifestKeyString): boolean
 
   /**
    * Check if a qualified key is present in the JAR manifest.
@@ -253,7 +295,7 @@ export interface JarManifest extends JarManifestBaseline {
    * @param qualifierName Qualified name to check for membership in the JAR manifest
    * @param key Key to check for membership in the qualified section
    */
-  hasQualified(qualifierName: string, key: JarManifestKeyString): boolean;
+  hasQualified(qualifierName: string, key: JarManifestKeyString): boolean
 }
 
 /**
@@ -318,8 +360,8 @@ export class JarManifestBuilder {
       ...Object.fromEntries(this.topKeys),
       sections: Array.from(this.qualifiedKeys).map(([qualifierName, data]) => ({
         qualifierName,
-        ...Object.fromEntries(data),
-      })),
+        ...Object.fromEntries(data)
+      }))
     }
   }
 
@@ -369,9 +411,9 @@ export class JarManifestBuilder {
     let currentSection: string | null = null
     let lineI = 0
 
-    let line: string | undefined;
-    let lastSeenProperty: string | undefined;
-    while (line = lines.shift()) {
+    let line: string | undefined
+    let lastSeenProperty: string | undefined
+    while ((line = lines.shift())) {
       lineI++
 
       // if the line is empty or just a newline, skip it
@@ -502,7 +544,7 @@ export default class ParsedJarManifest implements JarManifest {
 
   /** @inheritdoc */
   public getQualified(qualifierName: string, key: JarManifestKeyString): string | null {
-    const section = this.manifest.sections.find((section) => section.qualifierName === qualifierName)
+    const section = this.manifest.sections.find(section => section.qualifierName === qualifierName)
     if (!section) {
       return null
     }
@@ -520,7 +562,9 @@ export default class ParsedJarManifest implements JarManifest {
 
   /** @inheritdoc */
   public hasQualified(qualifierName: string, key: JarManifestKeyString): boolean {
-    return this.manifest.sections.some((section) => section.qualifierName === qualifierName && section[key as string] !== undefined)
+    return this.manifest.sections.some(
+      section => section.qualifierName === qualifierName && section[key as string] !== undefined
+    )
   }
 
   /**

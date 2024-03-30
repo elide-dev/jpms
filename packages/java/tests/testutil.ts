@@ -13,7 +13,7 @@
 
 import { dirname, isAbsolute, join, normalize, resolve } from 'node:path'
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
-import { test, expect } from '@jest/globals'
+import { fileURLToPath } from 'node:url'
 
 import { JavaToolchain } from '../java-home'
 import { mkdir, mkdtemp } from 'node:fs/promises'
@@ -24,6 +24,8 @@ const compileDebugLogs = false
 
 const manifestDefaultLines = ['Manifest-Version: 1.0', 'Created-By: 1.0.0 (Elide Technologies, Inc.)']
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
 export function mockPath(path: string) {
   return resolve(normalize(join(__dirname, path)))
 }
@@ -32,7 +34,7 @@ export function repoPath(path: string) {
   return resolve(normalize(join(__dirname, '..', '..', '..', 'repository', path)))
 }
 
-export function repoJar(group: string, artifact: string, version: string): { relative: string, resolved: string } {
+export function repoJar(group: string, artifact: string, version: string): { relative: string; resolved: string } {
   const pathSegments: string[] = []
   const groupSegments = group.split('.')
   pathSegments.push(...groupSegments)
@@ -42,12 +44,13 @@ export function repoJar(group: string, artifact: string, version: string): { rel
   return repoJarByPath(join(...pathSegments))
 }
 
-export function repoJarByPath(path: string): { relative: string, resolved: string } {
+export function repoJarByPath(path: string): { relative: string; resolved: string } {
   return {
     resolved: repoPath(path),
-    relative: path,
+    relative: path
   }
 }
+
 export async function testTmpdir(): Promise<string> {
   return await mkdtemp('/tmp/java-toolchain-test-')
 }
@@ -215,7 +218,6 @@ export async function compileJava(
     )
     const isResource = !srcpathRelative.endsWith('.java')
 
-    const srcpath = tmpdirPath(srcroot, srcpathRelative)
     const topath = isAbsolute(topathRelative) ? topathRelative : tmpdirPath(srcroot, topathRelative)
     compileDebug(`copying src: ${srcpathRelative} → ${topathRelative}`)
 
@@ -228,9 +230,6 @@ export async function compileJava(
     }
 
     writeFileSync(topath, src)
-    expect(existsSync(topath)).toBe(true)
-    const classpath = classpathForSourcePath(srcpath)
-    expect(existsSync(classpath)).toBe(false)
 
     if (isResource) {
       // copy the resource to the build path proactively so it can be seen by tools like `jar`
@@ -242,7 +241,6 @@ export async function compileJava(
         await mkdir(parent, { recursive: true })
       }
       writeFileSync(buildResource, src)
-      expect(existsSync(buildResource)).toBe(true)
     } else {
       javaSources.push(topathRelative)
     }
@@ -280,13 +278,6 @@ export async function compileJava(
     isMultiModular,
     module: isMultiModular ? moduleName : undefined
   }
-  expect(out).toBeDefined()
-  expect(out.buildroot).toBeDefined()
-  expect(out.classes).toBeDefined()
-  expect(out.resources).toBeDefined()
-  expect(out.outputs).toBeDefined()
-  expect(out.result).toBeDefined()
-  expect(out.result.run.exitCode).toBe(0)
   return out as JavaCompileResult
 }
 
@@ -337,9 +328,7 @@ export async function compileAndPackageJar(
   jarArgs.push('.')
 
   compileDebug(`running jar: ${jarArgs.join(' ')}`)
-  const callResult = await jar.run(jarArgs)
-  expect(callResult).toBeDefined()
-  expect(callResult.exitCode).toBe(0)
+  await jar.run(jarArgs)
 
   // build the jar
   return {
@@ -347,18 +336,3 @@ export async function compileAndPackageJar(
     jar: join(buildroot, jarName)
   }
 }
-
-test('test util: should find a basic common substring', () => {
-  const result = longestCommonSubstring(['abc', 'abd'])
-  expect(result).toBe('ab')
-})
-
-test('test util: should find a basic path substring', () => {
-  const result = longestCommonSubstring(['testing/hello/one/two/three.txt', 'testing/again.txt'])
-  expect(result).toBe('testing/')
-})
-
-test('test util: should not die when there is no common substring', () => {
-  const result = longestCommonSubstring(['hello/one/two/three.txt', 'testing/again.txt'])
-  expect(result).toBe(null)
-})

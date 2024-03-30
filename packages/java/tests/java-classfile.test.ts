@@ -13,7 +13,7 @@
 
 import { expect, test } from '@jest/globals'
 import { JavaClassFile } from '../java-classfile'
-import { compileJava } from './testutil.test'
+import { compileJava } from './testutil'
 import { existsSync, readFileSync } from 'fs'
 import { JavaToolchain } from '../java-home'
 import { jvmLevelForTarget, jvmTargetForVersion } from '../java-model'

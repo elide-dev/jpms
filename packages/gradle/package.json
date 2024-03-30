@@ -1,6 +1,6 @@
 {
   "name": "@javamodules/gradle",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tools for working with Gradle Module metadata from JavaScript.",
   "keywords": [
     "tools",
@@ -22,12 +22,6 @@
     "url": "https://github.com/sgammon"
   },
   "type": "module",
-  "imports": {
-    "#tests": {
-      "bun": "bun:test",
-      "default": "@jest/globals"
-    }
-  },
   "exports": {
     "./util": {
       "import": "./dist/gradle-util.js",
@@ -49,6 +43,7 @@
     "pack": "npm pack",
     "publish:dry": "npm publish --no-git-checks --dry-run",
     "publish:live": "npm publish --no-git-checks",
+    "test": "bun test",
     "test:bun": "bun test",
     "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },

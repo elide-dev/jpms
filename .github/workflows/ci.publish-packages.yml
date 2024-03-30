@@ -129,3 +129,23 @@ jobs:
       draft: ${{ inputs.draft }}
       prerelease: ${{ inputs.prerelease }}
       release-latest: ${{ inputs.release-latest }}
+
+  publish-npm-indexer:
+    name: 'Publish to NPM'
+    uses: ./.github/workflows/ci.publish-package.yml
+    secrets:
+      PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+    permissions:
+      actions: read
+      id-token: write
+      contents: write
+      packages: write
+    with:
+      package: indexer
+      dry-run: ${{ inputs.dry-run }}
+      registry: ${{ inputs.registry }}
+      release: ${{ inputs.release }}
+      tag: ${{ inputs.tag }}
+      draft: ${{ inputs.draft }}
+      prerelease: ${{ inputs.prerelease }}
+      release-latest: ${{ inputs.release-latest }}

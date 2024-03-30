@@ -19,8 +19,8 @@
  */
 
 import ByteBuffer from 'bytebuffer'
-import { ConstantType } from './constant-type'
-import { AttributeInfo, MemberInfo, TypeInfo } from './java-class-types'
+import { ConstantType } from './constant-type.js'
+import { AttributeInfo, MemberInfo, TypeInfo } from './java-class-types.js'
 
 /**
  * Magic value used to identify class files.

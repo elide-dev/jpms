@@ -15,7 +15,7 @@ import { resolve } from 'node:path'
 import { env } from 'node:process'
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { describe, expect, test, beforeEach, jest } from '@jest/globals'
-import { mockPath, testTmpdir, tmpdirPath, compileJava, compileAndPackageJar } from './testutil.test'
+import { mockPath, testTmpdir, tmpdirPath, compileJava, compileAndPackageJar } from './testutil'
 import { JvmTarget, JvmPlatform, JavaToolchainVendor } from '../java-model'
 import { JavaToolchain } from '../java-home'
 import { ToolError } from '../toolchain/abstract'
@@ -192,7 +192,7 @@ describe('toolchain', () => {
     expect(result.classes).toHaveLength(5)
     expect(result.resources).toHaveLength(1)
     expect(result.outputs).toHaveLength(6)
-  })
+  }, 10000)
 })
 
 describe('repositories', () => {

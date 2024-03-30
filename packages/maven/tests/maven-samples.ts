@@ -25,6 +25,7 @@ export const POM_CONTENT_PARENT =
   '  <version>0.0.1-SNAPSHOT</version>' +
   '  <packaging>pom</packaging>' +
   '  <name>Some Example Library</name>' +
+  '  <description>A simple example library</description>' +
   '</project>'
 
 export const POM_CONTENT_NO_PARENT =
@@ -36,6 +37,52 @@ export const POM_CONTENT_NO_PARENT =
   '  <version>0.0.1-SNAPSHOT</version>' +
   '  <packaging>pom</packaging>' +
   '  <name>Some Example Library</name>' +
+  '  <description>A simple example library</description>' +
+  '</project>'
+
+export const POM_CONTENT_NO_PARENT_SINGLE_DEP =
+  '<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' +
+  '    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">' +
+  '  <modelVersion parallel="now">4.0.0</modelVersion>' +
+  '  <groupId>org.example</groupId>' +
+  '  <artifactId>example</artifactId>' +
+  '  <version>0.0.1-SNAPSHOT</version>' +
+  '  <packaging>pom</packaging>' +
+  '  <name>Some Example Library</name>' +
+  '  <description>A simple example library</description>' +
+  '  <dependencies>' +
+  '    <dependency>' +
+  '      <groupId>org.example</groupId>' +
+  '      <artifactId>example-core</artifactId>' +
+  '      <version>0.0.1-SNAPSHOT</version>' +
+  '      <scope>test</scope>' +
+  '    </dependency>' +
+  '  </dependencies>' +
+  '</project>'
+
+export const POM_CONTENT_NO_PARENT_MULTI_DEP =
+  '<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"' +
+  '    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">' +
+  '  <modelVersion parallel="now">4.0.0</modelVersion>' +
+  '  <groupId>org.example</groupId>' +
+  '  <artifactId>example</artifactId>' +
+  '  <version>0.0.1-SNAPSHOT</version>' +
+  '  <packaging>pom</packaging>' +
+  '  <name>Some Example Library</name>' +
+  '  <description>A simple example library</description>' +
+  '  <dependencies>' +
+  '    <dependency>' +
+  '      <groupId>org.example</groupId>' +
+  '      <artifactId>example-core</artifactId>' +
+  '      <version>0.0.1-SNAPSHOT</version>' +
+  '      <scope>test</scope>' +
+  '    </dependency>' +
+  '    <dependency>' +
+  '      <groupId>org.example</groupId>' +
+  '      <artifactId>example-another</artifactId>' +
+  '      <version>0.0.1-SNAPSHOT</version>' +
+  '    </dependency>' +
+  '  </dependencies>' +
   '</project>'
 
 export const POM_CONTENT_PARENT_INHERITED =

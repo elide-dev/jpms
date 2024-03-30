@@ -40,6 +40,9 @@ export type GradleModuleOptions = {
 
   /** Whether to perform schema validation steps on parsed Gradle Modules. */
   validate?: boolean
+
+  /** Root path to trim from the resulting repository path. When provided, the path to the module is relative. */
+  root?: string
 }
 
 /**
@@ -91,9 +94,10 @@ export async function gradleModule(
   if (moduleExists || moduleExistsAlt) {
     const moduleNameResolved = moduleExists ? moduleName : moduleNameAlt
     const moduleTarget = moduleExists ? modulePath : modulePathAlt
+    const effectivePath = options?.root ? moduleTarget.slice(options.root.length + 1) : moduleTarget
 
     const mod = {
-      path: moduleTarget,
+      path: effectivePath,
       module: await readGradleModule(join(path, moduleNameResolved))
     }
     if (options?.validate !== false) validateGradleModule(mod, { strict: true, err: true })

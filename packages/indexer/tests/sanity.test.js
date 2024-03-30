@@ -10,10 +10,8 @@
  * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under the License.
  */
-
-/**
- *
- */
-export class MavenProject {
-  //
-}
+import { expect, test } from '@jest/globals'
+test('2 + 2', () => {
+  expect(2 + 2).toBe(4)
+})
+//# sourceMappingURL=sanity.test.js.map

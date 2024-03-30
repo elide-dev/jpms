@@ -11,6 +11,6 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-export { JavaCompiler } from './compiler'
-export { JavaLauncher } from './launcher'
-export { JdkTool } from './tool'
+export { JavaCompiler } from './compiler.js'
+export { JavaLauncher } from './launcher.js'
+export { JdkTool } from './tool.js'
