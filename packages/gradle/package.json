@@ -1,6 +1,6 @@
 {
   "name": "@javamodules/gradle",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Tools for working with Gradle Module metadata from JavaScript.",
   "keywords": [
     "tools",
