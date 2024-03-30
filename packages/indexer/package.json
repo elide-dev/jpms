@@ -141,6 +141,6 @@
   },
   "publishConfig": {
     "access": "public",
-    "provenance": true
+    "procenance": true
   }
 }
