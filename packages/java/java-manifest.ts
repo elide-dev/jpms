@@ -26,7 +26,7 @@ export const createdByStamp = 'javatools/dev'
 /**
  * Current version expected for JAR manifests, and used by this tool when generating manifests.
  */
-export const currentManifestVersion = '1.1'
+export const currentManifestVersion = '1.0'
 
 /**
  * Expected path within JARs where the manifest should be located
