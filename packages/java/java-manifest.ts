@@ -70,6 +70,16 @@ export enum JarManifestKey {
   CLASS_PATH = 'Class-Path',
 
   /**
+   * `Add-Opens` declarations for the JAR
+   */
+  ADD_OPENS = 'Add-Opens',
+
+  /**
+   * `Add-Reads` declarations for a JAR
+   */
+  ADD_READS = 'Add-Reads',
+
+  /**
    * Refers to a "sealed" JAR; see below for more information:
    * https://docs.oracle.com/en/java/javase/21/docs/specs/jar/jar.html#package-sealing
    */
@@ -129,6 +139,38 @@ export enum JarManifestKey {
    * "Magic" attribute for certain key-value pairs in JAR entries.
    */
   MAGIC = 'Magic'
+}
+
+/**
+ * OSGi Manifest Key
+ *
+ * Well-known JAR manifest keys.
+ */
+export enum OGSIManifestKey {
+  /**
+   * The `Bundle-SymbolicName` for an OSGi bundle.
+   */
+  BUNDLE_SYMBOLIC_NAME = 'Bundle-SymbolicName',
+
+  /**
+   * The `Bundle-Version` for an OSGi bundle.
+   */
+  BUNDLE_VERSION = 'Bundle-Version',
+
+  /**
+   * The `Bundle-Activator` for an OSGi bundle.
+   */
+  BUNDLE_ACTIVATOR = 'Bundle-Activator',
+
+  /**
+   * The `Bundle-Name` for an OSGi bundle.
+   */
+  BUNDLE_NAME = 'Bundle-Name',
+
+  /**
+   * The `Bundle-Description` for an OSGi bundle.
+   */
+  BUNDLE_DESCRIPTION = 'Bundle-Description',
 }
 
 /**
