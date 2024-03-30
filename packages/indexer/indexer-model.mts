@@ -127,6 +127,19 @@ export type RepositoryGradleModulesIndexEntry = {
 }
 
 /**
+ * Repository Maven POM Index Entry
+ *
+ * Describes an entry in an index file which maps indexed artifacts by their Maven POM info.
+ */
+export type RepositoryPomIndexEntry = {
+  // Well-qualified Maven coordinate.
+  key: string
+  coordinate: MavenCoordinate
+  flags: PackageFlags
+  pom: PomProject
+}
+
+/**
  * Repository Index Bundle
  *
  * Gathers together all computed materialized indexes for a given Maven repository; used
@@ -136,6 +149,7 @@ export type RepositoryIndexBundle = {
   artifacts: RepositoryArtifactsIndex
   gradle: RepositoryGradleModulesIndexEntry[]
   modules: RepositoryModulesIndexEntry[]
+  maven: RepositoryPomIndexEntry[]
 }
 
 /**

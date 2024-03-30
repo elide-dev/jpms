@@ -26,7 +26,7 @@ import { JarFile } from '@javamodules/java/jar'
 import { JavaModuleInfo, JvmTarget } from '@javamodules/java/model'
 import { gradleModule } from '@javamodules/gradle/util'
 
-import { RepositoryPackage, RepositoryJar, RepositoryIndexBundle, RepositoryIndexFile, RepositoryModulesIndexEntry, RepositoryGradleModulesIndexEntry } from './indexer-model.mjs'
+import { RepositoryPackage, RepositoryJar, RepositoryIndexBundle, RepositoryIndexFile, RepositoryModulesIndexEntry, RepositoryGradleModulesIndexEntry, RepositoryPomIndexEntry } from './indexer-model.mjs'
 
 const DEFAULT_PRETTY = true
 const snapshotAllowlist: Set<string> = new Set()
@@ -240,6 +240,17 @@ function buildGradleIndex(eligible: RepositoryPackage[]): RepositoryGradleModule
   }).filter((it) => it !== undefined)
 }
 
+function buildMavenIndex(eligible: RepositoryPackage[]): RepositoryPomIndexEntry[] {
+  return  eligible.map(pkg => {
+    return {
+      key: pkg.key,
+      coordinate: pkg.coordinate,
+      flags: pkg.flags,
+      pom: pkg.maven
+    }
+  }).filter((it) => it !== undefined)
+}
+
 function buildIndexes(all_packages: RepositoryPackage[]): RepositoryIndexBundle {
   const allPackages = new Set<string>()
   const eligible = all_packages.filter(pkg => pkgEligible(allPackages, pkg))
@@ -248,6 +259,7 @@ function buildIndexes(all_packages: RepositoryPackage[]): RepositoryIndexBundle 
     artifacts: [],
     modules: buildModulesIndex(eligible),
     gradle: buildGradleIndex(eligible),
+    maven: buildMavenIndex(eligible),
   }
 }
 
@@ -284,6 +296,7 @@ async function prepareContent(indexes: RepositoryIndexBundle): Promise<Repositor
   return [
     buildIndexFile('modules.json', indexes.modules),
     buildIndexFile('gradle.json', indexes.gradle),
+    buildIndexFile('maven.json', indexes.maven),
   ]
 }
 
