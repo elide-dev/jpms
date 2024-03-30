@@ -30,8 +30,8 @@ importers:
         specifier: 3.2.5
         version: 3.2.5
       prettier-plugin-packagejson:
-        specifier: 2.4.12
-        version: 2.4.12(prettier@3.2.5)
+        specifier: 2.4.13
+        version: 2.4.13(prettier@3.2.5)
       typescript:
         specifier: 5.4.3
         version: 5.4.3
@@ -2309,6 +2309,7 @@ packages:
   /chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==, tarball: https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz}
     engines: {node: '>=10'}
+    requiresBuild: true
     dev: false
 
   /ci-info@3.9.0:
@@ -3125,6 +3126,7 @@ packages:
   /fs-minipass@2.1.0:
     resolution: {integrity: sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==, tarball: https://registry.npmjs.org/fs-minipass/-/fs-minipass-2.1.0.tgz}
     engines: {node: '>= 8'}
+    requiresBuild: true
     dependencies:
       minipass: 3.3.6
     dev: false
@@ -4736,6 +4738,7 @@ packages:
   /minipass@5.0.0:
     resolution: {integrity: sha512-3FnjYuehv9k6ovOEbyOswadCDPX1piCfhV8ncmYtHOjuPwylVWsghTLo7rabjC3Rx5xD4HDx8Wm1xnMF7S5qFQ==, tarball: https://registry.npmjs.org/minipass/-/minipass-5.0.0.tgz}
     engines: {node: '>=8'}
+    requiresBuild: true
     dev: false
 
   /minipass@7.0.4:
@@ -5145,8 +5148,8 @@ packages:
       which-pm: 2.0.0
     dev: true
 
-  /prettier-plugin-packagejson@2.4.12(prettier@3.2.5):
-    resolution: {integrity: sha512-hifuuOgw5rHHTdouw9VrhT8+Nd7UwxtL1qco8dUfd4XUFQL6ia3xyjSxhPQTsGnSYFraTWy5Omb+MZm/OWDTpQ==, tarball: https://registry.npmjs.org/prettier-plugin-packagejson/-/prettier-plugin-packagejson-2.4.12.tgz}
+  /prettier-plugin-packagejson@2.4.13(prettier@3.2.5):
+    resolution: {integrity: sha512-n64Y3E1iEese0RN0EmxM6E7dAiy47UPJOFyAjMNfZWPKQ1exwaaMTXEhK7vKIrbXLSmf2J9y4H5rnE1VII1vRg==, tarball: https://registry.npmjs.org/prettier-plugin-packagejson/-/prettier-plugin-packagejson-2.4.13.tgz}
     peerDependencies:
       prettier: '>= 1.16.0'
     peerDependenciesMeta:
@@ -5154,7 +5157,7 @@ packages:
         optional: true
     dependencies:
       prettier: 3.2.5
-      sort-package-json: 2.8.0
+      sort-package-json: 2.9.0
       synckit: 0.9.0
     dev: true
 
@@ -5621,8 +5624,8 @@ packages:
     resolution: {integrity: sha512-855pvK+VkU7PaKYPc+Jjnmt4EzejQHyhhF33q31qG8x7maDzkeFhAAThdCYay11CISO+qAMwjOBP+fPZe0IPyg==, tarball: https://registry.npmjs.org/sort-object-keys/-/sort-object-keys-1.1.3.tgz}
     dev: true
 
-  /sort-package-json@2.8.0:
-    resolution: {integrity: sha512-PxeNg93bTJWmDGnu0HADDucoxfFiKkIr73Kv85EBThlI1YQPdc0XovBgg2llD0iABZbu2SlKo8ntGmOP9wOj/g==, tarball: https://registry.npmjs.org/sort-package-json/-/sort-package-json-2.8.0.tgz}
+  /sort-package-json@2.9.0:
+    resolution: {integrity: sha512-vlEd6i57Eb9+ruta1+hID+emmAmGzWKraEX1kk5LAQ0k1glgDHOENeieqzfir0m8MHcebzDH4FEwqjPnMEjy2g==, tarball: https://registry.npmjs.org/sort-package-json/-/sort-package-json-2.9.0.tgz}
     hasBin: true
     dependencies:
       detect-indent: 7.0.1
