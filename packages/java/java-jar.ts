@@ -20,7 +20,7 @@ import JarManifest, {
   JarManifestKeyString,
   manifestPath
 } from './java-manifest.js'
-import { JavaModuleInfo, QualifiedClassName, SimpleClassName } from './java-model.js'
+import { JavaModuleInfo, JvmTarget, QualifiedClassName, SimpleClassName } from './java-model.js'
 import { JavaClassFile } from './java-classfile.js'
 
 /**
@@ -784,6 +784,71 @@ export class JarFile implements JarManifestBaseline {
    */
   public get modular(): Promise<boolean> {
     return Promise.resolve(this.entriesOfType(JarEntryType.MODULE).length > 0)
+  }
+
+  /**
+   * Minimum bytecode targeting for this JAR
+   *
+   * This method checks the first class present within the root class hierarchy (that is, not within a versioned MRJAR
+   * hierarchy), and returns its JVM targeting.
+   *
+   * NOTE: This method does not guarantee that all classes in the JAR target this bytecode level; it is possible that
+   * the JAR contains classes targeting multiple bytecode levels, intermingled within a single hierarchy. This is
+   * illegal by JAR spec but it is technically possible.
+   *
+   * There is no "maximum" bytecode level for Java, since previous Java bytecode versions are compatible with newer
+   * versions of the JVM. However, `maximumBytecodeTarget` can be consulted to determine the maximum tier of bytecode
+   * provided by the library, via multi-release JAR semantics.
+   *
+   * If a JAR is not a multi-release JAR, or otherwise does not provide substantive classes within a versioned root
+   * (for example, only providing a module declaration), then the maximum bytecode level is the same as the minimum.
+   *
+   * If this JAR does not have any classes at all, this method will return the lowest available JVM bytecode tier.
+   *
+   * @return Promise for a minimum JVM target
+   */
+  public get minimumBytecodeTarget(): Promise<JvmTarget> {
+    const classDef = this.entriesOfType(JarEntryType.CLASS)[0]
+    if (classDef) {
+      return (this._entries.get(classDef) as DeferredJarEntry).entry().then(async entry => {
+        const classEntry = entry as JarClassEntry
+        if (!classEntry.classfile) {
+          throw new Error(`not a class: ${classEntry.path}`)
+        }
+        const classfile = await classEntry.classfile()
+        return classfile.bytecodeTarget()
+      })
+    }
+    return Promise.resolve(JvmTarget.JDK_5)
+  }
+
+  /**
+   * Maximum bytecode targeting for this JAR
+   *
+   * As described in `minimumBytecodeTarget`, this property returns the maximum tier of available bytecode, as
+   * provided by a given JAR. This accounts for bytecode presence in versioned MRJAR roots. No statement is made about
+   * a given bytecode's runnability with a version of the JVM; merely the presence of such bytecode within the JAR.
+   */
+  public get maximumBytecodeTarget(): Promise<JvmTarget> {
+    const versions = Array.from(this._entries.keys()).filter(path => path.startsWith('META-INF/versions/'))
+    const minOp = this.minimumBytecodeTarget
+    if (versions.length === 0) return minOp
+
+    const targets = versions.filter(path => {
+      identifyEntry(path) === JarEntryType.CLASS
+    }).map(async path => {
+      const entry = await (this._entries.get(path) as DeferredJarEntry).entry()
+      const classEntry = entry as JarClassEntry
+      if (!classEntry.classfile) {
+        throw new Error(`not a class: ${classEntry.path}`)
+      }
+      const classfile = await classEntry.classfile()
+      return classfile.bytecodeTarget()
+    })
+    return Promise.all(targets).then(async targets => {
+      const min = await minOp
+      return targets.reduce((acc, target) => (target > acc ? target : acc), min)
+    })
   }
 
   /**

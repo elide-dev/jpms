@@ -23,10 +23,10 @@ import { MavenCoordinate, mavenCoordinate } from '@javamodules/maven'
 import { parseAsync as parsePomAsync } from '@javamodules/maven/parser'
 import { GradleModuleInfo } from '@javamodules/gradle'
 import { JarFile } from '@javamodules/java/jar'
-import { JavaModuleInfo } from '@javamodules/java/model'
+import { JavaModuleInfo, JvmTarget } from '@javamodules/java/model'
 import { gradleModule } from '@javamodules/gradle/util'
 
-import { RepositoryPackage, RepositoryJar, RepositoryIndexBundle, RepositoryIndexFile } from './indexer-model.mjs'
+import { RepositoryPackage, RepositoryJar, RepositoryIndexBundle, RepositoryIndexFile, RepositoryModulesIndexEntry, RepositoryGradleModulesIndexEntry } from './indexer-model.mjs'
 
 const DEFAULT_PRETTY = true
 const snapshotAllowlist: Set<string> = new Set()
@@ -47,6 +47,14 @@ async function buildRepositoryJar(coordinate: MavenCoordinate, path: string): Pr
     module = await jar.moduleInfo
   }
 
+  // determine mrjar and bytecode targeting
+  const mrjar = jar.multiRelease
+  const min = await jar.minimumBytecodeTarget
+  let max: JvmTarget | undefined = await jar.maximumBytecodeTarget
+  if (max && max === min) {
+    max = undefined
+  }
+
   return {
     path,
     coordinate,
@@ -55,7 +63,10 @@ async function buildRepositoryJar(coordinate: MavenCoordinate, path: string): Pr
     modular,
     mainClass: mainClass || undefined,
     automaticModuleName: automaticModuleName || undefined,
-    module
+    module,
+    mrjar,
+    minimumBytecodeTarget: min,
+    maximumBytecodeTarget: max,
   }
 }
 
@@ -75,7 +86,18 @@ async function repositoryPackage(
 
   // wait for jar indexing to complete
   const jars = await Promise.all(jarOps)
+  const mainJar = jars.find(jar => jar.coordinate.classifier === undefined)
+  if (jars.length > 0 && !mainJar) {
+    throw new Error(`Main jar not found for ${maven.valueOf()}`)
+  }
   const relative = pom.slice(root.length + 1)
+
+  // obtain bytecode targeting for main jar, mrjar status
+  const { mrjar, minimumBytecodeTarget, maximumBytecodeTarget } = (mainJar || {
+    mrjar: false,
+    minimumBytecodeTarget: JvmTarget.JDK_5,
+    maximumBytecodeTarget: undefined
+  })
 
   return {
     key: maven.valueOf() as string,
@@ -84,6 +106,13 @@ async function repositoryPackage(
     pom: relative,
     gradle,
     jars,
+    flags: {
+      modular: jars.find(jar => jar.modular) !== undefined,
+      gradleModule: !!gradle,
+      mrjar,
+      minimumBytecodeTarget,
+      maximumBytecodeTarget,
+    },
     valueOf: function () {
       return `${pom} (${maven})`
     }
@@ -120,7 +149,15 @@ function coordinateForPomPath(prefix: string, path: string) {
 async function buildPackages(prefix: string, path: string) {
   const found: RepositoryPackage[] = []
   const pathPoms = globSync(join(path, '**', '*.pom'))
+
   for (const pomPath of pathPoms) {
+    const containingDir = dirname(pomPath)
+    const pomFileName = basename(pomPath)
+    const gradlemod = await gradleModule(containingDir, pomFileName, {
+      lenient: true,
+      root: prefix,
+    })
+  
     const coordinate = coordinateForPomPath(prefix, pomPath)
     console.log(`- Scanning '${coordinate.valueOf()}'`)
     found.push(
@@ -128,9 +165,7 @@ async function buildPackages(prefix: string, path: string) {
         prefix,
         coordinate,
         pomPath,
-        await gradleModule(dirname(pomPath), basename(pomPath), {
-          lenient: true
-        })
+        gradlemod,
       )
     )
   }
@@ -158,26 +193,61 @@ function pkgEligible(allPackages: Set<string>, pkg: RepositoryPackage): boolean 
   return true
 }
 
+function buildModulesIndex(eligible: RepositoryPackage[]): RepositoryModulesIndexEntry[] {
+  const allPackages = new Set<string>()
+  const modular = eligible.filter(pkg => !!pkg.jars.find(jar => jar.modular))
+  const modules = modular.map(pkg => {
+    if (allPackages.has(pkg.key)) {
+      throw new Error(`Duplicate package key: ${pkg.key}`)
+    }
+    allPackages.add(pkg.key)
+    const mainJar = pkg.jars
+      .filter(jar => jar.coordinate.classifier === undefined)
+      .filter(jar => jar.modular)
+
+    let mod: JavaModuleInfo
+    if (mainJar.length === 0) {
+      return
+    } else if (mainJar.length > 1) {
+      throw new Error(`Multiple modular jars found for ${pkg.coordinate.valueOf()}`)
+    } else {
+      mod = mainJar[0].module as JavaModuleInfo
+    }
+
+    const modularJar = {
+      jar: mainJar[0].name,
+      module: mod,
+    }
+    return {
+      key: pkg.key,
+      coordinate: pkg.coordinate,
+      flags: pkg.flags,
+      module: modularJar
+    }
+  }).filter((it) => it !== undefined)
+
+  return modules as RepositoryModulesIndexEntry[]
+}
+
+function buildGradleIndex(eligible: RepositoryPackage[]): RepositoryGradleModulesIndexEntry[] {
+  return  eligible.filter(pkg => !!pkg.gradle).map(pkg => {
+    return {
+      key: pkg.key,
+      coordinate: pkg.coordinate,
+      flags: pkg.flags,
+      gradle: pkg.gradle as GradleModuleInfo
+    }
+  }).filter((it) => it !== undefined)
+}
+
 function buildIndexes(all_packages: RepositoryPackage[]): RepositoryIndexBundle {
   const allPackages = new Set<string>()
   const eligible = all_packages.filter(pkg => pkgEligible(allPackages, pkg))
 
-  const modular = eligible.filter(pkg => !!pkg.jars.find(jar => jar.modular))
-
-  const modules = modular.map(pkg => ({
-    key: pkg.key,
-    coordinate: pkg.coordinate,
-    modules: pkg.jars
-      .filter(jar => jar.modular)
-      .map(jar => ({
-        jar: jar.name,
-        module: jar.module as JavaModuleInfo
-      }))
-  }))
-
   return {
     artifacts: [],
-    modules
+    modules: buildModulesIndex(eligible),
+    gradle: buildGradleIndex(eligible),
   }
 }
 
@@ -211,8 +281,10 @@ function buildIndexFile(name: string, contents: object, pretty: boolean = DEFAUL
 
 async function prepareContent(indexes: RepositoryIndexBundle): Promise<RepositoryIndexFile[]> {
   // build modules index file
-  const modulesIndex = buildIndexFile('modules.json', indexes.modules)
-  return [modulesIndex]
+  return [
+    buildIndexFile('modules.json', indexes.modules),
+    buildIndexFile('gradle.json', indexes.gradle),
+  ]
 }
 
 function formatHashfile(subject: string, algorithm: model.HashAlgorithm, hash: string): string {

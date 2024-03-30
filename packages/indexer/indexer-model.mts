@@ -14,7 +14,7 @@
 import { MavenCoordinate } from '@javamodules/maven'
 import { PomProject } from '@javamodules/maven/parser'
 import { GradleModuleInfo } from '@javamodules/gradle'
-import { JavaModuleInfo } from '@javamodules/java/model'
+import { JavaModuleInfo, JvmTarget } from '@javamodules/java/model'
 
 /**
  * Repository JAR Info
@@ -23,6 +23,9 @@ import { JavaModuleInfo } from '@javamodules/java/model'
  */
 export type RepositoryJarInfo = {
   modular: boolean
+  mrjar: boolean
+  minimumBytecodeTarget: JvmTarget
+  maximumBytecodeTarget?: JvmTarget
   automaticModuleName?: string
   mainClass?: string
   module?: JavaModuleInfo
@@ -41,6 +44,19 @@ export type RepositoryJar = RepositoryJarInfo & {
 }
 
 /**
+ * Package Flags
+ *
+ * Indicates top-level flags which are set for each package for easy faceting and querying.
+ */
+export type PackageFlags = {
+  modular: boolean
+  gradleModule: boolean
+  mrjar: boolean
+  minimumBytecodeTarget: JvmTarget
+  maximumBytecodeTarget?: JvmTarget
+}
+
+/**
  * Repository Package
  *
  * Describes an interpreted repository package, which includes its loaded POM and Gradle
@@ -53,6 +69,7 @@ export type RepositoryPackage = {
   gradle?: GradleModuleInfo
   maven: PomProject
   jars: RepositoryJar[]
+  flags: PackageFlags
   valueOf: any
 }
 
@@ -86,12 +103,27 @@ export type JarModulePair = {
 /**
  * Repository Modules Index Entry
  *
- * Describes an index file which maps indexed artifacts by their Java Module coordinate;
- * this mapping can produce an offset in the `RepositoryArtifactsIndex`.
+ * Describes an entry in an index file which maps indexed artifacts by their Java Module coordinate.
  */
 export type RepositoryModulesIndexEntry = {
+  // Well-qualified Maven coordinate.
+  key: string
   coordinate: MavenCoordinate
-  modules: JarModulePair[]
+  flags: PackageFlags
+  module: JarModulePair
+}
+
+/**
+ * Repository Gradle Modlues Index Entry
+ *
+ * Describes an entry in an index file which maps indexed artifacts by their Gradle Module info.
+ */
+export type RepositoryGradleModulesIndexEntry = {
+  // Well-qualified Maven coordinate.
+  key: string
+  coordinate: MavenCoordinate
+  flags: PackageFlags
+  gradle: GradleModuleInfo
 }
 
 /**
@@ -102,6 +134,7 @@ export type RepositoryModulesIndexEntry = {
  */
 export type RepositoryIndexBundle = {
   artifacts: RepositoryArtifactsIndex
+  gradle: RepositoryGradleModulesIndexEntry[]
   modules: RepositoryModulesIndexEntry[]
 }
 
