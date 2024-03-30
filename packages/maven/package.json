@@ -23,9 +23,21 @@
   },
   "type": "module",
   "exports": {
+    "./constants": {
+      "import": "./dist/maven-constants.js",
+      "types": "./dist/maven-constants.d.ts"
+    },
+    "./model": {
+      "import": "./dist/maven-model.js",
+      "types": "./dist/maven-model.d.ts"
+    },
     "./parser": {
       "import": "./dist/maven-parser.js",
       "types": "./dist/maven-parser.d.ts"
+    },
+    "./project": {
+      "import": "./dist/maven-project.js",
+      "types": "./dist/maven-project.d.ts"
     },
     "./schema": {
       "import": "./dist/maven-schema.js",

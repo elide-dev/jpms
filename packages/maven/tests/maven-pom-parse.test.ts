@@ -14,9 +14,15 @@
 import { expect, test } from '@jest/globals'
 import { join, resolve } from 'node:path'
 import { existsSync } from 'node:fs'
-import { POM_CONTENT_PARENT } from './maven-samples'
 import { MavenProjectPackaging } from '../maven-model'
 import parser, { parseAsync, ParsedOutput } from '../maven-parser'
+
+import {
+  POM_CONTENT_PARENT,
+  POM_CONTENT_NO_PARENT,
+  POM_CONTENT_NO_PARENT_SINGLE_DEP,
+  POM_CONTENT_NO_PARENT_MULTI_DEP
+} from './maven-samples'
 
 test('parse basic pom content (callback)', async () => {
   // sanity: should have non-null string to parse
@@ -59,6 +65,7 @@ test('parse basic pom content (callback)', async () => {
   expect(project.modelversion._).toBe('4.0.0')
   expect(project.packaging).toBe(MavenProjectPackaging.POM)
   expect(project.name).toBe('Some Example Library')
+  expect(project.description).toBe('A simple example library')
 })
 
 test('parse basic pom content (async)', async () => {
@@ -94,6 +101,136 @@ test('parse basic pom content (async)', async () => {
   expect(project.modelversion._).toBe('4.0.0')
   expect(project.packaging).toBe(MavenProjectPackaging.POM)
   expect(project.name).toBe('Some Example Library')
+})
+
+test('parse basic pom content (non-parent, async)', async () => {
+  // sanity: should have non-null string to parse
+  expect(POM_CONTENT_PARENT).not.toBeNull()
+
+  // parse it
+  const result = await parseAsync({ xmlContent: POM_CONTENT_NO_PARENT })
+  expect(result).not.toBeNull()
+  expect(result.pomXml).toBeDefined()
+  expect(result.pomObject).toBeDefined()
+  expect(result.pomObject.project).toBeDefined()
+  const project = result.pomObject.project
+  expect(project.xmlns).toBe('http://maven.apache.org/POM/4.0.0')
+  expect(project['xmlns:xsi']).toBe('http://www.w3.org/2001/XMLSchema-instance')
+  expect(project['xsi:schemaLocation']).toBe(
+    'http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd'
+  )
+
+  const projectAssertions = (thing: any) => {
+    expect(thing.artifactid).toBeDefined()
+    expect(thing.groupid).toBeDefined()
+    expect(thing.version).toBeDefined()
+    expect(thing.artifactid).not.toBe('')
+    expect(thing.groupid).not.toBe('')
+    expect(thing.version).not.toBe('')
+  }
+  projectAssertions(project)
+
+  expect(project.modelversion._).toBe('4.0.0')
+  expect(project.packaging).toBe(MavenProjectPackaging.POM)
+  expect(project.name).toBe('Some Example Library')
+  expect(project.description).toBe('A simple example library')
+})
+
+test('parsed pom should include dependencies (single, non-parent, async)', async () => {
+  // sanity: should have non-null string to parse
+  expect(POM_CONTENT_PARENT).not.toBeNull()
+
+  // parse it
+  const result = await parseAsync({ xmlContent: POM_CONTENT_NO_PARENT_SINGLE_DEP })
+  expect(result).not.toBeNull()
+  expect(result.pomXml).toBeDefined()
+  expect(result.pomObject).toBeDefined()
+  expect(result.pomObject.project).toBeDefined()
+  const project = result.pomObject.project
+  expect(project.xmlns).toBe('http://maven.apache.org/POM/4.0.0')
+  expect(project['xmlns:xsi']).toBe('http://www.w3.org/2001/XMLSchema-instance')
+  expect(project['xsi:schemaLocation']).toBe(
+    'http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd'
+  )
+
+  const projectAssertions = (thing: any) => {
+    expect(thing.artifactid).toBeDefined()
+    expect(thing.groupid).toBeDefined()
+    expect(thing.version).toBeDefined()
+    expect(thing.artifactid).not.toBe('')
+    expect(thing.groupid).not.toBe('')
+    expect(thing.version).not.toBe('')
+  }
+  projectAssertions(project)
+
+  expect(project.modelversion._).toBe('4.0.0')
+  expect(project.packaging).toBe(MavenProjectPackaging.POM)
+  expect(project.name).toBe('Some Example Library')
+  expect(project.description).toBe('A simple example library')
+  expect(project.dependencies).toBeDefined()
+  expect(project.dependencies).toEqual({
+    dependency: {
+      groupid: 'org.example',
+      artifactid: 'example-core',
+      version: '0.0.1-SNAPSHOT',
+      scope: 'test'
+    }
+  })
+  expect(Object.keys(project.dependencies)).toHaveLength(1)
+})
+
+test('parsed pom should include dependencies (multiple, non-parent, async)', async () => {
+  // sanity: should have non-null string to parse
+  expect(POM_CONTENT_PARENT).not.toBeNull()
+
+  // parse it
+  const result = await parseAsync({ xmlContent: POM_CONTENT_NO_PARENT_MULTI_DEP })
+  expect(result).not.toBeNull()
+  expect(result.pomXml).toBeDefined()
+  expect(result.pomObject).toBeDefined()
+  expect(result.pomObject.project).toBeDefined()
+  const project = result.pomObject.project
+  expect(project.xmlns).toBe('http://maven.apache.org/POM/4.0.0')
+  expect(project['xmlns:xsi']).toBe('http://www.w3.org/2001/XMLSchema-instance')
+  expect(project['xsi:schemaLocation']).toBe(
+    'http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd'
+  )
+
+  const projectAssertions = (thing: any) => {
+    expect(thing.artifactid).toBeDefined()
+    expect(thing.groupid).toBeDefined()
+    expect(thing.version).toBeDefined()
+    expect(thing.artifactid).not.toBe('')
+    expect(thing.groupid).not.toBe('')
+    expect(thing.version).not.toBe('')
+  }
+  projectAssertions(project)
+
+  expect(project.modelversion._).toBe('4.0.0')
+  expect(project.packaging).toBe(MavenProjectPackaging.POM)
+  expect(project.name).toBe('Some Example Library')
+  expect(project.description).toBe('A simple example library')
+  expect(project.dependencies).toBeDefined()
+  expect(project.dependencies).not.toEqual({
+    dependency: {
+      groupid: 'org.example',
+      artifactid: 'example-core',
+      version: '0.0.1-SNAPSHOT',
+      scope: 'test'
+    }
+  })
+  expect(project.dependencies.dependency).toHaveLength(2)
+  expect(project.dependencies.dependency[0]).toEqual({
+    groupid: 'org.example',
+    artifactid: 'example-core',
+    version: '0.0.1-SNAPSHOT',
+    scope: 'test'
+  })
+  expect(project.dependencies.dependency[1]).toEqual({
+    groupid: 'org.example',
+    artifactid: 'example-another',
+    version: '0.0.1-SNAPSHOT'
+  })
 })
 
 test("parse guava's pom file (callback)", async () => {

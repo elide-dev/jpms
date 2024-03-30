@@ -53,7 +53,7 @@ export type ProjectProfileInfo = {
  */
 export type ProjectInfo = {
   // The remote repository URL for this project, as a canonicalized HTTPS URL.
-  key: string
+  objectID?: string
   profile: ProjectProfileInfo
   source?: ProjectSourceControl
   metrics?: ProjectQualityMetrics

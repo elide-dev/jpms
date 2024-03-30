@@ -13,8 +13,9 @@
 
 import { MavenCoordinate } from '@javamodules/maven'
 import { PomProject } from '@javamodules/maven/parser'
-import { GradleModuleInfo } from '@javamodules/gradle'
+import { GradleModuleInfo, GradleVariantSchema as GradleVariant } from '@javamodules/gradle'
 import { JavaModuleInfo, JvmTarget } from '@javamodules/java/model'
+import { ProjectInfo } from './info-project.mjs'
 
 /**
  * Repository JAR Info
@@ -24,7 +25,7 @@ import { JavaModuleInfo, JvmTarget } from '@javamodules/java/model'
 export type RepositoryJarInfo = {
   modular: boolean
   mrjar: boolean
-  minimumBytecodeTarget: JvmTarget
+  minimumBytecodeTarget?: JvmTarget
   maximumBytecodeTarget?: JvmTarget
   automaticModuleName?: string
   mainClass?: string
@@ -52,7 +53,7 @@ export type PackageFlags = {
   modular: boolean
   gradleModule: boolean
   mrjar: boolean
-  minimumBytecodeTarget: JvmTarget
+  minimumBytecodeTarget?: JvmTarget
   maximumBytecodeTarget?: JvmTarget
 }
 
@@ -63,7 +64,7 @@ export type PackageFlags = {
  * content, as needed and applicable
  */
 export type RepositoryPackage = {
-  key: string
+  objectID: string
   coordinate: MavenCoordinate
   pom: string
   gradle?: GradleModuleInfo
@@ -88,13 +89,10 @@ export type IndexedArtifact = {
 }
 
 /**
- * Repository Artifacts Index
+ * JAR Module Pair
  *
- * Describes an index file which maps artifacts to their metadata; includes an index of
- * all available versions for a given artifact.
+ * Maps a JAR to a module-info entry.
  */
-export type RepositoryArtifactsIndex = {}
-
 export type JarModulePair = {
   jar: string
   module: JavaModuleInfo
@@ -107,7 +105,7 @@ export type JarModulePair = {
  */
 export type RepositoryModulesIndexEntry = {
   // Well-qualified Maven coordinate.
-  key: string
+  objectID: string
   coordinate: MavenCoordinate
   flags: PackageFlags
   module: JarModulePair
@@ -119,11 +117,12 @@ export type RepositoryModulesIndexEntry = {
  * Describes an entry in an index file which maps indexed artifacts by their Gradle Module info.
  */
 export type RepositoryGradleModulesIndexEntry = {
-  // Well-qualified Maven coordinate.
-  key: string
+  // Well-qualified Maven coordinate, appended with Gradle variant ID.
+  objectID: string
+  variant: string
   coordinate: MavenCoordinate
   flags: PackageFlags
-  gradle: GradleModuleInfo
+  gradle: GradleVariant
 }
 
 /**
@@ -133,10 +132,26 @@ export type RepositoryGradleModulesIndexEntry = {
  */
 export type RepositoryPomIndexEntry = {
   // Well-qualified Maven coordinate.
-  key: string
+  objectID: string
   coordinate: MavenCoordinate
   flags: PackageFlags
   pom: PomProject
+}
+
+/**
+ * Repository Package Summary Entry
+ *
+ * Describes an entry in an index file which maps summary information for a given package.
+ */
+export type RepositoryPackageIndexEntry = {
+  // Well-qualified Maven coordinate.
+  objectID: string
+  purl: string
+  coordinate: MavenCoordinate
+  flags: PackageFlags
+  gradleVariants: string[]
+  project: Omit<ProjectInfo, 'objectID'>
+  module?: JarModulePair
 }
 
 /**
@@ -146,10 +161,11 @@ export type RepositoryPomIndexEntry = {
  * as an intermediate data structure before indexes are written.
  */
 export type RepositoryIndexBundle = {
-  artifacts: RepositoryArtifactsIndex
+  allPackages: RepositoryPackage[]
   gradle: RepositoryGradleModulesIndexEntry[]
   modules: RepositoryModulesIndexEntry[]
   maven: RepositoryPomIndexEntry[]
+  packages: RepositoryPackageIndexEntry[]
 }
 
 /**

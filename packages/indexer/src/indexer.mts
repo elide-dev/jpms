@@ -11,16 +11,18 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
+import { globSync } from 'glob'
 import { model } from 'hashlock'
 import { formatHashfileContent } from 'hashlock/generator'
-import { globSync } from 'glob'
+import JSONStringify from 'json-stable-stringify'
 import { createHash } from 'node:crypto'
 import { existsSync } from 'node:fs'
 import { readdir, stat, mkdir, writeFile } from 'node:fs/promises'
 import { join, resolve, sep, dirname, basename } from 'node:path'
+import { PackageURL } from 'packageurl-js'
 
 import { MavenCoordinate, mavenCoordinate } from '@javamodules/maven'
-import { parseAsync as parsePomAsync } from '@javamodules/maven/parser'
+import { PomProject, parseAsync as parsePomAsync } from '@javamodules/maven/parser'
 import { GradleModuleInfo } from '@javamodules/gradle'
 import { JarFile } from '@javamodules/java/jar'
 import { JavaModuleInfo, JvmTarget } from '@javamodules/java/model'
@@ -33,8 +35,11 @@ import {
   RepositoryIndexFile,
   RepositoryModulesIndexEntry,
   RepositoryGradleModulesIndexEntry,
-  RepositoryPomIndexEntry
+  RepositoryPomIndexEntry,
+  RepositoryPackageIndexEntry
 } from './indexer-model.mjs'
+import { ProjectInfo, ProjectProfileInfo } from './info-project.mjs'
+import { ProjectSourceControl } from './info-model.mjs'
 
 const DEFAULT_PRETTY = true
 const snapshotAllowlist: Set<string> = new Set()
@@ -53,6 +58,11 @@ async function buildRepositoryJar(coordinate: MavenCoordinate, path: string): Pr
   let module: JavaModuleInfo | undefined
   if (modular) {
     module = await jar.moduleInfo
+  }
+  if (module?.requires.length === 1) {
+    if (module.requires[0].module === 'java.base') {
+      module.requires = []  // we can omit this
+    }
   }
 
   // determine mrjar and bytecode targeting
@@ -103,14 +113,23 @@ async function repositoryPackage(
   // obtain bytecode targeting for main jar, mrjar status
   const { mrjar, minimumBytecodeTarget, maximumBytecodeTarget } = mainJar || {
     mrjar: false,
-    minimumBytecodeTarget: JvmTarget.JDK_5,
+    minimumBytecodeTarget: undefined,
     maximumBytecodeTarget: undefined
+  }
+  const clonedProject = JSON.parse(JSON.stringify(parsedPom.pomObject.project))
+
+  // delete unused properties
+  delete clonedProject['xmlns']
+  delete clonedProject['xmlns:xsi']
+  delete clonedProject['xsi:schemaLocation']
+  if (clonedProject['modelversion'] === '4.0.0') {
+    delete clonedProject['modelversion']
   }
 
   return {
-    key: maven.valueOf() as string,
+    objectID: maven.valueOf() as string,
     coordinate: maven,
-    maven: parsedPom.pomObject.project,
+    maven: clonedProject,
     pom: relative,
     gradle,
     jars,
@@ -118,8 +137,8 @@ async function repositoryPackage(
       modular: jars.find(jar => jar.modular) !== undefined,
       gradleModule: !!gradle,
       mrjar,
-      minimumBytecodeTarget,
-      maximumBytecodeTarget
+      minimumBytecodeTarget: minimumBytecodeTarget === '1.5' ? undefined : minimumBytecodeTarget,
+      maximumBytecodeTarget: maximumBytecodeTarget === minimumBytecodeTarget ? undefined : maximumBytecodeTarget
     },
     valueOf: function () {
       return `${pom} (${maven})`
@@ -186,10 +205,10 @@ function pkgEligible(allPackages: Set<string>, pkg: RepositoryPackage): boolean 
   if (isSnapshot) {
     return snapshotAllowlist.has(pkg.coordinate.valueOf() as string) // snapshots are not eligible
   }
-  if (allPackages.has(pkg.key)) {
-    throw new Error(`Duplicate package key: ${pkg.key}`)
+  if (allPackages.has(pkg.objectID)) {
+    throw new Error(`Duplicate package key: ${pkg.objectID}`)
   } else {
-    allPackages.add(pkg.key)
+    allPackages.add(pkg.objectID)
   }
   return true
 }
@@ -199,10 +218,10 @@ function buildModulesIndex(eligible: RepositoryPackage[]): RepositoryModulesInde
   const modular = eligible.filter(pkg => !!pkg.jars.find(jar => jar.modular))
   const modules = modular
     .map(pkg => {
-      if (allPackages.has(pkg.key)) {
-        throw new Error(`Duplicate package key: ${pkg.key}`)
+      if (allPackages.has(pkg.objectID)) {
+        throw new Error(`Duplicate package key: ${pkg.objectID}`)
       }
-      allPackages.add(pkg.key)
+      allPackages.add(pkg.objectID)
       const mainJar = pkg.jars.filter(jar => jar.coordinate.classifier === undefined).filter(jar => jar.modular)
 
       let mod: JavaModuleInfo
@@ -219,7 +238,7 @@ function buildModulesIndex(eligible: RepositoryPackage[]): RepositoryModulesInde
         module: mod
       }
       return {
-        key: pkg.key,
+        objectID: pkg.objectID,
         coordinate: pkg.coordinate,
         flags: pkg.flags,
         module: modularJar
@@ -233,22 +252,89 @@ function buildModulesIndex(eligible: RepositoryPackage[]): RepositoryModulesInde
 function buildGradleIndex(eligible: RepositoryPackage[]): RepositoryGradleModulesIndexEntry[] {
   return eligible
     .filter(pkg => !!pkg.gradle)
-    .map(pkg => {
+    .flatMap(pkg => (pkg.gradle?.module.variants || []).map(variant => ({ pkg, variant })))
+    .map(item => {
+      const { pkg, variant } = item
+
       return {
-        key: pkg.key,
+        objectID: `${pkg.objectID}::${variant.name}`,
         coordinate: pkg.coordinate,
         flags: pkg.flags,
-        gradle: pkg.gradle as GradleModuleInfo
+        variant: variant.name,
+        gradle: variant
       }
     })
     .filter(it => it !== undefined)
+}
+
+type IndexData<V> = Map<string, V>
+
+function buildIndex<V>(data: { objectID: string }[]): IndexData<V> {
+  return new Map(data.map(it => [it.objectID, it] as [string, V]))
+}
+
+function buildProjectSourceControl(_pom: PomProject): ProjectSourceControl | undefined {
+  return undefined // @TODO
+}
+
+function buildProjectProfile(
+  objectID: string,
+  maven: PomProject,
+  _gradle: GradleModuleInfo | null,
+  _module: JavaModuleInfo | null
+): ProjectInfo {
+  const profile: ProjectProfileInfo = {
+    name: maven.pom.name || _module?.name || undefined,
+    description: maven.pom.description || undefined
+  }
+  return {
+    objectID,
+    profile,
+    source: buildProjectSourceControl(maven)
+  }
+}
+
+function buildPackageSummaryIndex(
+  mavenPoms: IndexData<RepositoryPomIndexEntry>,
+  gradleVariants: IndexData<RepositoryGradleModulesIndexEntry>,
+  modules: IndexData<RepositoryModulesIndexEntry>,
+  eligible: RepositoryPackage[]
+): RepositoryPackageIndexEntry[] {
+  return eligible.map(pkg => {
+    const variants: string[] = Array.from(gradleVariants.keys()).filter(it => it.startsWith(pkg.objectID))
+    const module = modules.get(pkg.objectID)
+    const maven = mavenPoms.get(pkg.objectID)
+    if (!maven) throw new Error(`no parsed pom found for coordinate: ${pkg.coordinate.valueOf()}`)
+    const projectInfo = buildProjectProfile(pkg.objectID, maven, pkg.gradle || null, module?.module?.module || null)
+    const packageUrl = new PackageURL(
+      'maven',
+      maven.coordinate.groupId,
+      maven.coordinate.artifactId,
+      maven.coordinate.version,
+      undefined,
+      undefined
+    )
+
+    // don't list the ID redundantly
+    delete projectInfo['objectID']
+
+    return {
+      objectID: pkg.objectID,
+      purl: packageUrl.toString(),
+      coordinate: pkg.coordinate,
+      flags: pkg.flags,
+      module: module?.module,
+      gradleVariants: variants || [],
+      project: projectInfo
+    } satisfies RepositoryPackageIndexEntry
+  })
 }
 
 function buildMavenIndex(eligible: RepositoryPackage[]): RepositoryPomIndexEntry[] {
   return eligible
     .map(pkg => {
       return {
-        key: pkg.key,
+        objectID: pkg.objectID,
         coordinate: pkg.coordinate,
         flags: pkg.flags,
         pom: pkg.maven
@@ -257,15 +343,32 @@ function buildMavenIndex(eligible: RepositoryPackage[]): RepositoryPomIndexEntry
     .filter(it => it !== undefined)
 }
 
-function buildIndexes(all_packages: RepositoryPackage[]): RepositoryIndexBundle {
-  const allPackages = new Set<string>()
-  const eligible = all_packages.filter(pkg => pkgEligible(allPackages, pkg))
+type IDAssigned = {
+  objectID: string
+}
 
+function sortEntries<V extends IDAssigned>(entries: V[]): V[] {
+  return entries.sort((a, b) => a.objectID.localeCompare(b.objectID)) as V[]
+}
+
+function buildIndexes(allPackages: RepositoryPackage[]): RepositoryIndexBundle {
+  const packageNames = new Set<string>()
+  const eligible = allPackages.filter(pkg => pkgEligible(packageNames, pkg))
+  const maven = sortEntries(buildMavenIndex(eligible))
+  console.log(`Built index: 'maven' (entries: ${maven.length})`)
+  const gradle = sortEntries(buildGradleIndex(eligible))
+  console.log(`Built index: 'gradle' (entries: ${gradle.length})`)
+  const modules = sortEntries(buildModulesIndex(eligible))
+  console.log(`Built index: 'modules' (entries: ${modules.length})`)
+  const packages = sortEntries(buildPackageSummaryIndex(buildIndex(maven), buildIndex(gradle), buildIndex(modules), eligible))
+
+  console.log(`Built index 'summary' (entries: ${packages.length})`)
   return {
-    artifacts: [],
-    modules: buildModulesIndex(eligible),
-    gradle: buildGradleIndex(eligible),
-    maven: buildMavenIndex(eligible)
+    allPackages,
+    modules,
+    gradle,
+    maven,
+    packages
   }
 }
 
@@ -277,7 +380,9 @@ function buildIndexFile(name: string, contents: object, pretty: boolean = DEFAUL
 
   let rendered: string
   try {
-    rendered = JSON.stringify(contents, null, pretty ? 2 : 0)
+    rendered = JSONStringify(contents, {
+      space: pretty ? 2 : 0,
+    })
   } catch (err) {
     console.error(err)
     throw err
@@ -302,7 +407,8 @@ async function prepareContent(indexes: RepositoryIndexBundle): Promise<Repositor
   return [
     buildIndexFile('modules.json', indexes.modules),
     buildIndexFile('gradle.json', indexes.gradle),
-    buildIndexFile('maven.json', indexes.maven)
+    buildIndexFile('maven.json', indexes.maven),
+    buildIndexFile('packages.json', indexes.packages)
   ]
 }
 

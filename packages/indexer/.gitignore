@@ -3,3 +3,6 @@ dist
 indexes/
 reports/
 /src/gen
+/indexer
+tsconfig.tsbuildinfo
+indexer/tsconfig.tsbuildinfo
