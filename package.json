@@ -22,9 +22,9 @@
     "lockfiles": "rm -fr node_modules && bun i && rm -fr node_modules && pnpm i",
     "prepare": "husky",
     "prettier": "prettier",
-    "test": "pnpm run -r test:bun",
-    "test:bun": "pnpm run -r test:bun",
-    "test:node": "pnpm run -r test:node"
+    "test": "cd packages/maven && pnpm run test && cd - && cd packages/gradle && pnpm run test && cd - && cd packages/indexer && pnpm run test && cd - && cd packages/java && pnpm run test && cd -",
+    "test:bun": "cd packages/maven && pnpm run test:bun && cd - && cd packages/gradle && pnpm run test:bun && cd - && cd packages/indexer && pnpm run test:bun && cd - && cd packages/java && pnpm run test:bun && cd -",
+    "test:node": "cd packages/maven && pnpm run test:node && cd - && cd packages/gradle && pnpm run test:node && cd - && cd packages/indexer && pnpm run test:node && cd - && cd packages/java && pnpm run test:node && cd -"
   },
   "husky": {
     "hooks": {

@@ -31,6 +31,7 @@
   ],
   "scripts": {
     "build": "tsc -p .",
+    "test": "bun test",
     "index": "bun indexer.mts ../../repository",
     "pack": "npm pack",
     "publish:dry": "npm publish --no-git-checks --dry-run",
