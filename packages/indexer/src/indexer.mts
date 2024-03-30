@@ -61,7 +61,7 @@ async function buildRepositoryJar(coordinate: MavenCoordinate, path: string): Pr
   }
   if (module?.requires.length === 1) {
     if (module.requires[0].module === 'java.base') {
-      module.requires = []  // we can omit this
+      module.requires = [] // we can omit this
     }
   }
 
@@ -360,7 +360,9 @@ function buildIndexes(allPackages: RepositoryPackage[]): RepositoryIndexBundle {
   console.log(`Built index: 'gradle' (entries: ${gradle.length})`)
   const modules = sortEntries(buildModulesIndex(eligible))
   console.log(`Built index: 'modules' (entries: ${modules.length})`)
-  const packages = sortEntries(buildPackageSummaryIndex(buildIndex(maven), buildIndex(gradle), buildIndex(modules), eligible))
+  const packages = sortEntries(
+    buildPackageSummaryIndex(buildIndex(maven), buildIndex(gradle), buildIndex(modules), eligible)
+  )
 
   console.log(`Built index 'summary' (entries: ${packages.length})`)
   return {
@@ -381,7 +383,7 @@ function buildIndexFile(name: string, contents: object, pretty: boolean = DEFAUL
   let rendered: string
   try {
     rendered = JSONStringify(contents, {
-      space: pretty ? 2 : 0,
+      space: pretty ? 2 : 0
     })
   } catch (err) {
     console.error(err)

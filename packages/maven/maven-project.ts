@@ -11,7 +11,7 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { MavenCoordinate } from "./maven-model";
+import { MavenCoordinate } from './maven-model'
 
 /**
  * Maven Project
@@ -20,16 +20,16 @@ import { MavenCoordinate } from "./maven-model";
  */
 export interface MavenProject {
   /** Top-level name of the project (note that this differs from the artifact ID). */
-  name: string | undefined;
+  name: string | undefined
 
   /** Description provided by the developers for this project. */
-  description: string | undefined;
+  description: string | undefined
 
   /** Coordinate for this project. */
-  coordinate: MavenCoordinate;
+  coordinate: MavenCoordinate
 
   /** Parent project coordinate relating to this one, if present. */
-  parent: MavenCoordinate | undefined;
+  parent: MavenCoordinate | undefined
 }
 
 /**
@@ -72,4 +72,4 @@ export class ParsedMavenProject implements MavenProject {
 }
 
 // Default entrypoint.
-export default ParsedMavenProject;
+export default ParsedMavenProject
