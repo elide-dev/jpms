@@ -85,13 +85,13 @@ importers:
         specifier: 6.4.2
         version: 6.4.2
       '@javamodules/gradle':
-        specifier: workspace:*
+        specifier: 1.0.4
         version: link:../gradle
       '@javamodules/java':
-        specifier: workspace:*
+        specifier: 1.0.4
         version: link:../java
       '@javamodules/maven':
-        specifier: workspace:*
+        specifier: 1.0.4
         version: link:../maven
       '@octokit/core':
         specifier: 6.0.1

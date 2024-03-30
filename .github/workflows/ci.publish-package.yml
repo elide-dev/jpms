@@ -110,7 +110,7 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
       - name: 'Build: Package (${{ inputs.package }})'
-        run: cd packages/${{ inputs.package }} && pnpm run build && pnpm pack
+        run: pnpm run build && cd packages/${{ inputs.package }} && pnpm pack
       - name: 'Build: Provenance Hashes'
         shell: bash
         id: hash
