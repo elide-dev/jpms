@@ -1,0 +1,11 @@
+version: v1
+name: buf.build/javamodules/indexes
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/deps/api

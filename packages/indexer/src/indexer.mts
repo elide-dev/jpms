@@ -26,7 +26,15 @@ import { JarFile } from '@javamodules/java/jar'
 import { JavaModuleInfo, JvmTarget } from '@javamodules/java/model'
 import { gradleModule } from '@javamodules/gradle/util'
 
-import { RepositoryPackage, RepositoryJar, RepositoryIndexBundle, RepositoryIndexFile, RepositoryModulesIndexEntry, RepositoryGradleModulesIndexEntry, RepositoryPomIndexEntry } from './indexer-model.mjs'
+import {
+  RepositoryPackage,
+  RepositoryJar,
+  RepositoryIndexBundle,
+  RepositoryIndexFile,
+  RepositoryModulesIndexEntry,
+  RepositoryGradleModulesIndexEntry,
+  RepositoryPomIndexEntry
+} from './indexer-model.mjs'
 
 const DEFAULT_PRETTY = true
 const snapshotAllowlist: Set<string> = new Set()
@@ -66,7 +74,7 @@ async function buildRepositoryJar(coordinate: MavenCoordinate, path: string): Pr
     module,
     mrjar,
     minimumBytecodeTarget: min,
-    maximumBytecodeTarget: max,
+    maximumBytecodeTarget: max
   }
 }
 
@@ -93,11 +101,11 @@ async function repositoryPackage(
   const relative = pom.slice(root.length + 1)
 
   // obtain bytecode targeting for main jar, mrjar status
-  const { mrjar, minimumBytecodeTarget, maximumBytecodeTarget } = (mainJar || {
+  const { mrjar, minimumBytecodeTarget, maximumBytecodeTarget } = mainJar || {
     mrjar: false,
     minimumBytecodeTarget: JvmTarget.JDK_5,
     maximumBytecodeTarget: undefined
-  })
+  }
 
   return {
     key: maven.valueOf() as string,
@@ -111,7 +119,7 @@ async function repositoryPackage(
       gradleModule: !!gradle,
       mrjar,
       minimumBytecodeTarget,
-      maximumBytecodeTarget,
+      maximumBytecodeTarget
     },
     valueOf: function () {
       return `${pom} (${maven})`
@@ -155,19 +163,12 @@ async function buildPackages(prefix: string, path: string) {
     const pomFileName = basename(pomPath)
     const gradlemod = await gradleModule(containingDir, pomFileName, {
       lenient: true,
-      root: prefix,
+      root: prefix
     })
-  
+
     const coordinate = coordinateForPomPath(prefix, pomPath)
     console.log(`- Scanning '${coordinate.valueOf()}'`)
-    found.push(
-      await repositoryPackage(
-        prefix,
-        coordinate,
-        pomPath,
-        gradlemod,
-      )
-    )
+    found.push(await repositoryPackage(prefix, coordinate, pomPath, gradlemod))
   }
   return found
 }
@@ -196,59 +197,64 @@ function pkgEligible(allPackages: Set<string>, pkg: RepositoryPackage): boolean 
 function buildModulesIndex(eligible: RepositoryPackage[]): RepositoryModulesIndexEntry[] {
   const allPackages = new Set<string>()
   const modular = eligible.filter(pkg => !!pkg.jars.find(jar => jar.modular))
-  const modules = modular.map(pkg => {
-    if (allPackages.has(pkg.key)) {
-      throw new Error(`Duplicate package key: ${pkg.key}`)
-    }
-    allPackages.add(pkg.key)
-    const mainJar = pkg.jars
-      .filter(jar => jar.coordinate.classifier === undefined)
-      .filter(jar => jar.modular)
+  const modules = modular
+    .map(pkg => {
+      if (allPackages.has(pkg.key)) {
+        throw new Error(`Duplicate package key: ${pkg.key}`)
+      }
+      allPackages.add(pkg.key)
+      const mainJar = pkg.jars.filter(jar => jar.coordinate.classifier === undefined).filter(jar => jar.modular)
 
-    let mod: JavaModuleInfo
-    if (mainJar.length === 0) {
-      return
-    } else if (mainJar.length > 1) {
-      throw new Error(`Multiple modular jars found for ${pkg.coordinate.valueOf()}`)
-    } else {
-      mod = mainJar[0].module as JavaModuleInfo
-    }
+      let mod: JavaModuleInfo
+      if (mainJar.length === 0) {
+        return
+      } else if (mainJar.length > 1) {
+        throw new Error(`Multiple modular jars found for ${pkg.coordinate.valueOf()}`)
+      } else {
+        mod = mainJar[0].module as JavaModuleInfo
+      }
 
-    const modularJar = {
-      jar: mainJar[0].name,
-      module: mod,
-    }
-    return {
-      key: pkg.key,
-      coordinate: pkg.coordinate,
-      flags: pkg.flags,
-      module: modularJar
-    }
-  }).filter((it) => it !== undefined)
+      const modularJar = {
+        jar: mainJar[0].name,
+        module: mod
+      }
+      return {
+        key: pkg.key,
+        coordinate: pkg.coordinate,
+        flags: pkg.flags,
+        module: modularJar
+      }
+    })
+    .filter(it => it !== undefined)
 
   return modules as RepositoryModulesIndexEntry[]
 }
 
 function buildGradleIndex(eligible: RepositoryPackage[]): RepositoryGradleModulesIndexEntry[] {
-  return  eligible.filter(pkg => !!pkg.gradle).map(pkg => {
-    return {
-      key: pkg.key,
-      coordinate: pkg.coordinate,
-      flags: pkg.flags,
-      gradle: pkg.gradle as GradleModuleInfo
-    }
-  }).filter((it) => it !== undefined)
+  return eligible
+    .filter(pkg => !!pkg.gradle)
+    .map(pkg => {
+      return {
+        key: pkg.key,
+        coordinate: pkg.coordinate,
+        flags: pkg.flags,
+        gradle: pkg.gradle as GradleModuleInfo
+      }
+    })
+    .filter(it => it !== undefined)
 }
 
 function buildMavenIndex(eligible: RepositoryPackage[]): RepositoryPomIndexEntry[] {
-  return  eligible.map(pkg => {
-    return {
-      key: pkg.key,
-      coordinate: pkg.coordinate,
-      flags: pkg.flags,
-      pom: pkg.maven
-    }
-  }).filter((it) => it !== undefined)
+  return eligible
+    .map(pkg => {
+      return {
+        key: pkg.key,
+        coordinate: pkg.coordinate,
+        flags: pkg.flags,
+        pom: pkg.maven
+      }
+    })
+    .filter(it => it !== undefined)
 }
 
 function buildIndexes(all_packages: RepositoryPackage[]): RepositoryIndexBundle {
@@ -259,7 +265,7 @@ function buildIndexes(all_packages: RepositoryPackage[]): RepositoryIndexBundle 
     artifacts: [],
     modules: buildModulesIndex(eligible),
     gradle: buildGradleIndex(eligible),
-    maven: buildMavenIndex(eligible),
+    maven: buildMavenIndex(eligible)
   }
 }
 
@@ -296,7 +302,7 @@ async function prepareContent(indexes: RepositoryIndexBundle): Promise<Repositor
   return [
     buildIndexFile('modules.json', indexes.modules),
     buildIndexFile('gradle.json', indexes.gradle),
-    buildIndexFile('maven.json', indexes.maven),
+    buildIndexFile('maven.json', indexes.maven)
   ]
 }
 

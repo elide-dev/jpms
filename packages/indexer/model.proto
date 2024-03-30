@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2024 Sam Gammon
+ *
+ * Licensed for private use; all rights reserved.
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under the License.
+ */
+
+syntax = "proto3";
+
+// Buf `deps.dev` API mappings.
+import "api/v3/api.proto";

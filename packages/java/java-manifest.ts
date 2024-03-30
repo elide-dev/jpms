@@ -170,7 +170,7 @@ export enum OGSIManifestKey {
   /**
    * The `Bundle-Description` for an OSGi bundle.
    */
-  BUNDLE_DESCRIPTION = 'Bundle-Description',
+  BUNDLE_DESCRIPTION = 'Bundle-Description'
 }
 
 /**

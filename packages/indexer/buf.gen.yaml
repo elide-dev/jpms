@@ -1,0 +1,9 @@
+version: v1
+managed:
+  enabled: true
+  optimize_for: CODE_SIZE
+plugins:
+  - plugin: buf.build/bufbuild/es:v1.8.0
+    out: src/gen/
+  - plugin: buf.build/connectrpc/es:v1.4.0
+    out: src/gen/

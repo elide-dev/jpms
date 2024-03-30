@@ -2,3 +2,4 @@ node_modules/
 dist
 indexes/
 reports/
+/src/gen

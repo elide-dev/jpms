@@ -834,17 +834,19 @@ export class JarFile implements JarManifestBaseline {
     const minOp = this.minimumBytecodeTarget
     if (versions.length === 0) return minOp
 
-    const targets = versions.filter(path => {
-      identifyEntry(path) === JarEntryType.CLASS
-    }).map(async path => {
-      const entry = await (this._entries.get(path) as DeferredJarEntry).entry()
-      const classEntry = entry as JarClassEntry
-      if (!classEntry.classfile) {
-        throw new Error(`not a class: ${classEntry.path}`)
-      }
-      const classfile = await classEntry.classfile()
-      return classfile.bytecodeTarget()
-    })
+    const targets = versions
+      .filter(path => {
+        identifyEntry(path) === JarEntryType.CLASS
+      })
+      .map(async path => {
+        const entry = await (this._entries.get(path) as DeferredJarEntry).entry()
+        const classEntry = entry as JarClassEntry
+        if (!classEntry.classfile) {
+          throw new Error(`not a class: ${classEntry.path}`)
+        }
+        const classfile = await classEntry.classfile()
+        return classfile.bytecodeTarget()
+      })
     return Promise.all(targets).then(async targets => {
       const min = await minOp
       return targets.reduce((acc, target) => (target > acc ? target : acc), min)
