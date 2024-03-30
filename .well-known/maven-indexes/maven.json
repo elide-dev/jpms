@@ -1,0 +1,3415 @@
+[
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosarm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-iosarm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-iosarm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm32:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-watchosarm32",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-watchosarm32",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex86:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-androidnativex86",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-androidnativex86",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchossimulatorarm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-watchossimulatorarm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-watchossimulatorarm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosx64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-tvosx64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-tvosx64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable",
+      "version": "0.4.1-jpms",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "runtime"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-wasi:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-wasm-wasi",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-wasm-wasi",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosarm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-macosarm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-macosarm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosx64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-iosx64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-iosx64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-androidnativearm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-androidnativearm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-js:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-js",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-js",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": [
+          {
+            "groupid": "org.jetbrains.kotlin",
+            "artifactid": "kotlin-dom-api-compat",
+            "version": "1.9.23",
+            "scope": "compile"
+          },
+          {
+            "groupid": "org.jetbrains.kotlin",
+            "artifactid": "kotlin-stdlib",
+            "version": "1.9.23",
+            "scope": "compile"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxx64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-linuxx64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-linuxx64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-jvm",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-jvm",
+      "version": "0.4.1-jpms",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosx64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-macosx64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-macosx64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-js:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-wasm-js",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-wasm-js",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvossimulatorarm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-tvossimulatorarm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-tvossimulatorarm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-watchosarm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-watchosarm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosdevicearm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-watchosdevicearm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-watchosdevicearm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosx64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-watchosx64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-watchosx64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-mingwx64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-mingwx64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-mingwx64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iossimulatorarm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-iossimulatorarm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-iossimulatorarm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosarm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-tvosarm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-tvosarm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm32:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-androidnativearm32",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-androidnativearm32",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-androidnativex64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-androidnativex64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxarm64:0.4.1-jpms",
+    "coordinate": {
+      "groupId": "org.jetbrains.kotlinx",
+      "artifactId": "kotlinx-collections-immutable-linuxarm64",
+      "version": "0.4.1-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.jetbrains.kotlinx",
+      "artifactid": "kotlinx-collections-immutable-linuxarm64",
+      "version": "0.4.1-jpms",
+      "packaging": "klib",
+      "name": "kotlinx-collections-immutable",
+      "description": "Kotlin Immutable Collections multiplatform library",
+      "url": "https://github.com/Kotlin/kotlinx.collections.immutable",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "name": "JetBrains Team",
+          "organization": "JetBrains",
+          "organizationurl": "https://www.jetbrains.com"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/Kotlin/kotlinx.collections.immutable"
+      },
+      "dependencies": {
+        "dependency": {
+          "groupid": "org.jetbrains.kotlin",
+          "artifactid": "kotlin-stdlib",
+          "version": "1.9.23",
+          "scope": "compile"
+        }
+      }
+    }
+  },
+  {
+    "key": "org.reactivestreams:reactive-streams:1.0.5-jpms",
+    "coordinate": {
+      "groupId": "org.reactivestreams",
+      "artifactId": "reactive-streams",
+      "version": "1.0.5-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": true,
+      "mrjar": true,
+      "minimumBytecodeTarget": "9"
+    },
+    "pom": {
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.reactivestreams",
+      "artifactid": "reactive-streams",
+      "version": "1.0.5-jpms",
+      "name": "reactive-streams",
+      "description": "A Protocol for Asynchronous Non-Blocking Data Sequence",
+      "url": "https://www.reactive-streams.org/",
+      "inceptionyear": "2014",
+      "licenses": {
+        "license": {
+          "name": "MIT-0",
+          "url": "https://spdx.org/licenses/MIT-0.html",
+          "distribution": "repo"
+        }
+      },
+      "developers": {
+        "developer": {
+          "id": "reactive-streams-sig",
+          "name": "Reactive Streams SIG",
+          "url": "https://www.reactive-streams.org/"
+        }
+      },
+      "scm": {
+        "connection": "scm:git:git@github.com:reactive-streams/reactive-streams.git",
+        "url": "git@github.com:reactive-streams/reactive-streams.git"
+      }
+    }
+  },
+  {
+    "key": "org.checkerframework:checker-qual:3.43.0-SNAPSHOT",
+    "coordinate": {
+      "groupId": "org.checkerframework",
+      "artifactId": "checker-qual",
+      "version": "3.43.0-SNAPSHOT"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "org.checkerframework",
+      "artifactid": "checker-qual",
+      "version": "3.43.0-SNAPSHOT",
+      "name": "Checker Qual",
+      "description": "checker-qual contains annotations (type qualifiers) that a programmer\nwrites to specify Java code for type-checking by the Checker Framework.",
+      "url": "https://checkerframework.org/",
+      "licenses": {
+        "license": {
+          "name": "The MIT License",
+          "url": "http://opensource.org/licenses/MIT",
+          "distribution": "repo"
+        }
+      },
+      "developers": {
+        "developer": [
+          {
+            "id": "mernst",
+            "name": "Michael Ernst",
+            "email": "mernst@cs.washington.edu",
+            "url": "https://homes.cs.washington.edu/~mernst/",
+            "organization": "University of Washington",
+            "organizationurl": "https://www.cs.washington.edu/"
+          },
+          {
+            "id": "smillst",
+            "name": "Suzanne Millstein",
+            "email": "smillst@cs.washington.edu",
+            "organization": "University of Washington",
+            "organizationurl": "https://www.cs.washington.edu/"
+          }
+        ]
+      },
+      "scm": {
+        "connection": "scm:git:https://github.com/typetools/checker-framework.git",
+        "developerconnection": "scm:git:ssh://git@github.com/typetools/checker-framework.git",
+        "url": "https://github.com/typetools/checker-framework.git"
+      }
+    }
+  },
+  {
+    "key": "io.leangen.geantyref:geantyref:1.3.15-jpms",
+    "coordinate": {
+      "groupId": "io.leangen.geantyref",
+      "artifactId": "geantyref",
+      "version": "1.3.15-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "io.leangen.geantyref",
+      "artifactid": "geantyref",
+      "packaging": "jar",
+      "version": "1.3.15-jpms",
+      "inceptionyear": "2016",
+      "name": "GeantyRef",
+      "url": "https://github.com/leangen/geantyref",
+      "description": "Generic type reflection library with support for AnnotatedType",
+      "licenses": {
+        "license": {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+          "distribution": "repo"
+        }
+      },
+      "scm": {
+        "connection": "scm:git:git://github.com/leangen/geantyref",
+        "developerconnection": "scm:git:git://github.com/leangen/geantyref",
+        "url": "https://github.com/leangen/geantyref",
+        "tag": "HEAD"
+      },
+      "distributionmanagement": {
+        "repository": {
+          "id": "ossrh",
+          "url": "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+        },
+        "snapshotrepository": {
+          "id": "ossrh",
+          "url": "https://oss.sonatype.org/content/repositories/snapshots"
+        }
+      },
+      "issuemanagement": {
+        "system": "GitHub Issue Tracking",
+        "url": "https://github.com/leangen/geantyref/issues"
+      },
+      "properties": {
+        "project.build.sourceencoding": "UTF-8"
+      },
+      "dependencies": "\n    ",
+      "developers": {
+        "developer": {
+          "id": "kaqqao",
+          "name": "Bojan Tomic",
+          "email": "veggen@gmail.com",
+          "organization": "Leangen",
+          "organizationurl": "http://leangen.io"
+        }
+      }
+    }
+  },
+  {
+    "key": "dev.javamodules:jpms-bom:1.0.0",
+    "coordinate": {
+      "groupId": "dev.javamodules",
+      "artifactId": "jpms-bom",
+      "version": "1.0.0"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": false,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "dev.modularjava",
+      "artifactid": "jpms-bom",
+      "version": "1.0.0",
+      "name": "JPMS Attic: BOM",
+      "description": "Maven BOM with JPMS-enabled artifacts from the JPMS Attic Repository.",
+      "url": "https://jpms.pkg.st/",
+      "packaging": "pom",
+      "licenses": {
+        "license": {
+          "name": "Apache 2.0",
+          "url": "https://opensource.org/license/apache-2-0",
+          "distribution": "repo"
+        }
+      },
+      "developers": {
+        "developer": {
+          "id": "sgammon",
+          "name": "Sam Gammon",
+          "url": "https://github.com/sgammon",
+          "organization": "Elide",
+          "organizationurl": "https://github.com/elide-dev"
+        }
+      },
+      "scm": {
+        "connection": "scm:git:https://github.com/typetools/checker-framework.git",
+        "developerconnection": "scm:git:ssh://git@github.com/typetools/checker-framework.git",
+        "url": "https://github.com/typetools/checker-framework.git"
+      },
+      "dependencies": {
+        "dependency": [
+          {
+            "groupid": "org.checkerframework",
+            "artifactid": "checker-qual",
+            "version": "3.43.0-SNAPSHOT"
+          },
+          {
+            "groupid": "com.google.errorprone",
+            "artifactid": "error_prone_annotations",
+            "version": "2.25.0-jpms"
+          },
+          {
+            "groupid": "com.google.j2objc",
+            "artifactid": "j2objc-annotations",
+            "version": "3.0.0-jpms"
+          },
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "guava",
+            "version": "33.0.0-jre-jpms"
+          },
+          {
+            "groupid": "com.google.protobuf",
+            "artifactid": "protobuf-java",
+            "version": "4.26.0-jpms"
+          },
+          {
+            "groupid": "com.google.protobuf",
+            "artifactid": "protobuf-javalite",
+            "version": "4.26.0-jpms"
+          },
+          {
+            "groupid": "com.google.protobuf",
+            "artifactid": "protobuf-util",
+            "version": "4.26.0-jpms"
+          },
+          {
+            "groupid": "com.google.protobuf",
+            "artifactid": "protobuf-kotlin",
+            "version": "4.26.0-jpms"
+          },
+          {
+            "groupid": "com.google.protobuf",
+            "artifactid": "protobuf-kotlin-lite",
+            "version": "4.26.0-jpms"
+          },
+          {
+            "groupid": "org.reactivestreams",
+            "artifactid": "reactive-streams",
+            "version": "1.0.5-jpms"
+          },
+          {
+            "groupid": "io.leangen.geantyref",
+            "artifactid": "geantyref",
+            "version": "1.3.15-jpms"
+          },
+          {
+            "groupid": "org.jetbrains.kotlinx",
+            "artifactid": "kotlinx-collections-immutable",
+            "version": "0.4.1-jpms"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "key": "dev.javamodules:jpms-catalog:1.0.0",
+    "coordinate": {
+      "groupId": "dev.javamodules",
+      "artifactId": "jpms-catalog",
+      "version": "1.0.0"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "dev.javamodules",
+      "artifactid": "jpms-catalog",
+      "version": "1.0.0",
+      "packaging": "toml",
+      "name": "JPMS Attic Catalog",
+      "description": "JPMS-enabled libraries, from the future",
+      "url": "https://jpms.pkg.st",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "id": "sgammon",
+          "name": "Sam Gammon"
+        }
+      },
+      "scm": {
+        "connection": "scm:git:git://github.com/elide-dev/jpms.git",
+        "developerconnection": "scm:git:ssh://github.com/elide-dev/jpms.git",
+        "url": "https://github.com/elide-dev/jpms"
+      }
+    }
+  },
+  {
+    "key": "dev.javamodules:jpms-platform:1.0.0",
+    "coordinate": {
+      "groupId": "dev.javamodules",
+      "artifactId": "jpms-platform",
+      "version": "1.0.0"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": true,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "modelversion": "4.0.0",
+      "groupid": "dev.javamodules",
+      "artifactid": "jpms-platform",
+      "version": "1.0.0",
+      "packaging": "pom",
+      "name": "JPMS Attic Platform",
+      "description": "JPMS-enabled libraries, from the future",
+      "url": "https://jpms.pkg.st",
+      "licenses": {
+        "license": {
+          "name": "The Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "developers": {
+        "developer": {
+          "id": "sgammon",
+          "name": "Sam Gammon"
+        }
+      },
+      "scm": {
+        "connection": "scm:git:git://github.com/elide-dev/jpms.git",
+        "developerconnection": "scm:git:ssh://github.com/elide-dev/jpms.git",
+        "url": "https://github.com/elide-dev/jpms"
+      },
+      "dependencymanagement": {
+        "dependencies": {
+          "dependency": [
+            {
+              "groupid": "com.google.j2objc",
+              "artifactid": "j2objc-annotations",
+              "version": "3.0.0"
+            },
+            {
+              "groupid": "com.google.errorprone",
+              "artifactid": "error_prone_annotations",
+              "version": "2.26.1-jpms"
+            },
+            {
+              "groupid": "org.checkerframework",
+              "artifactid": "checker-qual",
+              "version": "3.43.0-SNAPSHOT"
+            },
+            {
+              "groupid": "org.reactivestreams",
+              "artifactid": "reactive-streams",
+              "version": "1.0.4-jpms"
+            },
+            {
+              "groupid": "com.google.protobuf",
+              "artifactid": "protobuf-java",
+              "version": "4.26.0-jpms"
+            },
+            {
+              "groupid": "com.google.protobuf",
+              "artifactid": "protobuf-util",
+              "version": "4.26.0-jpms"
+            },
+            {
+              "groupid": "com.google.protobuf",
+              "artifactid": "protobuf-kotlin",
+              "version": "4.26.0-jpms"
+            },
+            {
+              "groupid": "io.leangen.geantyref",
+              "artifactid": "geantyref",
+              "version": "1.3.15-jpms"
+            },
+            {
+              "groupid": "org.jetbrains.kotlinx",
+              "artifactid": "kotlinx-collections-immutable",
+              "version": "0.4.1-jpms"
+            },
+            {
+              "groupid": "com.google.guava",
+              "artifactid": "guava",
+              "version": "33.0.0-jre-jpms"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.protobuf:protobuf-parent:4.26.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.protobuf",
+      "artifactId": "protobuf-parent",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": false,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "com.google.protobuf",
+      "artifactid": "protobuf-parent",
+      "version": "4.26.0-jpms",
+      "packaging": "pom",
+      "name": "Protocol Buffers [Parent]",
+      "inceptionyear": "2008",
+      "url": "https://developers.google.com/protocol-buffers/",
+      "description": "Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.",
+      "developers": {
+        "developer": {
+          "id": "protobuf",
+          "name": "Protocol Buffers",
+          "email": "protobuf@googlegroups.com",
+          "organization": "Google",
+          "organizationurl": "https://protobuf.dev",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "properties": {
+        "bom.version": "${project.version}",
+        "project.build.sourceencoding": "UTF-8",
+        "project.reporting.outputencoding": "UTF-8",
+        "protobuf.basedir": "${project.basedir}/../..",
+        "protobuf.source.dir": "${protobuf.basedir}/src",
+        "protobuf.java_source.dir": "${protobuf.basedir}/java/core/src",
+        "protoc": "${protobuf.basedir}/protoc",
+        "test.proto.dir": "src/test/proto",
+        "generated.sources.dir": "${project.build.directory}/generated-sources",
+        "generated.testsources.dir": "${project.build.directory}/generated-test-sources"
+      },
+      "licenses": {
+        "license": {
+          "name": "BSD-3-Clause",
+          "url": "https://opensource.org/licenses/BSD-3-Clause",
+          "distribution": "repo"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/protocolbuffers/protobuf",
+        "connection": "scm:git:https://github.com/protocolbuffers/protobuf.git"
+      },
+      "distributionmanagement": {
+        "snapshotrepository": {
+          "id": "sonatype-nexus-staging",
+          "url": "https://oss.sonatype.org/content/repositories/snapshots"
+        },
+        "repository": {
+          "id": "sonatype-nexus-staging",
+          "url": "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+        }
+      },
+      "dependencymanagement": {
+        "dependencies": {
+          "dependency": [
+            {
+              "groupid": "com.google.protobuf",
+              "artifactid": "protobuf-bom",
+              "version": "${bom.version}",
+              "type": "pom",
+              "scope": "import"
+            },
+            {
+              "groupid": "junit",
+              "artifactid": "junit",
+              "version": "4.13.2",
+              "scope": "test"
+            },
+            {
+              "groupid": "org.mockito",
+              "artifactid": "mockito-core",
+              "version": "4.3.1",
+              "scope": "test"
+            },
+            {
+              "groupid": "com.google.guava",
+              "artifactid": "guava",
+              "version": "32.0.1-android"
+            },
+            {
+              "groupid": "com.google.guava",
+              "artifactid": "guava-testlib",
+              "version": "32.0.1-android",
+              "scope": "test"
+            },
+            {
+              "groupid": "com.google.truth",
+              "artifactid": "truth",
+              "version": "1.1.2",
+              "scope": "test"
+            }
+          ]
+        }
+      },
+      "build": {
+        "pluginmanagement": {
+          "plugins": {
+            "plugin": [
+              {
+                "artifactid": "maven-compiler-plugin",
+                "version": "3.12.1",
+                "configuration": {
+                  "source": "1.8",
+                  "target": "1.8"
+                }
+              },
+              {
+                "artifactid": "maven-source-plugin",
+                "version": "3.3.0",
+                "executions": {
+                  "execution": {
+                    "id": "attach-sources",
+                    "goals": {
+                      "goal": "jar-no-fork"
+                    }
+                  }
+                }
+              },
+              {
+                "artifactid": "maven-javadoc-plugin",
+                "version": "3.6.3",
+                "executions": {
+                  "execution": {
+                    "id": "attach-javadocs",
+                    "goals": {
+                      "goal": "jar"
+                    },
+                    "configuration": {
+                      "failonerror": "false"
+                    }
+                  }
+                }
+              },
+              {
+                "artifactid": "maven-jar-plugin",
+                "version": "3.3.0"
+              },
+              {
+                "groupid": "org.codehaus.mojo",
+                "artifactid": "build-helper-maven-plugin",
+                "version": "3.5.0"
+              },
+              {
+                "groupid": "org.apache.felix",
+                "artifactid": "maven-bundle-plugin",
+                "version": "5.1.9"
+              },
+              {
+                "artifactid": "maven-antrun-plugin",
+                "version": "3.1.0"
+              },
+              {
+                "artifactid": "maven-surefire-plugin",
+                "version": "3.2.5"
+              },
+              {
+                "groupid": "org.codehaus.mojo",
+                "artifactid": "animal-sniffer-maven-plugin",
+                "version": "1.23",
+                "dependencies": {
+                  "dependency": {
+                    "groupid": "org.ow2.asm",
+                    "artifactid": "asm",
+                    "version": "9.6"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "plugins": {
+          "plugin": [
+            {
+              "artifactid": "maven-compiler-plugin",
+              "executions": {
+                "execution": {
+                  "id": "default-compile",
+                  "configuration": {
+                    "source": "1.8",
+                    "target": "1.8",
+                    "excludes": {
+                      "exclude": "module-info.java"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "groupid": "org.codehaus.mojo",
+              "artifactid": "animal-sniffer-maven-plugin",
+              "configuration": {
+                "signature": [
+                  {
+                    "groupid": "org.codehaus.mojo.signature",
+                    "artifactid": "java18",
+                    "version": "1.0"
+                  },
+                  {
+                    "groupid": "net.sf.androidscents.signature",
+                    "artifactid": "android-api-level-21",
+                    "version": "5.0.1_r2"
+                  }
+                ],
+                "ignores": {
+                  "ignore": "sun.misc.Unsafe"
+                }
+              },
+              "executions": {
+                "execution": {
+                  "id": "android",
+                  "phase": "test",
+                  "goals": {
+                    "goal": "check"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "profiles": {
+        "profile": {
+          "id": "release",
+          "build": {
+            "plugins": {
+              "plugin": [
+                {
+                  "groupid": "org.apache.maven.plugins",
+                  "artifactid": "maven-source-plugin",
+                  "version": "2.2.1",
+                  "executions": {
+                    "execution": {
+                      "id": "attach-sources",
+                      "goals": {
+                        "goal": "jar-no-fork"
+                      }
+                    }
+                  }
+                },
+                {
+                  "groupid": "org.apache.maven.plugins",
+                  "artifactid": "maven-javadoc-plugin",
+                  "version": "2.10.3",
+                  "executions": {
+                    "execution": {
+                      "id": "attach-javadocs",
+                      "goals": {
+                        "goal": "jar"
+                      },
+                      "configuration": {
+                        "failonerror": "false"
+                      }
+                    }
+                  }
+                },
+                {
+                  "artifactid": "maven-gpg-plugin",
+                  "version": "1.6",
+                  "executions": {
+                    "execution": {
+                      "id": "sign-artifacts",
+                      "phase": "verify",
+                      "goals": {
+                        "goal": "sign"
+                      }
+                    }
+                  }
+                },
+                {
+                  "groupid": "org.sonatype.plugins",
+                  "artifactid": "nexus-staging-maven-plugin",
+                  "version": "1.6.6",
+                  "extensions": "true",
+                  "configuration": {
+                    "serverid": "sonatype-nexus-staging",
+                    "nexusurl": "https://oss.sonatype.org/",
+                    "autoreleaseafterclose": "false"
+                  }
+                },
+                {
+                  "groupid": "org.jetbrains.dokka",
+                  "artifactid": "dokka-maven-plugin",
+                  "version": "1.4.32",
+                  "executions": {
+                    "execution": {
+                      "phase": "prepare-package",
+                      "goals": {
+                        "goal": "javadocJar"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "modules": {
+        "module": [
+          "bom",
+          "lite",
+          "core",
+          "util",
+          "kotlin",
+          "kotlin-lite"
+        ]
+      }
+    }
+  },
+  {
+    "key": "com.google.protobuf:protobuf-java:4.26.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.protobuf",
+      "artifactId": "protobuf-java",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "parent": {
+        "groupid": "com.google.protobuf",
+        "artifactid": "protobuf-parent",
+        "version": "4.26.0-jpms"
+      },
+      "artifactid": "protobuf-java",
+      "packaging": "jar",
+      "name": "Protocol Buffers [Core]",
+      "description": "Core Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.",
+      "dependencies": "\n    \n  ",
+      "build": {
+        "plugins": {
+          "plugin": {
+            "groupid": "org.apache.felix",
+            "artifactid": "maven-bundle-plugin",
+            "extensions": "true",
+            "configuration": {
+              "instructions": {
+                "multi-release": "true",
+                "bundle-docurl": "https://developers.google.com/protocol-buffers/",
+                "bundle-symbolicname": "com.google.protobuf",
+                "export-package": "com.google.protobuf;version=${project.version}",
+                "import-package": "sun.misc;resolution:=optional,*"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.protobuf:protobuf-bom:4.26.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.protobuf",
+      "artifactId": "protobuf-bom",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": false,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "com.google.protobuf",
+      "artifactid": "protobuf-bom",
+      "version": "4.26.0-jpms",
+      "packaging": "pom",
+      "name": "Protocol Buffers [BOM]",
+      "description": "A compatible set of open source libraries for working with protocol buffers.",
+      "url": "https://developers.google.com/protocol-buffers/",
+      "organization": {
+        "name": "Google LLC",
+        "url": "https://protobuf.dev"
+      },
+      "developers": {
+        "developer": {
+          "id": "protobuf",
+          "name": "Protocol Buffers",
+          "email": "protobuf@googlegroups.com",
+          "organization": "Google",
+          "organizationurl": "https://protobuf.dev",
+          "timezone": "America/Los_Angeles"
+        }
+      },
+      "licenses": {
+        "license": {
+          "name": "BSD-3-Clause",
+          "url": "https://opensource.org/licenses/BSD-3-Clause"
+        }
+      },
+      "scm": {
+        "url": "https://github.com/protocolbuffers/protobuf",
+        "connection": "scm:git:https://github.com/protocolbuffers/protobuf.git"
+      },
+      "properties": {
+        "project.build.sourceencoding": "UTF-8"
+      },
+      "distributionmanagement": {
+        "snapshotrepository": {
+          "id": "sonatype-nexus-staging",
+          "url": "https://oss.sonatype.org/content/repositories/snapshots"
+        },
+        "repository": {
+          "id": "sonatype-nexus-staging",
+          "url": "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+        }
+      },
+      "dependencymanagement": {
+        "dependencies": {
+          "dependency": [
+            {
+              "groupid": "com.google.protobuf",
+              "artifactid": "protobuf-java",
+              "version": "${project.version}"
+            },
+            {
+              "groupid": "com.google.protobuf",
+              "artifactid": "protobuf-java-util",
+              "version": "${project.version}"
+            },
+            {
+              "groupid": "com.google.protobuf",
+              "artifactid": "protobuf-kotlin",
+              "version": "${project.version}"
+            }
+          ]
+        }
+      },
+      "profiles": {
+        "profile": {
+          "id": "release",
+          "build": {
+            "plugins": {
+              "plugin": [
+                {
+                  "artifactid": "maven-gpg-plugin",
+                  "version": "1.6",
+                  "executions": {
+                    "execution": {
+                      "id": "sign-artifacts",
+                      "phase": "verify",
+                      "goals": {
+                        "goal": "sign"
+                      }
+                    }
+                  }
+                },
+                {
+                  "groupid": "org.sonatype.plugins",
+                  "artifactid": "nexus-staging-maven-plugin",
+                  "version": "1.6.6",
+                  "extensions": "true",
+                  "configuration": {
+                    "nexusurl": "https://oss.sonatype.org/",
+                    "serverid": "sonatype-nexus-staging",
+                    "autoreleaseafterclose": "false"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.protobuf:protobuf-util:4.26.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.protobuf",
+      "artifactId": "protobuf-util",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "parent": {
+        "groupid": "com.google.protobuf",
+        "artifactid": "protobuf-parent",
+        "version": "4.26.0-jpms"
+      },
+      "artifactid": "protobuf-java-util",
+      "packaging": "jar",
+      "name": "Protocol Buffers [Util]",
+      "description": "Utilities for Protocol Buffers",
+      "dependencies": {
+        "dependency": [
+          {
+            "groupid": "com.google.protobuf",
+            "artifactid": "protobuf-java",
+            "version": "${project.version}"
+          },
+          {
+            "groupid": "com.google.code.findbugs",
+            "artifactid": "jsr305",
+            "version": "3.0.2"
+          },
+          {
+            "groupid": "com.google.code.gson",
+            "artifactid": "gson",
+            "version": "2.8.9"
+          },
+          {
+            "groupid": "com.google.errorprone",
+            "artifactid": "error_prone_annotations",
+            "version": "2.26.1"
+          },
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "guava",
+            "version": "33.0.0-jre"
+          },
+          {
+            "groupid": "com.google.j2objc",
+            "artifactid": "j2objc-annotations",
+            "version": "3.0.0"
+          }
+        ]
+      },
+      "build": {
+        "plugins": {
+          "plugin": {
+            "groupid": "org.apache.felix",
+            "artifactid": "maven-bundle-plugin",
+            "extensions": "true",
+            "configuration": {
+              "instructions": {
+                "multi-release": "true",
+                "bundle-docurl": "https://developers.google.com/protocol-buffers/",
+                "bundle-symbolicname": "com.google.protobuf.util",
+                "export-package": "com.google.protobuf.util;version=${project.version}"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.protobuf:protobuf-javalite:4.26.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.protobuf",
+      "artifactId": "protobuf-javalite",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "modelversion": "4.0.0",
+      "parent": {
+        "groupid": "com.google.protobuf",
+        "artifactid": "protobuf-parent",
+        "version": "4.26.0-jpms"
+      },
+      "artifactid": "protobuf-javalite",
+      "packaging": "jar",
+      "name": "Protocol Buffers [Lite]",
+      "description": "Lite version of Protocol Buffers library. This version is optimized for code size, but does not guarantee API/ABI stability.",
+      "dependencies": "\n    \n  ",
+      "build": {
+        "plugins": {
+          "plugin": {
+            "groupid": "org.apache.felix",
+            "artifactid": "maven-bundle-plugin",
+            "extensions": "true",
+            "configuration": {
+              "instructions": {
+                "multi-release": "true",
+                "bundle-docurl": "https://developers.google.com/protocol-buffers/",
+                "bundle-symbolicname": "com.google.protobuf",
+                "export-package": "com.google.protobuf;version=${project.version}",
+                "import-package": "sun.misc;resolution:=optional,*"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.protobuf:protobuf-kotlin-lite:4.26.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.protobuf",
+      "artifactId": "protobuf-kotlin-lite",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "parent": {
+        "groupid": "com.google.protobuf",
+        "artifactid": "protobuf-parent",
+        "version": "4.26.0-jpms"
+      },
+      "artifactid": "protobuf-kotlin-lite",
+      "packaging": "jar",
+      "name": "Protocol Buffers [Kotlin-Lite]",
+      "description": "Kotlin lite Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.",
+      "dependencies": {
+        "dependency": [
+          {
+            "groupid": "com.google.protobuf",
+            "artifactid": "protobuf-javalite",
+            "version": "${project.version}"
+          },
+          {
+            "groupid": "org.jetbrains.kotlin",
+            "artifactid": "kotlin-stdlib",
+            "version": "${kotlin.version}"
+          }
+        ]
+      },
+      "properties": {
+        "kotlin.version": "1.6.0"
+      }
+    }
+  },
+  {
+    "key": "com.google.protobuf:protobuf-kotlin:4.26.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.protobuf",
+      "artifactId": "protobuf-kotlin",
+      "version": "4.26.0-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "parent": {
+        "groupid": "com.google.protobuf",
+        "artifactid": "protobuf-parent",
+        "version": "4.26.0-jpms"
+      },
+      "artifactid": "protobuf-kotlin",
+      "packaging": "jar",
+      "name": "Protocol Buffers [Kotlin]",
+      "description": "Kotlin Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.",
+      "dependencies": {
+        "dependency": [
+          {
+            "groupid": "com.google.protobuf",
+            "artifactid": "protobuf-java",
+            "version": "${project.version}"
+          },
+          {
+            "groupid": "org.jetbrains.kotlin",
+            "artifactid": "kotlin-stdlib",
+            "version": "${kotlin.version}"
+          }
+        ]
+      },
+      "properties": {
+        "kotlin.version": "1.6.0"
+      }
+    }
+  },
+  {
+    "key": "com.google.j2objc:j2objc-annotations:3.0.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.j2objc",
+      "artifactId": "j2objc-annotations",
+      "version": "3.0.0-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "properties": {
+        "maven.compiler.source": "1.7",
+        "maven.compiler.target": "1.7"
+      },
+      "groupid": "com.google.j2objc",
+      "artifactid": "j2objc-annotations",
+      "packaging": "jar",
+      "version": "3.0.0-jpms",
+      "name": "J2ObjC Annotations",
+      "description": "A set of annotations that provide additional information to the J2ObjC translator to modify the result of translation.",
+      "url": "https://github.com/google/j2objc/",
+      "licenses": {
+        "license": {
+          "name": "Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+          "distribution": "repo"
+        }
+      },
+      "scm": {
+        "url": "http://github.com/google/j2objc",
+        "connection": "scm:git:git://github.com/google/j2objc.git",
+        "developerconnection": "scm:git:ssh://git@github.com/google/j2objc.git"
+      },
+      "developers": {
+        "developer": {
+          "id": "tomball",
+          "name": "Tom Ball",
+          "email": "tball@google.com",
+          "organization": "Google",
+          "organizationurl": "https://www.google.com"
+        }
+      },
+      "distributionmanagement": {
+        "snapshotrepository": {
+          "id": "sonatype-nexus-snapshots",
+          "name": "Sonatype Nexus Snapshots",
+          "url": "https://oss.sonatype.org/content/repositories/snapshots/"
+        },
+        "repository": {
+          "id": "sonatype-nexus-staging",
+          "name": "Nexus Release Repository",
+          "url": "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+        }
+      },
+      "build": {
+        "plugins": {
+          "plugin": [
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-compiler-plugin",
+              "version": "3.12.1",
+              "executions": {
+                "execution": [
+                  {
+                    "id": "default-compile",
+                    "configuration": {
+                      "source": "1.8",
+                      "target": "1.8",
+                      "excludes": {
+                        "exclude": "module-info.java"
+                      }
+                    }
+                  },
+                  {
+                    "id": "compile-java9",
+                    "phase": "compile",
+                    "goals": {
+                      "goal": "compile"
+                    },
+                    "configuration": {
+                      "release": "9",
+                      "multireleaseoutput": "true"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-jar-plugin",
+              "version": "3.3.0",
+              "configuration": {
+                "archive": {
+                  "manifestentries": {
+                    "multi-release": "true"
+                  }
+                },
+                "excludes": {
+                  "exclude": "META-INF/versions/9/com/**"
+                }
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-javadoc-plugin",
+              "version": "3.6.3",
+              "executions": {
+                "execution": {
+                  "id": "generate-docs",
+                  "phase": "package",
+                  "goals": {
+                    "goal": "jar"
+                  }
+                }
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-source-plugin",
+              "version": "3.3.0",
+              "executions": {
+                "execution": {
+                  "id": "generate-sources",
+                  "phase": "package",
+                  "goals": {
+                    "goal": "jar-no-fork"
+                  }
+                }
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-gpg-plugin",
+              "version": "3.1.0",
+              "executions": {
+                "execution": {
+                  "id": "sign-artifacts",
+                  "phase": "verify",
+                  "goals": {
+                    "goal": "sign"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.j2objc:j2objc-annotations:3.0.0",
+    "coordinate": {
+      "groupId": "com.google.j2objc",
+      "artifactId": "j2objc-annotations",
+      "version": "3.0.0"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "properties": {
+        "maven.compiler.source": "1.7",
+        "maven.compiler.target": "1.7"
+      },
+      "groupid": "com.google.j2objc",
+      "artifactid": "j2objc-annotations",
+      "packaging": "jar",
+      "version": "3.0.0-jpms",
+      "name": "J2ObjC Annotations",
+      "description": "A set of annotations that provide additional information to the J2ObjC translator to modify the result of translation.",
+      "url": "https://github.com/google/j2objc/",
+      "licenses": {
+        "license": {
+          "name": "Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+          "distribution": "repo"
+        }
+      },
+      "scm": {
+        "url": "http://github.com/google/j2objc",
+        "connection": "scm:git:git://github.com/google/j2objc.git",
+        "developerconnection": "scm:git:ssh://git@github.com/google/j2objc.git"
+      },
+      "developers": {
+        "developer": {
+          "id": "tomball",
+          "name": "Tom Ball",
+          "email": "tball@google.com",
+          "organization": "Google",
+          "organizationurl": "https://www.google.com"
+        }
+      },
+      "distributionmanagement": {
+        "snapshotrepository": {
+          "id": "sonatype-nexus-snapshots",
+          "name": "Sonatype Nexus Snapshots",
+          "url": "https://oss.sonatype.org/content/repositories/snapshots/"
+        },
+        "repository": {
+          "id": "sonatype-nexus-staging",
+          "name": "Nexus Release Repository",
+          "url": "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+        }
+      },
+      "build": {
+        "plugins": {
+          "plugin": [
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-compiler-plugin",
+              "version": "3.12.1",
+              "executions": {
+                "execution": [
+                  {
+                    "id": "default-compile",
+                    "configuration": {
+                      "source": "1.8",
+                      "target": "1.8",
+                      "excludes": {
+                        "exclude": "module-info.java"
+                      }
+                    }
+                  },
+                  {
+                    "id": "compile-java9",
+                    "phase": "compile",
+                    "goals": {
+                      "goal": "compile"
+                    },
+                    "configuration": {
+                      "release": "9",
+                      "multireleaseoutput": "true"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-jar-plugin",
+              "version": "3.3.0",
+              "configuration": {
+                "archive": {
+                  "manifestentries": {
+                    "multi-release": "true"
+                  }
+                },
+                "excludes": {
+                  "exclude": "META-INF/versions/9/com/**"
+                }
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-javadoc-plugin",
+              "version": "3.6.3",
+              "executions": {
+                "execution": {
+                  "id": "generate-docs",
+                  "phase": "package",
+                  "goals": {
+                    "goal": "jar"
+                  }
+                }
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-source-plugin",
+              "version": "3.3.0",
+              "executions": {
+                "execution": {
+                  "id": "generate-sources",
+                  "phase": "package",
+                  "goals": {
+                    "goal": "jar-no-fork"
+                  }
+                }
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-gpg-plugin",
+              "version": "3.1.0",
+              "executions": {
+                "execution": {
+                  "id": "sign-artifacts",
+                  "phase": "verify",
+                  "goals": {
+                    "goal": "sign"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.errorprone:error_prone_annotations:2.25.0-jpms",
+    "coordinate": {
+      "groupId": "com.google.errorprone",
+      "artifactId": "error_prone_annotations",
+      "version": "2.25.0-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "modelversion": "4.0.0",
+      "name": "error-prone annotations",
+      "artifactid": "error_prone_annotations",
+      "groupid": "com.google.errorprone",
+      "version": "2.25.0-jpms",
+      "dependencies": {
+        "dependency": {
+          "groupid": "junit",
+          "artifactid": "junit",
+          "version": "${junit.version}",
+          "scope": "test"
+        }
+      },
+      "licenses": {
+        "license": {
+          "name": "Apache 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "build": {
+        "plugins": {
+          "plugin": [
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-compiler-plugin",
+              "configuration": {
+                "compilerargs": {
+                  "combine.self": "override"
+                }
+              },
+              "executions": {
+                "execution": [
+                  {
+                    "id": "default-compile",
+                    "configuration": {
+                      "source": "1.8",
+                      "target": "1.8",
+                      "excludes": {
+                        "exclude": "module-info.java"
+                      }
+                    }
+                  },
+                  {
+                    "id": "compile-java9",
+                    "goals": {
+                      "goal": "compile"
+                    },
+                    "configuration": {
+                      "source": "9",
+                      "target": "9",
+                      "release": "9",
+                      "multireleaseoutput": "true"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-jar-plugin",
+              "configuration": {
+                "archive": {
+                  "manifestentries": {
+                    "multi-release": "true"
+                  }
+                },
+                "excludes": {
+                  "exclude": "/META-INF/versions/9/com/**/*.class"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.errorprone:error_prone_annotations:2.26.1",
+    "coordinate": {
+      "groupId": "com.google.errorprone",
+      "artifactId": "error_prone_annotations",
+      "version": "2.26.1"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd",
+      "modelversion": "4.0.0",
+      "name": "error-prone annotations",
+      "artifactid": "error_prone_annotations",
+      "groupid": "com.google.errorprone",
+      "version": "2.25.0-jpms",
+      "dependencies": {
+        "dependency": {
+          "groupid": "junit",
+          "artifactid": "junit",
+          "version": "${junit.version}",
+          "scope": "test"
+        }
+      },
+      "licenses": {
+        "license": {
+          "name": "Apache 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      },
+      "build": {
+        "plugins": {
+          "plugin": [
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-compiler-plugin",
+              "configuration": {
+                "compilerargs": {
+                  "combine.self": "override"
+                }
+              },
+              "executions": {
+                "execution": [
+                  {
+                    "id": "default-compile",
+                    "configuration": {
+                      "source": "1.8",
+                      "target": "1.8",
+                      "excludes": {
+                        "exclude": "module-info.java"
+                      }
+                    }
+                  },
+                  {
+                    "id": "compile-java9",
+                    "goals": {
+                      "goal": "compile"
+                    },
+                    "configuration": {
+                      "source": "9",
+                      "target": "9",
+                      "release": "9",
+                      "multireleaseoutput": "true"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "groupid": "org.apache.maven.plugins",
+              "artifactid": "maven-jar-plugin",
+              "configuration": {
+                "archive": {
+                  "manifestentries": {
+                    "multi-release": "true"
+                  }
+                },
+                "excludes": {
+                  "exclude": "/META-INF/versions/9/com/**/*.class"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.guava:guava-bom:33.0.0-jre-jpms",
+    "coordinate": {
+      "groupId": "com.google.guava",
+      "artifactId": "guava-bom",
+      "version": "33.0.0-jre-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": false,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "com.google.guava",
+      "artifactid": "guava-bom",
+      "version": "33.0.0-jre-jpms",
+      "packaging": "pom",
+      "parent": {
+        "groupid": "org.sonatype.oss",
+        "artifactid": "oss-parent",
+        "version": "9",
+        "relativepath": ""
+      },
+      "name": "Guava BOM",
+      "description": "BOM for Guava artifacts",
+      "url": "https://github.com/google/guava",
+      "inceptionyear": "2010",
+      "issuemanagement": {
+        "system": "GitHub Issues",
+        "url": "https://github.com/google/guava/issues"
+      },
+      "licenses": {
+        "license": {
+          "name": "Apache License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+          "distribution": "repo"
+        }
+      },
+      "dependencymanagement": {
+        "dependencies": {
+          "dependency": [
+            {
+              "groupid": "com.google.guava",
+              "artifactid": "guava",
+              "version": "${project.version}"
+            },
+            {
+              "groupid": "com.google.guava",
+              "artifactid": "guava-gwt",
+              "version": "${project.version}"
+            },
+            {
+              "groupid": "com.google.guava",
+              "artifactid": "guava-testlib",
+              "version": "${project.version}"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.guava:failureaccess:1.0.3-jpms",
+    "coordinate": {
+      "groupId": "com.google.guava",
+      "artifactId": "failureaccess",
+      "version": "1.0.3-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "com.google.guava",
+      "artifactid": "failureaccess",
+      "version": "1.0.3-jpms",
+      "packaging": "bundle",
+      "name": "Guava InternalFutureFailureAccess and InternalFutures",
+      "description": "Contains com.google.common.util.concurrent.internal.InternalFutureFailureAccess and InternalFutures. Most users will never need to use this artifact. Its classes are conceptually a part of Guava, but they're in this separate artifact so that Android libraries can use them without pulling in all of Guava (just as they can use ListenableFuture by depending on the listenablefuture artifact).",
+      "build": {
+        "plugins": {
+          "plugin": [
+            {
+              "artifactid": "maven-compiler-plugin",
+              "executions": {
+                "execution": [
+                  {
+                    "id": "default-compile",
+                    "configuration": {
+                      "source": "1.8",
+                      "target": "1.8",
+                      "excludes": {
+                        "exclude": "module-info.java"
+                      }
+                    }
+                  },
+                  {
+                    "id": "compile-java9",
+                    "configuration": {
+                      "release": "9",
+                      "multireleaseoutput": "true"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "artifactid": "maven-jar-plugin",
+              "configuration": {
+                "archive": {
+                  "manifestentries": {
+                    "multi-release": "true"
+                  }
+                },
+                "excludes": {
+                  "exclude": "META-INF/versions/9/com/**/*.java"
+                }
+              }
+            },
+            {
+              "artifactid": "maven-source-plugin"
+            },
+            {
+              "groupid": "org.codehaus.mojo",
+              "artifactid": "animal-sniffer-maven-plugin"
+            },
+            {
+              "extensions": "true",
+              "groupid": "org.apache.felix",
+              "artifactid": "maven-bundle-plugin",
+              "version": "5.1.8",
+              "executions": {
+                "execution": {
+                  "id": "bundle-manifest",
+                  "phase": "process-classes",
+                  "goals": {
+                    "goal": "manifest"
+                  }
+                }
+              },
+              "configuration": {
+                "instructions": {
+                  "export-package": "com.google.common.util.concurrent.internal",
+                  "bundle-docurl": "https://github.com/google/guava/"
+                }
+              }
+            },
+            {
+              "artifactid": "maven-javadoc-plugin",
+              "executions": {
+                "execution": [
+                  {
+                    "id": "attach-docs"
+                  },
+                  {
+                    "id": "generate-javadoc-site-report",
+                    "phase": "site",
+                    "goals": {
+                      "goal": "javadoc"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "profiles": {
+        "profile": {
+          "id": "sonatype-oss-release",
+          "build": {
+            "plugins": {
+              "plugin": {
+                "artifactid": "maven-gpg-plugin",
+                "version": "3.0.1",
+                "executions": {
+                  "execution": {
+                    "id": "sign-artifacts",
+                    "phase": "verify",
+                    "goals": {
+                      "goal": "sign"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.guava:guava:33.0.0-jre-jpms",
+    "coordinate": {
+      "groupId": "com.google.guava",
+      "artifactId": "guava",
+      "version": "33.0.0-jre-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "com.google.guava",
+      "artifactid": "guava",
+      "version": "33.0.0-jre-jpms",
+      "packaging": "jar",
+      "name": "Guava: Google Core Libraries for Java",
+      "url": "https://github.com/google/guava",
+      "description": "Guava is a suite of core and expanded libraries that include utility classes, Google's collections, I/O classes, and much more.",
+      "dependencies": {
+        "dependency": [
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "failureaccess",
+            "version": "1.0.3-jpms"
+          },
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "listenablefuture",
+            "version": "9999.0-empty-to-avoid-conflict-with-guava"
+          },
+          {
+            "groupid": "com.google.code.findbugs",
+            "artifactid": "jsr305",
+            "version": "3.0.2"
+          },
+          {
+            "groupid": "org.checkerframework",
+            "artifactid": "checker-qual",
+            "version": "3.43.0-SNAPSHOT"
+          },
+          {
+            "groupid": "com.google.errorprone",
+            "artifactid": "error_prone_annotations",
+            "version": "2.26.1"
+          },
+          {
+            "groupid": "com.google.j2objc",
+            "artifactid": "j2objc-annotations",
+            "version": "3.0.0"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "key": "com.google.guava:guava-testlib:33.0.0-jre-jpms",
+    "coordinate": {
+      "groupId": "com.google.guava",
+      "artifactId": "guava-testlib",
+      "version": "33.0.0-jre-jpms"
+    },
+    "flags": {
+      "modular": true,
+      "gradleModule": false,
+      "mrjar": true,
+      "minimumBytecodeTarget": "1.8"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "com.google.guava",
+      "artifactid": "guava-testlib",
+      "version": "33.0.0-jre-jpms",
+      "packaging": "jar",
+      "name": "Guava Testing Library",
+      "description": "Guava testlib is a set of java classes used for more convenient unit testing - particularly to assist the tests for Guava itself.",
+      "url": "https://github.com/google/guava",
+      "dependencies": {
+        "dependency": [
+          {
+            "groupid": "com.google.code.findbugs",
+            "artifactid": "jsr305"
+          },
+          {
+            "groupid": "org.checkerframework",
+            "artifactid": "checker-qual"
+          },
+          {
+            "groupid": "com.google.errorprone",
+            "artifactid": "error_prone_annotations"
+          },
+          {
+            "groupid": "com.google.j2objc",
+            "artifactid": "j2objc-annotations"
+          },
+          {
+            "groupid": "${project.groupId}",
+            "artifactid": "guava",
+            "version": "${project.version}"
+          },
+          {
+            "groupid": "junit",
+            "artifactid": "junit",
+            "version": "4.13.2"
+          },
+          {
+            "groupid": "com.google.truth",
+            "artifactid": "truth",
+            "version": "${truth.version}",
+            "scope": "test",
+            "exclusions": {
+              "exclusion": {
+                "groupid": "com.google.guava",
+                "artifactid": "guava"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "key": "com.google.guava:guava-parent:33.0.0-jre-jpms",
+    "coordinate": {
+      "groupId": "com.google.guava",
+      "artifactId": "guava-parent",
+      "version": "33.0.0-jre-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": false,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "com.google.guava",
+      "artifactid": "guava-parent",
+      "version": "33.0.0-jre-jpms",
+      "packaging": "jar",
+      "name": "Guava: Parent",
+      "url": "https://github.com/google/guava",
+      "description": "Parent to all Guava POMs.",
+      "dependencies": "\n  ",
+      "build": {
+        "resources": {
+          "resource": {
+            "directory": "..",
+            "includes": {
+              "include": [
+                "LICENSE",
+                "proguard/*"
+              ]
+            },
+            "targetpath": "META-INF"
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "com.google.guava:guava-gwt:33.0.0-jre-jpms",
+    "coordinate": {
+      "groupId": "com.google.guava",
+      "artifactId": "guava-gwt",
+      "version": "33.0.0-jre-jpms"
+    },
+    "flags": {
+      "modular": false,
+      "gradleModule": false,
+      "mrjar": false,
+      "minimumBytecodeTarget": "1.5"
+    },
+    "pom": {
+      "xmlns": "http://maven.apache.org/POM/4.0.0",
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation": "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd",
+      "modelversion": "4.0.0",
+      "groupid": "com.google.guava",
+      "artifactid": "guava-gwt",
+      "version": "33.0.0-jre-jpms",
+      "packaging": "jar",
+      "name": "Guava GWT compatible libs",
+      "url": "https://github.com/google/guava",
+      "description": "Guava is a suite of core and expanded libraries that include utility classes, Google's collections, I/O classes, and much more. This project includes GWT-friendly sources.",
+      "properties": {
+        "gwt.version": "2.11.0",
+        "gwt.plugin.version": "2.10.0",
+        "gwt.loglevel": "WARN"
+      },
+      "repositories": {
+        "repository": {
+          "id": "sonatype-google-snapshots",
+          "name": "sonatype-google-snapshots",
+          "url": "https://oss.sonatype.org/content/repositories/google-snapshots/",
+          "snapshots": {
+            "enabled": "true"
+          }
+        }
+      },
+      "dependencies": {
+        "dependency": [
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "failureaccess",
+            "version": "1.0.2"
+          },
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "guava",
+            "version": "${project.version}"
+          },
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "guava-testlib",
+            "version": "${project.version}",
+            "scope": "test"
+          },
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "guava-testlib",
+            "version": "${project.version}",
+            "classifier": "tests",
+            "scope": "test"
+          },
+          {
+            "groupid": "com.google.guava",
+            "artifactid": "guava-tests",
+            "version": "${project.version}",
+            "classifier": "tests",
+            "scope": "test"
+          },
+          {
+            "groupid": "org.gwtproject",
+            "artifactid": "gwt-dev",
+            "version": "${gwt.version}",
+            "scope": "provided"
+          },
+          {
+            "groupid": "org.gwtproject",
+            "artifactid": "gwt-user",
+            "version": "${gwt.version}",
+            "scope": "test"
+          },
+          {
+            "groupid": "com.google.truth",
+            "artifactid": "truth",
+            "version": "${truth.version}",
+            "classifier": "gwt",
+            "scope": "test",
+            "exclusions": {
+              "exclusion": {
+                "groupid": "com.google.guava",
+                "artifactid": "guava"
+              }
+            }
+          },
+          {
+            "groupid": "com.google.truth.extensions",
+            "artifactid": "truth-java8-extension",
+            "version": "${truth.version}",
+            "classifier": "gwt",
+            "scope": "test",
+            "exclusions": {
+              "exclusion": {
+                "groupid": "com.google.guava",
+                "artifactid": "guava"
+              }
+            }
+          },
+          {
+            "groupid": "org.checkerframework",
+            "artifactid": "checker-qual"
+          }
+        ]
+      }
+    }
+  }
+]
