@@ -11,10 +11,21 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { describe, expect, test } from '@jest/globals'
+import { describe, expect, test, jest, beforeAll } from '@jest/globals'
 import { modules, gradle, packages } from '../src/client-indexes'
 
+let fetchMock: jest.SpiedFunction<typeof fetch>
+
 describe('index fetcher', () => {
+  beforeAll(() => {
+    fetchMock = jest.spyOn(global, 'fetch')
+    fetchMock.mockImplementation(async () => {
+      return {
+        json: async () => ({})
+      } as Response
+    })
+  })
+
   test('can fetch the modules index', async () => {
     const index = await modules()
     expect(index).toBeDefined()
@@ -29,8 +40,4 @@ describe('index fetcher', () => {
     const index = await gradle()
     expect(index).toBeDefined()
   })
-})
-
-test('2 + 2', () => {
-  expect(2 + 2).toBe(4)
 })

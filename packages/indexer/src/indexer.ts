@@ -383,7 +383,7 @@ function buildIndexMetadata(
   md5: string,
   sha1: string,
   sha256: string,
-  sha512: string,
+  sha512: string
 ): RepositoryIndexMetadata {
   return {
     name: name.split('.').at(0) as string,
@@ -393,11 +393,16 @@ function buildIndexMetadata(
     md5,
     sha1,
     sha256,
-    sha512,
+    sha512
   }
 }
 
-function buildIndexFile(ts: number, name: string,  contents: unknown[], pretty: boolean = DEFAULT_PRETTY): RepositoryIndexFile {
+function buildIndexFile(
+  ts: number,
+  name: string,
+  contents: unknown[],
+  pretty: boolean = DEFAULT_PRETTY
+): RepositoryIndexFile {
   const md5 = createHash('md5')
   const sha1 = createHash('sha1')
   const sha256 = createHash('sha256')
@@ -422,15 +427,7 @@ function buildIndexFile(ts: number, name: string,  contents: unknown[], pretty: 
   const sha256hex = sha256.digest('hex')
   const sha512hex = sha512.digest('hex')
 
-  const metadata = buildIndexMetadata(
-    ts,
-    name,
-    contents,
-    md5hex,
-    sha1hex,
-    sha256hex,
-    sha512hex
-  )
+  const metadata = buildIndexMetadata(ts, name, contents, md5hex, sha1hex, sha256hex, sha512hex)
   let renderedMetadata: string
   try {
     renderedMetadata = JSONStringify(metadata, {
@@ -454,7 +451,7 @@ function buildIndexFile(ts: number, name: string,  contents: unknown[], pretty: 
 
 async function prepareContent(indexes: RepositoryIndexBundle): Promise<RepositoryIndexFile[]> {
   // build modules index file
-  const timestamp = +(new Date())
+  const timestamp = +new Date()
   return [
     buildIndexFile(timestamp, 'modules.json', indexes.modules),
     buildIndexFile(timestamp, 'gradle.json', indexes.gradle),
@@ -491,7 +488,11 @@ async function writeIndexFile(root: string, write: RepositoryIndexFile) {
   console.log(`Index written: '${write.name}' (size: ${write.contents.length})`)
 }
 
-async function writeIndexes(outpath: string, indexes: RepositoryIndexBundle, write: boolean): Promise<RepositoryIndexBundle> {
+async function writeIndexes(
+  outpath: string,
+  indexes: RepositoryIndexBundle,
+  write: boolean
+): Promise<RepositoryIndexBundle> {
   const resolvedOut = resolve(outpath)
   console.log(`Writing indexes → ${resolvedOut}`)
   if (!existsSync(resolvedOut)) {
@@ -514,7 +515,11 @@ async function writeIndexes(outpath: string, indexes: RepositoryIndexBundle, wri
  * @param outpath Output path (directory) for generated index files
  * @param write Whether to write
  */
-export async function buildRepositoryIndexes(path: string, outpath: string, write: boolean): Promise<RepositoryIndexBundle> {
+export async function buildRepositoryIndexes(
+  path: string,
+  outpath: string,
+  write: boolean
+): Promise<RepositoryIndexBundle> {
   const prefix = resolve(path)
   console.log(`Scanning repository '${prefix}'...`)
   let all_packages: RepositoryPackage[] = []

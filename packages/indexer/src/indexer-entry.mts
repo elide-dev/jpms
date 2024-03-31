@@ -18,5 +18,5 @@ import { buildRepositoryIndexes } from './indexer.js'
 await buildRepositoryIndexes(
   process.argv[2] || join('..', '..', 'repository'),
   join('..', '..', '.well-known', 'maven-indexes'),
-  true,
+  true
 )

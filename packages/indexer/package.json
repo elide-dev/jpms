@@ -16,12 +16,12 @@
     "url": "https://github.com/elide-dev/jpms",
     "directory": "packages/indexer"
   },
-  "type": "module",
   "license": "Apache-2.0",
   "author": {
     "name": "Sam Gammon",
     "url": "https://github.com/sgammon"
   },
+  "type": "module",
   "exports": {
     "./client/depsdev": {
       "types": "./dist/client-depsdev.d.ts",
@@ -75,7 +75,6 @@
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": "reports",
-    "slowTestThreshold": 30,
     "coverageProvider": "v8",
     "coverageReporters": [
       "lcov",
@@ -85,14 +84,6 @@
       ".ts",
       ".mts"
     ],
-    "transform": {
-      "^.+\\.(m)?ts?$": [
-        "ts-jest",
-        {
-          "useESM": true
-        }
-      ]
-    },
     "preset": "ts-jest",
     "reporters": [
       "default",
@@ -105,9 +96,18 @@
         }
       ]
     ],
+    "slowTestThreshold": 30,
     "testMatch": [
       "<rootDir>/tests/*.test.ts"
-    ]
+    ],
+    "transform": {
+      "^.+\\.(m)?ts?$": [
+        "ts-jest",
+        {
+          "useESM": true
+        }
+      ]
+    }
   },
   "dependencies": {
     "@bufbuild/protobuf": "1.8.0",
@@ -127,7 +127,7 @@
     "commander": "12.0.0",
     "fflate": "0.8.2",
     "glob": "10.3.12",
-    "hashlock": "1.0.1",
+    "hashlock": "1.0.2",
     "inquirer": "9.2.17",
     "json-stable-stringify": "1.1.1",
     "openpgp": "5.11.1",

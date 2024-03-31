@@ -13,9 +13,10 @@
 
 import {
   RepositoryGradleModulesIndexEntry,
+  RepositoryIndexMetadata,
   RepositoryModulesIndexEntry,
-  RepositoryPackageIndexEntry,
-} from "./indexer-model.js"
+  RepositoryPackageIndexEntry
+} from './indexer-model.js'
 
 /**
  * Path where indexes are served from.
@@ -78,7 +79,8 @@ export const productionEndpoint = `https://javamodules.dev/${repoIndexPath}`
 export const defaultHost = JavaModulesEndpoint.GITHUB
 
 export type IndexesResponse<V> = {
-  data: V,
+  data: V
+  metadata: RepositoryIndexMetadata
 }
 
 /**
@@ -87,10 +89,22 @@ export type IndexesResponse<V> = {
  * @param response Data to enclose within the indexes response
  * @return Wrapped response
  */
-function buildResponse<V>(response: V): IndexesResponse<V> {
+function buildResponse<V>(response: V, metadata: RepositoryIndexMetadata): IndexesResponse<V> {
   return {
     data: response,
+    metadata
   }
+}
+
+function endpointForFile(host: JavaModulesEndpoint, file: string): URL {
+  const resolvedHost = {
+    [JavaModulesEndpoint.GITHUB]: githubRepoEndpoint,
+    [JavaModulesEndpoint.PAGES]: githubPagesEndpoint,
+    [JavaModulesEndpoint.PRODUCTION]: productionEndpoint
+  }[host]
+
+  if (!host) throw new Error(`Unknown endpoint: ${host}`)
+  return new URL(`${resolvedHost}/${file}`)
 }
 
 /**
@@ -103,22 +117,34 @@ function buildResponse<V>(response: V): IndexesResponse<V> {
  * @returns URL to download the index
  */
 export function endpoint(index: JavaModulesIndex, host: JavaModulesEndpoint = defaultHost): URL {
-  const resolvedHost = {
-    [JavaModulesEndpoint.GITHUB]: githubRepoEndpoint,
-    [JavaModulesEndpoint.PAGES]: githubPagesEndpoint,
-    [JavaModulesEndpoint.PRODUCTION]: productionEndpoint
-  }[host]
-
   const indexFile = {
     [JavaModulesIndex.MODULES]: repoIndexModules,
     [JavaModulesIndex.PACKAGES]: repoIndexPackages,
     [JavaModulesIndex.GRADLE]: repoIndexGradle
   }[index]
 
-  if (!host) throw new Error(`Unknown endpoint: ${host}`)
   if (!index) throw new Error(`Unknown index: ${index}`)
+  return endpointForFile(host, indexFile)
+}
 
-  return new URL(`${resolvedHost}/${indexFile}`)
+/**
+ * Metadata Endpoint
+ *
+ * Calculate the URL where an index metadata file can be downloaded from.
+ *
+ * @param host Host to use for the URL
+ * @param index Index requested
+ * @returns URL to download the index
+ */
+export function metadata(index: JavaModulesIndex, host: JavaModulesEndpoint = defaultHost): URL {
+  const indexFile = {
+    [JavaModulesIndex.MODULES]: repoIndexModules,
+    [JavaModulesIndex.PACKAGES]: repoIndexPackages,
+    [JavaModulesIndex.GRADLE]: repoIndexGradle
+  }[index]
+
+  if (!index) throw new Error(`Unknown index: ${index}`)
+  return endpointForFile(host, `${indexFile.split('.').at(0) as string}.metadata.json`)
 }
 
 /**
@@ -133,17 +159,26 @@ export function endpoint(index: JavaModulesIndex, host: JavaModulesEndpoint = de
  */
 export async function fetchIndex<V>(
   index: JavaModulesIndex,
-  host: JavaModulesEndpoint = defaultHost,
-): Promise<V> {
+  host: JavaModulesEndpoint = defaultHost
+): Promise<IndexesResponse<V>> {
   const target = endpoint(index, host)
-  let idx: V
+  const meta = metadata(index, host)
   try {
-    const response = await fetch(target.toString())
-    idx = await response.json()
+    const response = fetch(target.toString())
+    const metadataOp = fetch(meta.toString())
+    return new Promise(async (resolve, reject) => {
+      try {
+        const [res, metaRes] = await Promise.all([response, metadataOp])
+        const data = await res.json()
+        const metadata = await metaRes.json()
+        resolve(buildResponse(data, metadata))
+      } catch (err) {
+        reject(err)
+      }
+    })
   } catch (err) {
     throw new Error(`Failed to fetch index from ${target}: ${err}`)
   }
-  return idx
 }
 
 /**
@@ -156,11 +191,9 @@ export async function fetchIndex<V>(
  * @returns Fetched index data
  */
 export async function modules(
-  host: JavaModulesEndpoint = defaultHost,
+  host: JavaModulesEndpoint = defaultHost
 ): Promise<IndexesResponse<RepositoryModulesIndexEntry>> {
-  return buildResponse(
-    await fetchIndex<RepositoryModulesIndexEntry>(JavaModulesIndex.MODULES, host)
-  )
+  return await fetchIndex<RepositoryModulesIndexEntry>(JavaModulesIndex.MODULES, host)
 }
 
 /**
@@ -173,11 +206,9 @@ export async function modules(
  * @returns Fetched index data
  */
 export async function packages(
-  host: JavaModulesEndpoint = defaultHost,
+  host: JavaModulesEndpoint = defaultHost
 ): Promise<IndexesResponse<RepositoryPackageIndexEntry>> {
-  return buildResponse(
-    await fetchIndex<RepositoryPackageIndexEntry>(JavaModulesIndex.PACKAGES, host)
-  )
+  return await fetchIndex<RepositoryPackageIndexEntry>(JavaModulesIndex.PACKAGES, host)
 }
 
 /**
@@ -190,9 +221,7 @@ export async function packages(
  * @returns Fetched index data
  */
 export async function gradle(
-  host: JavaModulesEndpoint = defaultHost,
+  host: JavaModulesEndpoint = defaultHost
 ): Promise<IndexesResponse<RepositoryGradleModulesIndexEntry>> {
-  return buildResponse(
-    await fetchIndex<RepositoryGradleModulesIndexEntry>(JavaModulesIndex.GRADLE, host)
-  )
+  return await fetchIndex<RepositoryGradleModulesIndexEntry>(JavaModulesIndex.GRADLE, host)
 }
