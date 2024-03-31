@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: JPMS Attic
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   Provides a Maven repository which can be used with Java build tools like Maven, Gradle, Bazel, and so on, to build
   with popular JPMS-compatible libraries before they have been publicly released.
 
@@ -29,6 +29,9 @@ github_username: javamodules
 remote_theme: pages-themes/primer@v0.6.0
 repository: elide-dev/jpms
 show_downloads: false
+
+include:
+  - .well-known
 
 readme_index:
   enabled: true
@@ -48,6 +51,17 @@ exclude:
   - .sass-cache/
   - .jekyll-cache/
   - third_party/
+  - node_modules/
+  - packages/
+  - packages/*/node_modules/
+  - bun.lockb
+  - local.bazelrc
+  - local.bazelrc.tpl
+  - Makefile
+  - package.json
+  - pnpm-lock.yaml
+  - pnpm-workspace.yaml
+  - socket.yml
   - annotation-tools/
   - com.google.j2objc/
   - com.google.errorprone/
@@ -55,6 +69,8 @@ exclude:
   - com.google.guava/
   - org.checkerframework/
   - org.reactivestreams/
+  - io.leangen.geantyref/
+  - kotlinx.collections.immutable/
   - jdk/
   - Gemfile
   - Gemfile.lock
