@@ -16,32 +16,40 @@
     "url": "https://github.com/elide-dev/jpms",
     "directory": "packages/indexer"
   },
+  "type": "module",
   "license": "Apache-2.0",
   "author": {
     "name": "Sam Gammon",
     "url": "https://github.com/sgammon"
   },
-  "type": "module",
   "exports": {
-    "./depsdev": {
-      "types": "./dist/client-depsdev.d.mts",
-      "import": "./dist/client-depsdev.mjs"
+    "./client/depsdev": {
+      "types": "./dist/client-depsdev.d.ts",
+      "import": "./dist/client-depsdev.js"
     },
-    "./github": {
-      "types": "./dist/client-github.d.mts",
-      "import": "./dist/client-github.mjs"
+    "./client/indexes": {
+      "types": "./dist/client-indexes.d.ts",
+      "import": "./dist/client-indexes.js"
+    },
+    "./client/maven": {
+      "types": "./dist/client-mavensearch.d.ts",
+      "import": "./dist/client-mavensearch.js"
+    },
+    "./client/github": {
+      "types": "./dist/client-github.d.ts",
+      "import": "./dist/client-github.js"
     },
     "./model": {
-      "types": "./dist/indexer-model.d.mts",
-      "import": "./dist/indexer-model.mjs"
+      "types": "./dist/indexer-model.d.ts",
+      "import": "./dist/indexer-model.js"
     },
     "./info/model": {
-      "types": "./dist/info-model.d.mts",
-      "import": "./dist/info-model.mjs"
+      "types": "./dist/info-model.d.ts",
+      "import": "./dist/info-model.js"
     },
     "./info/project": {
-      "types": "./dist/info-project.d.mts",
-      "import": "./dist/info-project.mjs"
+      "types": "./dist/info-project.d.ts",
+      "import": "./dist/info-project.js"
     },
     ".": {
       "import": "./dist/indexer.mjs"
@@ -54,24 +62,37 @@
     "!dist/tests"
   ],
   "scripts": {
-    "build": "pnpm run gen:model && tsc -p .",
+    "build": "pnpm run gen:model && tsc -p . && cp dist/indexer.js dist/indexer.mjs",
     "gen:model": "buf generate --include-imports",
-    "index": "bun src/indexer.mts ../../repository",
+    "index": "bun src/indexer-entry.mts ../../repository",
     "pack": "npm pack",
     "publish:dry": "npm publish --no-git-checks --dry-run",
     "publish:live": "npm publish --no-git-checks",
     "test": "publint && bun test",
     "test:bun": "bun test",
-    "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test:node": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "jest": {
     "collectCoverage": true,
     "coverageDirectory": "reports",
+    "slowTestThreshold": 30,
     "coverageProvider": "v8",
     "coverageReporters": [
       "lcov",
       "text-summary"
     ],
+    "extensionsToTreatAsEsm": [
+      ".ts",
+      ".mts"
+    ],
+    "transform": {
+      "^.+\\.(m)?ts?$": [
+        "ts-jest",
+        {
+          "useESM": true
+        }
+      ]
+    },
     "preset": "ts-jest",
     "reporters": [
       "default",

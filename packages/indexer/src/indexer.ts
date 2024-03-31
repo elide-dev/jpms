@@ -36,10 +36,12 @@ import {
   RepositoryModulesIndexEntry,
   RepositoryGradleModulesIndexEntry,
   RepositoryPomIndexEntry,
-  RepositoryPackageIndexEntry
-} from './indexer-model.mjs'
-import { ProjectInfo, ProjectProfileInfo } from './info-project.mjs'
-import { ProjectSourceControl } from './info-model.mjs'
+  RepositoryPackageIndexEntry,
+  RepositoryIndexMetadata,
+  formatVersion
+} from './indexer-model'
+import { ProjectInfo, ProjectProfileInfo } from './info-project'
+import { ProjectSourceControl } from './info-model'
 
 const DEFAULT_PRETTY = true
 const snapshotAllowlist: Set<string> = new Set()
@@ -374,7 +376,28 @@ function buildIndexes(allPackages: RepositoryPackage[]): RepositoryIndexBundle {
   }
 }
 
-function buildIndexFile(name: string, contents: object, pretty: boolean = DEFAULT_PRETTY): RepositoryIndexFile {
+function buildIndexMetadata(
+  ts: number,
+  name: string,
+  index: unknown[],
+  md5: string,
+  sha1: string,
+  sha256: string,
+  sha512: string,
+): RepositoryIndexMetadata {
+  return {
+    name: name.split('.').at(0) as string,
+    version: formatVersion.toString(),
+    count: index.length,
+    generated: ts,
+    md5,
+    sha1,
+    sha256,
+    sha512,
+  }
+}
+
+function buildIndexFile(ts: number, name: string,  contents: unknown[], pretty: boolean = DEFAULT_PRETTY): RepositoryIndexFile {
   const md5 = createHash('md5')
   const sha1 = createHash('sha1')
   const sha256 = createHash('sha256')
@@ -394,23 +417,49 @@ function buildIndexFile(name: string, contents: object, pretty: boolean = DEFAUL
   sha256.update(rendered)
   sha512.update(rendered)
 
+  const md5hex = md5.digest('hex')
+  const sha1hex = sha1.digest('hex')
+  const sha256hex = sha256.digest('hex')
+  const sha512hex = sha512.digest('hex')
+
+  const metadata = buildIndexMetadata(
+    ts,
+    name,
+    contents,
+    md5hex,
+    sha1hex,
+    sha256hex,
+    sha512hex
+  )
+  let renderedMetadata: string
+  try {
+    renderedMetadata = JSONStringify(metadata, {
+      space: pretty ? 2 : 0
+    })
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
+
   return {
     name,
     contents: rendered,
-    md5: md5.digest('hex'),
-    sha1: sha1.digest('hex'),
-    sha256: sha256.digest('hex'),
-    sha512: sha512.digest('hex')
+    metadata: renderedMetadata,
+    md5: md5hex,
+    sha1: sha1hex,
+    sha256: sha256hex,
+    sha512: sha512hex
   }
 }
 
 async function prepareContent(indexes: RepositoryIndexBundle): Promise<RepositoryIndexFile[]> {
   // build modules index file
+  const timestamp = +(new Date())
   return [
-    buildIndexFile('modules.json', indexes.modules),
-    buildIndexFile('gradle.json', indexes.gradle),
-    buildIndexFile('maven.json', indexes.maven),
-    buildIndexFile('packages.json', indexes.packages)
+    buildIndexFile(timestamp, 'modules.json', indexes.modules),
+    buildIndexFile(timestamp, 'gradle.json', indexes.gradle),
+    buildIndexFile(timestamp, 'maven.json', indexes.maven),
+    buildIndexFile(timestamp, 'packages.json', indexes.packages)
   ]
 }
 
@@ -427,12 +476,14 @@ async function writeIndexFile(root: string, write: RepositoryIndexFile) {
     return `${write.name}.${algorithm}`
   }
   const json = join(root, write.name)
+  const metadata = join(root, `${write.name.split('.').at(0)}.metadata.json`)
   const md5target = join(root, hashFileName('md5'))
   const sha1target = join(root, hashFileName('sha1'))
   const sha256target = join(root, hashFileName('sha256'))
   const sha512target = join(root, hashFileName('sha512'))
 
   await writeFile(json, write.contents)
+  await writeFile(metadata, write.metadata)
   await writeFile(md5target, formatHashfile(write.name, model.HashAlgorithm.MD5, write.md5))
   await writeFile(sha1target, formatHashfile(write.name, model.HashAlgorithm.SHA1, write.sha1))
   await writeFile(sha256target, formatHashfile(write.name, model.HashAlgorithm.SHA256, write.sha256))
@@ -440,18 +491,20 @@ async function writeIndexFile(root: string, write: RepositoryIndexFile) {
   console.log(`Index written: '${write.name}' (size: ${write.contents.length})`)
 }
 
-async function writeIndexes(outpath: string, all_packages: RepositoryPackage[]) {
+async function writeIndexes(outpath: string, indexes: RepositoryIndexBundle, write: boolean): Promise<RepositoryIndexBundle> {
   const resolvedOut = resolve(outpath)
   console.log(`Writing indexes → ${resolvedOut}`)
   if (!existsSync(resolvedOut)) {
     await mkdir(resolvedOut, { recursive: true })
   }
-  const indexes = buildIndexes(all_packages)
   const writes = await prepareContent(indexes)
-  for (const write of writes) {
-    await writeIndexFile(resolvedOut, write)
+  if (write) {
+    for (const write of writes) {
+      await writeIndexFile(resolvedOut, write)
+    }
+    console.info('Index write complete.')
   }
-  console.info('Index write complete.')
+  return indexes
 }
 
 /**
@@ -459,8 +512,9 @@ async function writeIndexes(outpath: string, all_packages: RepositoryPackage[]) 
  *
  * @param path Path to the repository
  * @param outpath Output path (directory) for generated index files
+ * @param write Whether to write
  */
-export async function buildRepositoryIndexes(path: string, outpath: string) {
+export async function buildRepositoryIndexes(path: string, outpath: string, write: boolean): Promise<RepositoryIndexBundle> {
   const prefix = resolve(path)
   console.log(`Scanning repository '${prefix}'...`)
   let all_packages: RepositoryPackage[] = []
@@ -473,11 +527,5 @@ export async function buildRepositoryIndexes(path: string, outpath: string) {
     console.error(err)
   }
 
-  writeIndexes(outpath, all_packages)
+  return writeIndexes(outpath, buildIndexes(all_packages), write)
 }
-
-// argument expected is path to repository
-await buildRepositoryIndexes(
-  process.argv[2] || join('..', '..', 'repository'),
-  join('..', '..', '.well-known', 'maven-indexes')
-)

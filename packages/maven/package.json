@@ -61,7 +61,7 @@
     "publish:live": "npm publish --no-git-checks",
     "test": "bun test",
     "test:bun": "bun test",
-    "test:node": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test:node": "NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "jest": {
     "collectCoverage": true,

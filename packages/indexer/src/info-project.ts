@@ -11,7 +11,7 @@
  * License for the specific language governing permissions and limitations under the License.
  */
 
-import { ProjectLicense, ProjectLicenseStats, ProjectQualityMetrics, ProjectSourceControl } from './info-model.mjs'
+import { ProjectLicense, ProjectLicenseStats, ProjectQualityMetrics, ProjectSourceControl } from './info-model.js'
 
 /**
  * Project Licensing Info
