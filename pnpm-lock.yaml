@@ -82,13 +82,13 @@ importers:
         specifier: 6.4.2
         version: 6.4.2
       '@javamodules/gradle':
-        specifier: 1.0.4
+        specifier: 1.0.5
         version: link:../gradle
       '@javamodules/java':
-        specifier: 1.0.4
+        specifier: 1.0.5
         version: link:../java
       '@javamodules/maven':
-        specifier: 1.0.4
+        specifier: 1.0.5
         version: link:../maven
       '@octokit/core':
         specifier: 6.0.1
