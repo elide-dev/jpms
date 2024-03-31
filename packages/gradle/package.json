@@ -24,12 +24,12 @@
   "type": "module",
   "exports": {
     "./util": {
-      "import": "./dist/gradle-util.js",
-      "types": "./dist/gradle-util.d.ts"
+      "types": "./dist/gradle-util.d.ts",
+      "import": "./dist/gradle-util.js"
     },
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
     }
   },
   "main": "dist/index.mjs",

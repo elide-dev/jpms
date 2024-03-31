@@ -22,30 +22,25 @@
     "url": "https://github.com/sgammon"
   },
   "type": "module",
-  "imports": {
-    "#depsdev/api": {
-      "import": "./gen/api/v3/api_pb.js",
-      "types": "./gen/api/v3/api_pb.d.ts"
-    },
-    "#depsdev/service": {
-      "import": "./gen/api/v3/api_connect.js",
-      "types": "./gen/api/v3/api_connect.d.ts"
-    }
-  },
   "exports": {
     "./depsdev": {
+      "types": "./dist/client-depsdev.d.mts",
       "import": "./dist/client-depsdev.mjs"
     },
     "./github": {
+      "types": "./dist/client-github.d.mts",
       "import": "./dist/client-github.mjs"
     },
     "./model": {
+      "types": "./dist/indexer-model.d.mts",
       "import": "./dist/indexer-model.mjs"
     },
     "./info/model": {
+      "types": "./dist/info-model.d.mts",
       "import": "./dist/info-model.mjs"
     },
     "./info/project": {
+      "types": "./dist/info-project.d.mts",
       "import": "./dist/info-project.mjs"
     },
     ".": {
