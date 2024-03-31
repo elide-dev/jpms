@@ -1,9 +1,15 @@
 .husky
+.well-known/maven-indexes
 
 build
 target
 node_modules
 dist
+packages/indexer/src/gen
+packages/java/package.json
+packages/maven/package.json
+packages/indexer/package.json
+packages/gradle/package.json
 
 /assets/creative
 /assets/img

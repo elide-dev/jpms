@@ -15,7 +15,10 @@ import { MavenCoordinate } from '@javamodules/maven'
 import { PomProject } from '@javamodules/maven/parser'
 import { GradleModuleInfo, GradleVariantSchema as GradleVariant } from '@javamodules/gradle'
 import { JavaModuleInfo, JvmTarget } from '@javamodules/java/model'
-import { ProjectInfo } from './info-project.mjs'
+import { ProjectInfo } from './info-project.js'
+
+/** Format version for indexes. */
+export const formatVersion = 1.0
 
 /**
  * Repository JAR Info
@@ -169,6 +172,22 @@ export type RepositoryIndexBundle = {
 }
 
 /**
+ * Repository Index Metadata
+ *
+ * Describes metadata written alongside index files.
+ */
+export type RepositoryIndexMetadata = {
+  version: string
+  generated: number
+  name: string
+  count: number
+  md5: string
+  sha1: string
+  sha256: string
+  sha512: string
+}
+
+/**
  * Repository Index File
  *
  * Specifies the contents of a single index file as JSON; the contents are written to the
@@ -180,6 +199,7 @@ export type RepositoryIndexBundle = {
 export type RepositoryIndexFile = {
   name: string
   contents: string
+  metadata: string
   gzip?: string
   md5: string
   sha1: string

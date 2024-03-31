@@ -25,32 +25,32 @@
   "type": "module",
   "exports": {
     "./classes": {
-      "import": "./dist/java-classfile.js",
-      "types": "./dist/java-classfile.d.ts"
+      "types": "./dist/java-classfile.d.ts",
+      "import": "./dist/java-classfile.js"
     },
     "./home": {
-      "import": "./dist/java-home.js",
-      "types": "./dist/java-home.d.ts"
+      "types": "./dist/java-home.d.ts",
+      "import": "./dist/java-home.js"
     },
     "./jar": {
-      "import": "./dist/java-jar.js",
-      "types": "./dist/java-jar.d.ts"
+      "types": "./dist/java-jar.d.ts",
+      "import": "./dist/java-jar.js"
     },
     "./manifest": {
-      "import": "./dist/java-manifest.js",
-      "types": "./dist/java-manifest.d.ts"
+      "types": "./dist/java-manifest.d.ts",
+      "import": "./dist/java-manifest.js"
     },
     "./model": {
-      "import": "./dist/java-model.js",
-      "types": "./dist/java-model.d.ts"
+      "types": "./dist/java-model.d.ts",
+      "import": "./dist/java-model.js"
     },
     "./modules": {
-      "import": "./dist/javamodules/jdk-modules.js",
-      "types": "./dist/javamodules/jdk-modules.d.ts"
+      "types": "./dist/javamodules/jdk-modules.d.ts",
+      "import": "./dist/javamodules/jdk-modules.js"
     },
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     }
   },
   "main": "dist/index.mjs",

@@ -12,6 +12,11 @@
  */
 
 /**
+ * Endpoint where Maven Search API traffic should be sent.
+ */
+export const mavenSearchEndpoint = 'https://search.maven.org'
+
+/**
  * Maven Search Response
  *
  * Outer type for a JSON response from the Maven Central search API.

@@ -24,28 +24,28 @@
   "type": "module",
   "exports": {
     "./constants": {
-      "import": "./dist/maven-constants.js",
-      "types": "./dist/maven-constants.d.ts"
+      "types": "./dist/maven-constants.d.ts",
+      "import": "./dist/maven-constants.js"
     },
     "./model": {
-      "import": "./dist/maven-model.js",
-      "types": "./dist/maven-model.d.ts"
+      "types": "./dist/maven-model.d.ts",
+      "import": "./dist/maven-model.js"
     },
     "./parser": {
-      "import": "./dist/maven-parser.js",
-      "types": "./dist/maven-parser.d.ts"
+      "types": "./dist/maven-parser.d.ts",
+      "import": "./dist/maven-parser.js"
     },
     "./project": {
-      "import": "./dist/maven-project.js",
-      "types": "./dist/maven-project.d.ts"
+      "types": "./dist/maven-project.d.ts",
+      "import": "./dist/maven-project.js"
     },
     "./schema": {
-      "import": "./dist/maven-schema.js",
-      "types": "./dist/maven-schema.d.ts"
+      "types": "./dist/maven-schema.d.ts",
+      "import": "./dist/maven-schema.js"
     },
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     }
   },
   "main": "dist/index.mjs",

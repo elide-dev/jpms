@@ -1,10 +1,10 @@
 {
   "extends": "../tsconfig.json",
-  "exclude": ["dist", "reports"],
+  "exclude": ["dist", "reports", "tests"],
   "include": ["src/**/*"],
   "compilerOptions": {
     "outDir": "dist",
-    "isolatedModules": true,
+    "composite": false,
     "rootDir": "./src"
   }
 }

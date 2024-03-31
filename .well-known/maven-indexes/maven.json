@@ -502,7 +502,10 @@
           "resource": {
             "directory": "..",
             "includes": {
-              "include": ["LICENSE", "proguard/*"]
+              "include": [
+                "LICENSE",
+                "proguard/*"
+              ]
             },
             "targetpath": "META-INF"
           }
@@ -1445,7 +1448,14 @@
         }
       },
       "modules": {
-        "module": ["bom", "lite", "core", "util", "kotlin", "kotlin-lite"]
+        "module": [
+          "bom",
+          "lite",
+          "core",
+          "util",
+          "kotlin",
+          "kotlin-lite"
+        ]
       },
       "name": "Protocol Buffers [Parent]",
       "packaging": "pom",

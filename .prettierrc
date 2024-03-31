@@ -12,6 +12,5 @@
   "arrowParens": "avoid",
   "proseWrap": "always",
   "htmlWhitespaceSensitivity": "css",
-  "endOfLine": "lf",
-  "plugins": ["prettier-plugin-packagejson"]
+  "endOfLine": "lf"
 }
