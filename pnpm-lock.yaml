@@ -18,8 +18,8 @@ importers:
         specifier: 19.1.0
         version: 19.1.0
       hashlock:
-        specifier: 1.0.1
-        version: 1.0.1
+        specifier: 1.0.2
+        version: 1.0.2
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -118,8 +118,8 @@ importers:
         specifier: 10.3.12
         version: 10.3.12
       hashlock:
-        specifier: 1.0.1
-        version: 1.0.1
+        specifier: 1.0.2
+        version: 1.0.2
       inquirer:
         specifier: 9.2.17
         version: 9.2.17
@@ -3389,8 +3389,8 @@ packages:
     dev: false
     optional: true
 
-  /hashlock@1.0.1:
-    resolution: {integrity: sha512-93HL8vc28YAppjAqMkdCzckfRQCKOPhWW7UC4J4BUfB2wuEEiTSfE8Whwk/qlUyYYOscE3qDFeJmHLVZHolv7g==, tarball: https://registry.npmjs.org/hashlock/-/hashlock-1.0.1.tgz}
+  /hashlock@1.0.2:
+    resolution: {integrity: sha512-PEMyEUnbVtuxoqgY97OfcwMm6AGPWh8gm+VsGKa/YObeLj7v81dZEv3RUiwHDYPY/Qcaqlwwag9mw1P2KRxHTw==, tarball: https://registry.npmjs.org/hashlock/-/hashlock-1.0.2.tgz}
     engines: {node: '>=20'}
     hasBin: true
 
