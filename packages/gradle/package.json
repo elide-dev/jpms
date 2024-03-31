@@ -28,7 +28,7 @@
       "import": "./dist/gradle-util.js"
     },
     ".": {
-      "types": "./dist/index.d.mts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs"
     }
   },
@@ -77,7 +77,7 @@
   "devDependencies": {
     "@jest/globals": "29.7.0",
     "@types/jest": "29.5.12",
-    "@types/node": "20.12.1",
+    "@types/node": "20.11.29",
     "jest": "29.7.0",
     "jest-junit": "16.0.0",
     "semver": "7.6.0",
