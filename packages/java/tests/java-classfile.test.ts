@@ -128,18 +128,17 @@ test('can identify a compiled module definition (simple)', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('sample')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(2)
-  expect(info.requires[0].module).toBe(BuiltinModule.JAVA_BASE)
-  expect(info.requires[0].static).toBe(false)
-  expect(info.requires[0].transitive).toBe(false)
-  expect(info.requires[1].module).toBe(BuiltinModule.JAVA_LOGGING)
-  expect(info.requires[1].static).toBe(false)
-  expect(info.requires[1].transitive).toBe(false)
+  expect(info.requires?.at(0)?.module).toBe(BuiltinModule.JAVA_BASE)
+  expect(info.requires?.at(0)?.static).toBe(false)
+  expect(info.requires?.at(0)?.transitive).toBe(false)
+  expect(info.requires?.at(1)?.module).toBe(BuiltinModule.JAVA_LOGGING)
+  expect(info.requires?.at(1)?.static).toBe(false)
+  expect(info.requires?.at(1)?.transitive).toBe(false)
   expect(info.exports).toHaveLength(1)
-  expect(info.exports[0].package).toBe('hello')
-  expect(info.exports[0].to).toBeDefined()
-  expect(info.exports[0].to).toHaveLength(0)
+  expect(info.exports?.at(0)?.package).toBe('hello')
+  expect(info.exports?.at(0)?.to).not.toBeDefined()
   expect(info.opens).toHaveLength(0)
   expect(info.provides).toHaveLength(0)
   expect(info.uses).toHaveLength(0)
@@ -166,68 +165,66 @@ test('can identify a compiled module definition (complex)', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
 
   // `requires java.base` (implied)
-  expect(info.requires[0].module).toBe(BuiltinModule.JAVA_BASE)
-  expect(info.requires[0].static).toBe(false)
-  expect(info.requires[0].transitive).toBe(false)
+  expect(info.requires?.at(0)?.module).toBe(BuiltinModule.JAVA_BASE)
+  expect(info.requires?.at(0)?.static).toBe(false)
+  expect(info.requires?.at(0)?.transitive).toBe(false)
 
   // `requires transitive java.compiler`
-  expect(info.requires[1].module).toBe(BuiltinModule.JAVA_COMPILER)
-  expect(info.requires[1].static).toBe(false)
-  expect(info.requires[1].transitive).toBe(true)
+  expect(info.requires?.at(1)?.module).toBe(BuiltinModule.JAVA_COMPILER)
+  expect(info.requires?.at(1)?.static).toBe(false)
+  expect(info.requires?.at(1)?.transitive).toBe(true)
 
   // `requires static java.compiler`
-  expect(info.requires[2].module).toBe(BuiltinModule.JAVA_DESKTOP)
-  expect(info.requires[2].static).toBe(true)
-  expect(info.requires[2].transitive).toBe(false)
+  expect(info.requires?.at(2)?.module).toBe(BuiltinModule.JAVA_DESKTOP)
+  expect(info.requires?.at(2)?.static).toBe(true)
+  expect(info.requires?.at(2)?.transitive).toBe(false)
 
   // `requires java.logging`
-  expect(info.requires[3].module).toBe(BuiltinModule.JAVA_LOGGING)
-  expect(info.requires[3].static).toBe(false)
-  expect(info.requires[3].transitive).toBe(false)
+  expect(info.requires?.at(3)?.module).toBe(BuiltinModule.JAVA_LOGGING)
+  expect(info.requires?.at(3)?.static).toBe(false)
+  expect(info.requires?.at(3)?.transitive).toBe(false)
 
   expect(info.exports).toHaveLength(2)
 
   // `exports hello`
-  expect(info.exports[0].package).toBe('hello')
-  expect(info.exports[0].to).toBeDefined()
-  expect(info.exports[0].to).toHaveLength(0)
+  expect(info.exports?.at(0)?.package).toBe('hello')
+  expect(info.exports?.at(0)?.to).not.toBeDefined()
 
   // `exports another to sample`
-  expect(info.exports[1].package).toBe('another')
-  expect(info.exports[1].to).toBeDefined()
-  expect(info.exports[1].to).toHaveLength(1)
-  expect(info.exports[1].to[0]).toBe('sample')
+  expect(info.exports?.at(1)?.package).toBe('another')
+  expect(info.exports?.at(1)?.to).toBeDefined()
+  expect(info.exports?.at(1)?.to).toHaveLength(1)
+  expect(info.exports?.at(1)?.to?.at(0)).toBe('sample')
 
   expect(info.opens).toHaveLength(2)
 
   // `opens hello`
-  expect(info.opens[0].package).toBe('hello')
-  expect(info.opens[0].to).toBeDefined()
-  expect(info.opens[0].to).toHaveLength(0)
+  expect(info.opens?.at(0)?.package).toBe('hello')
+  expect(info.opens?.at(0)?.to).not.toBeDefined()
 
   // `opens another to sample`
-  expect(info.opens[1].package).toBe('another')
-  expect(info.opens[1].to).toBeDefined()
-  expect(info.opens[1].to).toHaveLength(1)
-  expect(info.opens[1].to[0]).toBe('sample')
+  expect(info.opens?.at(1)?.package).toBe('another')
+  expect(info.opens?.at(1)?.to).toBeDefined()
+  expect(info.opens?.at(1)?.to).toHaveLength(1)
+  expect(info.opens?.at(1)?.to?.at(0)).toBe('sample')
 
   expect(info.uses).toHaveLength(1)
 
   // `uses hello.Service`
-  expect(info.uses[0].service).toBe('hello.Service')
+  expect(info.uses?.at(0)?.service).toBe('hello.Service')
 
   expect(info.provides).toHaveLength(1)
 
   // `provides hello.Service with hello.Implementation`
-  expect(info.provides[0].service).toBeDefined()
-  expect(info.provides[0].service).toBe('hello.Service')
-  expect(info.provides[0].with).toBeDefined()
-  expect(info.provides[0].with).toHaveLength(1)
-  expect(info.provides[0].with[0]).toBe('hello.Implementation')
+  expect(info.provides?.at(0)?.service).toBeDefined()
+  expect(info.provides?.at(0)?.service).toBe('hello.Service')
+  expect(info.provides?.at(0)?.with).toBeDefined()
+  expect(info.provides?.at(0)?.with).toHaveLength(1)
+  expect(info.provides?.at(0)?.with?.at(0)).toBe('hello.Implementation')
 })
 
 test('can identify top-level module info', async () => {
@@ -251,7 +248,7 @@ test('can identify top-level module info', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
 })
 
@@ -272,7 +269,7 @@ test('can identify top-level module info (open)', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('sample')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(true)
+  expect(info.flags?.open).toBe(true)
   expect(info.requires).toHaveLength(1)
 })
 
@@ -297,28 +294,28 @@ test('can identify module `requires ...` statements', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
 
   // `requires java.base` (implied)
-  expect(info.requires[0].module).toBe(BuiltinModule.JAVA_BASE)
-  expect(info.requires[0].static).toBe(false)
-  expect(info.requires[0].transitive).toBe(false)
+  expect(info.requires?.at(0)?.module).toBe(BuiltinModule.JAVA_BASE)
+  expect(info.requires?.at(0)?.static).toBe(false)
+  expect(info.requires?.at(0)?.transitive).toBe(false)
 
   // `requires transitive java.compiler`
-  expect(info.requires[1].module).toBe(BuiltinModule.JAVA_COMPILER)
-  expect(info.requires[1].static).toBe(false)
-  expect(info.requires[1].transitive).toBe(true)
+  expect(info.requires?.at(1)?.module).toBe(BuiltinModule.JAVA_COMPILER)
+  expect(info.requires?.at(1)?.static).toBe(false)
+  expect(info.requires?.at(1)?.transitive).toBe(true)
 
   // `requires static java.compiler`
-  expect(info.requires[2].module).toBe(BuiltinModule.JAVA_DESKTOP)
-  expect(info.requires[2].static).toBe(true)
-  expect(info.requires[2].transitive).toBe(false)
+  expect(info.requires?.at(2)?.module).toBe(BuiltinModule.JAVA_DESKTOP)
+  expect(info.requires?.at(2)?.static).toBe(true)
+  expect(info.requires?.at(2)?.transitive).toBe(false)
 
   // `requires java.logging`
-  expect(info.requires[3].module).toBe(BuiltinModule.JAVA_LOGGING)
-  expect(info.requires[3].static).toBe(false)
-  expect(info.requires[3].transitive).toBe(false)
+  expect(info.requires?.at(3)?.module).toBe(BuiltinModule.JAVA_LOGGING)
+  expect(info.requires?.at(3)?.static).toBe(false)
+  expect(info.requires?.at(3)?.transitive).toBe(false)
 })
 
 test('can identify module `exports ...` statements', async () => {
@@ -342,14 +339,13 @@ test('can identify module `exports ...` statements', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
   expect(info.exports).toHaveLength(2)
 
   // `exports hello`
-  expect(info.exports[0].package).toBe('hello')
-  expect(info.exports[0].to).toBeDefined()
-  expect(info.exports[0].to).toHaveLength(0)
+  expect(info.exports?.at(0)?.package).toBe('hello')
+  expect(info.exports?.at(0)?.to).not.toBeDefined()
 })
 
 test('can identify module `exports ... to ...` statements', async () => {
@@ -373,15 +369,15 @@ test('can identify module `exports ... to ...` statements', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
   expect(info.exports).toHaveLength(2)
 
   // `exports another to sample`
-  expect(info.exports[1].package).toBe('another')
-  expect(info.exports[1].to).toBeDefined()
-  expect(info.exports[1].to).toHaveLength(1)
-  expect(info.exports[1].to[0]).toBe('sample')
+  expect(info.exports?.at(1)?.package).toBe('another')
+  expect(info.exports?.at(1)?.to).toBeDefined()
+  expect(info.exports?.at(1)?.to).toHaveLength(1)
+  expect(info.exports?.at(1)?.to?.at(0)).toBe('sample')
 })
 
 test('can identify module `opens ...` statements', async () => {
@@ -405,14 +401,13 @@ test('can identify module `opens ...` statements', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
   expect(info.opens).toHaveLength(2)
 
   // `opens hello`
-  expect(info.opens[0].package).toBe('hello')
-  expect(info.opens[0].to).toBeDefined()
-  expect(info.opens[0].to).toHaveLength(0)
+  expect(info.opens?.at(0)?.package).toBe('hello')
+  expect(info.opens?.at(0)?.to).not.toBeDefined()
 })
 
 test('can identify module `opens ... to ...` statements', async () => {
@@ -436,15 +431,15 @@ test('can identify module `opens ... to ...` statements', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
   expect(info.opens).toHaveLength(2)
 
   // `opens another to sample`
-  expect(info.opens[1].package).toBe('another')
-  expect(info.opens[1].to).toBeDefined()
-  expect(info.opens[1].to).toHaveLength(1)
-  expect(info.opens[1].to[0]).toBe('sample')
+  expect(info.opens?.at(1)?.package).toBe('another')
+  expect(info.opens?.at(1)?.to).toBeDefined()
+  expect(info.opens?.at(1)?.to).toHaveLength(1)
+  expect(info.opens?.at(1)?.to?.at(0)).toBe('sample')
 })
 
 test('can identify module `uses ...` statements', async () => {
@@ -468,12 +463,12 @@ test('can identify module `uses ...` statements', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
   expect(info.uses).toHaveLength(1)
 
   // `uses hello.Service`
-  expect(info.uses[0].service).toBe('hello.Service')
+  expect(info.uses?.at(0)?.service).toBe('hello.Service')
 })
 
 test('can identify module `provides ... with ...` statements', async () => {
@@ -497,16 +492,16 @@ test('can identify module `provides ... with ...` statements', async () => {
   const info = parsed.moduleInfo()
   expect(info.name).toBe('complex')
   expect(info.version).not.toBeDefined()
-  expect(info.flags.open).toBe(false)
+  expect(info.flags?.open).toBe(false)
   expect(info.requires).toHaveLength(4)
   expect(info.provides).toHaveLength(1)
 
   // `provides hello.Service with hello.Implementation`
-  expect(info.provides[0].service).toBeDefined()
-  expect(info.provides[0].service).toBe('hello.Service')
-  expect(info.provides[0].with).toBeDefined()
-  expect(info.provides[0].with).toHaveLength(1)
-  expect(info.provides[0].with[0]).toBe('hello.Implementation')
+  expect(info.provides?.at(0)?.service).toBeDefined()
+  expect(info.provides?.at(0)?.service).toBe('hello.Service')
+  expect(info.provides?.at(0)?.with).toBeDefined()
+  expect(info.provides?.at(0)?.with).toHaveLength(1)
+  expect(info.provides?.at(0)?.with?.at(0)).toBe('hello.Implementation')
 })
 
 // test("can identify a module's version", async () => {

@@ -218,7 +218,7 @@ export class JavaClassFile {
     ).map(exports => {
       return {
         package: internalClassNameToClassName(exports.name),
-        to: exports.qualifiers.length > 0 ? exports.qualifiers : []
+        to: exports.qualifiers.length > 0 ? exports.qualifiers : undefined,
       }
     })
 
@@ -228,10 +228,10 @@ export class JavaClassFile {
       'opens_index',
       'opens_to_index',
       'opens_flags'
-    ).map(exports => {
+    ).map(opens => {
       return {
-        package: internalClassNameToClassName(exports.name),
-        to: exports.qualifiers.length > 0 ? exports.qualifiers : []
+        package: internalClassNameToClassName(opens.name),
+        to: opens.qualifiers.length > 0 ? opens.qualifiers : undefined,
       }
     })
 

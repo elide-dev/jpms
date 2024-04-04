@@ -53,9 +53,9 @@ export type RepositoryJar = RepositoryJarInfo & {
  * Indicates top-level flags which are set for each package for easy faceting and querying.
  */
 export type PackageFlags = {
-  modular: boolean
-  gradleModule: boolean
-  mrjar: boolean
+  modular?: boolean
+  gradleModule?: boolean
+  mrjar?: boolean
   minimumBytecodeTarget?: JvmTarget
   maximumBytecodeTarget?: JvmTarget
 }
@@ -106,12 +106,11 @@ export type JarModulePair = {
  *
  * Describes an entry in an index file which maps indexed artifacts by their Java Module coordinate.
  */
-export type RepositoryModulesIndexEntry = {
+export type RepositoryModulesIndexEntry = MavenCoordinate & Partial<PackageFlags> & JavaModuleInfo & {
   // Well-qualified Maven coordinate.
   objectID: string
-  coordinate: MavenCoordinate
-  flags: PackageFlags
-  module: JarModulePair
+  jar: string
+  purl: string
 }
 
 /**
@@ -142,19 +141,20 @@ export type RepositoryPomIndexEntry = {
 }
 
 /**
- * Repository Package Summary Entry
+ * Repository Publication Summary Entry
  *
  * Describes an entry in an index file which maps summary information for a given package.
  */
-export type RepositoryPackageIndexEntry = {
+export type RepositoryPublicationIndexEntry = (
+  MavenCoordinate & Partial<PackageFlags> & Omit<ProjectInfo, 'objectID'> & Partial<JarModulePair>
+) & {
   // Well-qualified Maven coordinate.
   objectID: string
   purl: string
-  coordinate: MavenCoordinate
-  flags: PackageFlags
-  gradleVariants: string[]
-  project: Omit<ProjectInfo, 'objectID'>
-  module?: JarModulePair
+  gradleVariants?: string[]
+  repository: string
+  moduleName?: string
+  moduleVersion?: string
 }
 
 /**
@@ -168,7 +168,7 @@ export type RepositoryIndexBundle = {
   gradle: RepositoryGradleModulesIndexEntry[]
   modules: RepositoryModulesIndexEntry[]
   maven: RepositoryPomIndexEntry[]
-  packages: RepositoryPackageIndexEntry[]
+  publications: RepositoryPublicationIndexEntry[]
 }
 
 /**

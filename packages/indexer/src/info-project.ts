@@ -34,11 +34,44 @@ export type ProjectMedia = {
 }
 
 /**
+ * Project Organization Info
+ *
+ * Describes an organization which is responsible for a piece of software in some way.
+ */
+export type ProjectOrgInfo = {
+  vendorName: string
+  vendorLegal: string
+  vendorUrl: string
+  vendorLogo: string
+}
+
+/**
+ * Project Verifications
+ *
+ * Reflects the results of manual verification steps performed for a project.
+ */
+export type ProjectVerifications = {
+  verifiedOwner: boolean
+  verifiedValid: boolean
+  verifiedProvenance: boolean
+  verifiedReleases: boolean
+}
+
+/**
+ * Project Contact Info
+ *
+ * Describes a person which is responsible for a piece of software in some way.
+ */
+export type ProjectContactInfo = {
+  // Nothing yet.
+}
+
+/**
  * Project Profile Info
  *
  * Generic project information, including the project's name, description, homepage, icon, and so on.
  */
-export type ProjectProfileInfo = {
+export type ProjectProfileInfo = Partial<ProjectOrgInfo> & Partial<ProjectVerifications> & {
   name?: string
   description?: string
   url?: string
@@ -51,11 +84,9 @@ export type ProjectProfileInfo = {
  *
  * Top-level information about a software project.
  */
-export type ProjectInfo = {
+export type ProjectInfo = (
+  ProjectProfileInfo & Partial<ProjectSourceControl> & Partial<ProjectQualityMetrics> & Partial<ProjectLicensingInfo>
+) & {
   // The remote repository URL for this project, as a canonicalized HTTPS URL.
   objectID?: string
-  profile: ProjectProfileInfo
-  source?: ProjectSourceControl
-  metrics?: ProjectQualityMetrics
-  licensing?: ProjectLicensingInfo
 }
