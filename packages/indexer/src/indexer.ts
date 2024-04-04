@@ -498,11 +498,15 @@ function buildPackageSummaryIndex(
     // don't list the ID redundantly
     delete projectInfo['objectID']
 
+    const filteredVariants = variants.map((variant) => {
+      return variant.split('::').at(-1) || variant
+    })
+
     return {
       objectID: pkg.objectID,
       purl: packageUrl.toString(),
       repository: 'https://jpms.pkg.st/repository',
-      gradleVariants: variants.length > 0 ? variants : undefined,
+      gradleVariants: filteredVariants.length > 0 ? filteredVariants : undefined,
       moduleName: module?.name || undefined,
       moduleVersion: module?.version || undefined,
       ...(pkg.coordinate),
