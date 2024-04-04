@@ -2,6 +2,9 @@
   {
     "artifactId": "error_prone_annotations",
     "groupId": "com.google.errorprone",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -35,6 +38,9 @@
   {
     "artifactId": "error_prone_annotations",
     "groupId": "com.google.errorprone",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -69,6 +75,9 @@
     "artifactId": "failureaccess",
     "description": "Contains com.google.common.util.concurrent.internal.InternalFutureFailureAccess and InternalFutures. Most users will never need to use this artifact. Its classes are conceptually a part of Guava, but they're in this separate artifact so that Android libraries can use them without pulling in all of Guava (just as they can use ListenableFuture by depending on the listenablefuture artifact).",
     "groupId": "com.google.guava",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -103,6 +112,9 @@
     "artifactId": "guava-bom",
     "description": "BOM for Guava artifacts",
     "groupId": "com.google.guava",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -132,6 +144,9 @@
     "artifactId": "guava-gwt",
     "description": "Guava is a suite of core and expanded libraries that include utility classes, Google's collections, I/O classes, and much more. This project includes GWT-friendly sources.",
     "groupId": "com.google.guava",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -161,6 +176,9 @@
     "artifactId": "guava-parent",
     "description": "Parent to all Guava POMs.",
     "groupId": "com.google.guava",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -190,6 +208,9 @@
     "artifactId": "guava-testlib",
     "description": "Guava testlib is a set of java classes used for more convenient unit testing - particularly to assist the tests for Guava itself.",
     "groupId": "com.google.guava",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -224,6 +245,9 @@
     "artifactId": "guava",
     "description": "Guava is a suite of core and expanded libraries that include utility classes, Google's collections, I/O classes, and much more.",
     "groupId": "com.google.guava",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -258,6 +282,9 @@
     "artifactId": "j2objc-annotations",
     "description": "A set of annotations that provide additional information to the J2ObjC translator to modify the result of translation.",
     "groupId": "com.google.j2objc",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -292,6 +319,9 @@
     "artifactId": "j2objc-annotations",
     "description": "A set of annotations that provide additional information to the J2ObjC translator to modify the result of translation.",
     "groupId": "com.google.j2objc",
+    "licenseNames": [
+      "Apache 2.0"
+    ],
     "licenses": [
       {
         "url": "https://opensource.org/licenses/Apache-2.0",
@@ -326,6 +356,9 @@
     "artifactId": "protobuf-bom",
     "description": "A compatible set of open source libraries for working with protocol buffers.",
     "groupId": "com.google.protobuf",
+    "licenseNames": [
+      "Other"
+    ],
     "licenses": [
       {
         "custom": "Protocol Buffers License",
@@ -355,6 +388,9 @@
     "artifactId": "protobuf-java",
     "description": "Core Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.",
     "groupId": "com.google.protobuf",
+    "licenseNames": [
+      "Other"
+    ],
     "licenses": [
       {
         "custom": "Protocol Buffers License",
@@ -384,6 +420,9 @@
     "artifactId": "protobuf-javalite",
     "description": "Lite version of Protocol Buffers library. This version is optimized for code size, but does not guarantee API/ABI stability.",
     "groupId": "com.google.protobuf",
+    "licenseNames": [
+      "Other"
+    ],
     "licenses": [
       {
         "custom": "Protocol Buffers License",
@@ -413,6 +452,9 @@
     "artifactId": "protobuf-kotlin-lite",
     "description": "Kotlin lite Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.",
     "groupId": "com.google.protobuf",
+    "licenseNames": [
+      "Other"
+    ],
     "licenses": [
       {
         "custom": "Protocol Buffers License",
@@ -442,6 +484,9 @@
     "artifactId": "protobuf-kotlin",
     "description": "Kotlin Protocol Buffers library. Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.",
     "groupId": "com.google.protobuf",
+    "licenseNames": [
+      "Other"
+    ],
     "licenses": [
       {
         "custom": "Protocol Buffers License",
@@ -471,6 +516,9 @@
     "artifactId": "protobuf-parent",
     "description": "Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.",
     "groupId": "com.google.protobuf",
+    "licenseNames": [
+      "Other"
+    ],
     "licenses": [
       {
         "custom": "Protocol Buffers License",
@@ -500,6 +548,9 @@
     "artifactId": "protobuf-util",
     "description": "Utilities for Protocol Buffers",
     "groupId": "com.google.protobuf",
+    "licenseNames": [
+      "Other"
+    ],
     "licenses": [
       {
         "custom": "Protocol Buffers License",
@@ -544,7 +595,7 @@
     "description": "JPMS-enabled libraries, from the future",
     "gradleModule": true,
     "gradleVariants": [
-      "dev.javamodules:jpms-catalog:1.0.0::versionCatalogElements"
+      "versionCatalogElements"
     ],
     "groupId": "dev.javamodules",
     "name": "JPMS Attic Catalog",
@@ -562,8 +613,8 @@
     "description": "JPMS-enabled libraries, from the future",
     "gradleModule": true,
     "gradleVariants": [
-      "dev.javamodules:jpms-platform:1.0.0::apiElements",
-      "dev.javamodules:jpms-platform:1.0.0::runtimeElements"
+      "apiElements",
+      "runtimeElements"
     ],
     "groupId": "dev.javamodules",
     "name": "JPMS Attic Platform",
@@ -600,10 +651,10 @@
     "description": "checker-qual contains annotations (type qualifiers) that a programmer\nwrites to specify Java code for type-checking by the Checker Framework.",
     "gradleModule": true,
     "gradleVariants": [
-      "org.checkerframework:checker-qual:3.43.0-SNAPSHOT::apiElements",
-      "org.checkerframework:checker-qual:3.43.0-SNAPSHOT::javadocElements",
-      "org.checkerframework:checker-qual:3.43.0-SNAPSHOT::runtimeElements",
-      "org.checkerframework:checker-qual:3.43.0-SNAPSHOT::sourcesElements"
+      "apiElements",
+      "javadocElements",
+      "runtimeElements",
+      "sourcesElements"
     ],
     "groupId": "org.checkerframework",
     "minimumBytecodeTarget": "1.8",
@@ -624,8 +675,8 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm32:0.4.1-jpms::androidNativeArm32ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm32:0.4.1-jpms::androidNativeArm32SourcesElements-published"
+      "androidNativeArm32ApiElements-published",
+      "androidNativeArm32SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -643,8 +694,8 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm64:0.4.1-jpms::androidNativeArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm64:0.4.1-jpms::androidNativeArm64SourcesElements-published"
+      "androidNativeArm64ApiElements-published",
+      "androidNativeArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -662,8 +713,8 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex64:0.4.1-jpms::androidNativeX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex64:0.4.1-jpms::androidNativeX64SourcesElements-published"
+      "androidNativeX64ApiElements-published",
+      "androidNativeX64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -681,8 +732,8 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex86:0.4.1-jpms::androidNativeX86ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex86:0.4.1-jpms::androidNativeX86SourcesElements-published"
+      "androidNativeX86ApiElements-published",
+      "androidNativeX86SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -700,9 +751,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosarm64:0.4.1-jpms::iosArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosarm64:0.4.1-jpms::iosArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosarm64:0.4.1-jpms::iosArm64SourcesElements-published"
+      "iosArm64ApiElements-published",
+      "iosArm64MetadataElements-published",
+      "iosArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -720,9 +771,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iossimulatorarm64:0.4.1-jpms::iosSimulatorArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iossimulatorarm64:0.4.1-jpms::iosSimulatorArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iossimulatorarm64:0.4.1-jpms::iosSimulatorArm64SourcesElements-published"
+      "iosSimulatorArm64ApiElements-published",
+      "iosSimulatorArm64MetadataElements-published",
+      "iosSimulatorArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -740,9 +791,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosx64:0.4.1-jpms::iosX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosx64:0.4.1-jpms::iosX64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosx64:0.4.1-jpms::iosX64SourcesElements-published"
+      "iosX64ApiElements-published",
+      "iosX64MetadataElements-published",
+      "iosX64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -760,9 +811,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-js:0.4.1-jpms::jsApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-js:0.4.1-jpms::jsRuntimeElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-js:0.4.1-jpms::jsSourcesElements-published"
+      "jsApiElements-published",
+      "jsRuntimeElements-published",
+      "jsSourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -780,9 +831,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm:0.4.1-jpms::jvmApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm:0.4.1-jpms::jvmRuntimeElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm:0.4.1-jpms::jvmSourcesElements-published"
+      "jvmApiElements-published",
+      "jvmRuntimeElements-published",
+      "jvmSourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "modular": true,
@@ -802,8 +853,8 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxarm64:0.4.1-jpms::linuxArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxarm64:0.4.1-jpms::linuxArm64SourcesElements-published"
+      "linuxArm64ApiElements-published",
+      "linuxArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -821,8 +872,8 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxx64:0.4.1-jpms::linuxX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxx64:0.4.1-jpms::linuxX64SourcesElements-published"
+      "linuxX64ApiElements-published",
+      "linuxX64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -840,9 +891,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosarm64:0.4.1-jpms::macosArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosarm64:0.4.1-jpms::macosArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosarm64:0.4.1-jpms::macosArm64SourcesElements-published"
+      "macosArm64ApiElements-published",
+      "macosArm64MetadataElements-published",
+      "macosArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -860,9 +911,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosx64:0.4.1-jpms::macosX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosx64:0.4.1-jpms::macosX64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosx64:0.4.1-jpms::macosX64SourcesElements-published"
+      "macosX64ApiElements-published",
+      "macosX64MetadataElements-published",
+      "macosX64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -880,8 +931,8 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-mingwx64:0.4.1-jpms::mingwX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-mingwx64:0.4.1-jpms::mingwX64SourcesElements-published"
+      "mingwX64ApiElements-published",
+      "mingwX64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -899,9 +950,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosarm64:0.4.1-jpms::tvosArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosarm64:0.4.1-jpms::tvosArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosarm64:0.4.1-jpms::tvosArm64SourcesElements-published"
+      "tvosArm64ApiElements-published",
+      "tvosArm64MetadataElements-published",
+      "tvosArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -919,9 +970,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvossimulatorarm64:0.4.1-jpms::tvosSimulatorArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvossimulatorarm64:0.4.1-jpms::tvosSimulatorArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvossimulatorarm64:0.4.1-jpms::tvosSimulatorArm64SourcesElements-published"
+      "tvosSimulatorArm64ApiElements-published",
+      "tvosSimulatorArm64MetadataElements-published",
+      "tvosSimulatorArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -939,9 +990,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosx64:0.4.1-jpms::tvosX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosx64:0.4.1-jpms::tvosX64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosx64:0.4.1-jpms::tvosX64SourcesElements-published"
+      "tvosX64ApiElements-published",
+      "tvosX64MetadataElements-published",
+      "tvosX64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -959,9 +1010,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-js:0.4.1-jpms::wasmJsApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-js:0.4.1-jpms::wasmJsRuntimeElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-js:0.4.1-jpms::wasmJsSourcesElements-published"
+      "wasmJsApiElements-published",
+      "wasmJsRuntimeElements-published",
+      "wasmJsSourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -979,9 +1030,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-wasi:0.4.1-jpms::wasmWasiApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-wasi:0.4.1-jpms::wasmWasiRuntimeElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-wasi:0.4.1-jpms::wasmWasiSourcesElements-published"
+      "wasmWasiApiElements-published",
+      "wasmWasiRuntimeElements-published",
+      "wasmWasiSourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -999,9 +1050,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm32:0.4.1-jpms::watchosArm32ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm32:0.4.1-jpms::watchosArm32MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm32:0.4.1-jpms::watchosArm32SourcesElements-published"
+      "watchosArm32ApiElements-published",
+      "watchosArm32MetadataElements-published",
+      "watchosArm32SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -1019,9 +1070,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm64:0.4.1-jpms::watchosArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm64:0.4.1-jpms::watchosArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm64:0.4.1-jpms::watchosArm64SourcesElements-published"
+      "watchosArm64ApiElements-published",
+      "watchosArm64MetadataElements-published",
+      "watchosArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -1039,9 +1090,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosdevicearm64:0.4.1-jpms::watchosDeviceArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosdevicearm64:0.4.1-jpms::watchosDeviceArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosdevicearm64:0.4.1-jpms::watchosDeviceArm64SourcesElements-published"
+      "watchosDeviceArm64ApiElements-published",
+      "watchosDeviceArm64MetadataElements-published",
+      "watchosDeviceArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -1059,9 +1110,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchossimulatorarm64:0.4.1-jpms::watchosSimulatorArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchossimulatorarm64:0.4.1-jpms::watchosSimulatorArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchossimulatorarm64:0.4.1-jpms::watchosSimulatorArm64SourcesElements-published"
+      "watchosSimulatorArm64ApiElements-published",
+      "watchosSimulatorArm64MetadataElements-published",
+      "watchosSimulatorArm64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -1079,9 +1130,9 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosx64:0.4.1-jpms::watchosX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosx64:0.4.1-jpms::watchosX64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosx64:0.4.1-jpms::watchosX64SourcesElements-published"
+      "watchosX64ApiElements-published",
+      "watchosX64MetadataElements-published",
+      "watchosX64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -1099,73 +1150,73 @@
     "description": "Kotlin Immutable Collections multiplatform library",
     "gradleModule": true,
     "gradleVariants": [
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::androidNativeArm32ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::androidNativeArm32SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::androidNativeArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::androidNativeArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::androidNativeX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::androidNativeX64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::androidNativeX86ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::androidNativeX86SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosSimulatorArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosSimulatorArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosSimulatorArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosX64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::iosX64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::jsApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::jsRuntimeElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::jsSourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::jvmApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::jvmRuntimeElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::jvmSourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::linuxArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::linuxArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::linuxX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::linuxX64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::macosArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::macosArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::macosArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::macosX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::macosX64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::macosX64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::metadataApiElements",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::metadataSourcesElements",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::mingwX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::mingwX64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosSimulatorArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosSimulatorArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosSimulatorArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosX64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::tvosX64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::wasmJsApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::wasmJsRuntimeElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::wasmJsSourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::wasmWasiApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::wasmWasiRuntimeElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::wasmWasiSourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosArm32ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosArm32MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosArm32SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosDeviceArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosDeviceArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosDeviceArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosSimulatorArm64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosSimulatorArm64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosSimulatorArm64SourcesElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosX64ApiElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosX64MetadataElements-published",
-      "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms::watchosX64SourcesElements-published"
+      "androidNativeArm32ApiElements-published",
+      "androidNativeArm32SourcesElements-published",
+      "androidNativeArm64ApiElements-published",
+      "androidNativeArm64SourcesElements-published",
+      "androidNativeX64ApiElements-published",
+      "androidNativeX64SourcesElements-published",
+      "androidNativeX86ApiElements-published",
+      "androidNativeX86SourcesElements-published",
+      "iosArm64ApiElements-published",
+      "iosArm64MetadataElements-published",
+      "iosArm64SourcesElements-published",
+      "iosSimulatorArm64ApiElements-published",
+      "iosSimulatorArm64MetadataElements-published",
+      "iosSimulatorArm64SourcesElements-published",
+      "iosX64ApiElements-published",
+      "iosX64MetadataElements-published",
+      "iosX64SourcesElements-published",
+      "jsApiElements-published",
+      "jsRuntimeElements-published",
+      "jsSourcesElements-published",
+      "jvmApiElements-published",
+      "jvmRuntimeElements-published",
+      "jvmSourcesElements-published",
+      "linuxArm64ApiElements-published",
+      "linuxArm64SourcesElements-published",
+      "linuxX64ApiElements-published",
+      "linuxX64SourcesElements-published",
+      "macosArm64ApiElements-published",
+      "macosArm64MetadataElements-published",
+      "macosArm64SourcesElements-published",
+      "macosX64ApiElements-published",
+      "macosX64MetadataElements-published",
+      "macosX64SourcesElements-published",
+      "metadataApiElements",
+      "metadataSourcesElements",
+      "mingwX64ApiElements-published",
+      "mingwX64SourcesElements-published",
+      "tvosArm64ApiElements-published",
+      "tvosArm64MetadataElements-published",
+      "tvosArm64SourcesElements-published",
+      "tvosSimulatorArm64ApiElements-published",
+      "tvosSimulatorArm64MetadataElements-published",
+      "tvosSimulatorArm64SourcesElements-published",
+      "tvosX64ApiElements-published",
+      "tvosX64MetadataElements-published",
+      "tvosX64SourcesElements-published",
+      "wasmJsApiElements-published",
+      "wasmJsRuntimeElements-published",
+      "wasmJsSourcesElements-published",
+      "wasmWasiApiElements-published",
+      "wasmWasiRuntimeElements-published",
+      "wasmWasiSourcesElements-published",
+      "watchosArm32ApiElements-published",
+      "watchosArm32MetadataElements-published",
+      "watchosArm32SourcesElements-published",
+      "watchosArm64ApiElements-published",
+      "watchosArm64MetadataElements-published",
+      "watchosArm64SourcesElements-published",
+      "watchosDeviceArm64ApiElements-published",
+      "watchosDeviceArm64MetadataElements-published",
+      "watchosDeviceArm64SourcesElements-published",
+      "watchosSimulatorArm64ApiElements-published",
+      "watchosSimulatorArm64MetadataElements-published",
+      "watchosSimulatorArm64SourcesElements-published",
+      "watchosX64ApiElements-published",
+      "watchosX64MetadataElements-published",
+      "watchosX64SourcesElements-published"
     ],
     "groupId": "org.jetbrains.kotlinx",
     "name": "kotlinx-collections-immutable",
@@ -1183,8 +1234,8 @@
     "description": "A Protocol for Asynchronous Non-Blocking Data Sequence",
     "gradleModule": true,
     "gradleVariants": [
-      "org.reactivestreams:reactive-streams:1.0.5-jpms::apiElements",
-      "org.reactivestreams:reactive-streams:1.0.5-jpms::runtimeElements"
+      "apiElements",
+      "runtimeElements"
     ],
     "groupId": "org.reactivestreams",
     "minimumBytecodeTarget": "9",
