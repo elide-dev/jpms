@@ -406,6 +406,7 @@ const additionalProjectInfo: { [key: string]: Partial<ProjectInfo> } = {
     open: true,
     ...vendorGoogle,
     ...fullyVerified,
+    licenseNames: ['Apache 2.0'],
     licenses: [
       {
         wellKnown: WellKnownLicense.APACHE_2_0,
@@ -417,6 +418,7 @@ const additionalProjectInfo: { [key: string]: Partial<ProjectInfo> } = {
     open: true,
     ...vendorGoogle,
     ...fullyVerified,
+    licenseNames: ['Apache 2.0'],
     licenses: [
       {
         wellKnown: WellKnownLicense.APACHE_2_0,
@@ -428,6 +430,7 @@ const additionalProjectInfo: { [key: string]: Partial<ProjectInfo> } = {
     open: true,
     ...vendorGoogle,
     ...fullyVerified,
+    licenseNames: ['Other'],
     licenses: [
       {
         custom: "Protocol Buffers License",
@@ -439,6 +442,7 @@ const additionalProjectInfo: { [key: string]: Partial<ProjectInfo> } = {
     open: true,
     ...vendorGoogle,
     ...fullyVerified,
+    licenseNames: ['Apache 2.0'],
     licenses: [
       {
         wellKnown: WellKnownLicense.APACHE_2_0,

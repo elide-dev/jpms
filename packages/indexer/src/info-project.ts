@@ -21,6 +21,7 @@ import { ProjectLicense, ProjectLicenseStats, ProjectQualityMetrics, ProjectSour
 export type ProjectLicensingInfo = ProjectLicenseStats & {
   open: boolean
   licenses: ProjectLicense[]
+  licenseNames: string[]
   stats: ProjectLicenseStats
 }
 
