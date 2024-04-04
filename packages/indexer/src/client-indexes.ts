@@ -15,7 +15,7 @@ import {
   RepositoryGradleModulesIndexEntry,
   RepositoryIndexMetadata,
   RepositoryModulesIndexEntry,
-  RepositoryPackageIndexEntry
+  RepositoryPublicationIndexEntry
 } from './indexer-model.js'
 
 /**
@@ -197,18 +197,18 @@ export async function modules(
 }
 
 /**
- * Index: Packages
+ * Index: Publications
  *
- * Fetch the latest copy of the "packages" index, which maps packages to project summaries. Optionally, a host
+ * Fetch the latest copy of the "publications" index, which maps JARs to project summaries. Optionally, a host
  * override may be provided.
  *
  * @param host Endpoint host override
  * @returns Fetched index data
  */
-export async function packages(
+export async function publications(
   host: JavaModulesEndpoint = defaultHost
-): Promise<IndexesResponse<RepositoryPackageIndexEntry>> {
-  return await fetchIndex<RepositoryPackageIndexEntry>(JavaModulesIndex.PACKAGES, host)
+): Promise<IndexesResponse<RepositoryPublicationIndexEntry>> {
+  return await fetchIndex<RepositoryPublicationIndexEntry>(JavaModulesIndex.PACKAGES, host)
 }
 
 /**

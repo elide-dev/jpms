@@ -40,10 +40,10 @@ export enum SourceControlPlatform {
  * Information about the source control system used by a software project.
  */
 export type ProjectSourceControl = {
-  type: SourceControlType
-  platform?: SourceControlPlatform
-  httpsUrl?: string
-  scmUrl?: string
+  sourceControlType: SourceControlType
+  sourceControlPlatform?: SourceControlPlatform
+  scmUrlHttps?: string
+  scmUrlDeveloper?: string
 }
 
 /**

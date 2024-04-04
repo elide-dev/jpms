@@ -12,7 +12,7 @@
  */
 
 import { describe, expect, test, jest, beforeAll } from '@jest/globals'
-import { modules, gradle, packages } from '../src/client-indexes'
+import { modules, gradle, publications } from '../src/client-indexes'
 
 let fetchMock: jest.SpiedFunction<typeof fetch>
 
@@ -31,8 +31,8 @@ describe('index fetcher', () => {
     expect(index).toBeDefined()
   })
 
-  test('can fetch the packages index', async () => {
-    const index = await packages()
+  test('can fetch the publications index', async () => {
+    const index = await publications()
     expect(index).toBeDefined()
   })
 

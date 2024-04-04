@@ -153,7 +153,7 @@ export function jvmLevelForTarget(target: JvmTarget): number {
  */
 export type JavaModuleExport = {
   package: string
-  to: string[]
+  to?: string[]
 }
 
 /**
@@ -170,7 +170,7 @@ export type JavaModuleRequires = {
  */
 export type JavaModuleOpens = {
   package: string
-  to: string[]
+  to?: string[]
 }
 
 /**
@@ -202,12 +202,12 @@ export type JavaModuleInfo = {
   name: string
   version?: string
   main?: string
-  flags: JavaModuleFlags
-  requires: JavaModuleRequires[]
-  exports: JavaModuleExport[]
-  opens: JavaModuleOpens[]
-  provides: JavaModuleProvides[]
-  uses: JavaModuleUses[]
+  flags?: JavaModuleFlags
+  requires?: JavaModuleRequires[]
+  exports?: JavaModuleExport[]
+  opens?: JavaModuleOpens[]
+  provides?: JavaModuleProvides[]
+  uses?: JavaModuleUses[]
 }
 
 /**

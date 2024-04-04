@@ -36,12 +36,12 @@ import {
   RepositoryModulesIndexEntry,
   RepositoryGradleModulesIndexEntry,
   RepositoryPomIndexEntry,
-  RepositoryPackageIndexEntry,
+  RepositoryPublicationIndexEntry,
   RepositoryIndexMetadata,
   formatVersion
 } from './indexer-model'
-import { ProjectInfo, ProjectProfileInfo } from './info-project'
-import { ProjectSourceControl } from './info-model'
+import { ProjectInfo, ProjectOrgInfo, ProjectProfileInfo, ProjectVerifications } from './info-project'
+import { ProjectSourceControl, SourceControlPlatform, SourceControlType, WellKnownLicense } from './info-model'
 
 const DEFAULT_PRETTY = true
 const snapshotAllowlist: Set<string> = new Set()
@@ -61,9 +61,38 @@ async function buildRepositoryJar(coordinate: MavenCoordinate, path: string): Pr
   if (modular) {
     module = await jar.moduleInfo
   }
-  if (module?.requires.length === 1) {
-    if (module.requires[0].module === 'java.base') {
-      module.requires = [] // we can omit this
+  if (module) {
+    const requires = module.requires || []
+    const exports = module.exports || []
+    const opens = module.opens || []
+    const uses = module.uses || []
+    const provides = module.provides || []
+
+    if (requires.length === 1) {
+      if (requires[0].module === 'java.base') {
+        delete module['requires']
+      }
+    }
+    if (requires.length > 0) {
+      // filter out any instance of `java.base` unconditionally
+      module.requires = requires.filter(req => req.module !== 'java.base')
+    }
+
+    // we can make empty arrays undefiend
+    if (requires.length === 0) {
+      delete module['requires']
+    }
+    if (exports.length === 0) {
+      delete module['exports']
+    }
+    if (opens.length === 0) {
+      delete module['opens']
+    }
+    if (uses.length === 0) {
+      delete module['uses']
+    }
+    if (provides.length === 0) {
+      delete module['provides']
     }
   }
 
@@ -136,9 +165,9 @@ async function repositoryPackage(
     gradle,
     jars,
     flags: {
-      modular: jars.find(jar => jar.modular) !== undefined,
-      gradleModule: !!gradle,
-      mrjar,
+      modular: jars.find(jar => jar.modular) !== undefined ? true : undefined,
+      gradleModule: !!gradle ? true : undefined,
+      mrjar: mrjar ? true : undefined,
       minimumBytecodeTarget: minimumBytecodeTarget === '1.5' ? undefined : minimumBytecodeTarget,
       maximumBytecodeTarget: maximumBytecodeTarget === minimumBytecodeTarget ? undefined : maximumBytecodeTarget
     },
@@ -241,9 +270,11 @@ function buildModulesIndex(eligible: RepositoryPackage[]): RepositoryModulesInde
       }
       return {
         objectID: pkg.objectID,
-        coordinate: pkg.coordinate,
-        flags: pkg.flags,
-        module: modularJar
+        jar: modularJar.jar,
+        purl: new PackageURL('maven', pkg.coordinate.groupId, pkg.coordinate.artifactId, pkg.coordinate.version, undefined, undefined).toString(),
+        ...pkg.coordinate,
+        ...pkg.flags,
+        ...(modularJar.module)
       }
     })
     .filter(it => it !== undefined)
@@ -275,8 +306,146 @@ function buildIndex<V>(data: { objectID: string }[]): IndexData<V> {
   return new Map(data.map(it => [it.objectID, it] as [string, V]))
 }
 
-function buildProjectSourceControl(_pom: PomProject): ProjectSourceControl | undefined {
-  return undefined // @TODO
+const projectSourceControlFallbacks: { [key: string]: ProjectSourceControl } = {
+  'j2objc': {
+    sourceControlType: SourceControlType.GIT,
+    sourceControlPlatform: SourceControlPlatform.GITHUB,
+    scmUrlHttps: 'https://github.com/google/j2objc',
+    scmUrlDeveloper: 'https://github.com/google/j2objc.git'
+  },
+  'guava': {
+    sourceControlType: SourceControlType.GIT,
+    sourceControlPlatform: SourceControlPlatform.GITHUB,
+    scmUrlHttps: 'https://github.com/google/guava',
+    scmUrlDeveloper: 'https://github.com/google/guava.git'
+  },
+  'prone': {
+    sourceControlType: SourceControlType.GIT,
+    sourceControlPlatform: SourceControlPlatform.GITHUB,
+    scmUrlHttps: 'https://github.com/google/error-prone',
+    scmUrlDeveloper: 'https://github.com/google/error-prone.git',
+  }
+}
+
+function sourceControlFallback(pom: PomProject): ProjectSourceControl | undefined {
+  const name = pom.pom?.name
+  if (!name) return undefined
+  for (const key in projectSourceControlFallbacks) {
+    if (name.toLowerCase().includes(key)) {
+      return projectSourceControlFallbacks[key] as ProjectSourceControl
+    }
+  }
+  return undefined
+}
+
+function buildProjectSourceControl(pom: PomProject): ProjectSourceControl | undefined {
+  let type: SourceControlType | null = null
+  let platform: SourceControlPlatform | null = null
+  let projectHttpsUrl: string | undefined = undefined
+  let projectDeveloperUrl: string | undefined = undefined
+
+  let parsed: URL | null = null
+  const url = pom.pom?.scm?.url
+  if (!!url && url.length > 0) {
+    if (url.includes('https://')) {
+      try {
+        parsed = new URL(url)
+      } catch (err) {
+        throw new Error(`Failed to parse URL: ${url}`)
+      }
+      if (parsed.hostname.includes('github.com')) {
+        type = SourceControlType.GIT
+        platform = SourceControlPlatform.GITHUB
+      } else if (parsed.hostname.includes('git')) {
+        type = SourceControlType.GIT
+      }
+    } else if (url.startsWith('git@github.com')) {
+      type = SourceControlType.GIT
+      platform = SourceControlPlatform.GITHUB
+      const ownerName = (url.split(':')[1].split('/').at(0) as string).toLowerCase().trim()
+      const repoName = (url.split(':')[1].split('/').at(1) as string).toLowerCase().trim()
+      parsed = new URL(`https://github.com/${ownerName}/${repoName}`)
+    }
+  }
+
+  // if we can't resolve a type, don't specify source control info
+  if (type === null || !parsed) {
+    return sourceControlFallback(pom)
+  } else if (type !== SourceControlType.GIT) {
+    throw new Error(`Source control type not supported: ${type}`)
+  }
+  const ownerName = (parsed.pathname.split('/').at(1) as string).toLowerCase().trim()
+  const repoName = (parsed.pathname.split('/').at(2) as string).toLowerCase().trim()
+  projectHttpsUrl = `https://github.com/${ownerName}/${repoName}`
+  projectDeveloperUrl = `https://github.com/${ownerName}/${repoName}.git`
+
+  return {
+    sourceControlType: type,
+    sourceControlPlatform: platform || undefined,
+    scmUrlHttps: projectHttpsUrl,
+    scmUrlDeveloper: projectDeveloperUrl,
+  }
+}
+
+const vendorGoogle: ProjectOrgInfo = {
+  vendorName: 'Google',
+  vendorLegal: 'Google LLC',
+  vendorUrl: 'https://google.com',
+  vendorLogo: 'https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png'
+}
+
+const fullyVerified: ProjectVerifications = {
+  verifiedOwner: true,
+  verifiedValid: true,
+  verifiedProvenance: true,
+  verifiedReleases: true,
+}
+
+const additionalProjectInfo: { [key: string]: Partial<ProjectInfo> } = {
+  'j2objc': {
+    open: true,
+    ...vendorGoogle,
+    ...fullyVerified,
+    licenses: [
+      {
+        wellKnown: WellKnownLicense.APACHE_2_0,
+        url: 'https://opensource.org/licenses/Apache-2.0'
+      }
+    ]
+  },
+  'guava': {
+    open: true,
+    ...vendorGoogle,
+    ...fullyVerified,
+    licenses: [
+      {
+        wellKnown: WellKnownLicense.APACHE_2_0,
+        url: 'https://opensource.org/licenses/Apache-2.0'
+      }
+    ]
+  },
+  'protobuf': {
+    open: true,
+    ...vendorGoogle,
+    ...fullyVerified,
+    licenses: [
+      {
+        custom: "Protocol Buffers License",
+        url: 'https://github.com/protocolbuffers/protobuf/blob/main/LICENSE'
+      }
+    ]
+  },
+  'prone': {
+    open: true,
+    ...vendorGoogle,
+    ...fullyVerified,
+    licenses: [
+      {
+        wellKnown: WellKnownLicense.APACHE_2_0,
+        url: 'https://opensource.org/licenses/Apache-2.0'
+      }
+    ]
+  }
 }
 
 function buildProjectProfile(
@@ -289,10 +458,19 @@ function buildProjectProfile(
     name: maven.pom.name || _module?.name || undefined,
     description: maven.pom.description || undefined
   }
+  let additional: Partial<ProjectInfo> | undefined
+  for (const key in additionalProjectInfo) {
+    if (objectID.toLowerCase().includes(key)) {
+      additional = additionalProjectInfo[key]
+      break
+    }
+  }
+
   return {
     objectID,
-    profile,
-    source: buildProjectSourceControl(maven)
+    ...(profile),
+    ...(buildProjectSourceControl(maven)),
+    ...(additional || {}),
   }
 }
 
@@ -301,13 +479,13 @@ function buildPackageSummaryIndex(
   gradleVariants: IndexData<RepositoryGradleModulesIndexEntry>,
   modules: IndexData<RepositoryModulesIndexEntry>,
   eligible: RepositoryPackage[]
-): RepositoryPackageIndexEntry[] {
+): RepositoryPublicationIndexEntry[] {
   return eligible.map(pkg => {
     const variants: string[] = Array.from(gradleVariants.keys()).filter(it => it.startsWith(pkg.objectID))
     const module = modules.get(pkg.objectID)
     const maven = mavenPoms.get(pkg.objectID)
     if (!maven) throw new Error(`no parsed pom found for coordinate: ${pkg.coordinate.valueOf()}`)
-    const projectInfo = buildProjectProfile(pkg.objectID, maven, pkg.gradle || null, module?.module?.module || null)
+    const projectInfo = buildProjectProfile(pkg.objectID, maven, pkg.gradle || null, module || null)
     const packageUrl = new PackageURL(
       'maven',
       maven.coordinate.groupId,
@@ -323,12 +501,14 @@ function buildPackageSummaryIndex(
     return {
       objectID: pkg.objectID,
       purl: packageUrl.toString(),
-      coordinate: pkg.coordinate,
-      flags: pkg.flags,
-      module: module?.module,
-      gradleVariants: variants || [],
-      project: projectInfo
-    } satisfies RepositoryPackageIndexEntry
+      repository: 'https://jpms.pkg.st/repository',
+      gradleVariants: variants.length > 0 ? variants : undefined,
+      moduleName: module?.name || undefined,
+      moduleVersion: module?.version || undefined,
+      ...(pkg.coordinate),
+      ...(pkg.flags),
+      ...(projectInfo)
+    } satisfies RepositoryPublicationIndexEntry
   })
 }
 
@@ -362,17 +542,17 @@ function buildIndexes(allPackages: RepositoryPackage[]): RepositoryIndexBundle {
   console.log(`Built index: 'gradle' (entries: ${gradle.length})`)
   const modules = sortEntries(buildModulesIndex(eligible))
   console.log(`Built index: 'modules' (entries: ${modules.length})`)
-  const packages = sortEntries(
+  const publications = sortEntries(
     buildPackageSummaryIndex(buildIndex(maven), buildIndex(gradle), buildIndex(modules), eligible)
   )
 
-  console.log(`Built index 'summary' (entries: ${packages.length})`)
+  console.log(`Built index 'summary' (entries: ${publications.length})`)
   return {
     allPackages,
     modules,
     gradle,
     maven,
-    packages
+    publications
   }
 }
 
@@ -454,9 +634,9 @@ async function prepareContent(indexes: RepositoryIndexBundle): Promise<Repositor
   const timestamp = +new Date()
   return [
     buildIndexFile(timestamp, 'modules.json', indexes.modules),
-    buildIndexFile(timestamp, 'gradle.json', indexes.gradle),
-    buildIndexFile(timestamp, 'maven.json', indexes.maven),
-    buildIndexFile(timestamp, 'packages.json', indexes.packages)
+    // buildIndexFile(timestamp, 'gradle.json', indexes.gradle),
+    // buildIndexFile(timestamp, 'maven.json', indexes.maven),
+    buildIndexFile(timestamp, 'publications.json', indexes.publications)
   ]
 }
 
