@@ -39,9 +39,9 @@ import { JavaCompiler, JavaLauncher, JdkTool } from './toolchain'
 // }
 //
 // Tests and explanation here:
-// https://regex101.com/r/ktTvDu/2
+// https://regex101.com/r/ktTvDu/3
 // prettier-ignore
-const javaVersionBlockRegex = /openjdk.* \"{0,1}(?<version>[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2})\"{0,1} (?<releaseDate>[0-9]{4}-[0-9]{2}-[0-9]{2})\ {0,1}(?<lts>LTS){0,1}\nOpenJDK Runtime Environment\ (?<vendor>GraalVM CE|Oracle GraalVM|Zulu){0,1}.*\ {0,1}[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}(\+(?<patch>[0-9]{1,2}(\.[0-9]{0,2}){0,1})){0,1}.*\nOpenJDK\ (?<bitness>64|32)-Bit\ (?<vmType>Client|Server)\ VM.*(\,\ (?<flags>mixed mode\, sharing|mixed mode),{0,1})\){0,1}/gm
+const javaVersionBlockRegex = /(?<prefix>java|openjdk version|openjdk) \"?(?<version>[.0-9]{2,8}?)\"? (?<releaseDate>[0-9]{4}-[0-9]{2}-[0-9]{2})\ ?(?<lts>LTS)?\n(?<tag>Java\(TM\) SE Runtime Environment|OpenJDK Runtime Environment)\ ?(?<vendor>GraalVM CE|Oracle GraalVM|Zulu){0,1}[.0-9]{0,5}\ ?[.0-9]{2,6}(\+(?<patch>[0-9]{1,2}(\.[0-9]{0,2}){0,1})){0,1}.*\n(Java HotSpot\(TM\)|OpenJDK)?\ (?<bitness>64|32)-Bit\ (?<vmType>Client|Server)\ VM.*(\,\ (?<flags>mixed mode\, sharing|mixed mode),{0,1})\){0,1}/gm
 
 /**
  * Java Version Info
@@ -61,14 +61,14 @@ export type JavaVersionInfo = {
 }
 
 enum VersionStringMatchGroup {
-  VERSION = 1,
-  RELEASE_DATE = 2,
-  LTS = 3,
-  VENDOR = 4,
-  PATCH = 6,
-  BITNESS = 8,
-  VM_TYPE = 9,
-  VM_FLAGS = 11
+  VERSION = 2,
+  RELEASE_DATE = 3,
+  LTS = 4,
+  VENDOR = 6,
+  PATCH = 8,
+  BITNESS = 11,
+  VM_TYPE = 12,
+  VM_FLAGS = 14
 }
 
 function buildMatchGroups(regex: RegExp, str: string): any {
@@ -138,8 +138,11 @@ export function parseJavaVersionBlock(text: string): JavaVersionInfo {
     throw new Error(
       'Failed to parse VM version from text: \n' + text + '\n' + 'Groups: ' + JSON.stringify(groups, null, '  ')
     )
-  const vmVersion = semver.parse(version)
-  if (!vmVersion) throw new Error('Failed to parse VM version as semantic version')
+
+  // handle simple major-only versions like `22`
+  const subjectVersion = version.length === 2 ? `${version}.0.0` : version
+  const vmVersion = semver.parse(subjectVersion)
+  if (!vmVersion) throw new Error(`Failed to parse VM version as semantic version: '${version}'`)
 
   return {
     version: version as string,
