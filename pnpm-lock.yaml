@@ -164,8 +164,8 @@ importers:
         specifier: 29.7.0
         version: 29.7.0
       '@octokit/types':
-        specifier: 12.6.0
-        version: 12.6.0
+        specifier: 13.2.0
+        version: 13.2.0
       '@types/jest':
         specifier: 29.5.12
         version: 29.5.12
@@ -1506,6 +1506,11 @@ packages:
 
   /@octokit/openapi-types@20.0.0:
     resolution: {integrity: sha512-EtqRBEjp1dL/15V7WiX5LJMIxxkdiGJnabzYx5Apx4FkQIFgAfKumXeYAqqJCj1s+BMX4cPFIFC4OLCR6stlnA==, tarball: https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-20.0.0.tgz}
+    dev: false
+
+  /@octokit/openapi-types@22.0.0:
+    resolution: {integrity: sha512-kWzSxSIBjCtwrT8/O/A/nrSjmHvR5I9GGTHPyBU19VuEae+QZfaPnnfLwXgV56n51xHN3U2dYy8zh/kO9/39ig==, tarball: https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-22.0.0.tgz}
+    dev: true
 
   /@octokit/request-error@6.0.2:
     resolution: {integrity: sha512-WtRVpoHcNXs84+s9s/wqfHaxM68NGMg8Av7h59B50OVO0PwwMx+2GgQ/OliUd0iQBSNWgR6N8afi/KjSHbXHWw==, tarball: https://registry.npmjs.org/@octokit/request-error/-/request-error-6.0.2.tgz}
@@ -1528,6 +1533,13 @@ packages:
     resolution: {integrity: sha512-1rhSOfRa6H9w4YwK0yrf5faDaDTb+yLyBUKOCV4xtCDB5VmIPqd/v9yr9o6SAzOAlRxMiRiCic6JVM1/kunVkw==, tarball: https://registry.npmjs.org/@octokit/types/-/types-12.6.0.tgz}
     dependencies:
       '@octokit/openapi-types': 20.0.0
+    dev: false
+
+  /@octokit/types@13.2.0:
+    resolution: {integrity: sha512-K4rpfbIQLe4UimS/PWZAcImhZUC80lhe2f1NpAaaTulPJXv54QIAFFCQEEbdQdqTV/745QDmdvp8NI49LaI00A==, tarball: https://registry.npmjs.org/@octokit/types/-/types-13.2.0.tgz}
+    dependencies:
+      '@octokit/openapi-types': 22.0.0
+    dev: true
 
   /@oozcitak/dom@1.15.10:
     resolution: {integrity: sha512-0JT29/LaxVgRcGKvHmSrUTEvZ8BXvZhGl2LASRUgHqDTC1M5g1pLmVv56IYNyt3bG2CUjDkc67wnyZC14pbQrQ==, tarball: https://registry.npmjs.org/@oozcitak/dom/-/dom-1.15.10.tgz}
@@ -2309,6 +2321,7 @@ packages:
   /chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==, tarball: https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz}
     engines: {node: '>=10'}
+    requiresBuild: true
     dev: false
 
   /ci-info@3.9.0:
@@ -3135,6 +3148,7 @@ packages:
   /fs-minipass@2.1.0:
     resolution: {integrity: sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==, tarball: https://registry.npmjs.org/fs-minipass/-/fs-minipass-2.1.0.tgz}
     engines: {node: '>= 8'}
+    requiresBuild: true
     dependencies:
       minipass: 3.3.6
     dev: false
@@ -4898,6 +4912,7 @@ packages:
   /minipass@5.0.0:
     resolution: {integrity: sha512-3FnjYuehv9k6ovOEbyOswadCDPX1piCfhV8ncmYtHOjuPwylVWsghTLo7rabjC3Rx5xD4HDx8Wm1xnMF7S5qFQ==, tarball: https://registry.npmjs.org/minipass/-/minipass-5.0.0.tgz}
     engines: {node: '>=8'}
+    requiresBuild: true
     dev: false
 
   /minipass@7.0.4:
