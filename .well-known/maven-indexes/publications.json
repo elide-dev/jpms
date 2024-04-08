@@ -20,7 +20,14 @@
     "objectID": "com.google.errorprone:error_prone_annotations:2.25.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.errorprone/error_prone_annotations@2.25.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -52,7 +59,14 @@
     "objectID": "com.google.errorprone:error_prone_annotations:2.26.1",
     "open": true,
     "purl": "pkg:maven/com.google.errorprone/error_prone_annotations@2.25.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -85,7 +99,14 @@
     "objectID": "com.google.guava:failureaccess:1.0.3-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.guava/failureaccess@1.0.3-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -113,7 +134,14 @@
     "objectID": "com.google.guava:guava-bom:33.0.0-jre-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava-bom@33.0.0-jre-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -141,7 +169,14 @@
     "objectID": "com.google.guava:guava-gwt:33.0.0-jre-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava-gwt@33.0.0-jre-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -169,7 +204,14 @@
     "objectID": "com.google.guava:guava-parent:33.0.0-jre-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava-parent@33.0.0-jre-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -202,7 +244,14 @@
     "objectID": "com.google.guava:guava-testlib:33.0.0-jre-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava-testlib@33.0.0-jre-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -235,7 +284,14 @@
     "objectID": "com.google.guava:guava:33.0.0-jre-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava@33.0.0-jre-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -268,7 +324,14 @@
     "objectID": "com.google.j2objc:j2objc-annotations:3.0.0",
     "open": true,
     "purl": "pkg:maven/com.google.j2objc/j2objc-annotations@3.0.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -301,7 +364,14 @@
     "objectID": "com.google.j2objc:j2objc-annotations:3.0.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.j2objc/j2objc-annotations@3.0.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -329,7 +399,14 @@
     "objectID": "com.google.protobuf:protobuf-bom:4.26.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-bom@4.26.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -361,7 +438,14 @@
     "objectID": "com.google.protobuf:protobuf-java:4.26.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-java@4.26.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -393,7 +477,14 @@
     "objectID": "com.google.protobuf:protobuf-javalite:4.26.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-javalite@4.26.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -425,7 +516,14 @@
     "objectID": "com.google.protobuf:protobuf-kotlin-lite:4.26.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-kotlin-lite@4.26.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -457,7 +555,14 @@
     "objectID": "com.google.protobuf:protobuf-kotlin:4.26.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-kotlin@4.26.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -485,7 +590,14 @@
     "objectID": "com.google.protobuf:protobuf-parent:4.26.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-parent@4.26.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -517,7 +629,14 @@
     "objectID": "com.google.protobuf:protobuf-util:4.26.0-jpms",
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-util@4.26.0-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -535,7 +654,14 @@
     "name": "JPMS Attic: BOM",
     "objectID": "dev.javamodules:jpms-bom:1.0.0",
     "purl": "pkg:maven/dev.javamodules/jpms-bom@1.0.0",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "1.0.0"
   },
   {
@@ -549,7 +675,14 @@
     "name": "JPMS Attic Catalog",
     "objectID": "dev.javamodules:jpms-catalog:1.0.0",
     "purl": "pkg:maven/dev.javamodules/jpms-catalog@1.0.0",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "1.0.0"
   },
   {
@@ -564,7 +697,14 @@
     "name": "JPMS Attic Platform",
     "objectID": "dev.javamodules:jpms-platform:1.0.0",
     "purl": "pkg:maven/dev.javamodules/jpms-platform@1.0.0",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "1.0.0"
   },
   {
@@ -579,7 +719,14 @@
     "name": "GeantyRef",
     "objectID": "io.leangen.geantyref:geantyref:1.3.15-jpms",
     "purl": "pkg:maven/io.leangen.geantyref/geantyref@1.3.15-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "1.3.15-jpms"
   },
   {
@@ -599,7 +746,14 @@
     "name": "Checker Qual",
     "objectID": "org.checkerframework:checker-qual:3.43.0-SNAPSHOT",
     "purl": "pkg:maven/org.checkerframework/checker-qual@3.43.0-SNAPSHOT",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "3.43.0-SNAPSHOT"
   },
   {
@@ -614,7 +768,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm32:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-androidnativearm32@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -629,7 +790,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-androidnativearm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -644,7 +812,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-androidnativex64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -659,7 +834,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex86:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-androidnativex86@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -675,7 +857,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-iosarm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -691,7 +880,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iossimulatorarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-iossimulatorarm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -707,7 +903,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-iosx64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -723,7 +926,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-js:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-js@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -741,7 +951,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-jvm@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -756,7 +973,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-linuxarm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -771,7 +995,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-linuxx64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -787,7 +1018,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-macosarm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -803,7 +1041,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-macosx64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -818,7 +1063,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-mingwx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-mingwx64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -834,7 +1086,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-tvosarm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -850,7 +1109,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvossimulatorarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-tvossimulatorarm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -866,7 +1132,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-tvosx64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -882,7 +1155,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-js:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-wasm-js@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -898,7 +1178,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-wasi:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-wasm-wasi@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -914,7 +1201,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm32:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchosarm32@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -930,7 +1224,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchosarm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -946,7 +1247,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosdevicearm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchosdevicearm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -962,7 +1270,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchossimulatorarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchossimulatorarm64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -978,7 +1293,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchosx64@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -1058,7 +1380,14 @@
     "name": "kotlinx-collections-immutable",
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable@0.4.1-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "0.4.1-jpms"
   },
   {
@@ -1077,7 +1406,14 @@
     "name": "reactive-streams",
     "objectID": "org.reactivestreams:reactive-streams:1.0.5-jpms",
     "purl": "pkg:maven/org.reactivestreams/reactive-streams@1.0.5-jpms",
-    "repository": "https://jpms.pkg.st/repository",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
     "version": "1.0.5-jpms"
   }
 ]
