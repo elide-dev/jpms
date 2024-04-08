@@ -291,10 +291,10 @@ function buildGradleIndex(eligible: RepositoryPackage[]): RepositoryGradleModule
 
       return {
         objectID: `${pkg.objectID}::${variant.name}`,
-        coordinate: pkg.coordinate,
-        flags: pkg.flags,
         variant: variant.name,
-        gradle: variant
+        ...pkg.coordinate,
+        ...pkg.flags,
+        ...variant
       }
     })
     .filter(it => it !== undefined)
@@ -459,8 +459,8 @@ function buildProjectProfile(
   _module: JavaModuleInfo | null
 ): ProjectInfo {
   const profile: ProjectProfileInfo = {
-    name: maven.pom.name || _module?.name || undefined,
-    description: maven.pom.description || undefined
+    name: maven.name || _module?.name || undefined,
+    description: maven.description || undefined
   }
   let additional: Partial<ProjectInfo> | undefined
   for (const key in additionalProjectInfo) {
@@ -492,9 +492,9 @@ function buildPackageSummaryIndex(
     const projectInfo = buildProjectProfile(pkg.objectID, maven, pkg.gradle || null, module || null)
     const packageUrl = new PackageURL(
       'maven',
-      maven.coordinate.groupId,
-      maven.coordinate.artifactId,
-      maven.coordinate.version,
+      maven.groupId,
+      maven.artifactId,
+      maven.version,
       undefined,
       undefined
     )
@@ -525,9 +525,9 @@ function buildMavenIndex(eligible: RepositoryPackage[]): RepositoryPomIndexEntry
     .map(pkg => {
       return {
         objectID: pkg.objectID,
-        coordinate: pkg.coordinate,
-        flags: pkg.flags,
-        pom: pkg.maven
+        ...pkg.coordinate,
+        ...pkg.flags,
+        ...pkg.maven
       }
     })
     .filter(it => it !== undefined)
@@ -560,7 +560,8 @@ function buildIndexes(allPackages: RepositoryPackage[]): RepositoryIndexBundle {
     modules,
     gradle,
     maven,
-    publications
+    publications,
+    graalVmMetadata: [],
   }
 }
 
