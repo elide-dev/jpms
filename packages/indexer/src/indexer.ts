@@ -643,7 +643,7 @@ async function prepareContent(indexes: RepositoryIndexBundle): Promise<Repositor
   const timestamp = +new Date()
   return [
     buildIndexFile(timestamp, 'modules.json', indexes.modules),
-    // buildIndexFile(timestamp, 'gradle.json', indexes.gradle),
+    buildIndexFile(timestamp, 'gradle.json', indexes.gradle),
     // buildIndexFile(timestamp, 'maven.json', indexes.maven),
     buildIndexFile(timestamp, 'publications.json', indexes.publications)
   ]
