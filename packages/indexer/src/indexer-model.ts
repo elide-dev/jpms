@@ -118,13 +118,10 @@ export type RepositoryModulesIndexEntry = MavenCoordinate & Partial<PackageFlags
  *
  * Describes an entry in an index file which maps indexed artifacts by their Gradle Module info.
  */
-export type RepositoryGradleModulesIndexEntry = {
+export type RepositoryGradleModulesIndexEntry = MavenCoordinate & Partial<PackageFlags> & GradleVariant & {
   // Well-qualified Maven coordinate, appended with Gradle variant ID.
   objectID: string
   variant: string
-  coordinate: MavenCoordinate
-  flags: PackageFlags
-  gradle: GradleVariant
 }
 
 /**
@@ -132,12 +129,9 @@ export type RepositoryGradleModulesIndexEntry = {
  *
  * Describes an entry in an index file which maps indexed artifacts by their Maven POM info.
  */
-export type RepositoryPomIndexEntry = {
+export type RepositoryPomIndexEntry = MavenCoordinate & Partial<PackageFlags> & PomProject & {
   // Well-qualified Maven coordinate.
   objectID: string
-  coordinate: MavenCoordinate
-  flags: PackageFlags
-  pom: PomProject
 }
 
 /**
@@ -158,6 +152,42 @@ export type RepositoryPublicationIndexEntry = (
 }
 
 /**
+ * GraalVM Metadata Entry
+ *
+ * Describes a single entry present within the GraalVM Reachability Metadata Index, located at:
+ * https://github.com/oracle/graalvm-reachability-metadata/blob/master/metadata/index.json
+ */
+export type GraalVmMetadataEntry = {
+  "allowed-packages"?: string[];
+  directory?:          string;
+  module?:             string;
+  requires?:           string[];
+}
+
+/**
+ * GraalVM Module Metadata
+ *
+ * Describes raw module reachability metadata for a given module. Example located at:
+ * https://github.com/oracle/graalvm-reachability-metadata/blob/master/metadata/io.netty/netty-buffer/index.json
+ */
+export type GraalVmModuleMetadata = {
+  latest?:             boolean;
+  override?:           boolean;
+  "metadata-version"?: string;
+  module?:             string;
+  "tested-versions"?:  string[];
+}
+
+/**
+ * Repository GraalVM Metadata Index Entry
+ *
+ * Gathers entries which describe libraries that have known GraalVM Reachability metadata.
+ */
+export type RepositoryGraalVmMetadataIndexEntry = {
+  // Nothing yet.
+}
+
+/**
  * Repository Index Bundle
  *
  * Gathers together all computed materialized indexes for a given Maven repository; used
@@ -169,6 +199,7 @@ export type RepositoryIndexBundle = {
   modules: RepositoryModulesIndexEntry[]
   maven: RepositoryPomIndexEntry[]
   publications: RepositoryPublicationIndexEntry[]
+  graalVmMetadata: RepositoryGraalVmMetadataIndexEntry[]
 }
 
 /**
