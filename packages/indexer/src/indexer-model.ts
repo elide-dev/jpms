@@ -146,7 +146,8 @@ export type RepositoryPublicationIndexEntry = (
   objectID: string
   purl: string
   gradleVariants?: string[]
-  repository: string
+  repositories: string[]
+  repositoryNames: string[]
   moduleName?: string
   moduleVersion?: string
 }

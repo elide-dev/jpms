@@ -509,7 +509,8 @@ function buildPackageSummaryIndex(
     return {
       objectID: pkg.objectID,
       purl: packageUrl.toString(),
-      repository: 'https://jpms.pkg.st/repository',
+      repositories: ['https://jpms.pkg.st/repository', 'https://repo.maven.apache.org/maven2/'],
+      repositoryNames: ['JPMS Attic', 'Maven Central'],
       gradleVariants: filteredVariants.length > 0 ? filteredVariants : undefined,
       moduleName: module?.name || undefined,
       moduleVersion: module?.version || undefined,
