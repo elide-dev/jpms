@@ -21,10 +21,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.errorprone/error_prone_annotations@2.25.0-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/error-prone.git",
-    "scmUrlHttps": "https://github.com/google/error-prone",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -55,12 +51,8 @@
     "name": "error-prone annotations",
     "objectID": "com.google.errorprone:error_prone_annotations:2.26.1",
     "open": true,
-    "purl": "pkg:maven/com.google.errorprone/error_prone_annotations@2.26.1",
+    "purl": "pkg:maven/com.google.errorprone/error_prone_annotations@2.25.0-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/error-prone.git",
-    "scmUrlHttps": "https://github.com/google/error-prone",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -94,10 +86,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.guava/failureaccess@1.0.3-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/guava.git",
-    "scmUrlHttps": "https://github.com/google/guava",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -126,10 +114,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava-bom@33.0.0-jre-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/guava.git",
-    "scmUrlHttps": "https://github.com/google/guava",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -158,10 +142,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava-gwt@33.0.0-jre-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/guava.git",
-    "scmUrlHttps": "https://github.com/google/guava",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -190,10 +170,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava-parent@33.0.0-jre-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/guava.git",
-    "scmUrlHttps": "https://github.com/google/guava",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -227,10 +203,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava-testlib@33.0.0-jre-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/guava.git",
-    "scmUrlHttps": "https://github.com/google/guava",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -264,10 +236,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.guava/guava@33.0.0-jre-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/guava.git",
-    "scmUrlHttps": "https://github.com/google/guava",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -299,12 +267,8 @@
     "name": "J2ObjC Annotations",
     "objectID": "com.google.j2objc:j2objc-annotations:3.0.0",
     "open": true,
-    "purl": "pkg:maven/com.google.j2objc/j2objc-annotations@3.0.0",
+    "purl": "pkg:maven/com.google.j2objc/j2objc-annotations@3.0.0-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/j2objc.git",
-    "scmUrlHttps": "https://github.com/google/j2objc",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -338,10 +302,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.j2objc/j2objc-annotations@3.0.0-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/google/j2objc.git",
-    "scmUrlHttps": "https://github.com/google/j2objc",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -370,10 +330,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-bom@4.26.0-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/protocolbuffers/protobuf.git",
-    "scmUrlHttps": "https://github.com/protocolbuffers/protobuf",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -530,10 +486,6 @@
     "open": true,
     "purl": "pkg:maven/com.google.protobuf/protobuf-parent@4.26.0-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/protocolbuffers/protobuf.git",
-    "scmUrlHttps": "https://github.com/protocolbuffers/protobuf",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "vendorLegal": "Google LLC",
     "vendorLogo": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
     "vendorName": "Google",
@@ -584,10 +536,6 @@
     "objectID": "dev.javamodules:jpms-bom:1.0.0",
     "purl": "pkg:maven/dev.javamodules/jpms-bom@1.0.0",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/typetools/checker-framework.git.git",
-    "scmUrlHttps": "https://github.com/typetools/checker-framework.git",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "1.0.0"
   },
   {
@@ -602,10 +550,6 @@
     "objectID": "dev.javamodules:jpms-catalog:1.0.0",
     "purl": "pkg:maven/dev.javamodules/jpms-catalog@1.0.0",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/elide-dev/jpms.git",
-    "scmUrlHttps": "https://github.com/elide-dev/jpms",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "1.0.0"
   },
   {
@@ -621,10 +565,6 @@
     "objectID": "dev.javamodules:jpms-platform:1.0.0",
     "purl": "pkg:maven/dev.javamodules/jpms-platform@1.0.0",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/elide-dev/jpms.git",
-    "scmUrlHttps": "https://github.com/elide-dev/jpms",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "1.0.0"
   },
   {
@@ -640,10 +580,6 @@
     "objectID": "io.leangen.geantyref:geantyref:1.3.15-jpms",
     "purl": "pkg:maven/io.leangen.geantyref/geantyref@1.3.15-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/leangen/geantyref.git",
-    "scmUrlHttps": "https://github.com/leangen/geantyref",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "1.3.15-jpms"
   },
   {
@@ -664,10 +600,6 @@
     "objectID": "org.checkerframework:checker-qual:3.43.0-SNAPSHOT",
     "purl": "pkg:maven/org.checkerframework/checker-qual@3.43.0-SNAPSHOT",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/typetools/checker-framework.git.git",
-    "scmUrlHttps": "https://github.com/typetools/checker-framework.git",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "3.43.0-SNAPSHOT"
   },
   {
@@ -683,10 +615,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm32:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-androidnativearm32@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -702,10 +630,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativearm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-androidnativearm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -721,10 +645,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-androidnativex64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -740,10 +660,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-androidnativex86:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-androidnativex86@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -760,10 +676,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-iosarm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -780,10 +692,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iossimulatorarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-iossimulatorarm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -800,10 +708,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-iosx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-iosx64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -820,10 +724,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-js:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-js@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -842,10 +742,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-jvm@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -861,10 +757,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-linuxarm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -880,10 +772,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-linuxx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-linuxx64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -900,10 +788,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-macosarm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -920,10 +804,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-macosx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-macosx64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -939,10 +819,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-mingwx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-mingwx64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -959,10 +835,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-tvosarm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -979,10 +851,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvossimulatorarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-tvossimulatorarm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -999,10 +867,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-tvosx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-tvosx64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1019,10 +883,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-js:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-wasm-js@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1039,10 +899,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-wasm-wasi:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-wasm-wasi@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1059,10 +915,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm32:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchosarm32@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1079,10 +931,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchosarm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1099,10 +947,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosdevicearm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchosdevicearm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1119,10 +963,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchossimulatorarm64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchossimulatorarm64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1139,10 +979,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable-watchosx64:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable-watchosx64@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1223,10 +1059,6 @@
     "objectID": "org.jetbrains.kotlinx:kotlinx-collections-immutable:0.4.1-jpms",
     "purl": "pkg:maven/org.jetbrains.kotlinx/kotlinx-collections-immutable@0.4.1-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/kotlin/kotlinx.collections.immutable.git",
-    "scmUrlHttps": "https://github.com/kotlin/kotlinx.collections.immutable",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "0.4.1-jpms"
   },
   {
@@ -1246,10 +1078,6 @@
     "objectID": "org.reactivestreams:reactive-streams:1.0.5-jpms",
     "purl": "pkg:maven/org.reactivestreams/reactive-streams@1.0.5-jpms",
     "repository": "https://jpms.pkg.st/repository",
-    "scmUrlDeveloper": "https://github.com/reactive-streams/reactive-streams.git.git",
-    "scmUrlHttps": "https://github.com/reactive-streams/reactive-streams.git",
-    "sourceControlPlatform": "github",
-    "sourceControlType": "git",
     "version": "1.0.5-jpms"
   }
 ]
