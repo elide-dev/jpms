@@ -144,7 +144,7 @@
   "devDependencies": {
     "@bufbuild/buf": "1.30.0",
     "@jest/globals": "29.7.0",
-    "@octokit/types": "12.6.0",
+    "@octokit/types": "13.4.0",
     "@types/jest": "29.5.12",
     "@types/json-stable-stringify": "1.0.36",
     "@types/node": "20.12.1",
