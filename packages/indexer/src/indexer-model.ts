@@ -21,6 +21,88 @@ import { ProjectInfo } from './info-project.js'
 export const formatVersion = 1.0
 
 /**
+ * Source Control Platform
+ *
+ * Enumerates project source control platforms recognized by the UI.
+ */
+export enum SourceControlPlatform {
+  BITBUCKET = "BITBUCKET",
+  GITHUB = "GITHUB",
+  GITLAB = "GITLAB",
+}
+
+/**
+ * Publication Link
+ *
+ * Describes a link declared as relevant for a publication.
+ */
+export type PublicationLink = {
+  Label?: string;
+  URL?:   string;
+}
+
+/**
+ * Publication License
+ *
+ * Describes well-known license strings for publications.
+ */
+export enum PublicationLicense {
+  APACHE_2_0 = 'Apache-2.0',
+  MIT = 'MIT',
+  AGPL_3 = 'AGPL-3.0',
+  GPL_3 = 'GPL-3.0',
+  LGPL_3 = 'LGPL-3.0',
+  LGPL_2_1 = 'LGPL-2.1',
+  BSD_3 = 'BSD-3-Clause',
+  BSD_2 = 'BSD-2-Clause',
+  EPL_1 = 'EPL-1.0',
+  EUPL_1 = 'EUPL-1.1',
+  ISC = 'ISC',
+  MPL_2 = 'MPL-2.0',
+  WTFPL = 'WTFPL',
+  UNLICENSE = 'Unlicense',
+  NON_STANDARD = 'non-standard',
+}
+
+/**
+ * Publication Index Entry
+ *
+ * Describes the expected JSON structure of a hit against the publication index.
+ */
+export type PublicationIndexEntry = {
+  artifactId:             string;
+  groupId:                string;
+  slsaVerified?:          boolean;
+  openSsfTier?:           string;
+  openSsfScore?:          number;
+  advisoryCount?:         number;
+  dependencyCount?:       number;
+  dependentCount?:        number;
+  description?:           string;
+  forksCount?:            number;
+  homepage?:              string;
+  latestRelease?:         string;
+  licenses?:              (PublicationLicense | string)[];
+  links?:                 PublicationLink[];
+  openIssuesCount?:       number;
+  projectName?:           string;
+  sourceControlPlatform?: SourceControlPlatform;
+  sourceRepo?:            string;
+  starsCount?:            number;
+  versionCount?:          number;
+  versions?:              string[];
+
+  // Extended Metadata (enriched)
+  gvmMetadata?:           boolean;
+  gradleModule?:          boolean;
+  variants?:              string[];
+  javaModule?:            boolean;
+  javaModuleName?:        string;
+  provides?:              string[];
+  requires?:              string[];
+}
+
+/**
  * Repository JAR Info
  *
  * Describes decoded/parsed/interpreted information about a JAR.
@@ -200,6 +282,7 @@ export type RepositoryIndexBundle = {
   modules: RepositoryModulesIndexEntry[]
   maven: RepositoryPomIndexEntry[]
   publications: RepositoryPublicationIndexEntry[]
+  main: PublicationIndexEntry[]
   graalVmMetadata: RepositoryGraalVmMetadataIndexEntry[]
 }
 

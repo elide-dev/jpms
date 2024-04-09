@@ -562,6 +562,7 @@ function buildIndexes(allPackages: RepositoryPackage[]): RepositoryIndexBundle {
     gradle,
     maven,
     publications,
+    main: [],
     graalVmMetadata: [],
   }
 }
