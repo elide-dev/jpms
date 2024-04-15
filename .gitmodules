@@ -52,3 +52,6 @@
 [submodule "kotlinx-collections-immutable"]
 	path = kotlinx.collections.immutable
 	url = git@github.com:javamodules/kotlinx.collections.immutable.git
+[submodule "maven-resolver"]
+	path = org.apache.maven.resolver
+	url = git@github.com:javamodules/maven-resolver.git

@@ -83,6 +83,71 @@
         <artifactId>guava</artifactId>
         <version>33.0.0-jre-jpms</version>
       </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-api</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-generator-gnupg</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-impl</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-named-locks</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-spi</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-transport-classpath</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-transport-file</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-transport-jdk-parent</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-transport-jdk</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-transport-jdk-11</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-transport-jdk-21</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-transport-jetty</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven.resolver</groupId>
+        <artifactId>maven-resolver-util</artifactId>
+        <version>2.10.0-alpha-10-jpms</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 </project>

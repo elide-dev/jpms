@@ -21,6 +21,7 @@ export PROTOBUF_VERSION ?= 4.27.0-SNAPSHOT
 export GEANTYREF_VERSION ?= 1.3.16-SNAPSHOT
 export KOTLINX_COLLECTIONS_VERSION ?= 0.4.1
 export KOTLINX_COLLECTIONS_POSTFIX ?= SNAPSHOT
+export MAVEN_RESOLVER_VERSION ?= 2.0.0-SNAPSHOT
 else
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
 export GUAVA_VERSION ?= 33.0.0-jre-jpms
@@ -30,6 +31,7 @@ export PROTOBUF_VERSION ?= 4.26.0-jpms
 export GEANTYREF_VERSION ?= 1.3.15-jpms
 export KOTLINX_COLLECTIONS_VERSION ?= 0.4.1
 export KOTLINX_COLLECTIONS_POSTFIX ?= jpms
+export MAVEN_RESOLVER_VERSION ?= 2.10.0-alpha-10-jpms
 endif
 
 export PROJECT ?= $(shell pwd)
@@ -51,6 +53,13 @@ endif
 include tools/common.mk
 DEV_LOCAL = $(DEV_ROOT) $(DEV_BIN) $(DEV_BIN)/protoc
 BUILD_DEPS ?= $(DEV_LOCAL)
+
+ifeq ($(SIGNING),yes)
+DEPLOY_TASK = gpg:sign-and-deploy-file
+else
+DEPLOY_TASK = deploy:deploy-file
+endif
+
 
 all: setup $(BUILD_DEPS) packages repository samples test  ## Build all targets and setup the repository.
 
@@ -80,7 +89,7 @@ com.google.errorprone/annotations/target:
 		&& $(MAVEN) versions:set -DnewVersion=$(ERROR_PRONE_VERSION) \
 		&& $(MAVEN) versions:update-child-modules \
 		&& $(MAVEN) $(MAVEN_GOAL) \
-		&& $(MAVEN) deploy:deploy-file \
+		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=com.google.errorprone \
 			-DartifactId=error_prone_annotations \
 			-Dversion=$(ERROR_PRONE_VERSION) \
@@ -104,7 +113,7 @@ com.google.j2objc/annotations/target:
 		&& $(MAVEN) versions:set -DnewVersion=$(J2OBJC_VERSION) \
 		&& $(MAVEN) versions:update-child-modules \
 		&& $(MAVEN) $(MAVEN_GOAL) -Dmaven.javadoc.skip=true \
-		&& $(MAVEN) deploy:deploy-file \
+		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=com.google.j2objc \
 			-DartifactId=j2objc-annotations \
 			-Dversion=$(J2OBJC_VERSION) \
@@ -116,6 +125,205 @@ com.google.j2objc/annotations/target:
 		&& $(GIT) checkout . \
 		&& find . -name pom.xml.versionsBackup -delete \
 		&& echo "J2ObjC annotations ready."
+
+#
+# Library: Maven Resolver ------------------------------------------------------------------
+
+maven-resolver: org.apache.maven.resolver  ## Build the Error Prone Compiler.
+org.apache.maven.resolver: $(BUILD_DEPS) org.apache.maven.resolver/maven-resolver-api/target
+org.apache.maven.resolver/maven-resolver-api/target:
+	$(info Building Maven Resolver...)
+ifeq ($(SNAPSHOT),no)
+	$(RULE)cd org.apache.maven.resolver \
+		&& $(MAVEN) versions:set -DnewVersion=$(MAVEN_RESOLVER_VERSION) \
+		&& $(MAVEN) versions:update-child-modules
+endif
+
+	$(RULE)cd org.apache.maven.resolver \
+		&& $(MAVEN) $(MAVEN_GOAL)
+
+ifeq ($(SNAPSHOT),no)
+	@echo "Installing Maven Resolver parent..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=pom \
+			-DpomFile=../tools/poms/maven-resolver-parent.xml \
+			-Dfile=../tools/poms/maven-resolver-parent.xml \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver API..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-api \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-api.xml \
+			-Dfile=maven-resolver-api/target/maven-resolver-api-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver SPI..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-spi \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-spi.xml \
+			-Dfile=maven-resolver-spi/target/maven-resolver-spi-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver (Basic Connector)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-connector-basic \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-connector-basic.xml \
+			-Dfile=maven-resolver-connector-basic/target/maven-resolver-connector-basic-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Named Locks..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-named-locks \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-named-locks.xml \
+			-Dfile=maven-resolver-named-locks/target/maven-resolver-named-locks-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver (GnuPG Generator)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-generator-gnupg \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-generator-gnupg.xml \
+			-Dfile=maven-resolver-generator-gnupg/target/maven-resolver-generator-gnupg-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Implementation..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-impl \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-impl.xml \
+			-Dfile=maven-resolver-impl/target/maven-resolver-impl-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Utilities..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-util \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-util.xml \
+			-Dfile=maven-resolver-util/target/maven-resolver-util-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (Classpath)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-classpath \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-transport-classpath.xml \
+			-Dfile=maven-resolver-transport-classpath/target/maven-resolver-transport-classpath-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (File)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-file \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-transport-file.xml \
+			-Dfile=maven-resolver-transport-file/target/maven-resolver-transport-file-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (JDK Parent)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-jdk-parent \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=pom \
+			-DpomFile=../tools/poms/maven-resolver-transport-jdk-parent.xml \
+			-Dfile=../tools/poms/maven-resolver-transport-jdk-parent.xml \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (JDK Base)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-jdk \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=pom \
+			-DpomFile=../tools/poms/maven-resolver-transport-jdk.xml \
+			-Dfile=../tools/poms/maven-resolver-transport-jdk.xml \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (JDK 8)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-jdk-8 \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-transport-jdk8.xml \
+			-Dfile=maven-resolver-transport-jdk-parent/maven-resolver-transport-jdk-8/target/maven-resolver-transport-jdk-8-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (JDK 11)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-jdk-11 \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-transport-jdk11.xml \
+			-Dfile=maven-resolver-transport-jdk-parent/maven-resolver-transport-jdk-11/target/maven-resolver-transport-jdk-11-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (JDK 21)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-jdk-21 \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-transport-jdk21.xml \
+			-Dfile=maven-resolver-transport-jdk-parent/maven-resolver-transport-jdk-21/target/maven-resolver-transport-jdk-21-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (Jetty)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-jetty \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-transport-jetty.xml \
+			-Dfile=maven-resolver-transport-jetty/target/maven-resolver-transport-jetty-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+		$(RULE)cd org.apache.maven.resolver && $(GIT) checkout .
+		$(RULE)cd org.apache.maven.resolver && find . -name pom.xml.versionsBackup -delete
+endif
+		@echo "Maven Resolver ready."
+
 
 #
 # Library: Checker Framework ---------------------------------------------------------------
@@ -153,7 +361,7 @@ com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/targ
 
 ifeq ($(SNAPSHOT),no)
 	$(RULE)cd com.google.guava \
-		&& $(MAVEN) deploy:deploy-file \
+		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=com.google.guava \
 			-DartifactId=guava-parent \
 			-Dversion=$(GUAVA_VERSION) \
@@ -164,7 +372,7 @@ ifeq ($(SNAPSHOT),no)
 			-Durl=$(REPOSITORY)
 
 	$(RULE)cd com.google.guava \
-		&& $(MAVEN) deploy:deploy-file \
+		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=com.google.guava \
 			-DartifactId=guava \
 			-Dversion=$(GUAVA_VERSION) \
@@ -175,7 +383,7 @@ ifeq ($(SNAPSHOT),no)
 			-Durl=$(REPOSITORY)
 
 	$(RULE)cd com.google.guava \
-		&& $(MAVEN) deploy:deploy-file \
+		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=com.google.guava \
 			-DartifactId=guava-testlib \
 			-Dversion=$(GUAVA_VERSION) \
@@ -186,7 +394,7 @@ ifeq ($(SNAPSHOT),no)
 			-Durl=$(REPOSITORY)
 
 	$(RULE)cd com.google.guava \
-		&& $(MAVEN) deploy:deploy-file \
+		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=com.google.guava \
 			-DartifactId=guava-gwt \
 			-Dversion=$(GUAVA_VERSION) \
@@ -197,7 +405,7 @@ ifeq ($(SNAPSHOT),no)
 			-Durl=$(REPOSITORY)
 
 	$(RULE)cd com.google.guava \
-		&& $(MAVEN) deploy:deploy-file \
+		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=com.google.guava \
 			-DartifactId=guava-bom \
 			-Dversion=$(GUAVA_VERSION) \
@@ -326,7 +534,7 @@ endif
 		./com.google.protobuf/bazel-bin/java/kotlin-lite/protobuf-kotlin-lite-$(PROTOBUF_VERSION).xml
 
 	@# parent
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=com.google.protobuf \
 		-DartifactId=protobuf-parent \
 		-Dversion=$(PROTOBUF_VERSION) \
@@ -337,7 +545,7 @@ endif
 		-Durl="$(REPOSITORY)"
 
 	@# bom
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=com.google.protobuf \
 		-DartifactId=protobuf-bom \
 		-Dversion=$(PROTOBUF_VERSION) \
@@ -348,7 +556,7 @@ endif
 		-Durl="$(REPOSITORY)"
 
 	@# core
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=com.google.protobuf \
 		-DartifactId=protobuf-java \
 		-Dversion=$(PROTOBUF_VERSION) \
@@ -359,7 +567,7 @@ endif
 		-Durl="$(REPOSITORY)"
 
 	@# lite
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=com.google.protobuf \
 		-DartifactId=protobuf-javalite \
 		-Dversion=$(PROTOBUF_VERSION) \
@@ -370,7 +578,7 @@ endif
 		-Durl="$(REPOSITORY)"
 
 	@# util
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=com.google.protobuf \
 		-DartifactId=protobuf-util \
 		-Dversion=$(PROTOBUF_VERSION) \
@@ -381,7 +589,7 @@ endif
 		-Durl="$(REPOSITORY)"
 
 	@# kotlin
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=com.google.protobuf \
 		-DartifactId=protobuf-kotlin \
 		-Dversion=$(PROTOBUF_VERSION) \
@@ -392,7 +600,7 @@ endif
 		-Durl="$(REPOSITORY)"
 
 	@# kotlin-lite
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=com.google.protobuf \
 		-DartifactId=protobuf-kotlin-lite \
 		-Dversion=$(PROTOBUF_VERSION) \
@@ -418,7 +626,7 @@ io.leangen.geantyref/target:
 
 ifeq ($(SNAPSHOT),no)
 	@# geantyref
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=io.leangen.geantyref \
 		-DartifactId=geantyref \
 		-Dversion=$(GEANTYREF_VERSION) \
@@ -518,7 +726,7 @@ $(LIBS):
 
 prebuilts:
 	@echo "Installing pre-built libraries..."
-	$(RULE)$(MAVEN) deploy:deploy-file \
+	$(RULE)$(MAVEN) $(DEPLOY_TASK) \
 		-DgroupId=com.google.guava \
 		-DartifactId=failureaccess \
 		-Dversion=1.0.3-jpms \
@@ -556,6 +764,7 @@ clean:  ## Clean all built targets.
 		com.google.j2objc/annotations/target \
 		com.google.guava/*/target \
 		com.google.guava/futures/failureaccess/target \
+		org.apache.maven.resolver/*/target \
 		org.checkerframework/build \
 		org.checkerframework/*/build \
 		org.reactivestreams/*/build \

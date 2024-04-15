@@ -39,6 +39,8 @@ endif
 
 ifeq ($(SIGNING),no)
 MAVEN_ARGS += -Dgpg.skip=true
+else
+MAVEN_ARGS += -Dsign=true
 endif
 
 ## Command Macros
