@@ -57,7 +57,7 @@ export DEV_BIN ?= $(DEV_ROOT)/bin
 export LIBS ?= $(PROJECT)/libs
 export PROJECT_PATH ?= $(DEV_BIN):$(shell echo $$PATH)
 
-DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams com.google.protobuf io.leangen.geantyref kotlinx.collections.immutable
+DEPS ?= com.google.guava org.checkerframework org.reactivestreams com.google.protobuf io.leangen.geantyref kotlinx.collections.immutable
 POSIX_FLAGS ?=
 
 ifeq ($(VERBOSE),yes)
@@ -354,7 +354,7 @@ org.checkerframework/checker-qual/build/libs:
 # Library: Guava ---------------------------------------------------------------------------
 
 guava: com.google.guava  ## Build Guava and all requisite dependencies.
-com.google.guava: org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
+com.google.guava: org.checkerframework com.google.guava/guava/target
 com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/target
 	$(info Building Guava...)
 	$(RULE)cd com.google.guava \
