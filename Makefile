@@ -313,9 +313,9 @@ ifeq ($(SNAPSHOT),no)
 			-DgroupId=org.apache.maven.resolver \
 			-DartifactId=maven-resolver-transport-jdk \
 			-Dversion=$(MAVEN_RESOLVER_VERSION) \
-			-Dpackaging=pom \
+			-Dpackaging=jar \
 			-DpomFile=../tools/poms/maven-resolver-transport-jdk.xml \
-			-Dfile=../tools/poms/maven-resolver-transport-jdk.xml \
+			-Dfile=maven-resolver-transport-jdk-parent/maven-resolver-transport-jdk/target/maven-resolver-transport-jdk-$(MAVEN_RESOLVER_VERSION).jar \
 			-DrepositoryId=jpms-local \
 			-Durl=$(REPOSITORY)
 

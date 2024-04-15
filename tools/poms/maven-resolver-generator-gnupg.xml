@@ -23,12 +23,12 @@
   <parent>
     <groupId>org.apache.maven.resolver</groupId>
     <artifactId>maven-resolver</artifactId>
-    <version>2.10.0-alpha-10-jpms</version>
+    <version>2.10.0-alpha-10-jpms-b2</version>
   </parent>
 
   <groupId>org.apache.maven.resolver</groupId>
   <artifactId>maven-resolver-generator-gnupg</artifactId>
-  <version>2.10.0-alpha-10-jpms</version>
+  <version>2.10.0-alpha-10-jpms-b2</version>
 
   <name>Maven Artifact Resolver GnuPG Signer Generator</name>
   <description>A generator implementation for GnuPG signatures.</description>
@@ -44,17 +44,17 @@
     <dependency>
       <groupId>org.apache.maven.resolver</groupId>
       <artifactId>maven-resolver-api</artifactId>
-      <version>2.10.0-alpha-10-jpms</version>
+      <version>2.10.0-alpha-10-jpms-b2</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.resolver</groupId>
       <artifactId>maven-resolver-spi</artifactId>
-      <version>2.10.0-alpha-10-jpms</version>
+      <version>2.10.0-alpha-10-jpms-b2</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.resolver</groupId>
       <artifactId>maven-resolver-util</artifactId>
-      <version>2.10.0-alpha-10-jpms</version>
+      <version>2.10.0-alpha-10-jpms-b2</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
