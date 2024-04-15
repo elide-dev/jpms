@@ -730,6 +730,343 @@
     "version": "1.3.15-jpms"
   },
   {
+    "artifactId": "maven-resolver-api",
+    "description": "The application programming interface for the repository system.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver API",
+    "objectID": "org.apache.maven.resolver:maven-resolver-api:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-api@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-connector-basic",
+    "description": "A repository connector implementation for repositories using URI-based layouts.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.connector.basic",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Connector Basic",
+    "objectID": "org.apache.maven.resolver:maven-resolver-connector-basic:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-connector-basic@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-generator-gnupg",
+    "description": "A generator implementation for GnuPG signatures.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "17",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.generator.gnupg",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver GnuPG Signer Generator",
+    "objectID": "org.apache.maven.resolver:maven-resolver-generator-gnupg:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-generator-gnupg@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-impl",
+    "description": "An implementation of the repository system.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.impl",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Implementation",
+    "objectID": "org.apache.maven.resolver:maven-resolver-impl:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-impl@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-named-locks",
+    "description": "A synchronization utility implementation using Named locks.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.named",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Named Locks",
+    "objectID": "org.apache.maven.resolver:maven-resolver-named-locks:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-named-locks@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-spi",
+    "description": "The service provider interface for repository system implementations and repository connectors.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.spi",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver SPI",
+    "objectID": "org.apache.maven.resolver:maven-resolver-spi:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-spi@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-classpath",
+    "description": "A transport implementation for repositories using classpath:// URLs.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.transport.classpath",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Transport Classpath",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-classpath:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-classpath@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-file",
+    "description": "A transport implementation for repositories using file:// URLs.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.transport.file",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Transport File",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-file:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-file@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jdk-11",
+    "description": "Maven Artifact Transport JDK Java 11+.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "11",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.transport.jdk",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Transport JDK 11",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jdk-11:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jdk-11@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jdk-21",
+    "description": "Maven Artifact Transport JDK Java 11+.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "21",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.transport.jdk",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Transport JDK 21",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jdk-21:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jdk-21@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jdk-8",
+    "description": "Maven Artifact Transport JDK Java 11+.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.transport.jdk",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Transport JDK 8",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jdk-8:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jdk-8@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jdk-parent",
+    "description": "Maven Artifact Transport JDK Java 11+ parent.",
+    "groupId": "org.apache.maven.resolver",
+    "name": "Maven Artifact Resolver Transport JDK Parent",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jdk-parent:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jdk-parent@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jdk",
+    "description": "Maven Artifact Transport JDK Java 11+.",
+    "groupId": "org.apache.maven.resolver",
+    "name": "Maven Artifact Resolver Transport JDK (mr)",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jdk:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jdk@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jetty",
+    "description": "Maven Artifact Transport Jetty.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "11",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.transport.jetty",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Transport Jetty",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jetty:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jetty@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-util",
+    "description": "A collection of utility classes to ease usage of the repository system.",
+    "groupId": "org.apache.maven.resolver",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "moduleName": "org.apache.maven.resolver.util",
+    "moduleVersion": "2.10.0-alpha-10-jpms",
+    "mrjar": true,
+    "name": "Maven Artifact Resolver Utilities",
+    "objectID": "org.apache.maven.resolver:maven-resolver-util:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-util@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver",
+    "description": "The parent and aggregator for the repository system.",
+    "groupId": "org.apache.maven.resolver",
+    "name": "Maven Artifact Resolver",
+    "objectID": "org.apache.maven.resolver:maven-resolver:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver@2.10.0-alpha-10-jpms",
+    "repositories": [
+      "https://jpms.pkg.st/repository",
+      "https://repo.maven.apache.org/maven2/"
+    ],
+    "repositoryNames": [
+      "JPMS Attic",
+      "Maven Central"
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
     "artifactId": "checker-qual",
     "description": "checker-qual contains annotations (type qualifiers) that a programmer\nwrites to specify Java code for type-checking by the Checker Framework.",
     "gradleModule": true,
