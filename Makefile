@@ -729,8 +729,6 @@ $(LIBS):
 	@echo "Packaging libraries..."
 	$(RULE)$(MKDIR) $(LIBS)
 	$(RULE)$(CP) \
-		com.google.errorprone/annotations/target/*.jar \
-		com.google.j2objc/annotations/target/*.jar \
 		com.google.guava/guava/target/*.jar \
 		com.google.protobuf/bazel-bin/java/*/amended_*_mvn-project.jar \
 		io.leangen.geantyref/target/*.jar \
