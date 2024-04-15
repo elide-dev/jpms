@@ -198,6 +198,28 @@ ifeq ($(SNAPSHOT),no)
 			-DrepositoryId=jpms-local \
 			-Durl=$(REPOSITORY)
 
+	@echo "Installing Maven Resolver Supplier (Maven 3)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-supplier-mvn3 \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-supplier-mvn3.xml \
+			-Dfile=maven-resolver-supplier-mvn3/target/maven-resolver-supplier-mvn3-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Supplier (Maven 4)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-supplier-mvn4 \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-supplier-mvn4.xml \
+			-Dfile=maven-resolver-supplier-mvn4/target/maven-resolver-supplier-mvn4-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
 	@echo "Installing Maven Resolver Named Locks..."
 	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=org.apache.maven.resolver \
@@ -239,6 +261,17 @@ ifeq ($(SNAPSHOT),no)
 			-Dpackaging=jar \
 			-DpomFile=../tools/poms/maven-resolver-util.xml \
 			-Dfile=maven-resolver-util/target/maven-resolver-util-$(MAVEN_RESOLVER_VERSION).jar \
+			-DrepositoryId=jpms-local \
+			-Durl=$(REPOSITORY)
+
+	@echo "Installing Maven Resolver Transport (Apache)..."
+	$(RULE)cd org.apache.maven.resolver && $(MAVEN) $(DEPLOY_TASK) \
+			-DgroupId=org.apache.maven.resolver \
+			-DartifactId=maven-resolver-transport-apache \
+			-Dversion=$(MAVEN_RESOLVER_VERSION) \
+			-Dpackaging=jar \
+			-DpomFile=../tools/poms/maven-resolver-transport-apache.xml \
+			-Dfile=maven-resolver-transport-apache/target/maven-resolver-transport-apache-$(MAVEN_RESOLVER_VERSION).jar \
 			-DrepositoryId=jpms-local \
 			-Durl=$(REPOSITORY)
 
