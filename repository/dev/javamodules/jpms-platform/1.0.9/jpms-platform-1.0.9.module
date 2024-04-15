@@ -1,0 +1,414 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "dev.javamodules",
+    "module": "jpms-platform",
+    "version": "1.0.9",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.7"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "platform",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencyConstraints": [
+        {
+          "group": "com.google.j2objc",
+          "module": "j2objc-annotations",
+          "version": {
+            "requires": "3.0.0"
+          }
+        },
+        {
+          "group": "com.google.errorprone",
+          "module": "error_prone_annotations",
+          "version": {
+            "requires": "2.26.1-jpms"
+          }
+        },
+        {
+          "group": "org.checkerframework",
+          "module": "checker-qual",
+          "version": {
+            "requires": "3.43.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.reactivestreams",
+          "module": "reactive-streams",
+          "version": {
+            "requires": "1.0.4-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-java",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-util",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-kotlin",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "io.leangen.geantyref",
+          "module": "geantyref",
+          "version": {
+            "requires": "1.3.15-jpms"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-collections-immutable",
+          "version": {
+            "requires": "0.4.1-jpms"
+          }
+        },
+        {
+          "group": "com.google.guava",
+          "module": "guava",
+          "version": {
+            "requires": "33.1.0-jre-jpms"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-api",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-generator-gnupg",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-impl",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-named-locks",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-spi",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-classpath",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-file",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jdk-parent",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jdk",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jdk-11",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jdk-21",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jetty",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-util",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "com.github.ben-manes.caffeine",
+          "module": "caffeine",
+          "version": {
+            "prefers": "3.0.2"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "prefers": "2.0.0"
+          }
+        },
+        {
+          "group": "org.yaml",
+          "module": "snakeyaml",
+          "version": {
+            "prefers": "2.0"
+          }
+        },
+        {
+          "group": "org.snakeyaml",
+          "module": "snakeyaml-engine",
+          "version": {
+            "prefers": "2.7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "platform",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencyConstraints": [
+        {
+          "group": "com.google.j2objc",
+          "module": "j2objc-annotations",
+          "version": {
+            "requires": "3.0.0"
+          }
+        },
+        {
+          "group": "com.google.errorprone",
+          "module": "error_prone_annotations",
+          "version": {
+            "requires": "2.26.1-jpms"
+          }
+        },
+        {
+          "group": "org.checkerframework",
+          "module": "checker-qual",
+          "version": {
+            "requires": "3.43.0-SNAPSHOT"
+          }
+        },
+        {
+          "group": "org.reactivestreams",
+          "module": "reactive-streams",
+          "version": {
+            "requires": "1.0.4-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-java",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-util",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "com.google.protobuf",
+          "module": "protobuf-kotlin",
+          "version": {
+            "requires": "4.26.0-jpms"
+          }
+        },
+        {
+          "group": "io.leangen.geantyref",
+          "module": "geantyref",
+          "version": {
+            "requires": "1.3.15-jpms"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-collections-immutable",
+          "version": {
+            "requires": "0.4.1-jpms"
+          }
+        },
+        {
+          "group": "com.google.guava",
+          "module": "guava",
+          "version": {
+            "requires": "33.1.0-jre-jpms"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-api",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-generator-gnupg",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-impl",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-named-locks",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-spi",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-classpath",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-file",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jdk-parent",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jdk",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jdk-11",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jdk-21",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-transport-jetty",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "org.apache.maven.resolver",
+          "module": "maven-resolver-util",
+          "version": {
+            "requires": "2.10.0-alpha-10-jpms-b3"
+          }
+        },
+        {
+          "group": "com.github.ben-manes.caffeine",
+          "module": "caffeine",
+          "version": {
+            "prefers": "3.0.2"
+          }
+        },
+        {
+          "group": "org.slf4j",
+          "module": "slf4j-api",
+          "version": {
+            "prefers": "2.0.0"
+          }
+        },
+        {
+          "group": "org.yaml",
+          "module": "snakeyaml",
+          "version": {
+            "prefers": "2.0"
+          }
+        },
+        {
+          "group": "org.snakeyaml",
+          "module": "snakeyaml-engine",
+          "version": {
+            "prefers": "2.7"
+          }
+        }
+      ]
+    }
+  ]
+}

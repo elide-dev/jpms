@@ -1,6 +1,6 @@
 {
   "name": "@javamodules/maven",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "sideEffects": false,
   "description": "Tools for working with Maven projects and metadata from JavaScript.",
   "keywords": [
