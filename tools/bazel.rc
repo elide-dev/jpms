@@ -16,7 +16,6 @@ build:buildbuddy --experimental_inmemory_dotd_files
 build:remote-exec --remote_executor=grpcs://skunkworks.buildbuddy.io
 
 build --config=buildbuddy
-build --config=remote-exec
 
 build:local-metadata --build_metadata=REPO_URL=https://github.com/elide-dev/jpms.git
 
