@@ -22,7 +22,7 @@
 
 # JPMS Attic Repository
 
-> Latest Release: `1.0.7`
+> Latest Release: `1.0.8`
 
 - [GitHub Repo](https://github.com/javamodules/attic)
 - [Docs](https://javamodules.dev)
@@ -232,7 +232,7 @@ dependencyResolutionManagement {
 
   versionCatalogs {
     create("attic") {
-      from("dev.javamodules:jpms-catalog:1.0.7")
+      from("dev.javamodules:jpms-catalog:1.0.8")
     }
   }
 }
@@ -252,7 +252,7 @@ To use the Gradle Platform to constrain your versions, map the repository as usu
 
 ```kotlin
 dependencies {
-  api(platform("dev.javamodules:jpms-platform:1.0.7"))
+  api(platform("dev.javamodules:jpms-platform:1.0.8"))
 }
 ```
 
