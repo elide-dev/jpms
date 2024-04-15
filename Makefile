@@ -72,7 +72,7 @@ DEV_LOCAL = $(DEV_ROOT) $(DEV_BIN) $(DEV_BIN)/protoc
 BUILD_DEPS ?= $(DEV_LOCAL)
 
 
-all: setup $(BUILD_DEPS) packages repository samples test  ## Build all targets and setup the repository.
+all: setup $(BUILD_DEPS) packages repository samples tools test indexer  ## Build all targets and setup the repository.
 
 update-modules:  ## Update all sub-modules.
 	$(info Updating Attic submodules...)
@@ -695,6 +695,10 @@ tools:  ## Build ancillary libraries.
 	$(info Building ancillary libraries...)
 	$(RULE)$(MAKE) -C tools PROJECT=$(PROJECT) RELEASE=$(RELEASE_VERSION) LIBS=$(LIBS) REPOSITORY=$(REPOSITORY)
 
+indexer:  ## Run the indexer tool.
+	$(info Rebuilding)
+	$(RULE)$(PNPM) run indexer
+
 help:  ## Show this help text ('make help').
 	$(info JPMS Attic:)
 	@grep -E '^[a-z1-9A-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -806,4 +810,4 @@ forceclean: reset  ## DANGEROUS: Wipe all untracked files and other changes; com
 	$(info Sanitizing codebase...)
 	$(RULE)$(GIT) clean -xdf
 
-.PHONY: all repository packages samples test tools $(DEPS) com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar
+.PHONY: all repository packages samples test tools indexer $(DEPS) com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar

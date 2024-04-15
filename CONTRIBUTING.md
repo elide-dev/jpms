@@ -37,6 +37,7 @@ geantyref                      Build Geantyref reflection library.
 guava                          Build Guava and all requisite dependencies.
 help                           Show this help text ('make help').
 index                          Rebuild JSON indexes for the repository.
+indexer                        Run the indexer tool.
 j2objc                         Build the J2ObjC annotations.
 kotlinx-collections            Build KotlinX Immutable Collections.
 maven-resolver                 Build the Error Prone Compiler.
