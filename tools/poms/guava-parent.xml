@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.google.guava</groupId>
   <artifactId>guava-parent</artifactId>
-  <version>33.0.0-jre-jpms</version>
+  <version>33.1.0-jre-jpms</version>
   <packaging>jar</packaging>
   <name>Guava: Parent</name>
   <url>https://github.com/google/guava</url>
