@@ -72,7 +72,7 @@ DEV_LOCAL = $(DEV_ROOT) $(DEV_BIN) $(DEV_BIN)/protoc
 BUILD_DEPS ?= $(DEV_LOCAL)
 
 
-all: setup $(BUILD_DEPS) packages repository samples tools test indexer  ## Build all targets and setup the repository.
+all: setup $(BUILD_DEPS) packages repository samples test indexer  ## Build all targets and setup the repository.
 
 update-modules:  ## Update all sub-modules.
 	$(info Updating Attic submodules...)
