@@ -1,6 +1,6 @@
 {
   "name": "@javamodules/attic",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "private": true,
   "license": "Apache-2.0",
   "type": "module",
@@ -48,13 +48,13 @@
   },
   "devDependencies": {
     "@changesets/cli": "2.27.1",
-    "@commitlint/cli": "19.2.1",
-    "@commitlint/config-conventional": "19.1.0",
+    "@commitlint/cli": "19.2.2",
+    "@commitlint/config-conventional": "19.2.2",
     "hashlock": "1.0.2",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
-    "typescript": "5.4.3"
+    "typescript": "5.4.5"
   },
   "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589",
   "pnpm": {

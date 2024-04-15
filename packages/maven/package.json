@@ -89,7 +89,7 @@
     ]
   },
   "dependencies": {
-    "traverse": "0.6.8",
+    "traverse": "0.6.9",
     "xml2js": "0.6.2",
     "yup": "1.4.0"
   },
@@ -103,7 +103,7 @@
     "jest-junit": "16.0.0",
     "semver": "7.6.0",
     "ts-jest": "29.1.2",
-    "typescript": "5.4.3"
+    "typescript": "5.4.5"
   },
   "publishConfig": {
     "access": "public",
