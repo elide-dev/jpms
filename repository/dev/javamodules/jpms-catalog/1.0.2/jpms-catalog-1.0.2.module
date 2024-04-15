@@ -1,0 +1,36 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "dev.javamodules",
+    "module": "jpms-catalog",
+    "version": "1.0.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.6"
+    }
+  },
+  "variants": [
+    {
+      "name": "versionCatalogElements",
+      "attributes": {
+        "org.gradle.category": "platform",
+        "org.gradle.usage": "version-catalog"
+      },
+      "files": [
+        {
+          "name": "jpms-catalog-1.0.2.toml",
+          "url": "jpms-catalog-1.0.2.toml",
+          "size": 3574,
+          "sha512": "990165f535cf7813ccc44d727e559399a10a7d6e3d240f09c6962dd39e2b56e43ac3eb0312f3ba5e1973db549fe6b920dfdc89139267824e5700b7630bfb24aa",
+          "sha256": "53b519af19488d514b93ec74008f94c3d00c200fcdd0be930a93268cbe82885f",
+          "sha1": "ca3e2f9855f19933d3c5fec53ea9bc2786517569",
+          "md5": "34587835b793bcb7d8bcca7bc01d0854"
+        }
+      ]
+    }
+  ]
+}

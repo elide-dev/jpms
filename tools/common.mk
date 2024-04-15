@@ -39,8 +39,22 @@ endif
 
 ifeq ($(SIGNING),no)
 MAVEN_ARGS += -Dgpg.skip=true
+DEPLOY_TASK = deploy:deploy-file
 else
 MAVEN_ARGS += -Dsign=true
+DEPLOY_TASK = gpg:sign-and-deploy-file
+endif
+
+ifeq ($(SIGSTORE),yes)
+MAVEN_ARGS += -Dsigstore=true
+endif
+
+ifeq ($(SLSA),yes)
+MAVEN_ARGS += -Dslsa=true
+endif
+
+ifeq ($(SBOM),yes)
+MAVEN_ARGS += -Dsbom=true
 endif
 
 ## Command Macros

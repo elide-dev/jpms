@@ -29,12 +29,18 @@ JPMS Attic:
 all                            Build all targets and setup the repository.
 checkerframework               Build Checker Framework.
 clean                          Clean all built targets.
+dev                            Setup local development tooling.
 distclean                      Clean downloaded material and local dev tools.
 errorprone                     Build the Error Prone Compiler.
 forceclean                     DANGEROUS: Wipe all untracked files and other changes; completely reset.
+geantyref                      Build Geantyref reflection library.
 guava                          Build Guava and all requisite dependencies.
 help                           Show this help text ('make help').
+index                          Rebuild JSON indexes for the repository.
 j2objc                         Build the J2ObjC annotations.
+kotlinx-collections            Build KotlinX Immutable Collections.
+maven-resolver                 Build the Error Prone Compiler.
+packages                       Build JavaScript packages.
 protobuf                       Build Protocol Buffers.
 reactivestreams                Build Reactive Streams.
 repository                     Build the repository layout.
@@ -43,6 +49,9 @@ samples                        Build samples.
 setup                          Setup local codebase features; performs first-run stuff.
 site                           Build and run the Jekyll site.
 test                           Build and run integration and smoke tests.
+tests-checkstyle               Build Checkstyle against local libraries.
+tests-gson                     Build GSON against local libraries.
+tests-pmd                      Build PMD against local libraries.
 tools                          Build ancillary libraries.
 update-modules                 Update all sub-modules.
 ```
