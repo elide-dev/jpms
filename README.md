@@ -22,7 +22,7 @@
 
 # JPMS Attic Repository
 
-> Latest Release: `1.0.5`
+> Latest Release: `1.0.6`
 
 - [GitHub Repo](https://github.com/javamodules/attic)
 - [Docs](https://javamodules.dev)
@@ -78,8 +78,8 @@ becomes obsolete.
 
 Add this domain as a repository within any JVM build tool: [Maven][7], [Gradle][8], [Bazel][9], [sbt][10]. For example:
 
-> [!NOTE] > **Filing issues:** Please file issues for this repo on
-> [`elide-dev/jpms`](https://github.com/elide-dev/jpms/issues).
+> [!NOTE]
+> **Filing issues:** Please file issues for this repo on [`elide-dev/jpms`](https://github.com/elide-dev/jpms/issues).
 
 #### Maven
 
@@ -232,7 +232,7 @@ dependencyResolutionManagement {
 
   versionCatalogs {
     create("attic") {
-      from("dev.javamodules:jpms-catalog:1.0.0")
+      from("dev.javamodules:jpms-catalog:1.0.6")
     }
   }
 }
@@ -252,7 +252,7 @@ To use the Gradle Platform to constrain your versions, map the repository as usu
 
 ```kotlin
 dependencies {
-  api(platform("dev.javamodules:jpms-platform:1.0.0"))
+  api(platform("dev.javamodules:jpms-platform:1.0.6"))
 }
 ```
 
