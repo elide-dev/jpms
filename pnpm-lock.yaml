@@ -18,8 +18,8 @@ importers:
         specifier: 19.2.2
         version: 19.2.2
       hashlock:
-        specifier: 1.0.2
-        version: 1.0.2
+        specifier: 1.0.4
+        version: 1.0.4
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -59,7 +59,7 @@ importers:
         version: 7.6.0
       ts-jest:
         specifier: 29.1.2
-        version: 29.1.2(@babel/core@7.24.3)(jest@29.7.0)(typescript@5.4.5)
+        version: 29.1.2(@babel/core@7.24.4)(jest@29.7.0)(typescript@5.4.5)
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -118,8 +118,8 @@ importers:
         specifier: 10.3.12
         version: 10.3.12
       hashlock:
-        specifier: 1.0.2
-        version: 1.0.2
+        specifier: 1.0.4
+        version: 1.0.4
       inquirer:
         specifier: 9.2.18
         version: 9.2.18
@@ -192,7 +192,7 @@ importers:
         version: 7.6.0
       ts-jest:
         specifier: 29.1.2
-        version: 29.1.2(@babel/core@7.24.4)(jest@29.7.0)(typescript@5.4.5)
+        version: 29.1.2(@babel/core@7.24.3)(jest@29.7.0)(typescript@5.4.5)
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -3400,8 +3400,8 @@ packages:
     dev: false
     optional: true
 
-  /hashlock@1.0.2:
-    resolution: {integrity: sha512-PEMyEUnbVtuxoqgY97OfcwMm6AGPWh8gm+VsGKa/YObeLj7v81dZEv3RUiwHDYPY/Qcaqlwwag9mw1P2KRxHTw==, tarball: https://registry.npmjs.org/hashlock/-/hashlock-1.0.2.tgz}
+  /hashlock@1.0.4:
+    resolution: {integrity: sha512-bkvtRqdRLVQxh8aF9KEhYn1XIbwqgH37cu+5w9Uw4Px5fcSG8CSIKvJfYI3eceFHdMlH+2rbRPwYLwStFz/PJA==, tarball: https://registry.npmjs.org/hashlock/-/hashlock-1.0.4.tgz}
     engines: {node: '>=20'}
     hasBin: true
 
