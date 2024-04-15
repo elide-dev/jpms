@@ -19,10 +19,10 @@ updates:
       interval: daily
 
   ## Git submodules for embedded libraries.
-  - package-ecosystem: gitsubmodule
-    directory: /
-    schedule:
-      interval: daily
+  #- package-ecosystem: gitsubmodule
+  #  directory: /
+  #  schedule:
+  #    interval: daily
 
   ## Jekyll dependencies.
   - package-ecosystem: bundler

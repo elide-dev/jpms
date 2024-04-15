@@ -3,10 +3,11 @@
   <groupId>com.google.guava</groupId>
   <artifactId>guava-bom</artifactId>
   <versioning>
-    <release>33.0.0-jre-jpms</release>
+    <release>33.1.0-jre-jpms</release>
     <versions>
       <version>33.0.0-jre-jpms</version>
+      <version>33.1.0-jre-jpms</version>
     </versions>
-    <lastUpdated>20240315193223</lastUpdated>
+    <lastUpdated>20240415052337</lastUpdated>
   </versioning>
 </metadata>

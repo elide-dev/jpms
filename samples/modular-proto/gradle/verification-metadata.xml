@@ -21,7 +21,10 @@
          <trusted-key id="7616EB882DAF57A11477AAF559A252FB1199D873" group="com.google.code.findbugs" name="jsr305" version="3.0.2"/>
          <trusted-key id="84789D24DF77A32433CE1F079EB80E92EB2135B1" group="org.codehaus.mojo"/>
          <trusted-key id="8858D45BE9B276802318155B96FB9DB219F3338D" group="kr.motd.maven" name="os-maven-plugin" version="1.7.1"/>
-         <trusted-key id="A166AC62F6DE8C63732277731D5903AF4582BCF4" group="dev.javamodules" name="jpms-catalog" version="1.0.0"/>
+         <trusted-key id="A166AC62F6DE8C63732277731D5903AF4582BCF4">
+            <trusting group="com.google.guava" name="failureaccess" version="1.0.3-jpms"/>
+            <trusting group="dev.javamodules" name="jpms-catalog" version="1.0.0"/>
+         </trusted-key>
          <trusted-key id="B02335AA54CCF21E52BBF9ABD9C565AA72BA2FDD">
             <trusting group="com.google.protobuf" name="protobuf-gradle-plugin" version="0.9.4"/>
             <trusting group="io.grpc"/>

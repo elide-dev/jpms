@@ -17,10 +17,10 @@ export SNAPSHOT ?= yes
 else
 export TESTS ?= yes
 export SIGNING ?= yes
-export SIGSTORE ?= yes
+export SIGSTORE ?= no
 export SLSA ?= yes
 export SBOM ?= yes
-export JAVADOC ?= yes
+export JAVADOC ?= no
 export SNAPSHOT ?= no
 endif
 
@@ -41,10 +41,10 @@ export KOTLINX_COLLECTIONS_POSTFIX ?= SNAPSHOT
 export MAVEN_RESOLVER_VERSION ?= 2.0.0-SNAPSHOT
 else
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
-export GUAVA_VERSION ?= 33.0.0-jre-jpms
+export GUAVA_VERSION ?= 33.1.0-jre-jpms
 export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 export REACTIVE_STREAMS_VERSION ?= 1.0.5-jpms
-export PROTOBUF_VERSION ?= 4.26.0-jpms
+export PROTOBUF_VERSION ?= 4.26.1-jpms
 export GEANTYREF_VERSION ?= 1.3.15-jpms
 export KOTLINX_COLLECTIONS_VERSION ?= 0.4.1
 export KOTLINX_COLLECTIONS_POSTFIX ?= jpms
@@ -57,7 +57,7 @@ export DEV_BIN ?= $(DEV_ROOT)/bin
 export LIBS ?= $(PROJECT)/libs
 export PROJECT_PATH ?= $(DEV_BIN):$(shell echo $$PATH)
 
-DEPS ?= com.google.guava com.google.errorprone com.google.j2objc org.checkerframework org.reactivestreams com.google.protobuf io.leangen.geantyref kotlinx.collections.immutable
+DEPS ?= com.google.guava org.checkerframework org.reactivestreams com.google.protobuf io.leangen.geantyref kotlinx.collections.immutable
 POSIX_FLAGS ?=
 
 ifeq ($(VERBOSE),yes)
@@ -72,7 +72,7 @@ DEV_LOCAL = $(DEV_ROOT) $(DEV_BIN) $(DEV_BIN)/protoc
 BUILD_DEPS ?= $(DEV_LOCAL)
 
 
-all: setup $(BUILD_DEPS) packages repository samples test  ## Build all targets and setup the repository.
+all: setup $(BUILD_DEPS) packages repository samples test indexer  ## Build all targets and setup the repository.
 
 update-modules:  ## Update all sub-modules.
 	$(info Updating Attic submodules...)
@@ -354,7 +354,7 @@ org.checkerframework/checker-qual/build/libs:
 # Library: Guava ---------------------------------------------------------------------------
 
 guava: com.google.guava  ## Build Guava and all requisite dependencies.
-com.google.guava: org.checkerframework com.google.j2objc com.google.errorprone com.google.guava/guava/target
+com.google.guava: org.checkerframework com.google.guava/guava/target
 com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/target
 	$(info Building Guava...)
 	$(RULE)cd com.google.guava \
@@ -695,6 +695,10 @@ tools:  ## Build ancillary libraries.
 	$(info Building ancillary libraries...)
 	$(RULE)$(MAKE) -C tools PROJECT=$(PROJECT) RELEASE=$(RELEASE_VERSION) LIBS=$(LIBS) REPOSITORY=$(REPOSITORY)
 
+indexer:  ## Run the indexer tool.
+	$(info Rebuilding)
+	$(RULE)$(PNPM) run indexer
+
 help:  ## Show this help text ('make help').
 	$(info JPMS Attic:)
 	@grep -E '^[a-z1-9A-Z_-]+:.*?## .*$$' Makefile | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -725,8 +729,6 @@ $(LIBS):
 	@echo "Packaging libraries..."
 	$(RULE)$(MKDIR) $(LIBS)
 	$(RULE)$(CP) \
-		com.google.errorprone/annotations/target/*.jar \
-		com.google.j2objc/annotations/target/*.jar \
 		com.google.guava/guava/target/*.jar \
 		com.google.protobuf/bazel-bin/java/*/amended_*_mvn-project.jar \
 		io.leangen.geantyref/target/*.jar \
@@ -806,4 +808,4 @@ forceclean: reset  ## DANGEROUS: Wipe all untracked files and other changes; com
 	$(info Sanitizing codebase...)
 	$(RULE)$(GIT) clean -xdf
 
-.PHONY: all repository packages samples test tools $(DEPS) com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar
+.PHONY: all repository packages samples test tools indexer $(DEPS) com.google.protobuf/bazel-bin/java/core/amended_core_mvn-project.jar
