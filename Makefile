@@ -17,10 +17,10 @@ export SNAPSHOT ?= yes
 else
 export TESTS ?= yes
 export SIGNING ?= yes
-export SIGSTORE ?= yes
+export SIGSTORE ?= no
 export SLSA ?= yes
 export SBOM ?= yes
-export JAVADOC ?= yes
+export JAVADOC ?= no
 export SNAPSHOT ?= no
 endif
 
