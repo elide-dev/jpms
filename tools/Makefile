@@ -4,7 +4,8 @@
 
 include common.mk
 
-TOOLS_VERSION ?= 1.0.0
+RELEASE ?= 1.0.0
+TOOLS_VERSION ?= $(RELEASE)
 
 GRADLE_TOOL_ARGS ?= -Pversion="$(TOOL_VERSION)" -PtoolsVersion="$(TOOLS_VERSION)"
 
@@ -15,8 +16,11 @@ tools: bom catalog platform
 bom: bom/target
 bom/target:
 	$(info Building BOM publication...)
-	$(RULE)cd bom && mvnw package && mkdir target \
-		&& $(MAVEN) deploy:deploy-file \
+	$(RULE)cd bom \
+		&& mvnw versions:set -DnewVersion=$(TOOLS_VERSION) \
+		&& mvnw package \
+		&& mkdir target \
+		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=dev.javamodules \
 			-DartifactId=jpms-bom \
 			-Dversion=$(TOOLS_VERSION) \

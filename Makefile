@@ -4,10 +4,27 @@
 
 export VERBOSE ?= no
 export DEBUG ?= no
+export RELEASE ?= no
+
+ifeq ($(RELEASE),no)
 export TESTS ?= no
 export SIGNING ?= no
+export SIGSTORE ?= no
+export SLSA ?= no
+export SBOM ?= no
 export JAVADOC ?= no
 export SNAPSHOT ?= yes
+else
+export TESTS ?= yes
+export SIGNING ?= yes
+export SIGSTORE ?= yes
+export SLSA ?= yes
+export SBOM ?= yes
+export JAVADOC ?= yes
+export SNAPSHOT ?= no
+endif
+
+export RELEASE_VERSION ?= $(shell cat .version)
 
 export ERROR_PRONE_VERSION ?= 2.26.1
 export J2OBJC_VERSION ?= 3.0.0
@@ -53,12 +70,6 @@ endif
 include tools/common.mk
 DEV_LOCAL = $(DEV_ROOT) $(DEV_BIN) $(DEV_BIN)/protoc
 BUILD_DEPS ?= $(DEV_LOCAL)
-
-ifeq ($(SIGNING),yes)
-DEPLOY_TASK = gpg:sign-and-deploy-file
-else
-DEPLOY_TASK = deploy:deploy-file
-endif
 
 
 all: setup $(BUILD_DEPS) packages repository samples test  ## Build all targets and setup the repository.
@@ -682,7 +693,7 @@ test:  ## Build and run integration and smoke tests.
 
 tools:  ## Build ancillary libraries.
 	$(info Building ancillary libraries...)
-	$(RULE)$(MAKE) -C tools PROJECT=$(PROJECT) LIBS=$(LIBS) REPOSITORY=$(REPOSITORY)
+	$(RULE)$(MAKE) -C tools PROJECT=$(PROJECT) RELEASE=$(RELEASE_VERSION) LIBS=$(LIBS) REPOSITORY=$(REPOSITORY)
 
 help:  ## Show this help text ('make help').
 	$(info JPMS Attic:)

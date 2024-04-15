@@ -16,3 +16,4 @@ web/
 packages/*/*.tgz
 local.bazelrc
 tsconfig.tsbuildinfo
+pom.xml.versionsBackup
