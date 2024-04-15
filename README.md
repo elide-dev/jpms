@@ -66,6 +66,9 @@ becomes obsolete.
   _Kotlin Extensions_ suite, maintained by the JetBrains team. It provides immutable and persistent collection types in
   Kotlin. JPMS support is in [draft][21], but not yet merged or released.
 
+- **[`org.apache.maven.resolver`][22]:** **Maven Resolver** is how Maven and many other build tools resolve graphs of
+  dependencies, and perform downloads of dependency artifacts. JPMS support is in early draft; no PR has been filed yet.
+
 - **[`org.checkerframework`][0]:** **Checker Framework** is a type-checking framework for Java. The `checker-qual`
   package is used by Guava, so it is included here transitively. Checker Framework added a JPMS module definition in a
   [recent PR][1], so this is sub-moduled at `master`. At the time of this writing no release has taken place.
@@ -143,39 +146,63 @@ pick a library.
 
 **Libraries marked `Central` have seen releases in Maven Central,** and so are no longer needed through this repository.
 
-| Coordinate                                            | Version                                                                                                                                                                                                                                 |
-| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `com.google.errorprone:error_prone_annotations`       | ![Central](https://img.shields.io/maven-central/v/com.google.errorprone/error_prone_annotations?label=Central&labelColor=blue)                                                                                                          |
-| `com.google.guava:guava`                              | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fguava%2Fguava%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                              |
-| `com.google.j2objc:j2objc-annotations`                | ![Central](https://img.shields.io/maven-central/v/com.google.j2objc/j2objc-annotations?label=Central&labelColor=blue)                                                                                                                   |
-| `com.google.protobuf:protobuf-java`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-java%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                   |
-| `com.google.protobuf:protobuf-javalite`               | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-javalite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)               |
-| `com.google.protobuf:protobuf-util`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-util%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                   |
-| `com.google.protobuf:protobuf-kotlin`                 | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                 |
-| `com.google.protobuf:protobuf-kotlin-lite`            | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin-lite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)            |
-| `io.leangen.geantyref:geantyref`                      | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fio%2Fleangen%2Fgeantyref%2Fgeantyref%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                      |
-| `org.checkerframework:checker-qual`                   | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fcheckerframework%2Fchecker-qual%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                     |
-| `org.jetbrains.kotlinx:kotlinx-collections-immutable` | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fjetbrains%2Fkotlinx%2Fkotlinx-collections-immutable%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `org.reactivestreams:reactive-streams`                | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Freactivestreams%2Freactive-streams%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                  |
+| Coordinate                                                     | Version                                                                                                                                                                                                                                            |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `com.google.errorprone:error_prone_annotations`                | ![Central](https://img.shields.io/maven-central/v/com.google.errorprone/error_prone_annotations?label=Central&labelColor=blue)                                                                                                                     |
+| `com.google.guava:guava`                                       | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fguava%2Fguava%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                                         |
+| `com.google.j2objc:j2objc-annotations`                         | ![Central](https://img.shields.io/maven-central/v/com.google.j2objc/j2objc-annotations?label=Central&labelColor=blue)                                                                                                                              |
+| `com.google.protobuf:protobuf-java`                            | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-java%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                              |
+| `com.google.protobuf:protobuf-javalite`                        | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-javalite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                          |
+| `com.google.protobuf:protobuf-util`                            | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-util%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                              |
+| `com.google.protobuf:protobuf-kotlin`                          | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                            |
+| `com.google.protobuf:protobuf-kotlin-lite`                     | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin-lite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                       |
+| `io.leangen.geantyref:geantyref`                               | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fio%2Fleangen%2Fgeantyref%2Fgeantyref%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                                 |
+| `org.apache.maven.resolver:maven-resolver-api`                 | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-api%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                 |
+| `org.apache.maven.resolver:maven-resolver-connector-basic`     | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-connector-basic%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)     |
+| `org.apache.maven.resolver:maven-resolver-generator-gnupg`     | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-generator-gnupg%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)     |
+| `org.apache.maven.resolver:maven-resolver-impl`                | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-impl%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                |
+| `org.apache.maven.resolver:maven-resolver-named-locks`         | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-named-locks%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)         |
+| `org.apache.maven.resolver:maven-resolver-spi`                 | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-spi%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                 |
+| `org.apache.maven.resolver:maven-resolver-transport-classpath` | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-transport-classpath%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
+| `org.apache.maven.resolver:maven-resolver-transport-file`      | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-transport-file%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)      |
+| `org.apache.maven.resolver:maven-resolver-transport-jdk`       | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-transport-jdk%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)       |
+| `org.apache.maven.resolver:maven-resolver-transport-jetty`     | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-transport-jetty%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)     |
+| `org.apache.maven.resolver:maven-resolver-util`                | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-util%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                |
+| `org.checkerframework:checker-qual`                            | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fcheckerframework%2Fchecker-qual%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                                |
+| `org.jetbrains.kotlinx:kotlinx-collections-immutable`          | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fjetbrains%2Fkotlinx%2Fkotlinx-collections-immutable%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)            |
+| `org.reactivestreams:reactive-streams`                         | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Freactivestreams%2Freactive-streams%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                             |
 
 ### Using the modules
 
 Use the modules in your `module-info.java`:
 
-| Coordinate                                            | Module                              |
-| ----------------------------------------------------- | ----------------------------------- |
-| `com.google.errorprone:error_prone_annotations`       | `com.google.errorprone.annotations` |
-| `com.google.guava:guava`                              | `com.google.common`                 |
-| `com.google.j2objc:j2objc-annotations`                | `com.google.j2objc.annotations`     |
-| `com.google.protobuf:protobuf-java`                   | `com.google.protobuf`               |
-| `com.google.protobuf:protobuf-javalite`               | `com.google.protobuf`               |
-| `com.google.protobuf:protobuf-util`                   | `com.google.protobuf.util`          |
-| `com.google.protobuf:protobuf-kotlin`                 | `com.google.protobuf.kotlin`        |
-| `com.google.protobuf:protobuf-kotlin-lite`            | `com.google.protobuf.kotlin`        |
-| `io.leangen.geantyref:geantyref`                      | `io.leangen.geantyref`              |
-| `org.checkerframework:checker-qual`                   | `org.checkerframework.checker.qual` |
-| `org.jetbrains.kotlinx:kotlinx-collections-immutable` | `kotlinx.collections.immutable`     |
-| `org.reactivestreams:reactive-streams`                | `org.reactivestreams`               |
+| Coordinate                                                     | Module                                          |
+| -------------------------------------------------------------- | ----------------------------------------------- |
+| `com.google.errorprone:error_prone_annotations`                | `com.google.errorprone.annotations`             |
+| `com.google.guava:guava`                                       | `com.google.common`                             |
+| `com.google.j2objc:j2objc-annotations`                         | `com.google.j2objc.annotations`                 |
+| `com.google.protobuf:protobuf-java`                            | `com.google.protobuf`                           |
+| `com.google.protobuf:protobuf-javalite`                        | `com.google.protobuf`                           |
+| `com.google.protobuf:protobuf-util`                            | `com.google.protobuf.util`                      |
+| `com.google.protobuf:protobuf-kotlin`                          | `com.google.protobuf.kotlin`                    |
+| `com.google.protobuf:protobuf-kotlin-lite`                     | `com.google.protobuf.kotlin`                    |
+| `io.leangen.geantyref:geantyref`                               | `io.leangen.geantyref`                          |
+| `org.apache.maven.resolver:maven-resolver-api`                 | `org.apache.maven.resolver`                     |
+| `org.apache.maven.resolver:maven-resolver-connector-basic`     | `org.apache.maven.resolver.connector.basic`     |
+| `org.apache.maven.resolver:maven-resolver-generator-gnupg`     | `org.apache.maven.resolver.generator.gnupg`     |
+| `org.apache.maven.resolver:maven-resolver-impl`                | `org.apache.maven.resolver.impl`                |
+| `org.apache.maven.resolver:maven-resolver-named-locks`         | `org.apache.maven.resolver.named`               |
+| `org.apache.maven.resolver:maven-resolver-spi`                 | `org.apache.maven.resolver.spi`                 |
+| `org.apache.maven.resolver:maven-resolver-transport-classpath` | `org.apache.maven.resolver.transport.classpath` |
+| `org.apache.maven.resolver:maven-resolver-transport-file`      | `org.apache.maven.resolver.transport.file`      |
+| `org.apache.maven.resolver:maven-resolver-transport-jdk`       | `org.apache.maven.resolver.transport.jdk`       |
+| `org.apache.maven.resolver:maven-resolver-transport-jetty`     | `org.apache.maven.resolver.transport.jetty`     |
+| `org.apache.maven.resolver:maven-resolver-util`                | `org.apache.maven.resolver.util`                |
+| `org.checkerframework:checker-qual`                            | `org.checkerframework.checker.qual`             |
+| `org.jetbrains.kotlinx:kotlinx-collections-immutable`          | `kotlinx.collections.immutable`                 |
+| `org.reactivestreams:reactive-streams`                         | `org.reactivestreams`                           |
+
+> By and large, where a module already had an `Automatic-Module-Name`, it has been preserved.
 
 ### BOMs & Catalogs
 
@@ -284,3 +311,4 @@ testing and development against new code; no warranty is provided of any kind.
 [19]: https://github.com/leangen/geantyref/pull/29
 [20]: https://github.com/Kotlin/kotlinx.collections.immutable
 [21]: https://github.com/Kotlin/kotlinx.collections.immutable/pull/175
+[22]: https://maven.apache.org/resolver/

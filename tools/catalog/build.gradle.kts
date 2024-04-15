@@ -18,6 +18,7 @@ catalog {
         version("checker", attic.versions.checker.get())
         version("protobuf", attic.versions.protobuf.get())
         version("kotlinx-collections-immutable", attic.versions.kotlinx.collections.immutable.get())
+        version("maven-resolver", attic.versions.maven.resolver.get())
         version("reactivestreams", attic.versions.reactivestreams.get())
         version("geantyref", attic.versions.geantyref.get())
         version("attic", project.version as String)
@@ -32,6 +33,7 @@ catalog {
             .versionRef("errorprone")
         library("j2objc-annotations", "com.google.j2objc", "j2objc-annotations")
             .versionRef("j2objc")
+
         library("reactivestreams", "org.reactivestreams", "reactive-streams")
             .versionRef("reactivestreams")
         library("checker-qual", "org.checkerframework", "checker-qual")
@@ -47,6 +49,23 @@ catalog {
             .versionRef("protobuf")
         library("protobuf-kotlin-lite", "com.google.protobuf", "protobuf-kotlin-lite")
             .versionRef("protobuf")
+
+        listOf(
+          "maven-resolver-api",
+          "maven-resolver-spi",
+          "maven-resolver-impl",
+          "maven-resolver-named-locks",
+          "maven-resolver-transport-classpath",
+          "maven-resolver-transport-file",
+          "maven-resolver-transport-jdk-parent",
+          "maven-resolver-transport-jdk",
+          "maven-resolver-transport-jdk-8",
+          "maven-resolver-transport-jdk-11",
+          "maven-resolver-transport-jdk-21",
+          "maven-resolver-transport-jetty",
+        ).forEach {
+            library(it, "org.apache.maven.resolver", it).versionRef("maven-resolver")
+        }
 
         library("javamodules-bom", "dev.javamodules", "jpms-bom")
             .versionRef("attic")

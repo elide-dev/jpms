@@ -12,6 +12,7 @@ geantyref = "1.3.15-jpms"
 guava = "33.0.0-jre-jpms"
 j2objc = "3.0.0"
 kotlinx-collections-immutable = "0.4.1-jpms"
+maven-resolver = "2.10.0-alpha-10-jpms"
 protobuf = "4.26.0-jpms"
 reactivestreams = "1.0.4-jpms"
 
@@ -24,6 +25,18 @@ j2objc-annotations = {group = "com.google.j2objc", name = "j2objc-annotations", 
 javamodules-bom = {group = "dev.javamodules", name = "jpms-bom", version.ref = "attic" }
 javamodules-platform = {group = "dev.javamodules", name = "jpms-platform", version.ref = "attic" }
 kotlinx-collections-immutable = {group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
+maven-resolver-api = {group = "org.apache.maven.resolver", name = "maven-resolver-api", version.ref = "maven-resolver" }
+maven-resolver-impl = {group = "org.apache.maven.resolver", name = "maven-resolver-impl", version.ref = "maven-resolver" }
+maven-resolver-named-locks = {group = "org.apache.maven.resolver", name = "maven-resolver-named-locks", version.ref = "maven-resolver" }
+maven-resolver-spi = {group = "org.apache.maven.resolver", name = "maven-resolver-spi", version.ref = "maven-resolver" }
+maven-resolver-transport-classpath = {group = "org.apache.maven.resolver", name = "maven-resolver-transport-classpath", version.ref = "maven-resolver" }
+maven-resolver-transport-file = {group = "org.apache.maven.resolver", name = "maven-resolver-transport-file", version.ref = "maven-resolver" }
+maven-resolver-transport-jdk = {group = "org.apache.maven.resolver", name = "maven-resolver-transport-jdk", version.ref = "maven-resolver" }
+maven-resolver-transport-jdk-11 = {group = "org.apache.maven.resolver", name = "maven-resolver-transport-jdk-11", version.ref = "maven-resolver" }
+maven-resolver-transport-jdk-21 = {group = "org.apache.maven.resolver", name = "maven-resolver-transport-jdk-21", version.ref = "maven-resolver" }
+maven-resolver-transport-jdk-8 = {group = "org.apache.maven.resolver", name = "maven-resolver-transport-jdk-8", version.ref = "maven-resolver" }
+maven-resolver-transport-jdk-parent = {group = "org.apache.maven.resolver", name = "maven-resolver-transport-jdk-parent", version.ref = "maven-resolver" }
+maven-resolver-transport-jetty = {group = "org.apache.maven.resolver", name = "maven-resolver-transport-jetty", version.ref = "maven-resolver" }
 protobuf-java = {group = "com.google.protobuf", name = "protobuf-java", version.ref = "protobuf" }
 protobuf-java-lite = {group = "com.google.protobuf", name = "protobuf-javalite", version.ref = "protobuf" }
 protobuf-kotlin = {group = "com.google.protobuf", name = "protobuf-kotlin", version.ref = "protobuf" }

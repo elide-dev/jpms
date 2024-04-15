@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.apache.maven.resolver</groupId>
+  <artifactId>maven-resolver</artifactId>
+  <versioning>
+    <release>2.10.0-alpha-10-jpms</release>
+    <versions>
+      <version>2.10.0-alpha-10-jpms</version>
+    </versions>
+    <lastUpdated>20240415024817</lastUpdated>
+  </versioning>
+</metadata>

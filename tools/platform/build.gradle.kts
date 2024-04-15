@@ -24,6 +24,8 @@ dependencies {
         api(attic.kotlinx.collections.immutable)
         api(attic.guava)
 
+        api(attic.bundles.maven.resolver)
+
         // Library Constraints
         api("com.github.ben-manes.caffeine:caffeine") {
             version {

@@ -24,11 +24,11 @@
         {
           "name": "jpms-catalog-1.0.0.toml",
           "url": "jpms-catalog-1.0.0.toml",
-          "size": 1856,
-          "sha512": "2ceb092e1cc007084bbd79af3f351b13de54b6f1331d83ac6e2faaa40a8766655c7c0a2949f2999c4f05bae89349e0505e2ca8599a72cb1c38cbb3770c7692d4",
-          "sha256": "f29ce8086d000fc58e2d0ed968ab64026b737360b31c63338959d2554ab3ab0c",
-          "sha1": "4c768871051fc9c3b793acc808c6113373c673b3",
-          "md5": "fe0d914bc922aa13b1626af46ebe4f83"
+          "size": 3574,
+          "sha512": "aab90adb7982ab2f1b94285ed474033e11b27308bc3179e0eda9e932a94e934458fcc1430c8605d1a19c26fc383c8d7461bf148dd7430cf6941b487067aa2c9a",
+          "sha256": "6447453ad537fa9c3c8ccd5af55e417816ae491f13e14350c21c033268910ed2",
+          "sha1": "a62ce9e48dce415a27cccba085b237f50d0c17e7",
+          "md5": "147b303c1aa739b1b79c9884931bcd86"
         }
       ]
     }

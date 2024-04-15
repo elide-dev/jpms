@@ -423,6 +423,665 @@
     "version": "1.3.15-jpms"
   },
   {
+    "artifactId": "maven-resolver-api",
+    "exports": [
+      {
+        "package": "org.eclipse.aether"
+      },
+      {
+        "package": "org.eclipse.aether.artifact"
+      },
+      {
+        "package": "org.eclipse.aether.collection"
+      },
+      {
+        "package": "org.eclipse.aether.deployment"
+      },
+      {
+        "package": "org.eclipse.aether.graph"
+      },
+      {
+        "package": "org.eclipse.aether.installation"
+      },
+      {
+        "package": "org.eclipse.aether.metadata"
+      },
+      {
+        "package": "org.eclipse.aether.repository"
+      },
+      {
+        "package": "org.eclipse.aether.resolution"
+      },
+      {
+        "package": "org.eclipse.aether.scope"
+      },
+      {
+        "package": "org.eclipse.aether.transfer"
+      },
+      {
+        "package": "org.eclipse.aether.version"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-api-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver",
+    "objectID": "org.apache.maven.resolver:maven-resolver-api:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-api@2.10.0-alpha-10-jpms",
+    "requires": [
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-connector-basic",
+    "exports": [
+      {
+        "package": "org.eclipse.aether.connector.basic"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-connector-basic-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.connector.basic",
+    "objectID": "org.apache.maven.resolver:maven-resolver-connector-basic:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-connector-basic@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.util",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-generator-gnupg",
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-generator-gnupg-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "17",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.generator.gnupg",
+    "objectID": "org.apache.maven.resolver:maven-resolver-generator-gnupg:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-generator-gnupg@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "org.bouncycastle.pg",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.bouncycastle.provider",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.bouncycastle.util",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.eclipse.sisu.inject",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.util",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-impl",
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-impl-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.impl",
+    "objectID": "org.apache.maven.resolver:maven-resolver-impl:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-impl@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.named",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.util",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-named-locks",
+    "exports": [
+      {
+        "package": "org.eclipse.aether.named"
+      },
+      {
+        "package": "org.eclipse.aether.named.providers"
+      },
+      {
+        "package": "org.eclipse.aether.named.support"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-named-locks-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.named",
+    "objectID": "org.apache.maven.resolver:maven-resolver-named-locks:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-named-locks@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-spi",
+    "exports": [
+      {
+        "package": "org.eclipse.aether.spi.artifact"
+      },
+      {
+        "package": "org.eclipse.aether.spi.artifact.decorator"
+      },
+      {
+        "package": "org.eclipse.aether.spi.artifact.generator"
+      },
+      {
+        "package": "org.eclipse.aether.spi.checksums"
+      },
+      {
+        "package": "org.eclipse.aether.spi.connector"
+      },
+      {
+        "package": "org.eclipse.aether.spi.connector.checksum"
+      },
+      {
+        "package": "org.eclipse.aether.spi.connector.filter"
+      },
+      {
+        "package": "org.eclipse.aether.spi.connector.layout"
+      },
+      {
+        "package": "org.eclipse.aether.spi.connector.transport"
+      },
+      {
+        "package": "org.eclipse.aether.spi.connector.transport.http"
+      },
+      {
+        "package": "org.eclipse.aether.spi.io"
+      },
+      {
+        "package": "org.eclipse.aether.spi.localrepo"
+      },
+      {
+        "package": "org.eclipse.aether.spi.resolution"
+      },
+      {
+        "package": "org.eclipse.aether.spi.synccontext"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-spi-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.spi",
+    "objectID": "org.apache.maven.resolver:maven-resolver-spi:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-spi@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-classpath",
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-transport-classpath-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.transport.classpath",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-classpath:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-classpath@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.util",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-file",
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-transport-file-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.transport.file",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-file:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-file@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jdk-11",
+    "exports": [
+      {
+        "package": "org.eclipse.aether.transport.jdk"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-transport-jdk-11-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "11",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.transport.jdk",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jdk-11:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jdk-11@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "java.net.http",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.util",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jdk-21",
+    "exports": [
+      {
+        "package": "org.eclipse.aether.transport.jdk"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-transport-jdk-21-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "21",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.transport.jdk",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jdk-21:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jdk-21@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "java.net.http",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.util",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jdk-8",
+    "exports": [
+      {
+        "package": "org.eclipse.aether.transport.jdk"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-transport-jdk-8-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.transport.jdk",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jdk-8:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jdk-8@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.util",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-transport-jetty",
+    "exports": [
+      {
+        "package": "org.eclipse.aether.transport.jetty"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-transport-jetty-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "11",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.transport.jetty",
+    "objectID": "org.apache.maven.resolver:maven-resolver-transport-jetty:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-transport-jetty@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "java.inject",
+        "static": true,
+        "transitive": false
+      },
+      {
+        "module": "org.slf4j",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.spi",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.apache.maven.resolver.util",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.eclipse.jetty.client",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.eclipse.jetty.http2.client",
+        "static": false,
+        "transitive": false
+      },
+      {
+        "module": "org.eclipse.jetty.http2.http.client.transport",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
+    "artifactId": "maven-resolver-util",
+    "exports": [
+      {
+        "package": "org.eclipse.aether.util"
+      },
+      {
+        "package": "org.eclipse.aether.util.artifact"
+      },
+      {
+        "package": "org.eclipse.aether.util.concurrency"
+      },
+      {
+        "package": "org.eclipse.aether.util.filter"
+      },
+      {
+        "package": "org.eclipse.aether.util.graph.manager"
+      },
+      {
+        "package": "org.eclipse.aether.util.graph.selector"
+      },
+      {
+        "package": "org.eclipse.aether.util.graph.transformer"
+      },
+      {
+        "package": "org.eclipse.aether.util.graph.visitor"
+      },
+      {
+        "package": "org.eclipse.aether.util.listener"
+      },
+      {
+        "package": "org.eclipse.aether.util.repository"
+      },
+      {
+        "package": "org.eclipse.aether.util.version"
+      }
+    ],
+    "flags": {
+      "open": false
+    },
+    "groupId": "org.apache.maven.resolver",
+    "jar": "maven-resolver-util-2.10.0-alpha-10-jpms.jar",
+    "minimumBytecodeTarget": "1.8",
+    "modular": true,
+    "mrjar": true,
+    "name": "org.apache.maven.resolver.util",
+    "objectID": "org.apache.maven.resolver:maven-resolver-util:2.10.0-alpha-10-jpms",
+    "purl": "pkg:maven/org.apache.maven.resolver/maven-resolver-util@2.10.0-alpha-10-jpms",
+    "requires": [
+      {
+        "module": "org.apache.maven.resolver",
+        "static": false,
+        "transitive": false
+      }
+    ],
+    "version": "2.10.0-alpha-10-jpms"
+  },
+  {
     "artifactId": "checker-qual",
     "exports": [
       {

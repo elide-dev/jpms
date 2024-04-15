@@ -7,12 +7,12 @@
     },
     "files": [
       {
-        "md5": "fe0d914bc922aa13b1626af46ebe4f83",
+        "md5": "147b303c1aa739b1b79c9884931bcd86",
         "name": "jpms-catalog-1.0.0.toml",
-        "sha1": "4c768871051fc9c3b793acc808c6113373c673b3",
-        "sha256": "f29ce8086d000fc58e2d0ed968ab64026b737360b31c63338959d2554ab3ab0c",
-        "sha512": "2ceb092e1cc007084bbd79af3f351b13de54b6f1331d83ac6e2faaa40a8766655c7c0a2949f2999c4f05bae89349e0505e2ca8599a72cb1c38cbb3770c7692d4",
-        "size": 1856,
+        "sha1": "a62ce9e48dce415a27cccba085b237f50d0c17e7",
+        "sha256": "6447453ad537fa9c3c8ccd5af55e417816ae491f13e14350c21c033268910ed2",
+        "sha512": "aab90adb7982ab2f1b94285ed474033e11b27308bc3179e0eda9e932a94e934458fcc1430c8605d1a19c26fc383c8d7461bf148dd7430cf6941b487067aa2c9a",
+        "size": 3574,
         "url": "jpms-catalog-1.0.0.toml"
       }
     ],
@@ -98,6 +98,97 @@
         "module": "guava",
         "version": {
           "requires": "33.0.0-jre-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-api",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-generator-gnupg",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-impl",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-named-locks",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-spi",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-classpath",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-file",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jdk-parent",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jdk",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jdk-11",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jdk-21",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jetty",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-util",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
         }
       },
       {
@@ -211,6 +302,97 @@
         "module": "guava",
         "version": {
           "requires": "33.0.0-jre-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-api",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-generator-gnupg",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-impl",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-named-locks",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-spi",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-classpath",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-file",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jdk-parent",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jdk",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jdk-11",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jdk-21",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-transport-jetty",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
+        }
+      },
+      {
+        "group": "org.apache.maven.resolver",
+        "module": "maven-resolver-util",
+        "version": {
+          "requires": "2.10.0-alpha-10-jpms"
         }
       },
       {
