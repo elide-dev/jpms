@@ -18,8 +18,8 @@ importers:
         specifier: 19.2.2
         version: 19.2.2
       hashlock:
-        specifier: 1.0.2
-        version: 1.0.2
+        specifier: 1.0.3
+        version: 1.0.3
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -118,8 +118,8 @@ importers:
         specifier: 10.3.12
         version: 10.3.12
       hashlock:
-        specifier: 1.0.2
-        version: 1.0.2
+        specifier: 1.0.3
+        version: 1.0.3
       inquirer:
         specifier: 9.2.18
         version: 9.2.18
@@ -3400,10 +3400,11 @@ packages:
     dev: false
     optional: true
 
-  /hashlock@1.0.2:
-    resolution: {integrity: sha512-PEMyEUnbVtuxoqgY97OfcwMm6AGPWh8gm+VsGKa/YObeLj7v81dZEv3RUiwHDYPY/Qcaqlwwag9mw1P2KRxHTw==, tarball: https://registry.npmjs.org/hashlock/-/hashlock-1.0.2.tgz}
+  /hashlock@1.0.3:
+    resolution: {integrity: sha512-H8D5UW35i1YQOyzhD7N6H2hv34MJ8xTpwJ5cnPAW6lwUG08IvxqxmlPn4VEB34hqR92DQFucHd8pJJEa/eYavA==, tarball: https://registry.npmjs.org/hashlock/-/hashlock-1.0.3.tgz}
     engines: {node: '>=20'}
     hasBin: true
+    requiresBuild: true
 
   /hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==, tarball: https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz}
