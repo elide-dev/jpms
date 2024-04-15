@@ -54,6 +54,7 @@ catalog {
           "maven-resolver-api",
           "maven-resolver-spi",
           "maven-resolver-impl",
+          "maven-resolver-connector-basic",
           "maven-resolver-named-locks",
           "maven-resolver-supplier-mvn3",
           "maven-resolver-supplier-mvn4",
