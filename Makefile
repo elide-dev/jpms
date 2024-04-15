@@ -48,7 +48,7 @@ export PROTOBUF_VERSION ?= 4.26.1-jpms
 export GEANTYREF_VERSION ?= 1.3.15-jpms
 export KOTLINX_COLLECTIONS_VERSION ?= 0.4.1
 export KOTLINX_COLLECTIONS_POSTFIX ?= jpms
-export MAVEN_RESOLVER_VERSION ?= 2.10.0-alpha-10-jpms
+export MAVEN_RESOLVER_VERSION ?= 2.10.0-alpha-10-jpms-b2
 endif
 
 export PROJECT ?= $(shell pwd)

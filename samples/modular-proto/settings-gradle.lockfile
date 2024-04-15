@@ -1,5 +1,5 @@
 # This is a Gradle generated file for dependency locking.
 # Manual edits can break the build and are not advised.
 # This file is expected to be part of source control.
-dev.javamodules:jpms-catalog:1.0.7=incomingCatalogForAttic0
+dev.javamodules:jpms-catalog:1.0.8=incomingCatalogForAttic0
 empty=incomingCatalogForLibs0
