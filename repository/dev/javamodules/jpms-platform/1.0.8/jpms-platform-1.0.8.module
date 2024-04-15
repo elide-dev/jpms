@@ -95,91 +95,91 @@
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-api",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-generator-gnupg",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-impl",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-named-locks",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-spi",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-classpath",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-file",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jdk-parent",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jdk",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jdk-11",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jdk-21",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jetty",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-util",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
@@ -293,91 +293,91 @@
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-api",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-generator-gnupg",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-impl",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-named-locks",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-spi",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-classpath",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-file",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jdk-parent",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jdk",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jdk-11",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jdk-21",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-transport-jetty",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
           "group": "org.apache.maven.resolver",
           "module": "maven-resolver-util",
           "version": {
-            "requires": "2.10.0-alpha-10-jpms"
+            "requires": "2.10.0-alpha-10-jpms-b2"
           }
         },
         {
