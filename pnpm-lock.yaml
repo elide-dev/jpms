@@ -164,8 +164,8 @@ importers:
         specifier: 29.7.0
         version: 29.7.0
       '@octokit/types':
-        specifier: 13.4.0
-        version: 13.4.0
+        specifier: 13.4.1
+        version: 13.4.1
       '@types/jest':
         specifier: 29.5.12
         version: 29.5.12
@@ -1553,7 +1553,7 @@ packages:
       '@octokit/graphql': 8.1.0
       '@octokit/request': 9.1.1
       '@octokit/request-error': 6.1.0
-      '@octokit/types': 13.4.0
+      '@octokit/types': 13.4.1
       before-after-hook: 3.0.2
       universal-user-agent: 7.0.2
     dev: false
@@ -1562,7 +1562,7 @@ packages:
     resolution: {integrity: sha512-JYjh5rMOwXMJyUpj028cu0Gbp7qe/ihxfJMLc8VZBMMqSwLgOxDI1911gV4Enl1QSavAQNJcwmwBF9M0VvLh6Q==, tarball: https://registry.npmjs.org/@octokit/endpoint/-/endpoint-10.1.1.tgz}
     engines: {node: '>= 18'}
     dependencies:
-      '@octokit/types': 13.4.0
+      '@octokit/types': 13.4.1
       universal-user-agent: 7.0.2
     dev: false
 
@@ -1571,18 +1571,18 @@ packages:
     engines: {node: '>= 18'}
     dependencies:
       '@octokit/request': 9.1.1
-      '@octokit/types': 13.4.0
+      '@octokit/types': 13.4.1
       universal-user-agent: 7.0.2
     dev: false
 
-  /@octokit/openapi-types@22.0.1:
-    resolution: {integrity: sha512-1yN5m1IMNXthoBDUXFF97N1gHop04B3H8ws7wtOr8GgRyDO1gKALjwMHARNBoMBiB/2vEe/vxstrApcJZzQbnQ==, tarball: https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-22.0.1.tgz}
+  /@octokit/openapi-types@22.1.0:
+    resolution: {integrity: sha512-pGUdSP+eEPfZiQHNkZI0U01HLipxncisdJQB4G//OAmfeO8sqTQ9KRa0KF03TUPCziNsoXUrTg4B2Q1EX++T0Q==, tarball: https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-22.1.0.tgz}
 
   /@octokit/request-error@6.1.0:
     resolution: {integrity: sha512-xcLJv4IgfWIOEEVZwfhUN3yHNWJL0AMw1J1Ba8BofM9RdDTbapg6MO4zNxlPS4XXX9aAIsbDRa47K57EhgeVAw==, tarball: https://registry.npmjs.org/@octokit/request-error/-/request-error-6.1.0.tgz}
     engines: {node: '>= 18'}
     dependencies:
-      '@octokit/types': 13.4.0
+      '@octokit/types': 13.4.1
     dev: false
 
   /@octokit/request@9.1.1:
@@ -1591,14 +1591,14 @@ packages:
     dependencies:
       '@octokit/endpoint': 10.1.1
       '@octokit/request-error': 6.1.0
-      '@octokit/types': 13.4.0
+      '@octokit/types': 13.4.1
       universal-user-agent: 7.0.2
     dev: false
 
-  /@octokit/types@13.4.0:
-    resolution: {integrity: sha512-WlMegy3lPXYWASe3k9Jslc5a0anrYAYMWtsFrxBTdQjS70hvLH6C+PGvHbOsgy3RA3LouGJoU/vAt4KarecQLQ==, tarball: https://registry.npmjs.org/@octokit/types/-/types-13.4.0.tgz}
+  /@octokit/types@13.4.1:
+    resolution: {integrity: sha512-Y73oOAzRBAUzR/iRAbGULzpNkX8vaxKCqEtg6K74Ff3w9f5apFnWtE/2nade7dMWWW3bS5Kkd6DJS4HF04xreg==, tarball: https://registry.npmjs.org/@octokit/types/-/types-13.4.1.tgz}
     dependencies:
-      '@octokit/openapi-types': 22.0.1
+      '@octokit/openapi-types': 22.1.0
 
   /@oozcitak/dom@1.15.10:
     resolution: {integrity: sha512-0JT29/LaxVgRcGKvHmSrUTEvZ8BXvZhGl2LASRUgHqDTC1M5g1pLmVv56IYNyt3bG2CUjDkc67wnyZC14pbQrQ==, tarball: https://registry.npmjs.org/@oozcitak/dom/-/dom-1.15.10.tgz}
