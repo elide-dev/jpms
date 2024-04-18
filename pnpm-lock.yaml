@@ -97,8 +97,8 @@ importers:
         specifier: 10.1.1
         version: 10.1.1
       '@octokit/graphql':
-        specifier: 8.1.0
-        version: 8.1.0
+        specifier: 8.1.1
+        version: 8.1.1
       '@octokit/request':
         specifier: 9.1.1
         version: 9.1.1
@@ -1550,7 +1550,7 @@ packages:
     engines: {node: '>= 18'}
     dependencies:
       '@octokit/auth-token': 5.1.0
-      '@octokit/graphql': 8.1.0
+      '@octokit/graphql': 8.1.1
       '@octokit/request': 9.1.1
       '@octokit/request-error': 6.1.0
       '@octokit/types': 13.4.1
@@ -1566,8 +1566,8 @@ packages:
       universal-user-agent: 7.0.2
     dev: false
 
-  /@octokit/graphql@8.1.0:
-    resolution: {integrity: sha512-XDvj6GcUnQYgbCLXElt3vZDzNIPGvGiwxQO2XzsvfVUjebGh0E5eCD/1My9zUGSNKaGVZitVuO8LMziGmoFryg==, tarball: https://registry.npmjs.org/@octokit/graphql/-/graphql-8.1.0.tgz}
+  /@octokit/graphql@8.1.1:
+    resolution: {integrity: sha512-ukiRmuHTi6ebQx/HFRCXKbDlOh/7xEV6QUXaE7MJEKGNAncGI/STSbOkl12qVXZrfZdpXctx5O9X1AIaebiDBg==, tarball: https://registry.npmjs.org/@octokit/graphql/-/graphql-8.1.1.tgz}
     engines: {node: '>= 18'}
     dependencies:
       '@octokit/request': 9.1.1
