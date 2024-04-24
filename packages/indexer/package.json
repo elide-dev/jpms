@@ -112,7 +112,7 @@
   },
   "dependencies": {
     "@bufbuild/protobuf": "1.8.0",
-    "@cloudpss/zstd": "0.2.15",
+    "@cloudpss/zstd": "0.2.16",
     "@connectrpc/connect": "1.4.0",
     "@connectrpc/connect-web": "1.4.0",
     "@cyclonedx/cyclonedx-library": "6.5.1",
