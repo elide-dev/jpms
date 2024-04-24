@@ -70,8 +70,8 @@ importers:
         specifier: 1.8.0
         version: 1.8.0
       '@cloudpss/zstd':
-        specifier: 0.2.15
-        version: 0.2.15
+        specifier: 0.2.16
+        version: 0.2.16
       '@connectrpc/connect':
         specifier: 1.4.0
         version: 1.4.0(@bufbuild/protobuf@1.8.0)
@@ -954,8 +954,8 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@cloudpss/zstd@0.2.15:
-    resolution: {integrity: sha512-6Ippsasx/IU9dLs6eTscpZP5tUkSKgqCAPgqlFaC5Gjg/a0+PhMsf4MRACZKiBJ+qJAImdyTmhItE7hBIP47OQ==, tarball: https://registry.npmjs.org/@cloudpss/zstd/-/zstd-0.2.15.tgz}
+  /@cloudpss/zstd@0.2.16:
+    resolution: {integrity: sha512-jsXKlXDazTJJNq0sVT0hFVlne1S3Y7vuj6QXV5SqLOp7cmHNCo9hm/pxsDhk11YUlnaZm9eRJQFY0hlmbLPq2g==, tarball: https://registry.npmjs.org/@cloudpss/zstd/-/zstd-0.2.16.tgz}
     engines: {node: '>=14.16'}
     requiresBuild: true
     dependencies:
