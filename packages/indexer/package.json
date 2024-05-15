@@ -111,7 +111,7 @@
     }
   },
   "dependencies": {
-    "@bufbuild/protobuf": "1.8.0",
+    "@bufbuild/protobuf": "1.9.0",
     "@cloudpss/zstd": "0.2.16",
     "@connectrpc/connect": "1.4.0",
     "@connectrpc/connect-web": "1.4.0",
