@@ -136,8 +136,8 @@ importers:
         specifier: 1.2.1
         version: 1.2.1
       sigstore:
-        specifier: 2.3.0
-        version: 2.3.0
+        specifier: 2.3.1
+        version: 2.3.1
       snappy-wasm:
         specifier: 0.3.0
         version: 0.3.0
@@ -1675,11 +1675,11 @@ packages:
     dev: false
     optional: true
 
-  /@sigstore/bundle@2.3.1:
-    resolution: {integrity: sha512-eqV17lO3EIFqCWK3969Rz+J8MYrRZKw9IBHpSo6DEcEX2c+uzDFOgHE9f2MnyDpfs48LFO4hXmk9KhQ74JzU1g==, tarball: https://registry.npmjs.org/@sigstore/bundle/-/bundle-2.3.1.tgz}
+  /@sigstore/bundle@2.3.2:
+    resolution: {integrity: sha512-wueKWDk70QixNLB363yHc2D2ItTgYiMTdPwK8D9dKQMR3ZQ0c35IxP5xnwQ8cNLoCgCRcHf14kE+CLIvNX1zmA==, tarball: https://registry.npmjs.org/@sigstore/bundle/-/bundle-2.3.2.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
-      '@sigstore/protobuf-specs': 0.3.1
+      '@sigstore/protobuf-specs': 0.3.2
     dev: false
 
   /@sigstore/core@1.1.0:
@@ -1687,40 +1687,42 @@ packages:
     engines: {node: ^16.14.0 || >=18.0.0}
     dev: false
 
-  /@sigstore/protobuf-specs@0.3.1:
-    resolution: {integrity: sha512-aIL8Z9NsMr3C64jyQzE0XlkEyBLpgEJJFDHLVVStkFV5Q3Il/r/YtY6NJWKQ4cy4AE7spP1IX5Jq7VCAxHHMfQ==, tarball: https://registry.npmjs.org/@sigstore/protobuf-specs/-/protobuf-specs-0.3.1.tgz}
+  /@sigstore/protobuf-specs@0.3.2:
+    resolution: {integrity: sha512-c6B0ehIWxMI8wiS/bj6rHMPqeFvngFV7cDU/MY+B16P9Z3Mp9k8L93eYZ7BYzSickzuqAQqAq0V956b3Ju6mLw==, tarball: https://registry.npmjs.org/@sigstore/protobuf-specs/-/protobuf-specs-0.3.2.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dev: false
 
-  /@sigstore/sign@2.3.0:
-    resolution: {integrity: sha512-tsAyV6FC3R3pHmKS880IXcDJuiFJiKITO1jxR1qbplcsBkZLBmjrEw5GbC7ikD6f5RU1hr7WnmxB/2kKc1qUWQ==, tarball: https://registry.npmjs.org/@sigstore/sign/-/sign-2.3.0.tgz}
+  /@sigstore/sign@2.3.2:
+    resolution: {integrity: sha512-5Vz5dPVuunIIvC5vBb0APwo7qKA4G9yM48kPWJT+OEERs40md5GoUR1yedwpekWZ4m0Hhw44m6zU+ObsON+iDA==, tarball: https://registry.npmjs.org/@sigstore/sign/-/sign-2.3.2.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
-      '@sigstore/bundle': 2.3.1
+      '@sigstore/bundle': 2.3.2
       '@sigstore/core': 1.1.0
-      '@sigstore/protobuf-specs': 0.3.1
-      make-fetch-happen: 13.0.0
+      '@sigstore/protobuf-specs': 0.3.2
+      make-fetch-happen: 13.0.1
+      proc-log: 4.2.0
+      promise-retry: 2.0.1
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@sigstore/tuf@2.3.2:
-    resolution: {integrity: sha512-mwbY1VrEGU4CO55t+Kl6I7WZzIl+ysSzEYdA1Nv/FTrl2bkeaPXo5PnWZAVfcY2zSdhOpsUTJW67/M2zHXGn5w==, tarball: https://registry.npmjs.org/@sigstore/tuf/-/tuf-2.3.2.tgz}
+  /@sigstore/tuf@2.3.4:
+    resolution: {integrity: sha512-44vtsveTPUpqhm9NCrbU8CWLe3Vck2HO1PNLw7RIajbB7xhtn5RBPm1VNSCMwqGYHhDsBJG8gDF0q4lgydsJvw==, tarball: https://registry.npmjs.org/@sigstore/tuf/-/tuf-2.3.4.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
-      '@sigstore/protobuf-specs': 0.3.1
-      tuf-js: 2.2.0
+      '@sigstore/protobuf-specs': 0.3.2
+      tuf-js: 2.2.1
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@sigstore/verify@1.2.0:
-    resolution: {integrity: sha512-hQF60nc9yab+Csi4AyoAmilGNfpXT+EXdBgFkP9OgPwIBPwyqVf7JAWPtmqrrrneTmAT6ojv7OlH1f6Ix5BG4Q==, tarball: https://registry.npmjs.org/@sigstore/verify/-/verify-1.2.0.tgz}
+  /@sigstore/verify@1.2.1:
+    resolution: {integrity: sha512-8iKx79/F73DKbGfRf7+t4dqrc0bRr0thdPrxAtCKWRm/F0tG71i6O1rvlnScncJLLBZHn3h8M3c1BSUAb9yu8g==, tarball: https://registry.npmjs.org/@sigstore/verify/-/verify-1.2.1.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
-      '@sigstore/bundle': 2.3.1
+      '@sigstore/bundle': 2.3.2
       '@sigstore/core': 1.1.0
-      '@sigstore/protobuf-specs': 0.3.1
+      '@sigstore/protobuf-specs': 0.3.2
     dev: false
 
   /@sinclair/typebox@0.27.8:
@@ -1765,8 +1767,8 @@ packages:
     engines: {node: ^16.14.0 || >=18.0.0}
     dev: false
 
-  /@tufjs/models@2.0.0:
-    resolution: {integrity: sha512-c8nj8BaOExmZKO2DXhDfegyhSGcG9E/mPN3U13L+/PsoWm1uaGiHHjxqSHQiasDBQwDA3aHuw9+9spYAP1qvvg==, tarball: https://registry.npmjs.org/@tufjs/models/-/models-2.0.0.tgz}
+  /@tufjs/models@2.0.1:
+    resolution: {integrity: sha512-92F7/SFyufn4DXsha9+QfKnN03JGqtMFMXgSHbZOo8JG59WkTni7UzAouNQDf7AuP9OAMxVOPQcqG3sB7w+kkg==, tarball: https://registry.npmjs.org/@tufjs/models/-/models-2.0.1.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
       '@tufjs/canonical-json': 2.0.0
@@ -4617,8 +4619,8 @@ packages:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==, tarball: https://registry.npmjs.org/make-error/-/make-error-1.3.6.tgz}
     dev: true
 
-  /make-fetch-happen@13.0.0:
-    resolution: {integrity: sha512-7ThobcL8brtGo9CavByQrQi+23aIfgYU++wg4B87AIS8Rb2ZBt/MEaDqzA00Xwv/jUjAjYkLHjVolYuTLKda2A==, tarball: https://registry.npmjs.org/make-fetch-happen/-/make-fetch-happen-13.0.0.tgz}
+  /make-fetch-happen@13.0.1:
+    resolution: {integrity: sha512-cKTUFc/rbKUd/9meOvgrpJ2WrNzymt6jfRDdwg5UCnVzv9dTpEj9JS5m3wtziXVCjluIXyL8pcaukYqezIzZQA==, tarball: https://registry.npmjs.org/make-fetch-happen/-/make-fetch-happen-13.0.1.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
       '@npmcli/agent': 2.2.2
@@ -4630,6 +4632,7 @@ packages:
       minipass-flush: 1.0.5
       minipass-pipeline: 1.2.4
       negotiator: 0.6.3
+      proc-log: 4.2.0
       promise-retry: 2.0.1
       ssri: 10.0.5
     transitivePeerDependencies:
@@ -5259,6 +5262,11 @@ packages:
       react-is: 18.2.0
     dev: true
 
+  /proc-log@4.2.0:
+    resolution: {integrity: sha512-g8+OnU/L2v+wyiVK+D5fA34J7EH8jZ8DDlvwhRCMxmMj7UCBvxiO1mGeN+36JXIKF4zevU4kRBd8lVgG9vLelA==, tarball: https://registry.npmjs.org/proc-log/-/proc-log-4.2.0.tgz}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    dev: false
+
   /promise-retry@2.0.1:
     resolution: {integrity: sha512-y+WKFlBR8BGXnsNlIHFGPZmyDf3DFMoLhaflAnyZgV6rG6xu+JwesTo2Q9R6XwYmtmwAFCkAk3e35jEdoeh/3g==, tarball: https://registry.npmjs.org/promise-retry/-/promise-retry-2.0.1.tgz}
     engines: {node: '>=10'}
@@ -5618,16 +5626,16 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==, tarball: https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz}
     engines: {node: '>=14'}
 
-  /sigstore@2.3.0:
-    resolution: {integrity: sha512-q+o8L2ebiWD1AxD17eglf1pFrl9jtW7FHa0ygqY6EKvibK8JHyq9Z26v9MZXeDiw+RbfOJ9j2v70M10Hd6E06A==, tarball: https://registry.npmjs.org/sigstore/-/sigstore-2.3.0.tgz}
+  /sigstore@2.3.1:
+    resolution: {integrity: sha512-8G+/XDU8wNsJOQS5ysDVO0Etg9/2uA5gR9l4ZwijjlwxBcrU6RPfwi2+jJmbP+Ap1Hlp/nVAaEO4Fj22/SL2gQ==, tarball: https://registry.npmjs.org/sigstore/-/sigstore-2.3.1.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
-      '@sigstore/bundle': 2.3.1
+      '@sigstore/bundle': 2.3.2
       '@sigstore/core': 1.1.0
-      '@sigstore/protobuf-specs': 0.3.1
-      '@sigstore/sign': 2.3.0
-      '@sigstore/tuf': 2.3.2
-      '@sigstore/verify': 1.2.0
+      '@sigstore/protobuf-specs': 0.3.2
+      '@sigstore/sign': 2.3.2
+      '@sigstore/tuf': 2.3.4
+      '@sigstore/verify': 1.2.1
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -6185,13 +6193,13 @@ packages:
       yargs: 17.7.2
     dev: true
 
-  /tuf-js@2.2.0:
-    resolution: {integrity: sha512-ZSDngmP1z6zw+FIkIBjvOp/II/mIub/O7Pp12j1WNsiCpg5R5wAc//i555bBQsE44O94btLt0xM/Zr2LQjwdCg==, tarball: https://registry.npmjs.org/tuf-js/-/tuf-js-2.2.0.tgz}
+  /tuf-js@2.2.1:
+    resolution: {integrity: sha512-GwIJau9XaA8nLVbUXsN3IlFi7WmQ48gBUrl3FTkkL/XLu/POhBzfmX9hd33FNMX1qAsfl6ozO1iMmW9NC8YniA==, tarball: https://registry.npmjs.org/tuf-js/-/tuf-js-2.2.1.tgz}
     engines: {node: ^16.14.0 || >=18.0.0}
     dependencies:
-      '@tufjs/models': 2.0.0
+      '@tufjs/models': 2.0.1
       debug: 4.3.4
-      make-fetch-happen: 13.0.0
+      make-fetch-happen: 13.0.1
     transitivePeerDependencies:
       - supports-color
     dev: false
