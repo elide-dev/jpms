@@ -22,9 +22,12 @@ jobs:
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
         with:
           disable-sudo: true
-          egress-policy: block
+          egress-policy: audit
           allowed-endpoints: >
-            api.github.com:443 github.com:443 index.rubygems.org:443 rubygems.org:443
+            api.github.com:443
+            github.com:443
+            index.rubygems.org:443
+            rubygems.org:443
       - name: 'Setup: Checkout'
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
         with:
