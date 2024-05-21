@@ -79,8 +79,8 @@ importers:
         specifier: 1.4.0
         version: 1.4.0(@bufbuild/protobuf@1.9.0)(@connectrpc/connect@1.4.0)
       '@cyclonedx/cyclonedx-library':
-        specifier: 6.5.1
-        version: 6.5.1
+        specifier: 6.8.2
+        version: 6.8.2
       '@javamodules/gradle':
         specifier: workspace:*
         version: link:../gradle
@@ -1151,8 +1151,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@cyclonedx/cyclonedx-library@6.5.1:
-    resolution: {integrity: sha512-tzZwpLaOPS8ofNNyOFUDiLICGZvnO5bSPeItBoGusfzSfjT94dOYBiicAIQwtOX1eHiWhqyE8bQw81S9oE4bsA==, tarball: https://registry.npmjs.org/@cyclonedx/cyclonedx-library/-/cyclonedx-library-6.5.1.tgz}
+  /@cyclonedx/cyclonedx-library@6.8.2:
+    resolution: {integrity: sha512-Re9KawaVspDJwMvF/32H1Z95WjrnDeqGvl7wBmx0LaUeDkFNiaMjo9ieApIaoUJ0xAC9Wj7COkD18nbiEX/zlg==, tarball: https://registry.npmjs.org/@cyclonedx/cyclonedx-library/-/cyclonedx-library-6.8.2.tgz}
     engines: {node: '>=14.0.0'}
     dependencies:
       packageurl-js: 1.2.1
@@ -2055,6 +2055,7 @@ packages:
   /are-we-there-yet@2.0.0:
     resolution: {integrity: sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==, tarball: https://registry.npmjs.org/are-we-there-yet/-/are-we-there-yet-2.0.0.tgz}
     engines: {node: '>=10'}
+    deprecated: This package is no longer supported.
     requiresBuild: true
     dependencies:
       delegates: 1.0.0
@@ -3239,6 +3240,7 @@ packages:
   /gauge@3.0.2:
     resolution: {integrity: sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q==, tarball: https://registry.npmjs.org/gauge/-/gauge-3.0.2.tgz}
     engines: {node: '>=10'}
+    deprecated: This package is no longer supported.
     requiresBuild: true
     dependencies:
       aproba: 2.0.0
@@ -4966,6 +4968,7 @@ packages:
 
   /npmlog@5.0.1:
     resolution: {integrity: sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==, tarball: https://registry.npmjs.org/npmlog/-/npmlog-5.0.1.tgz}
+    deprecated: This package is no longer supported.
     requiresBuild: true
     dependencies:
       are-we-there-yet: 2.0.0
