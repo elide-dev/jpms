@@ -70,8 +70,8 @@ importers:
         specifier: 1.9.0
         version: 1.9.0
       '@cloudpss/zstd':
-        specifier: 0.2.16
-        version: 0.2.16
+        specifier: 0.3.0
+        version: 0.3.0
       '@connectrpc/connect':
         specifier: 1.4.0
         version: 1.4.0(@bufbuild/protobuf@1.9.0)
@@ -965,13 +965,13 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@cloudpss/zstd@0.2.16:
-    resolution: {integrity: sha512-jsXKlXDazTJJNq0sVT0hFVlne1S3Y7vuj6QXV5SqLOp7cmHNCo9hm/pxsDhk11YUlnaZm9eRJQFY0hlmbLPq2g==, tarball: https://registry.npmjs.org/@cloudpss/zstd/-/zstd-0.2.16.tgz}
+  /@cloudpss/zstd@0.3.0:
+    resolution: {integrity: sha512-4lm1pxrOHsaQevPreCgil8DClkNdbj1csryMPtWjy2CSEk3wZ80jwwvJOK1KhWI0pRjDCQLqq/e26Sv/RWZRag==, tarball: https://registry.npmjs.org/@cloudpss/zstd/-/zstd-0.3.0.tgz}
     engines: {node: '>=14.16'}
     requiresBuild: true
     dependencies:
       node-addon-api: 8.0.0
-      node-gyp-build: 4.8.0
+      node-gyp-build: 4.8.1
     dev: false
 
   /@commitlint/cli@19.3.0(@types/node@20.12.12)(typescript@5.4.5):
@@ -4876,8 +4876,8 @@ packages:
     dev: false
     optional: true
 
-  /node-gyp-build@4.8.0:
-    resolution: {integrity: sha512-u6fs2AEUljNho3EYTJNBfImO5QTo/J/1Etd+NVdCj7qWKUSN/bSLkZwhDv7I+w/MSC6qJ4cknepkAYykDdK8og==, tarball: https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.0.tgz}
+  /node-gyp-build@4.8.1:
+    resolution: {integrity: sha512-OSs33Z9yWr148JZcbZd5WiAXhh/n9z8TxQcdMhIOlpN9AhWpLfvVFO73+m77bBABQMaY9XSvIa+qk0jlI7Gcaw==, tarball: https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.8.1.tgz}
     hasBin: true
     dev: false
 
