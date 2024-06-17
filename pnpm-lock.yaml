@@ -209,8 +209,8 @@ importers:
         specifier: 10.4.1
         version: 10.4.1
       memfs:
-        specifier: 4.9.2
-        version: 4.9.2
+        specifier: 4.9.3
+        version: 4.9.3
       semver:
         specifier: 7.6.0
         version: 7.6.0
@@ -4628,13 +4628,13 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /memfs@4.9.2:
-    resolution: {integrity: sha512-f16coDZlTG1jskq3mxarwB+fGRrd0uXWt+o1WIhRfOwbXQZqUDsTVxQBFK9JjRQHblg8eAG2JSbprDXKjc7ijQ==, tarball: https://registry.npmjs.org/memfs/-/memfs-4.9.2.tgz}
+  /memfs@4.9.3:
+    resolution: {integrity: sha512-bsYSSnirtYTWi1+OPMFb0M048evMKyUYe0EbtuGQgq6BVQM1g1W8/KIUJCCvjgI/El0j6Q4WsmMiBwLUBSw8LA==, tarball: https://registry.npmjs.org/memfs/-/memfs-4.9.3.tgz}
     engines: {node: '>= 4.0.0'}
     dependencies:
       '@jsonjoy.com/json-pack': 1.0.4(tslib@2.6.2)
       '@jsonjoy.com/util': 1.1.3(tslib@2.6.2)
-      sonic-forest: 1.0.3(tslib@2.6.2)
+      tree-dump: 1.0.1(tslib@2.6.2)
       tslib: 2.6.2
     dev: false
 
@@ -5694,16 +5694,6 @@ packages:
     dependencies:
       ip-address: 9.0.5
       smart-buffer: 4.2.0
-    dev: false
-
-  /sonic-forest@1.0.3(tslib@2.6.2):
-    resolution: {integrity: sha512-dtwajos6IWMEWXdEbW1IkEkyL2gztCAgDplRIX+OT5aRKnEd5e7r7YCxRgXZdhRP1FBdOBf8axeTPhzDv8T4wQ==, tarball: https://registry.npmjs.org/sonic-forest/-/sonic-forest-1.0.3.tgz}
-    engines: {node: '>=10.0'}
-    peerDependencies:
-      tslib: '2'
-    dependencies:
-      tree-dump: 1.0.1(tslib@2.6.2)
-      tslib: 2.6.2
     dev: false
 
   /source-map-support@0.5.13:
