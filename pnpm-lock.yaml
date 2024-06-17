@@ -67,17 +67,17 @@ importers:
   packages/indexer:
     dependencies:
       '@bufbuild/protobuf':
-        specifier: 1.9.0
-        version: 1.9.0
+        specifier: 1.10.0
+        version: 1.10.0
       '@cloudpss/zstd':
         specifier: 0.3.0
         version: 0.3.0
       '@connectrpc/connect':
         specifier: 1.4.0
-        version: 1.4.0(@bufbuild/protobuf@1.9.0)
+        version: 1.4.0(@bufbuild/protobuf@1.10.0)
       '@connectrpc/connect-web':
         specifier: 1.4.0
-        version: 1.4.0(@bufbuild/protobuf@1.9.0)(@connectrpc/connect@1.4.0)
+        version: 1.4.0(@bufbuild/protobuf@1.10.0)(@connectrpc/connect@1.4.0)
       '@cyclonedx/cyclonedx-library':
         specifier: 6.8.2
         version: 6.8.2
@@ -767,8 +767,8 @@ packages:
       '@bufbuild/buf-win32-x64': 1.31.0
     dev: true
 
-  /@bufbuild/protobuf@1.9.0:
-    resolution: {integrity: sha512-W7gp8Q/v1NlCZLsv8pQ3Y0uCu/SHgXOVFK+eUluUKWXmsb6VHkpNx0apdOWWcDbB9sJoKeP8uPrjmehJz6xETQ==, tarball: https://registry.npmjs.org/@bufbuild/protobuf/-/protobuf-1.9.0.tgz}
+  /@bufbuild/protobuf@1.10.0:
+    resolution: {integrity: sha512-QDdVFLoN93Zjg36NoQPZfsVH9tZew7wKDKyV5qRdj8ntT4wQCOradQjRaTdwMhWUYsgKsvCINKKm87FdEk96Ag==, tarball: https://registry.npmjs.org/@bufbuild/protobuf/-/protobuf-1.10.0.tgz}
     dev: false
 
   /@changesets/apply-release-plan@7.0.3:
@@ -1137,22 +1137,22 @@ packages:
       chalk: 5.3.0
     dev: true
 
-  /@connectrpc/connect-web@1.4.0(@bufbuild/protobuf@1.9.0)(@connectrpc/connect@1.4.0):
+  /@connectrpc/connect-web@1.4.0(@bufbuild/protobuf@1.10.0)(@connectrpc/connect@1.4.0):
     resolution: {integrity: sha512-13aO4psFbbm7rdOFGV0De2Za64DY/acMspgloDlcOKzLPPs0yZkhp1OOzAQeiAIr7BM/VOHIA3p8mF0inxCYTA==, tarball: https://registry.npmjs.org/@connectrpc/connect-web/-/connect-web-1.4.0.tgz}
     peerDependencies:
       '@bufbuild/protobuf': ^1.4.2
       '@connectrpc/connect': 1.4.0
     dependencies:
-      '@bufbuild/protobuf': 1.9.0
-      '@connectrpc/connect': 1.4.0(@bufbuild/protobuf@1.9.0)
+      '@bufbuild/protobuf': 1.10.0
+      '@connectrpc/connect': 1.4.0(@bufbuild/protobuf@1.10.0)
     dev: false
 
-  /@connectrpc/connect@1.4.0(@bufbuild/protobuf@1.9.0):
+  /@connectrpc/connect@1.4.0(@bufbuild/protobuf@1.10.0):
     resolution: {integrity: sha512-vZeOkKaAjyV4+RH3+rJZIfDFJAfr+7fyYr6sLDKbYX3uuTVszhFe9/YKf5DNqrDb5cKdKVlYkGn6DTDqMitAnA==, tarball: https://registry.npmjs.org/@connectrpc/connect/-/connect-1.4.0.tgz}
     peerDependencies:
       '@bufbuild/protobuf': ^1.4.2
     dependencies:
-      '@bufbuild/protobuf': 1.9.0
+      '@bufbuild/protobuf': 1.10.0
     dev: false
 
   /@cspotcode/source-map-support@0.8.1:
