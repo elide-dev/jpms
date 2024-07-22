@@ -33,7 +33,7 @@ jobs:
         with:
           persist-credentials: false
       - name: 'Setup: Ruby'
-        uses: ruby/setup-ruby@ff740bc00a01b3a50fffc55a1071b1060eeae9dc # v1.180.0
+        uses: ruby/setup-ruby@50ba3386b050ad5b97a41fcb81240cbee1d1821f # v1.188.0
         with:
           ruby-version: '3.1'
           bundler-cache: true
