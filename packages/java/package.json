@@ -126,7 +126,7 @@
     "bytebuffer": "5.0.1",
     "fflate": "0.8.2",
     "glob": "10.4.1",
-    "memfs": "4.9.2",
+    "memfs": "4.9.4",
     "semver": "7.6.0"
   },
   "devDependencies": {
