@@ -103,7 +103,7 @@
     "jest-junit": "16.0.0",
     "semver": "7.6.0",
     "ts-jest": "29.1.4",
-    "typescript": "5.4.5"
+    "typescript": "5.5.4"
   },
   "publishConfig": {
     "access": "public",
