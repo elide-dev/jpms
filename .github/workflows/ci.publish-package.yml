@@ -174,7 +174,7 @@ jobs:
         with:
           name: javamodules-pkg-${{ inputs.package }}-${{ github.sha }}
       - name: 'Publish: Release'
-        uses: softprops/action-gh-release@69320dbe05506a9a39fc8ae11030b214ec2d1f87 # v2.0.5
+        uses: softprops/action-gh-release@c062e08bd532815e2082a85e87e3ef29c3e6d191 # v2.0.8
         with:
           draft: ${{ inputs.draft }}
           prerelease: ${{ inputs.prerelease }}
