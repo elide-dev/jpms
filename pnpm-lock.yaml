@@ -12,8 +12,8 @@ importers:
         specifier: 2.27.5
         version: 2.27.5
       '@commitlint/cli':
-        specifier: 19.3.0
-        version: 19.3.0(@types/node@20.12.12)(typescript@5.5.4)
+        specifier: 19.4.1
+        version: 19.4.1(@types/node@20.12.12)(typescript@5.5.4)
       '@commitlint/config-conventional':
         specifier: 19.2.2
         version: 19.2.2
@@ -974,15 +974,15 @@ packages:
       node-gyp-build: 4.8.1
     dev: false
 
-  /@commitlint/cli@19.3.0(@types/node@20.12.12)(typescript@5.5.4):
-    resolution: {integrity: sha512-LgYWOwuDR7BSTQ9OLZ12m7F/qhNY+NpAyPBgo4YNMkACE7lGuUnuQq1yi9hz1KA4+3VqpOYl8H1rY/LYK43v7g==, tarball: https://registry.npmjs.org/@commitlint/cli/-/cli-19.3.0.tgz}
+  /@commitlint/cli@19.4.1(@types/node@20.12.12)(typescript@5.5.4):
+    resolution: {integrity: sha512-EerFVII3ZcnhXsDT9VePyIdCJoh3jEzygN1L37MjQXgPfGS6fJTWL/KHClVMod1d8w94lFC3l4Vh/y5ysVAz2A==, tarball: https://registry.npmjs.org/@commitlint/cli/-/cli-19.4.1.tgz}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
       '@commitlint/format': 19.3.0
-      '@commitlint/lint': 19.2.2
-      '@commitlint/load': 19.2.0(@types/node@20.12.12)(typescript@5.5.4)
-      '@commitlint/read': 19.2.1
+      '@commitlint/lint': 19.4.1
+      '@commitlint/load': 19.4.0(@types/node@20.12.12)(typescript@5.5.4)
+      '@commitlint/read': 19.4.0
       '@commitlint/types': 19.0.3
       execa: 8.0.1
       yargs: 17.7.2
@@ -1040,18 +1040,18 @@ packages:
       semver: 7.6.0
     dev: true
 
-  /@commitlint/lint@19.2.2:
-    resolution: {integrity: sha512-xrzMmz4JqwGyKQKTpFzlN0dx0TAiT7Ran1fqEBgEmEj+PU98crOFtysJgY+QdeSagx6EDRigQIXJVnfrI0ratA==, tarball: https://registry.npmjs.org/@commitlint/lint/-/lint-19.2.2.tgz}
+  /@commitlint/lint@19.4.1:
+    resolution: {integrity: sha512-Ws4YVAZ0jACTv6VThumITC1I5AG0UyXMGua3qcf55JmXIXm/ejfaVKykrqx7RyZOACKVAs8uDRIsEsi87JZ3+Q==, tarball: https://registry.npmjs.org/@commitlint/lint/-/lint-19.4.1.tgz}
     engines: {node: '>=v18'}
     dependencies:
       '@commitlint/is-ignored': 19.2.2
       '@commitlint/parse': 19.0.3
-      '@commitlint/rules': 19.0.3
+      '@commitlint/rules': 19.4.1
       '@commitlint/types': 19.0.3
     dev: true
 
-  /@commitlint/load@19.2.0(@types/node@20.12.12)(typescript@5.5.4):
-    resolution: {integrity: sha512-XvxxLJTKqZojCxaBQ7u92qQLFMMZc4+p9qrIq/9kJDy8DOrEa7P1yx7Tjdc2u2JxIalqT4KOGraVgCE7eCYJyQ==, tarball: https://registry.npmjs.org/@commitlint/load/-/load-19.2.0.tgz}
+  /@commitlint/load@19.4.0(@types/node@20.12.12)(typescript@5.5.4):
+    resolution: {integrity: sha512-I4lCWaEZYQJ1y+Y+gdvbGAx9pYPavqZAZ3/7/8BpWh+QjscAn8AjsUpLV2PycBsEx7gupq5gM4BViV9xwTIJuw==, tarball: https://registry.npmjs.org/@commitlint/load/-/load-19.4.0.tgz}
     engines: {node: '>=v18'}
     dependencies:
       '@commitlint/config-validator': 19.0.3
@@ -1083,8 +1083,8 @@ packages:
       conventional-commits-parser: 5.0.0
     dev: true
 
-  /@commitlint/read@19.2.1:
-    resolution: {integrity: sha512-qETc4+PL0EUv7Q36lJbPG+NJiBOGg7SSC7B5BsPWOmei+Dyif80ErfWQ0qXoW9oCh7GTpTNRoaVhiI8RbhuaNw==, tarball: https://registry.npmjs.org/@commitlint/read/-/read-19.2.1.tgz}
+  /@commitlint/read@19.4.0:
+    resolution: {integrity: sha512-r95jLOEZzKDakXtnQub+zR3xjdnrl2XzerPwm7ch1/cc5JGq04tyaNpa6ty0CRCWdVrk4CZHhqHozb8yZwy2+g==, tarball: https://registry.npmjs.org/@commitlint/read/-/read-19.4.0.tgz}
     engines: {node: '>=v18'}
     dependencies:
       '@commitlint/top-level': 19.0.0
@@ -1106,8 +1106,8 @@ packages:
       resolve-from: 5.0.0
     dev: true
 
-  /@commitlint/rules@19.0.3:
-    resolution: {integrity: sha512-TspKb9VB6svklxNCKKwxhELn7qhtY1rFF8ls58DcFd0F97XoG07xugPjjbVnLqmMkRjZDbDIwBKt9bddOfLaPw==, tarball: https://registry.npmjs.org/@commitlint/rules/-/rules-19.0.3.tgz}
+  /@commitlint/rules@19.4.1:
+    resolution: {integrity: sha512-AgctfzAONoVxmxOXRyxXIq7xEPrd7lK/60h2egp9bgGUMZK9v0+YqLOA+TH+KqCa63ZoCr8owP2YxoSSu7IgnQ==, tarball: https://registry.npmjs.org/@commitlint/rules/-/rules-19.4.1.tgz}
     engines: {node: '>=v18'}
     dependencies:
       '@commitlint/ensure': 19.0.3
