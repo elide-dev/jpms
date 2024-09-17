@@ -127,8 +127,8 @@ importers:
         specifier: 1.1.1
         version: 1.1.1
       openpgp:
-        specifier: 5.11.1
-        version: 5.11.1
+        specifier: 5.11.2
+        version: 5.11.2
       ora:
         specifier: 8.0.1
         version: 8.0.1
@@ -347,7 +347,7 @@ packages:
       '@babel/traverse': 7.24.1
       '@babel/types': 7.24.0
       convert-source-map: 2.0.0
-      debug: 4.3.4
+      debug: 4.3.6
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -5036,8 +5036,8 @@ packages:
       mimic-function: 5.0.1
     dev: true
 
-  /openpgp@5.11.1:
-    resolution: {integrity: sha512-TynUBPuaSI7dN0gP+A38CjNRLxkOkkptefNanalDQ71BFAKKm+dLbksymSW5bUrB7RcAneMySL/Y+r/TbLpOnQ==, tarball: https://registry.npmjs.org/openpgp/-/openpgp-5.11.1.tgz}
+  /openpgp@5.11.2:
+    resolution: {integrity: sha512-f8dJFVLwdkvPvW3VPFs6q9Vs2+HNhdvwls7a/MIFcQUB+XiQzRe7alfa3RtwfGJU7oUDDMAWPZ0nYsHa23Az+A==, tarball: https://registry.npmjs.org/openpgp/-/openpgp-5.11.2.tgz}
     engines: {node: '>= 8.0.0'}
     dependencies:
       asn1.js: 5.4.1
