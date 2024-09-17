@@ -127,7 +127,7 @@
     "fflate": "0.8.2",
     "glob": "10.4.1",
     "memfs": "4.15.0",
-    "semver": "7.6.0"
+    "semver": "7.6.3"
   },
   "devDependencies": {
     "@jest/globals": "29.7.0",
