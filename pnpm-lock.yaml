@@ -209,8 +209,8 @@ importers:
         specifier: 10.4.1
         version: 10.4.1
       memfs:
-        specifier: 4.11.1
-        version: 4.11.1
+        specifier: 4.13.0
+        version: 4.13.0
       semver:
         specifier: 7.6.0
         version: 7.6.0
@@ -347,7 +347,7 @@ packages:
       '@babel/traverse': 7.24.1
       '@babel/types': 7.24.0
       convert-source-map: 2.0.0
-      debug: 4.3.4
+      debug: 4.3.6
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -4649,8 +4649,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /memfs@4.11.1:
-    resolution: {integrity: sha512-LZcMTBAgqUUKNXZagcZxvXXfgF1bHX7Y7nQ0QyEiNbRJgE29GhgPd8Yna1VQcLlPiHt/5RFJMWYN9Uv/VPNvjQ==, tarball: https://registry.npmjs.org/memfs/-/memfs-4.11.1.tgz}
+  /memfs@4.13.0:
+    resolution: {integrity: sha512-dIs5KGy24fbdDhIAg0RxXpFqQp3RwL6wgSMRF9OSuphL/Uc9a4u2/SDJKPLj/zUgtOGKuHrRMrj563+IErj4Cg==, tarball: https://registry.npmjs.org/memfs/-/memfs-4.13.0.tgz}
     engines: {node: '>= 4.0.0'}
     dependencies:
       '@jsonjoy.com/json-pack': 1.0.4(tslib@2.6.2)
