@@ -130,8 +130,8 @@ importers:
         specifier: 6.0.1
         version: 6.0.1
       ora:
-        specifier: 8.0.1
-        version: 8.0.1
+        specifier: 8.1.1
+        version: 8.1.1
       packageurl-js:
         specifier: 1.2.1
         version: 1.2.1
@@ -2436,19 +2436,11 @@ packages:
       restore-cursor: 3.1.0
     dev: false
 
-  /cli-cursor@4.0.0:
-    resolution: {integrity: sha512-VGtlMu3x/4DOtIUwEkRezxUZ2lBacNJCHash0N0WeZDBS+7Ux1dm3XWAgWYxLJFMMdOeXMHXorshEFhbMSGelg==, tarball: https://registry.npmjs.org/cli-cursor/-/cli-cursor-4.0.0.tgz}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dependencies:
-      restore-cursor: 4.0.0
-    dev: false
-
   /cli-cursor@5.0.0:
     resolution: {integrity: sha512-aCj4O5wKyszjMmDT4tZj93kxyydN/K5zPWSCe6/0AV/AA1pqe5ZBIw0a2ZfPQV7lL5/yb5HsUreJ6UFAF1tEQw==, tarball: https://registry.npmjs.org/cli-cursor/-/cli-cursor-5.0.0.tgz}
     engines: {node: '>=18'}
     dependencies:
       restore-cursor: 5.1.0
-    dev: true
 
   /cli-spinners@2.9.2:
     resolution: {integrity: sha512-ywqV+5MmyL4E7ybXgKys4DugZbX0FC6LnwrhjuykIjnK9k8OQacQ7axGKnjDXWNhns0xot3bZI5h55H8yo9cJg==, tarball: https://registry.npmjs.org/cli-spinners/-/cli-spinners-2.9.2.tgz}
@@ -2460,7 +2452,7 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       slice-ansi: 5.0.0
-      string-width: 7.1.0
+      string-width: 7.2.0
     dev: true
 
   /cli-width@4.1.0:
@@ -4705,7 +4697,6 @@ packages:
   /mimic-function@5.0.1:
     resolution: {integrity: sha512-VP79XUPxV2CigYP3jWwAUFSku2aKqBH7uTAapFWCBqutsbmDo96KY5o8uh6U+/YSIn5OxJnXp73beVkpqMIGhA==, tarball: https://registry.npmjs.org/mimic-function/-/mimic-function-5.0.1.tgz}
     engines: {node: '>=18'}
-    dev: true
 
   /min-indent@1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==, tarball: https://registry.npmjs.org/min-indent/-/min-indent-1.0.1.tgz}
@@ -5017,7 +5008,6 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       mimic-function: 5.0.1
-    dev: true
 
   /openpgp@6.0.1:
     resolution: {integrity: sha512-3lReDKjgWsKFArZT4Y/yj7/Q0q6/VhXarn4WqKEkyiBWckNjrThSGoB1t0IKo3Ke0ClvBpyQfTwumkGUkxOwww==, tarball: https://registry.npmjs.org/openpgp/-/openpgp-6.0.1.tgz}
@@ -5039,18 +5029,18 @@ packages:
       wcwidth: 1.0.1
     dev: false
 
-  /ora@8.0.1:
-    resolution: {integrity: sha512-ANIvzobt1rls2BDny5fWZ3ZVKyD6nscLvfFRpQgfWsythlcsVUC9kL0zq6j2Z5z9wwp1kd7wpsD/T9qNPVLCaQ==, tarball: https://registry.npmjs.org/ora/-/ora-8.0.1.tgz}
+  /ora@8.1.1:
+    resolution: {integrity: sha512-YWielGi1XzG1UTvOaCFaNgEnuhZVMSHYkW/FQ7UX8O26PtlpdM84c0f7wLPlkvx2RfiQmnzd61d/MGxmpQeJPw==, tarball: https://registry.npmjs.org/ora/-/ora-8.1.1.tgz}
     engines: {node: '>=18'}
     dependencies:
       chalk: 5.3.0
-      cli-cursor: 4.0.0
+      cli-cursor: 5.0.0
       cli-spinners: 2.9.2
       is-interactive: 2.0.0
       is-unicode-supported: 2.0.0
       log-symbols: 6.0.0
       stdin-discarder: 0.2.2
-      string-width: 7.1.0
+      string-width: 7.2.0
       strip-ansi: 7.1.0
     dev: false
 
@@ -5446,21 +5436,12 @@ packages:
       signal-exit: 3.0.7
     dev: false
 
-  /restore-cursor@4.0.0:
-    resolution: {integrity: sha512-I9fPXU9geO9bHOt9pHHOhOkYerIMsmVaWB0rA2AI9ERh/+x/i7MV5HKBNrg+ljO5eoPVgCcnFuRjJ9uH6I/3eg==, tarball: https://registry.npmjs.org/restore-cursor/-/restore-cursor-4.0.0.tgz}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dependencies:
-      onetime: 5.1.2
-      signal-exit: 3.0.7
-    dev: false
-
   /restore-cursor@5.1.0:
     resolution: {integrity: sha512-oMA2dcrw6u0YfxJQXm342bFKX/E4sG9rbTzO9ptUcR/e8A33cHuvStiYOwH7fszkZlZ1z/ta9AAoPk2F4qIOHA==, tarball: https://registry.npmjs.org/restore-cursor/-/restore-cursor-5.1.0.tgz}
     engines: {node: '>=18'}
     dependencies:
       onetime: 7.0.0
       signal-exit: 4.1.0
-    dev: true
 
   /ret@0.1.15:
     resolution: {integrity: sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==, tarball: https://registry.npmjs.org/ret/-/ret-0.1.15.tgz}
@@ -5852,8 +5833,8 @@ packages:
       strip-ansi: 7.1.0
     dev: false
 
-  /string-width@7.1.0:
-    resolution: {integrity: sha512-SEIJCWiX7Kg4c129n48aDRwLbFb2LJmXXFrWBG4NGaRtMQ3myKPKbwrD1BKqQn74oCoNMBVrfDEr5M9YxCsrkw==, tarball: https://registry.npmjs.org/string-width/-/string-width-7.1.0.tgz}
+  /string-width@7.2.0:
+    resolution: {integrity: sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==, tarball: https://registry.npmjs.org/string-width/-/string-width-7.2.0.tgz}
     engines: {node: '>=18'}
     dependencies:
       emoji-regex: 10.3.0
@@ -6488,7 +6469,7 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       ansi-styles: 6.2.1
-      string-width: 7.1.0
+      string-width: 7.2.0
       strip-ansi: 7.1.0
     dev: true
 
