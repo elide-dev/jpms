@@ -90,7 +90,7 @@ jobs:
       id-token: write
     steps:
       - name: 'Setup: Harden Runner'
-        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
+        uses: step-security/harden-runner@0080882f6c36860b6ba35c610c98ce87d4e2f26f # v2.10.2
         with:
           egress-policy: audit
       - name: 'Setup: Checkout'
@@ -165,7 +165,7 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/') || inputs.release
     steps:
       - name: 'Setup: Harden Runner'
-        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
+        uses: step-security/harden-runner@0080882f6c36860b6ba35c610c98ce87d4e2f26f # v2.10.2
         with:
           egress-policy: audit
       - name: 'Artifact: Package'
@@ -196,7 +196,7 @@ jobs:
       packages: write
     steps:
       - name: 'Setup: Harden Runner'
-        uses: step-security/harden-runner@17d0e2bd7d51742c71671bd19fa12bdc9d40a3d6 # v2.8.1
+        uses: step-security/harden-runner@0080882f6c36860b6ba35c610c98ce87d4e2f26f # v2.10.2
         with:
           egress-policy: audit
       - name: 'Setup: Checkout'
