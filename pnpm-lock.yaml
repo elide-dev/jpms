@@ -127,8 +127,8 @@ importers:
         specifier: 1.1.1
         version: 1.1.1
       openpgp:
-        specifier: 5.11.1
-        version: 5.11.1
+        specifier: 6.0.1
+        version: 6.0.1
       ora:
         specifier: 8.0.1
         version: 8.0.1
@@ -2146,15 +2146,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /asn1.js@5.4.1:
-    resolution: {integrity: sha512-+I//4cYPccV8LdmBLiX8CYvf9Sp3vQsrqu2QNXRcrbiWvcx/UdlFiqUJJzxRQxgsZmvhXhn4cSKeSmoFjVdupA==, tarball: https://registry.npmjs.org/asn1.js/-/asn1.js-5.4.1.tgz}
-    dependencies:
-      bn.js: 4.12.0
-      inherits: 2.0.4
-      minimalistic-assert: 1.0.1
-      safer-buffer: 2.1.2
-    dev: false
-
   /available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==, tarball: https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.7.tgz}
     engines: {node: '>= 0.4'}
@@ -2265,10 +2256,6 @@ packages:
       buffer: 5.7.1
       inherits: 2.0.4
       readable-stream: 3.6.2
-    dev: false
-
-  /bn.js@4.12.0:
-    resolution: {integrity: sha512-c98Bf3tPniI+scsdk237ku1Dc3ujXQTSgyiPUDEOe7tRkhrqridvh8klBv0HCEso1OLOYcHuCv/cS6DNxKH+ZA==, tarball: https://registry.npmjs.org/bn.js/-/bn.js-4.12.0.tgz}
     dev: false
 
   /brace-expansion@1.1.11:
@@ -4725,10 +4712,6 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /minimalistic-assert@1.0.1:
-    resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==, tarball: https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz}
-    dev: false
-
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==, tarball: https://registry.npmjs.org/minimatch/-/minimatch-3.1.2.tgz}
     dependencies:
@@ -5036,11 +5019,9 @@ packages:
       mimic-function: 5.0.1
     dev: true
 
-  /openpgp@5.11.1:
-    resolution: {integrity: sha512-TynUBPuaSI7dN0gP+A38CjNRLxkOkkptefNanalDQ71BFAKKm+dLbksymSW5bUrB7RcAneMySL/Y+r/TbLpOnQ==, tarball: https://registry.npmjs.org/openpgp/-/openpgp-5.11.1.tgz}
-    engines: {node: '>= 8.0.0'}
-    dependencies:
-      asn1.js: 5.4.1
+  /openpgp@6.0.1:
+    resolution: {integrity: sha512-3lReDKjgWsKFArZT4Y/yj7/Q0q6/VhXarn4WqKEkyiBWckNjrThSGoB1t0IKo3Ke0ClvBpyQfTwumkGUkxOwww==, tarball: https://registry.npmjs.org/openpgp/-/openpgp-6.0.1.tgz}
+    engines: {node: '>= 18.0.0'}
     dev: false
 
   /ora@5.4.1:
