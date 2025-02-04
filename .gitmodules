@@ -8,7 +8,7 @@
 	branch = master
 [submodule "j2objc"]
 	path = com.google.j2objc
-	url = git@github.com:sgammon/j2objc.git
+	url = git@github.com:google/j2objc.git
 	branch = master
 [submodule "guava"]
 	path = com.google.guava
@@ -48,7 +48,7 @@
 	url = git@github.com:google/gson.git
 [submodule "geantyref"]
 	path = io.leangen.geantyref
-	url = git@github.com:javamodules/geantyref.git
+	url = git@github.com:leangen/geantyref.git
 [submodule "kotlinx-collections-immutable"]
 	path = kotlinx.collections.immutable
 	url = git@github.com:javamodules/kotlinx.collections.immutable.git
