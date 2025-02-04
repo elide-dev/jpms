@@ -18,8 +18,6 @@ build:buildbuddy-ci --experimental_inmemory_dotd_files
 
 build:remote-exec --remote_executor=grpcs://skunkworks.buildbuddy.io
 
-build --config=buildbuddy-ci
-
 build:ci-metadata --build_metadata=ROLE=CI
 build:ci-metadata --build_metadata=HOST=gha
 build:ci-metadata --build_metadata=VISIBILITY=PUBLIC
