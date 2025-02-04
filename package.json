@@ -47,14 +47,14 @@
     "*": "pnpm run check"
   },
   "devDependencies": {
-    "@changesets/cli": "2.27.5",
-    "@commitlint/cli": "19.5.0",
-    "@commitlint/config-conventional": "19.2.2",
+    "@changesets/cli": "2.27.12",
+    "@commitlint/cli": "19.7.1",
+    "@commitlint/config-conventional": "19.7.1",
     "hashlock": "1.0.4",
-    "husky": "9.0.11",
-    "lint-staged": "15.2.10",
-    "prettier": "3.2.5",
-    "typescript": "5.5.4"
+    "husky": "9.1.7",
+    "lint-staged": "15.4.3",
+    "prettier": "3.4.2",
+    "typescript": "5.7.3"
   },
   "packageManager": "pnpm@8.15.3",
   "pnpm": {
