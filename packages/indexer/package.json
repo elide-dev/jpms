@@ -134,7 +134,7 @@
     "openpgp": "6.1.0",
     "ora": "8.2.0",
     "packageurl-js": "2.0.1",
-    "sigstore": "3.0.0",
+    "sigstore": "3.1.0",
     "snappy-wasm": "0.3.0",
     "spdx-exceptions": "2.5.0",
     "spdx-expression-parse": "4.0.0",
