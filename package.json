@@ -50,6 +50,7 @@
     "@changesets/cli": "2.27.12",
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
+    "glob": "11.0.1",
     "hashlock": "1.0.4",
     "husky": "9.1.7",
     "lint-staged": "15.4.3",
@@ -58,6 +59,9 @@
   },
   "packageManager": "pnpm@8.15.3",
   "pnpm": {
+    "overrides": {
+      "glob": "$glob"
+    },
     "allowDeprecated": {
       "rollup-plugin-inject": "*",
       "sourcemap-codec": "*"
