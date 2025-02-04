@@ -603,7 +603,8 @@ function buildIndexFile(
   try {
     rendered = JSONStringify(contents, {
       space: pretty ? 2 : 0
-    })
+    }) as string
+    if (!rendered) throw new Error("Failed to JSON-ify metadata");
   } catch (err) {
     console.error(err)
     throw err
@@ -623,7 +624,8 @@ function buildIndexFile(
   try {
     renderedMetadata = JSONStringify(metadata, {
       space: pretty ? 2 : 0
-    })
+    }) as string;
+    if (!renderedMetadata) throw new Error("Failed to JSON-ify metadata");
   } catch (err) {
     console.error(err)
     throw err

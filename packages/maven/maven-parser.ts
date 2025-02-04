@@ -41,7 +41,7 @@
  * both MIT, with the original under Intuit's ownership, and extensions under Elide's ownership.
  */
 
-import fs from 'node:fs'
+import { readFile as readFileAsync } from 'node:fs/promises';
 import xml2js, { Options as XmlParseOptions } from 'xml2js'
 import traverse from 'traverse'
 
@@ -192,18 +192,6 @@ function removeSingleArrays(obj: Object): void {
       this.update(value[0])
     }
   })
-}
-
-function readFileAsync(path: string, encoding: BufferEncoding | undefined): Promise<string> {
-  return new Promise((resolve, reject) =>
-    fs.readFile(path, { encoding }, (err, data) => {
-      if (err) {
-        reject(err)
-      } else {
-        data instanceof Buffer ? resolve(data.toString(encoding)) : resolve(data)
-      }
-    })
-  )
 }
 
 export default parse
