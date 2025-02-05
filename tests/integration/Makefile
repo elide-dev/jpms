@@ -39,6 +39,10 @@ pmd:
 		package
 
 gson:
+	$(info Cleaning GSON...)
+	@cd gson && git clean -fdx && git reset --hard
+	$(info Patching GSON...)
+	@cd gson && git apply ../../../tools/patches/gson-guava-version.diff
 	$(info Building GSON...)
 	@cd gson && $(MAVEN_TEST) \
 		-Dprotobuf.version=$(PROTOBUF_VERSION) \
@@ -47,5 +51,7 @@ gson:
 		--settings ../settings.xml \
 		-U \
 		$(MAVEN_TEST_GOAL)
+	$(info Resetting GSON...)
+	@cd gson && git reset --hard
 
 .PHONY: $(INTEGRATION_TESTS)

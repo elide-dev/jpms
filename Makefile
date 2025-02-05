@@ -41,7 +41,7 @@ export KOTLINX_COLLECTIONS_POSTFIX ?= SNAPSHOT
 export MAVEN_RESOLVER_VERSION ?= 2.0.0-SNAPSHOT
 else
 export CHECKER_FRAMEWORK_VERSION ?= 3.43.0-SNAPSHOT
-export GUAVA_VERSION ?= 33.1.0-jre-jpms
+export GUAVA_VERSION ?= 33.4.0-jre-jpms
 export GUAVA_FAILUREACCESS_VERSION ?= 1.0.3-jpms
 export REACTIVE_STREAMS_VERSION ?= 1.0.5-jpms
 export PROTOBUF_VERSION ?= 4.26.1-jpms
@@ -57,7 +57,7 @@ export DEV_BIN ?= $(DEV_ROOT)/bin
 export LIBS ?= $(PROJECT)/libs
 export PROJECT_PATH ?= $(DEV_BIN):$(shell echo $$PATH)
 
-DEPS ?= com.google.guava org.checkerframework org.reactivestreams com.google.protobuf io.leangen.geantyref kotlinx.collections.immutable
+DEPS ?= com.google.guava org.reactivestreams com.google.protobuf kotlinx.collections.immutable
 POSIX_FLAGS ?=
 
 ifeq ($(VERBOSE),yes)
@@ -84,10 +84,16 @@ setup: node_modules/  ## Setup local codebase features; performs first-run stuff
 node_modules/:
 	$(RULE)$(PNPM) install --frozen-lockfile --strict-peer-dependencies
 
-repository: $(DEPS) $(LIBS) prebuilts  ## Build the repository layout.
+repository: gradle-tools $(DEPS) $(LIBS) prebuilts  ## Build the repository layout.
 	$(info Building repository layout...)
 	@echo "Repository info:"
 	@echo "- Location: $(REPOSITORY)"
+
+gradle-tools:  ## Copy Gradle utility scripts into the repository root.
+	$(info Mounting Gradle utility scripts...)
+	$(RULE)$(MKDIR) $(REPOSITORY)/gradle
+	$(RULE)$(CP) gradle/* $(REPOSITORY)/gradle/
+	@echo "Utility scripts ready."
 
 #
 # Library: Error Prone ---------------------------------------------------------------------
@@ -387,7 +393,7 @@ org.checkerframework/checker-qual/build/libs:
 # Library: Guava ---------------------------------------------------------------------------
 
 guava: com.google.guava  ## Build Guava and all requisite dependencies.
-com.google.guava: org.checkerframework com.google.guava/guava/target
+com.google.guava: com.google.guava/guava/target
 com.google.guava/guava/target: com.google.guava/guava/futures/failureaccess/target
 	$(info Building Guava...)
 	$(RULE)cd com.google.guava \

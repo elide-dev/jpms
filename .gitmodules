@@ -2,56 +2,75 @@
 	path = org.checkerframework
 	url = git@github.com:typetools/checker-framework.git
 	branch = master
+	depth = 0
 [submodule "error-prone"]
 	path = com.google.errorprone
 	url = git@github.com:google/error-prone.git
 	branch = master
+        depth = 0
 [submodule "j2objc"]
 	path = com.google.j2objc
 	url = git@github.com:google/j2objc.git
 	branch = master
+        depth = 0
 [submodule "guava"]
 	path = com.google.guava
 	url = git@github.com:sgammon/guava.git
+	depth = 0
+	branch = feat/jpms-v2
 [submodule "reactive-streams"]
 	path = org.reactivestreams
 	url = git@github.com:sgammon/reactive-streams-jvm.git
+        depth = 0
 [submodule "protobuf"]
 	path = com.google.protobuf
 	url = git@github.com:sgammon/protobuf.git
+        depth = 0
 [submodule "dubbo"]
 	path = tests/integration/dubbo
 	url = git@github.com:javamodules/dubbo.git
+        depth = 0
 [submodule "pmd"]
 	path = tests/integration/pmd
 	url = git@github.com:javamodules/pmd.git
+        depth = 0
 [submodule "ghidra"]
 	path = tests/integration/ghidra
 	url = git@github.com:javamodules/ghidra.git
+        depth = 0
 [submodule "armeria"]
 	path = tests/integration/armeria
 	url = git@github.com:javamodules/armeria.git
+        depth = 0
 [submodule "bazel"]
 	path = tests/integration/bazel
 	url = git@github.com:bazelbuild/bazel.git
+        depth = 0
 [submodule "signal-server"]
 	path = tests/integration/signal-server
 	url = git@github.com:javamodules/Signal-Server.git
+        depth = 0
 [submodule "pkl"]
 	path = tests/integration/pkl
 	url = git@github.com:javamodules/pkl.git
+        depth = 0
 [submodule "checkstyle"]
 	path = tests/integration/checkstyle
 	url = git@github.com:javamodules/checkstyle.git
+        depth = 0
 [submodule "gson"]
 	path = tests/integration/gson
 	url = git@github.com:google/gson.git
+        depth = 0
 [submodule "geantyref"]
 	path = io.leangen.geantyref
 	url = git@github.com:leangen/geantyref.git
+        depth = 0
 [submodule "kotlinx-collections-immutable"]
 	path = kotlinx.collections.immutable
 	url = git@github.com:javamodules/kotlinx.collections.immutable.git
+        depth = 0
 [submodule "maven-resolver"]
 	path = org.apache.maven.resolver
 	url = git@github.com:javamodules/maven-resolver.git
+        depth = 0

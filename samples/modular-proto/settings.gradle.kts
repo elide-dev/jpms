@@ -3,7 +3,7 @@ plugins {
     id("build.less") version "1.0.0-rc2"
 }
 
-val ephemeraVersion = "1.0.9"
+val ephemeraVersion = "1.0.10"
 rootProject.name = "modular-proto"
 include("app")
 
