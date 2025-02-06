@@ -1,0 +1,29 @@
+diff --git a/gson/pom.xml b/gson/pom.xml
+index e44ad2b2..ed113b75 100644
+--- a/gson/pom.xml
++++ b/gson/pom.xml
+@@ -37,7 +37,7 @@
+     <!-- Make the build reproducible, see root `pom.xml` -->
+     <!-- This is duplicated here because that is recommended by `artifact:check-buildplan` -->
+     <project.build.outputTimestamp>2025-01-30T22:50:39Z</project.build.outputTimestamp>
+-
++    <guava.version>33.4.0-jre-jpms</guava.version>
+     <excludeTestCompilation>**/Java17*</excludeTestCompilation>
+   </properties>
+ 
+@@ -66,13 +66,13 @@
+     <dependency>
+       <groupId>com.google.guava</groupId>
+       <artifactId>guava-testlib</artifactId>
+-      <version>33.4.0-jre</version>
++      <version>${guava.version}</version>
+       <scope>test</scope>
+     </dependency>
+     <dependency>
+       <groupId>com.google.guava</groupId>
+       <artifactId>guava</artifactId>
+-      <version>33.4.0-jre</version>
++      <version>${guava.version}</version>
+       <scope>test</scope>
+     </dependency>
+   </dependencies>

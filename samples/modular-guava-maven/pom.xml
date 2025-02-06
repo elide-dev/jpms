@@ -10,13 +10,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>33.0.0-jre-jpms</version>
-      <exclusions>
-        <exclusion>
-          <groupId>com.google.findbugs</groupId>
-          <artifactId>jsr305</artifactId>
-        </exclusion>
-      </exclusions> 
+      <version>33.4.0-jre-jpms</version>
     </dependency>
   </dependencies>
   <licenses>

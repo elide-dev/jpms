@@ -1,6 +1,6 @@
 {
   "name": "@javamodules/indexer",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "sideEffects": false,
   "description": "Generates JSON indexes for Maven repositories.",
   "keywords": [

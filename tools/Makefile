@@ -17,8 +17,8 @@ bom: bom/target
 bom/target:
 	$(info Building BOM publication...)
 	$(RULE)cd bom \
-		&& mvnw versions:set -DnewVersion=$(TOOLS_VERSION) \
-		&& mvnw package \
+		&& ./mvnw versions:set -DnewVersion=$(TOOLS_VERSION) \
+		&& ./mvnw package \
 		&& mkdir target \
 		&& $(MAVEN) $(DEPLOY_TASK) \
 			-DgroupId=dev.javamodules \
