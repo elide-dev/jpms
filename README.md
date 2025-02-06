@@ -38,41 +38,44 @@ becomes obsolete.
 
 ### What's in the box?
 
-- **[`com.google.errorprone`][2]:** **Error Prone Compiler** "is a static analysis tool for Java that catches common
-  programming mistakes at compile time," built by Google. Error Prone's annotations module is JPMS-enabled at the
-  embedded sub-module, and is used by Guava. The [PR enabling JPMS support in Error Prone Annotations][3] has been
-  filed, merged, and released, as [`2.26.1`](https://github.com/google/error-prone/releases/tag/v2.26.1).
-
 - **[`com.google.guava`][11]:** **Google Guava** is Google's core Java commons, used throughout Google's code and the
   wider JVM ecosystem. Guava is an immensely popular artifact, with tons of fantastic utilities. JPMS support is [in
   draft][12].
 
-- **[`com.google.j2objc`][4]:** **J2ObjC** is a Java to Objective-C cross-compiling layer used by Google to effectively
-  share Java logic on iOS and macOS platforms. J2ObjC itself is very complex and powerful, but here we have just
-  JPMS-enabled the `annotations` module, which is used by Guava. The [PR enabling JPMS support for J2ObjC
-  annotations][5] has been filed, merged, and released as
-  [`3.0.0`](https://github.com/google/j2objc/commit/a883dd3f90d51d5ccad4aa3af8feaaeed6560109).
-
 - **[`com.google.protobuf`][4]:** **Protocol Buffers** (a.k.a., protobuf) are Google's language-neutral,
   platform-neutral, extensible mechanism for serializing structured data. JPMS support is [in draft][17].
-
-- **[`io.leangen.geantyref`][18]:** **Geantyref** is a fork of the excellent GenTyRef library, adding support for
-  working with AnnotatedTypes introduced in Java 8 plus many nifty features. JPMS support has been [proposed][19], but
-  not yet merged or released.
 
 - **[`kotlinx.collections.immutable`][20]:** **KotlinX Immutable Collections** is a library provided as part of the
   _Kotlin Extensions_ suite, maintained by the JetBrains team. It provides immutable and persistent collection types in
   Kotlin. JPMS support is in [draft][21], but not yet merged or released.
 
-- **[`org.apache.maven.resolver`][22]:** **Maven Resolver** is how Maven and many other build tools resolve graphs of
-  dependencies, and perform downloads of dependency artifacts. JPMS support is in early draft; no PR has been filed yet.
-
-- **[`org.checkerframework`][0]:** **Checker Framework** is a type-checking framework for Java. The `checker-qual`
-  package is used by Guava, so it is included here transitively. Checker Framework added a JPMS module definition in a
-  [recent PR][1], so this is sub-moduled at `master`. At the time of this writing no release has taken place.
-
 - **[`org.reactivestreams`][16]:** **Reactive Streams** is a universal JVM API for building reactive software in an
   implementation-agnostic manner.
+
+<details>
+<summary>See libraries which have been retired</summary>
+- com.google.errorprone (Error Prone Compiler) "is a static analysis tool for Java that catches common
+  programming mistakes at compile time," built by Google. Error Prone's annotations module is JPMS-enabled at the
+  embedded sub-module, and is used by Guava. The [PR enabling JPMS support in Error Prone Annotations][3] has been
+  filed, merged, and released, as [`2.26.1`](https://github.com/google/error-prone/releases/tag/v2.26.1).
+
+- com.google.j2objc (J2ObjC) is a Java to Objective-C cross-compiling layer used by Google to effectively
+  share Java logic on iOS and macOS platforms. J2ObjC itself is very complex and powerful, but here we have just
+  JPMS-enabled the `annotations` module, which is used by Guava. The [PR enabling JPMS support for J2ObjC
+  annotations][5] has been filed, merged, and released as
+  [`3.0.0`](https://github.com/google/j2objc/commit/a883dd3f90d51d5ccad4aa3af8feaaeed6560109).
+
+- io.leangen.geantyref (Geantyref) is a fork of the excellent GenTyRef library, adding support for
+  working with AnnotatedTypes introduced in Java 8 plus many nifty features. JPMS support has been [proposed][19], but
+  not yet merged or released.
+
+- org.apache.maven.resolver (Maven Resolver) is how Maven and many other build tools resolve graphs of
+  dependencies, and perform downloads of dependency artifacts. JPMS support is in early draft; no PR has been filed yet.
+
+- org.checkerframework (Checker Framework) is a type-checking framework for Java. The `checker-qual`
+  package is used by Guava, so it is included here transitively. Checker Framework added a JPMS module definition in a
+  [recent PR][1], so this is sub-moduled at `master`. At the time of this writing no release has taken place.
+</details>
 
 ### How do I use it?
 
@@ -155,18 +158,7 @@ pick a library.
 | `com.google.protobuf:protobuf-kotlin`                          | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                            |
 | `com.google.protobuf:protobuf-kotlin-lite`                     | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Fcom%2Fgoogle%2Fprotobuf%2Fprotobuf-kotlin-lite%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                       |
 | `io.leangen.geantyref:geantyref`                               | ![Central](https://img.shields.io/maven-central/v/io.leangen.geantyref/geantyref?label=Central&labelColor=blue)                                                                                                                                    |
-| `org.apache.maven.resolver:maven-resolver-api`                 | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-api%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                 |
-| `org.apache.maven.resolver:maven-resolver-connector-basic`     | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-connector-basic%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)     |
-| `org.apache.maven.resolver:maven-resolver-generator-gnupg`     | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-generator-gnupg%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)     |
-| `org.apache.maven.resolver:maven-resolver-impl`                | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-impl%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                |
-| `org.apache.maven.resolver:maven-resolver-named-locks`         | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-named-locks%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)         |
-| `org.apache.maven.resolver:maven-resolver-spi`                 | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-spi%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                 |
-| `org.apache.maven.resolver:maven-resolver-transport-classpath` | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-transport-classpath%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black) |
-| `org.apache.maven.resolver:maven-resolver-transport-file`      | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-transport-file%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)      |
-| `org.apache.maven.resolver:maven-resolver-transport-jdk`       | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-transport-jdk%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)       |
-| `org.apache.maven.resolver:maven-resolver-transport-jetty`     | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-transport-jetty%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)     |
 | `org.apache.maven.resolver:maven-resolver-util`                | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fapache%2Fmaven%2Fresolver%2Fmaven-resolver-util%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                |
-| `org.checkerframework:checker-qual`                            | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fcheckerframework%2Fchecker-qual%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                                |
 | `org.jetbrains.kotlinx:kotlinx-collections-immutable`          | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Fjetbrains%2Fkotlinx%2Fkotlinx-collections-immutable%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)            |
 | `org.reactivestreams:reactive-streams`                         | ![JPMS](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fjpms.pkg.st%2Frepository%2Forg%2Freactivestreams%2Freactive-streams%2Fmaven-metadata.xml&logo=maven&label=JPMS&labelColor=white&color=black)                             |
 
@@ -185,18 +177,6 @@ Use the modules in your `module-info.java`:
 | `com.google.protobuf:protobuf-kotlin`                          | `com.google.protobuf.kotlin`                    |
 | `com.google.protobuf:protobuf-kotlin-lite`                     | `com.google.protobuf.kotlin`                    |
 | `io.leangen.geantyref:geantyref`                               | `io.leangen.geantyref`                          |
-| `org.apache.maven.resolver:maven-resolver-api`                 | `org.apache.maven.resolver`                     |
-| `org.apache.maven.resolver:maven-resolver-connector-basic`     | `org.apache.maven.resolver.connector.basic`     |
-| `org.apache.maven.resolver:maven-resolver-generator-gnupg`     | `org.apache.maven.resolver.generator.gnupg`     |
-| `org.apache.maven.resolver:maven-resolver-impl`                | `org.apache.maven.resolver.impl`                |
-| `org.apache.maven.resolver:maven-resolver-named-locks`         | `org.apache.maven.resolver.named`               |
-| `org.apache.maven.resolver:maven-resolver-spi`                 | `org.apache.maven.resolver.spi`                 |
-| `org.apache.maven.resolver:maven-resolver-transport-classpath` | `org.apache.maven.resolver.transport.classpath` |
-| `org.apache.maven.resolver:maven-resolver-transport-file`      | `org.apache.maven.resolver.transport.file`      |
-| `org.apache.maven.resolver:maven-resolver-transport-jdk`       | `org.apache.maven.resolver.transport.jdk`       |
-| `org.apache.maven.resolver:maven-resolver-transport-jetty`     | `org.apache.maven.resolver.transport.jetty`     |
-| `org.apache.maven.resolver:maven-resolver-util`                | `org.apache.maven.resolver.util`                |
-| `org.checkerframework:checker-qual`                            | `org.checkerframework.checker.qual`             |
 | `org.jetbrains.kotlinx:kotlinx-collections-immutable`          | `kotlinx.collections.immutable`                 |
 | `org.reactivestreams:reactive-streams`                         | `org.reactivestreams`                           |
 
@@ -274,6 +254,15 @@ classifier-equipped JARs in local repositories is annoying.
 Sample projects are provided in the [samples](./samples) directory, which show how to hook up the repository and
 override libraries.
 
+### Integration Testing
+
+JPMS-patched modules are tested against some popular downstream projects, to make sure there is no unexpected breakage. Here is a matrix of tested projects:
+
+| **JPMS Module** | **Status** | **Tested Project(s)**                                |
+| --------------- | ---------- | ---------------------------------------------------- |
+| Guava           | ✅ Passing | [Caffeine][23], [GSON][24]                           |
+| Protobuf        | ⚠️ Issues  | [GSON][24], [Bazel][25]                              |
+
 ### Coming soon
 
 Future badges
@@ -310,3 +299,6 @@ testing and development against new code; no warranty is provided of any kind.
 [20]: https://github.com/Kotlin/kotlinx.collections.immutable
 [21]: https://github.com/Kotlin/kotlinx.collections.immutable/pull/175
 [22]: https://maven.apache.org/resolver/
+[23]: https://github.com/ben-manes/caffeine
+[24]: https://github.com/google/gson
+[25]: https://bazel.build

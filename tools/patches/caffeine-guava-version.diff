@@ -1,0 +1,61 @@
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+index 351c9b3..90957f4 100644
+--- a/gradle/libs.versions.toml
++++ b/gradle/libs.versions.toml
+@@ -33,7 +33,7 @@ findsecbugs = "1.13.0"
+ flip-tables = "1.1.1"
+ forbidden-apis = "3.8"
+ google-java-format = "1.25.2"
+-guava = "33.4.0-jre"
++guava = "33.4.0-jre-jpms"
+ guice = "7.0.0"
+ h2 = "2.3.232"
+ hamcrest = "3.0"
+diff --git a/guava/build.gradle.kts b/guava/build.gradle.kts
+index 462d8f0..c6d46bf 100644
+--- a/guava/build.gradle.kts
++++ b/guava/build.gradle.kts
+@@ -29,6 +29,9 @@ tasks.named<JavaCompile>("compileTestJava").configure {
+   }
+ }
+ 
++val absoluteJpmsRepoPath =
++  rootProject.layout.projectDirectory.dir("../../../repository").asFile.absolutePath
++
+ tasks.withType<Test>().configureEach {
+   useJUnitPlatform()
+ 
+diff --git a/guava/src/test/java/com/github/benmanes/caffeine/guava/OSGiTest.java b/guava/src/test/java/com/github/benmanes/caffeine/guava/OSGiTest.java
+index f244daa..c7b1dfd 100644
+--- a/guava/src/test/java/com/github/benmanes/caffeine/guava/OSGiTest.java
++++ b/guava/src/test/java/com/github/benmanes/caffeine/guava/OSGiTest.java
+@@ -48,7 +48,7 @@ public final class OSGiTest {
+         bundle("file:" + System.getProperty("caffeine.osgi.jar")),
+         bundle("file:" + System.getProperty("caffeine-guava.osgi.jar")),
+         mavenBundle("com.google.guava", "failureaccess", "1.0.1"),
+-        mavenBundle("com.google.guava", "guava", System.getProperty("guava.osgi.version")));
++        mavenBundle("com.google.guava", "guava", System.getProperty("guava.osgi.version").replace("-jpms", "")));
+   }
+ 
+   @Test
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+index 1fc36e2..56f0c71 100644
+--- a/settings.gradle.kts
++++ b/settings.gradle.kts
+@@ -8,9 +8,13 @@ plugins {
+ }
+ 
+ dependencyResolutionManagement {
+-  repositories {
+-    mavenCentral()
+-  }
++    repositories {
++        maven {
++            name = "jpms-attic"
++            url = uri("file:///${rootProject.projectDir}/../../../repository")
++        }
++        mavenCentral()
++    }
+ }
+ 
+ apply(from = "$rootDir/gradle/develocity.gradle")

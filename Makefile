@@ -770,9 +770,7 @@ $(LIBS):
 	$(RULE)$(CP) \
 		com.google.guava/guava/target/*.jar \
 		com.google.protobuf/bazel-bin/java/*/amended_*_mvn-project.jar \
-		io.leangen.geantyref/target/*.jar \
 		kotlinx.collections.immutable/core/build/libs/*.jar \
-		org.checkerframework/checker-qual/build/libs/*.jar \
 		org.reactivestreams/api/build/libs/*.jar \
 		$(LIBS)
 
