@@ -23,13 +23,7 @@
     <jspecify.version>1.0.0</jspecify.version>
     <errorprone.version>2.36.0</errorprone.version>
     <j2objc.version>3.0.0</j2objc.version>
-    <failureaccess.version>1.0.2</failureaccess.version>
-    <javac.version>9+181-r4173-1</javac.version>
-    <!-- Javadoc is pinned to the latest LTS, otherwise there are doc redirect warnings. -->
-    <javadoc.specification.version>21</javadoc.specification.version>
-    <!-- Empty for all JDKs but 9-12 -->
-    <maven-javadoc-plugin.additionalJOptions></maven-javadoc-plugin.additionalJOptions>
-    <project.build.outputTimestamp>2025-02-06T01:59:27Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2025-02-08T04:08:09Z</project.build.outputTimestamp>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
     Some tests need reflective access to the internals of these packages. It is only the
@@ -95,6 +89,7 @@
     <module>guava-gwt</module>
     <module>guava-testlib</module>
     <module>guava-tests</module>
+    <module>futures/failureaccess</module>
   </modules>
   <build>
     <!-- Handle where Guava deviates from Maven defaults -->
@@ -194,6 +189,35 @@
             <!-- Fork because we need args like add-exports. (But see the TODO above about .mvn/jvm.config.) -->
             <fork>true</fork>
           </configuration>
+          <executions>
+            <execution>
+              <id>default-compile</id>
+              <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                <excludes>
+                  <exclude>module-info.java</exclude>
+                </excludes>
+                <compilerArgs>
+                  <!--
+                      Make includes/excludes fully work:
+                      https://issues.apache.org/jira/browse/MCOMPILER-174
+                      (Compare what guava-gwt has to do for maven-javadoc-plugin.)
+                  -->
+                  <arg>-sourcepath</arg>
+                  <arg>doesnotexist</arg>
+                </compilerArgs>
+              </configuration>
+            </execution>
+            <execution>
+              <id>default-testCompile</id>
+              <configuration>
+                <compilerArgs>
+                  <compilerArg>-Xlint:-removal</compilerArg>
+                </compilerArgs>
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
@@ -213,7 +237,20 @@
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.3.0</version>
+          <version>3.4.0</version>
+          <configuration>
+            <excludes>
+              <!-- The root module (where applicable) is withheld because it is provided at `META-INF/versions/9/`. -->
+              <exclude>/module-info.class</exclude>
+              <!-- Avoid duplicating compiled classes within the `META-INF/versions/9/` root. -->
+              <exclude>META-INF/versions/9/com/**/*.class</exclude>
+            </excludes>
+            <archive>
+              <manifestEntries>
+                <Multi-Release>true</Multi-Release>
+              </manifestEntries>
+            </archive>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
