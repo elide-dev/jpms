@@ -188,8 +188,8 @@ importers:
         specifier: 16.0.0
         version: 16.0.0
       publint:
-        specifier: 0.3.4
-        version: 0.3.4
+        specifier: 0.3.5
+        version: 0.3.5
       semver:
         specifier: 7.7.1
         version: 7.7.1
@@ -2826,8 +2826,8 @@ packages:
   property-expr@2.0.6:
     resolution: {integrity: sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==, tarball: https://registry.npmjs.org/property-expr/-/property-expr-2.0.6.tgz}
 
-  publint@0.3.4:
-    resolution: {integrity: sha512-szQCgQXxLgrI2P+3Znv/KUiglp3YA+A2MeI+9Izjs01Ol5KXKCkdbmz69bM/ivPKMYKHhtKOKkib9VJ6JL3H/w==, tarball: https://registry.npmjs.org/publint/-/publint-0.3.4.tgz}
+  publint@0.3.5:
+    resolution: {integrity: sha512-/84pl/T/emCA5hHmNYqsE/x0Voikg278QmFwNiORYqnZgqeII2HSZ+aAGs4frfDpOCQlU1SAgYloz8ayJGMbIg==, tarball: https://registry.npmjs.org/publint/-/publint-0.3.5.tgz}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -6636,7 +6636,7 @@ snapshots:
 
   property-expr@2.0.6: {}
 
-  publint@0.3.4:
+  publint@0.3.5:
     dependencies:
       '@publint/pack': 0.1.1
       package-manager-detector: 0.2.9
