@@ -106,8 +106,8 @@ importers:
         specifier: 8.2.0
         version: 8.2.0
       '@octokit/request':
-        specifier: 9.2.0
-        version: 9.2.0
+        specifier: 9.2.1
+        version: 9.2.1
       '@sqlite.org/sqlite-wasm':
         specifier: 3.48.0-build4
         version: 3.48.0-build4
@@ -956,8 +956,8 @@ packages:
     resolution: {integrity: sha512-pqnVKYo/at0NuOjinrgcQYpEbv4snvP3bKMRqHaD9kIsk9u1LCpb2smHZi8/qJfgeNqLo5hNW4Z7FezNdEo0xg==, tarball: https://registry.npmjs.org/@octokit/request-error/-/request-error-6.1.6.tgz}
     engines: {node: '>= 18'}
 
-  '@octokit/request@9.2.0':
-    resolution: {integrity: sha512-kXLfcxhC4ozCnAXy2ff+cSxpcF0A1UqxjvYMqNuPIeOAzJbVWQ+dy5G2fTylofB/gTbObT8O6JORab+5XtA1Kw==, tarball: https://registry.npmjs.org/@octokit/request/-/request-9.2.0.tgz}
+  '@octokit/request@9.2.1':
+    resolution: {integrity: sha512-TqHLIdw1KFvx8WvLc7Jv94r3C3+AzKY2FWq7c20zvrxmCIa6MCVkLCE/826NCXnml3LFJjLsidDh1BhMaGEDQw==, tarball: https://registry.npmjs.org/@octokit/request/-/request-9.2.1.tgz}
     engines: {node: '>= 18'}
 
   '@octokit/types@13.8.0':
@@ -4440,7 +4440,7 @@ snapshots:
     dependencies:
       '@octokit/auth-token': 5.1.2
       '@octokit/graphql': 8.2.0
-      '@octokit/request': 9.2.0
+      '@octokit/request': 9.2.1
       '@octokit/request-error': 6.1.6
       '@octokit/types': 13.8.0
       before-after-hook: 3.0.2
@@ -4453,7 +4453,7 @@ snapshots:
 
   '@octokit/graphql@8.2.0':
     dependencies:
-      '@octokit/request': 9.2.0
+      '@octokit/request': 9.2.1
       '@octokit/types': 13.8.0
       universal-user-agent: 7.0.2
 
@@ -4463,7 +4463,7 @@ snapshots:
     dependencies:
       '@octokit/types': 13.8.0
 
-  '@octokit/request@9.2.0':
+  '@octokit/request@9.2.1':
     dependencies:
       '@octokit/endpoint': 10.1.3
       '@octokit/request-error': 6.1.6
