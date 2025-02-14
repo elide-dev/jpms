@@ -120,7 +120,7 @@
     "@javamodules/java": "workspace:*",
     "@javamodules/maven": "workspace:*",
     "@octokit/core": "6.1.3",
-    "@octokit/endpoint": "10.1.2",
+    "@octokit/endpoint": "10.1.3",
     "@octokit/graphql": "8.2.0",
     "@octokit/request": "9.2.0",
     "@sqlite.org/sqlite-wasm": "3.48.0-build4",
