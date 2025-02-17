@@ -129,7 +129,7 @@
     "fflate": "0.8.2",
     "glob": "11.0.1",
     "hashlock": "1.0.4",
-    "inquirer": "12.4.1",
+    "inquirer": "12.4.2",
     "json-stable-stringify": "1.2.1",
     "openpgp": "6.1.0",
     "ora": "8.2.0",
