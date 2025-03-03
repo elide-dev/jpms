@@ -188,8 +188,8 @@ importers:
         specifier: 16.0.0
         version: 16.0.0
       publint:
-        specifier: 0.3.5
-        version: 0.3.5
+        specifier: 0.3.8
+        version: 0.3.8
       semver:
         specifier: 7.7.1
         version: 7.7.1
@@ -979,8 +979,8 @@ packages:
     resolution: {integrity: sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==, tarball: https://registry.npmjs.org/@oozcitak/util/-/util-8.3.8.tgz}
     engines: {node: '>=8.0'}
 
-  '@publint/pack@0.1.1':
-    resolution: {integrity: sha512-TvCl79Y8v18ZhFGd5mjO1kYPovSBq3+4LVCi5Nfl1JI8fS8i8kXbgQFGwBJRXczim8GlW8c2LMBKTtExYXOy/A==, tarball: https://registry.npmjs.org/@publint/pack/-/pack-0.1.1.tgz}
+  '@publint/pack@0.1.2':
+    resolution: {integrity: sha512-S+9ANAvUmjutrshV4jZjaiG8XQyuJIZ8a4utWmN/vW1sgQ9IfBnPndwkmQYw53QmouOIytT874u65HEmu6H5jw==, tarball: https://registry.npmjs.org/@publint/pack/-/pack-0.1.2.tgz}
     engines: {node: '>=18'}
 
   '@sigstore/bundle@3.1.0':
@@ -2720,6 +2720,9 @@ packages:
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==, tarball: https://registry.npmjs.org/package-json-from-dist/-/package-json-from-dist-1.0.1.tgz}
 
+  package-manager-detector@0.2.11:
+    resolution: {integrity: sha512-BEnLolu+yuz22S56CU1SUKq3XC3PkwD5wv4ikR4MfGvnRVcmzXR9DwSlW2fEamyTPyXHomBJRzgapeuBvRNzJQ==, tarball: https://registry.npmjs.org/package-manager-detector/-/package-manager-detector-0.2.11.tgz}
+
   package-manager-detector@0.2.9:
     resolution: {integrity: sha512-+vYvA/Y31l8Zk8dwxHhL3JfTuHPm6tlxM2A3GeQyl7ovYnSp1+mzAxClxaOr0qO1TtPxbQxetI7v5XqKLJZk7Q==, tarball: https://registry.npmjs.org/package-manager-detector/-/package-manager-detector-0.2.9.tgz}
 
@@ -2827,8 +2830,8 @@ packages:
   property-expr@2.0.6:
     resolution: {integrity: sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==, tarball: https://registry.npmjs.org/property-expr/-/property-expr-2.0.6.tgz}
 
-  publint@0.3.5:
-    resolution: {integrity: sha512-/84pl/T/emCA5hHmNYqsE/x0Voikg278QmFwNiORYqnZgqeII2HSZ+aAGs4frfDpOCQlU1SAgYloz8ayJGMbIg==, tarball: https://registry.npmjs.org/publint/-/publint-0.3.5.tgz}
+  publint@0.3.8:
+    resolution: {integrity: sha512-qJyxCpQFf0j0uvlr7GizYZiQgAFgePbAVRV2uecAbNIXniDD/NMSNNBL8+DxLMMjhjgPuLJ3l2GbrB0F9MwvfA==, tarball: https://registry.npmjs.org/publint/-/publint-0.3.8.tgz}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2841,6 +2844,9 @@ packages:
 
   pure-rand@6.1.0:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==, tarball: https://registry.npmjs.org/pure-rand/-/pure-rand-6.1.0.tgz}
+
+  quansync@0.2.8:
+    resolution: {integrity: sha512-4+saucphJMazjt7iOM27mbFCk+D9dd/zmgMDCzRZ8MEoBfYp7lAvoN38et/phRQF6wOPMy/OROBGgoWeSKyluA==, tarball: https://registry.npmjs.org/quansync/-/quansync-0.2.8.tgz}
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==, tarball: https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz}
@@ -4497,7 +4503,7 @@ snapshots:
   '@oozcitak/util@8.3.8':
     optional: true
 
-  '@publint/pack@0.1.1': {}
+  '@publint/pack@0.1.2': {}
 
   '@sigstore/bundle@3.1.0':
     dependencies:
@@ -6546,6 +6552,10 @@ snapshots:
 
   package-json-from-dist@1.0.1: {}
 
+  package-manager-detector@0.2.11:
+    dependencies:
+      quansync: 0.2.8
+
   package-manager-detector@0.2.9: {}
 
   packageurl-js@2.0.1: {}
@@ -6637,10 +6647,10 @@ snapshots:
 
   property-expr@2.0.6: {}
 
-  publint@0.3.5:
+  publint@0.3.8:
     dependencies:
-      '@publint/pack': 0.1.1
-      package-manager-detector: 0.2.9
+      '@publint/pack': 0.1.2
+      package-manager-detector: 0.2.11
       picocolors: 1.1.1
       sade: 1.8.1
 
@@ -6654,6 +6664,8 @@ snapshots:
     optional: true
 
   pure-rand@6.1.0: {}
+
+  quansync@0.2.8: {}
 
   queue-microtask@1.2.3: {}
 
