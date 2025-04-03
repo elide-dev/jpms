@@ -188,8 +188,8 @@ importers:
         specifier: 16.0.0
         version: 16.0.0
       publint:
-        specifier: 0.3.5
-        version: 0.3.5
+        specifier: 0.3.10
+        version: 0.3.10
       semver:
         specifier: 7.7.1
         version: 7.7.1
@@ -979,8 +979,8 @@ packages:
     resolution: {integrity: sha512-T8TbSnGsxo6TDBJx/Sgv/BlVJL3tshxZP7Aq5R1mSnM5OcHY2dQaxLMu2+E8u3gN0MLOzdjurqN4ZRVuzQycOQ==, tarball: https://registry.npmjs.org/@oozcitak/util/-/util-8.3.8.tgz}
     engines: {node: '>=8.0'}
 
-  '@publint/pack@0.1.1':
-    resolution: {integrity: sha512-TvCl79Y8v18ZhFGd5mjO1kYPovSBq3+4LVCi5Nfl1JI8fS8i8kXbgQFGwBJRXczim8GlW8c2LMBKTtExYXOy/A==, tarball: https://registry.npmjs.org/@publint/pack/-/pack-0.1.1.tgz}
+  '@publint/pack@0.1.2':
+    resolution: {integrity: sha512-S+9ANAvUmjutrshV4jZjaiG8XQyuJIZ8a4utWmN/vW1sgQ9IfBnPndwkmQYw53QmouOIytT874u65HEmu6H5jw==, tarball: https://registry.npmjs.org/@publint/pack/-/pack-0.1.2.tgz}
     engines: {node: '>=18'}
 
   '@sigstore/bundle@3.1.0':
@@ -2723,6 +2723,9 @@ packages:
   package-manager-detector@0.2.9:
     resolution: {integrity: sha512-+vYvA/Y31l8Zk8dwxHhL3JfTuHPm6tlxM2A3GeQyl7ovYnSp1+mzAxClxaOr0qO1TtPxbQxetI7v5XqKLJZk7Q==, tarball: https://registry.npmjs.org/package-manager-detector/-/package-manager-detector-0.2.9.tgz}
 
+  package-manager-detector@1.1.0:
+    resolution: {integrity: sha512-Y8f9qUlBzW8qauJjd/eu6jlpJZsuPJm2ZAV0cDVd420o4EdpH5RPdoCv+60/TdJflGatr4sDfpAL6ArWZbM5tA==, tarball: https://registry.npmjs.org/package-manager-detector/-/package-manager-detector-1.1.0.tgz}
+
   packageurl-js@2.0.1:
     resolution: {integrity: sha512-N5ixXjzTy4QDQH0Q9YFjqIWd6zH6936Djpl2m9QNFmDv5Fum8q8BjkpAcHNMzOFE0IwQrFhJWex3AN6kS0OSwg==, tarball: https://registry.npmjs.org/packageurl-js/-/packageurl-js-2.0.1.tgz}
 
@@ -2827,8 +2830,8 @@ packages:
   property-expr@2.0.6:
     resolution: {integrity: sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==, tarball: https://registry.npmjs.org/property-expr/-/property-expr-2.0.6.tgz}
 
-  publint@0.3.5:
-    resolution: {integrity: sha512-/84pl/T/emCA5hHmNYqsE/x0Voikg278QmFwNiORYqnZgqeII2HSZ+aAGs4frfDpOCQlU1SAgYloz8ayJGMbIg==, tarball: https://registry.npmjs.org/publint/-/publint-0.3.5.tgz}
+  publint@0.3.10:
+    resolution: {integrity: sha512-xl9X9x0iyOURsAD7IPQJAQ5TgGpozs5K8KUtqzQBSxJqtKH74ReeCpjr2jw9MFOsY9q/EbXSJNkSFM2mgyu38g==, tarball: https://registry.npmjs.org/publint/-/publint-0.3.10.tgz}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4497,7 +4500,7 @@ snapshots:
   '@oozcitak/util@8.3.8':
     optional: true
 
-  '@publint/pack@0.1.1': {}
+  '@publint/pack@0.1.2': {}
 
   '@sigstore/bundle@3.1.0':
     dependencies:
@@ -6548,6 +6551,8 @@ snapshots:
 
   package-manager-detector@0.2.9: {}
 
+  package-manager-detector@1.1.0: {}
+
   packageurl-js@2.0.1: {}
 
   parent-module@1.0.1:
@@ -6637,10 +6642,10 @@ snapshots:
 
   property-expr@2.0.6: {}
 
-  publint@0.3.5:
+  publint@0.3.10:
     dependencies:
-      '@publint/pack': 0.1.1
-      package-manager-detector: 0.2.9
+      '@publint/pack': 0.1.2
+      package-manager-detector: 1.1.0
       picocolors: 1.1.1
       sade: 1.8.1
 
